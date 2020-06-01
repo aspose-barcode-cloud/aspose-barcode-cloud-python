@@ -1,2 +1,7 @@
-aspose_barcode_cloud.egg-info/
-build/
+*.pyc
+.tox/
+.coverage
+tests/configuration*.json
+!tests/configuration.example.json
+example.png
+dist/
