@@ -13,14 +13,14 @@ format:
 test:
 	tox $(SRC)
 
+.PHONY: clean
+clean:
+	cd $(ROOT) && git clean -dfx --exclude tests/configuration*.json
+
 .PHONY: dist
-dist: format test
+dist: clean
 	cd $(ROOT) && python3 setup.py sdist bdist_wheel
 
 .PHONY: upload
-upload: dist
-	cd $(ROOT) && python3 -m twine upload --repository testpypi dist/*
-
-.PHONY: clean
-clean:
-	cd $(ROOT) && git clean -dfx
+upload: format test dist
+	cd $(ROOT) && python3 -m twine upload dist/*

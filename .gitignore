@@ -4,4 +4,6 @@
 tests/configuration*.json
 !tests/configuration.example.json
 example.png
+aspose_barcode_cloud.egg-info/
+build/
 dist/
