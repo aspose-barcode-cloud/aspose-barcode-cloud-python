@@ -3,7 +3,7 @@ import unittest
 
 from aspose_barcode_cloud import Configuration, ApiClient, BarcodeApi, EncodeBarcodeType
 
-CONFIG_FILENAME = os.path.join(os.path.split(os.path.abspath(__file__))[0], 'configuration.qa.json')
+CONFIG_FILENAME = os.path.join(os.path.split(os.path.abspath(__file__))[0], 'configuration.wo-token.json')
 
 
 @unittest.skipUnless(os.path.exists(CONFIG_FILENAME), "Requested file '%s' does not exist" % CONFIG_FILENAME)

@@ -15,12 +15,12 @@ test:
 
 .PHONY: clean
 clean:
-	cd $(ROOT) && git clean -dfx --exclude tests/configuration*.json
+	cd $(ROOT) && git clean -dfx --exclude='tests/configuration*.json'
 
 .PHONY: dist
 dist: clean
 	cd $(ROOT) && python3 setup.py sdist bdist_wheel
 
-.PHONY: upload
-upload: format test dist
+.PHONY: publish
+publish: format test dist
 	cd $(ROOT) && python3 -m twine upload dist/*
