@@ -70,7 +70,7 @@ class Padding(object):
     def left(self):
         """Gets the left of this Padding.  # noqa: E501
 
-        Left padding.               # noqa: E501
+        Left padding.   # noqa: E501
 
         :return: The left of this Padding.  # noqa: E501
         :rtype: float
@@ -81,7 +81,7 @@ class Padding(object):
     def left(self, left):
         """Sets the left of this Padding.
 
-        Left padding.               # noqa: E501
+        Left padding.   # noqa: E501
 
         :param left: The left of this Padding.  # noqa: E501
         :type: float
@@ -93,7 +93,7 @@ class Padding(object):
     def right(self):
         """Gets the right of this Padding.  # noqa: E501
 
-        Right padding.               # noqa: E501
+        Right padding.   # noqa: E501
 
         :return: The right of this Padding.  # noqa: E501
         :rtype: float
@@ -104,7 +104,7 @@ class Padding(object):
     def right(self, right):
         """Sets the right of this Padding.
 
-        Right padding.               # noqa: E501
+        Right padding.   # noqa: E501
 
         :param right: The right of this Padding.  # noqa: E501
         :type: float
@@ -116,7 +116,7 @@ class Padding(object):
     def top(self):
         """Gets the top of this Padding.  # noqa: E501
 
-        Top padding.               # noqa: E501
+        Top padding.   # noqa: E501
 
         :return: The top of this Padding.  # noqa: E501
         :rtype: float
@@ -127,7 +127,7 @@ class Padding(object):
     def top(self, top):
         """Sets the top of this Padding.
 
-        Top padding.               # noqa: E501
+        Top padding.   # noqa: E501
 
         :param top: The top of this Padding.  # noqa: E501
         :type: float
@@ -139,7 +139,7 @@ class Padding(object):
     def bottom(self):
         """Gets the bottom of this Padding.  # noqa: E501
 
-        Bottom padding.               # noqa: E501
+        Bottom padding.   # noqa: E501
 
         :return: The bottom of this Padding.  # noqa: E501
         :rtype: float
@@ -150,7 +150,7 @@ class Padding(object):
     def bottom(self, bottom):
         """Sets the bottom of this Padding.
 
-        Bottom padding.               # noqa: E501
+        Bottom padding.   # noqa: E501
 
         :param bottom: The bottom of this Padding.  # noqa: E501
         :type: float

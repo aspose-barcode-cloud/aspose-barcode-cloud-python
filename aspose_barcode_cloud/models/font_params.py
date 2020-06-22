@@ -67,7 +67,7 @@ class FontParams(object):
     def family(self):
         """Gets the family of this FontParams.  # noqa: E501
 
-        Font family.               # noqa: E501
+        Font family.   # noqa: E501
 
         :return: The family of this FontParams.  # noqa: E501
         :rtype: str
@@ -78,7 +78,7 @@ class FontParams(object):
     def family(self, family):
         """Sets the family of this FontParams.
 
-        Font family.               # noqa: E501
+        Font family.   # noqa: E501
 
         :param family: The family of this FontParams.  # noqa: E501
         :type: str
@@ -90,7 +90,7 @@ class FontParams(object):
     def size(self):
         """Gets the size of this FontParams.  # noqa: E501
 
-        Font size in units.               # noqa: E501
+        Font size in units.   # noqa: E501
 
         :return: The size of this FontParams.  # noqa: E501
         :rtype: float
@@ -101,7 +101,7 @@ class FontParams(object):
     def size(self, size):
         """Sets the size of this FontParams.
 
-        Font size in units.               # noqa: E501
+        Font size in units.   # noqa: E501
 
         :param size: The size of this FontParams.  # noqa: E501
         :type: float
@@ -113,7 +113,7 @@ class FontParams(object):
     def style(self):
         """Gets the style of this FontParams.  # noqa: E501
 
-        Font style.               # noqa: E501
+        Font style.   # noqa: E501
 
         :return: The style of this FontParams.  # noqa: E501
         :rtype: FontStyle
@@ -124,7 +124,7 @@ class FontParams(object):
     def style(self, style):
         """Sets the style of this FontParams.
 
-        Font style.               # noqa: E501
+        Font style.   # noqa: E501
 
         :param style: The style of this FontParams.  # noqa: E501
         :type: FontStyle

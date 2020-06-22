@@ -66,7 +66,7 @@ class ResultImageInfo(object):
     def file_size(self):
         """Gets the file_size of this ResultImageInfo.  # noqa: E501
 
-        Result file size.               # noqa: E501
+        Result file size.   # noqa: E501
 
         :return: The file_size of this ResultImageInfo.  # noqa: E501
         :rtype: int
@@ -77,7 +77,7 @@ class ResultImageInfo(object):
     def file_size(self, file_size):
         """Sets the file_size of this ResultImageInfo.
 
-        Result file size.               # noqa: E501
+        Result file size.   # noqa: E501
 
         :param file_size: The file_size of this ResultImageInfo.  # noqa: E501
         :type: int
@@ -91,7 +91,7 @@ class ResultImageInfo(object):
     def image_width(self):
         """Gets the image_width of this ResultImageInfo.  # noqa: E501
 
-        Result image width.               # noqa: E501
+        Result image width.   # noqa: E501
 
         :return: The image_width of this ResultImageInfo.  # noqa: E501
         :rtype: int
@@ -102,7 +102,7 @@ class ResultImageInfo(object):
     def image_width(self, image_width):
         """Sets the image_width of this ResultImageInfo.
 
-        Result image width.               # noqa: E501
+        Result image width.   # noqa: E501
 
         :param image_width: The image_width of this ResultImageInfo.  # noqa: E501
         :type: int
@@ -114,7 +114,7 @@ class ResultImageInfo(object):
     def image_height(self):
         """Gets the image_height of this ResultImageInfo.  # noqa: E501
 
-        Result image height.               # noqa: E501
+        Result image height.   # noqa: E501
 
         :return: The image_height of this ResultImageInfo.  # noqa: E501
         :rtype: int
@@ -125,7 +125,7 @@ class ResultImageInfo(object):
     def image_height(self, image_height):
         """Sets the image_height of this ResultImageInfo.
 
-        Result image height.               # noqa: E501
+        Result image height.   # noqa: E501
 
         :param image_height: The image_height of this ResultImageInfo.  # noqa: E501
         :type: int

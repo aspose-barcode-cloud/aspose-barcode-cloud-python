@@ -60,7 +60,7 @@ class StorageExist(object):
     def exists(self):
         """Gets the exists of this StorageExist.  # noqa: E501
 
-        Shows that the storage exists.               # noqa: E501
+        Shows that the storage exists.   # noqa: E501
 
         :return: The exists of this StorageExist.  # noqa: E501
         :rtype: bool
@@ -71,7 +71,7 @@ class StorageExist(object):
     def exists(self, exists):
         """Sets the exists of this StorageExist.
 
-        Shows that the storage exists.               # noqa: E501
+        Shows that the storage exists.   # noqa: E501
 
         :param exists: The exists of this StorageExist.  # noqa: E501
         :type: bool

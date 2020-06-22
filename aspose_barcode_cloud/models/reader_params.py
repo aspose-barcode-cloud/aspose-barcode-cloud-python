@@ -242,7 +242,7 @@ class ReaderParams(object):
     def type(self):
         """Gets the type of this ReaderParams.  # noqa: E501
 
-        The type of barcode to read.               # noqa: E501
+        The type of barcode to read.   # noqa: E501
 
         :return: The type of this ReaderParams.  # noqa: E501
         :rtype: DecodeBarcodeType
@@ -253,7 +253,7 @@ class ReaderParams(object):
     def type(self, type):
         """Sets the type of this ReaderParams.
 
-        The type of barcode to read.               # noqa: E501
+        The type of barcode to read.   # noqa: E501
 
         :param type: The type of this ReaderParams.  # noqa: E501
         :type: DecodeBarcodeType
@@ -265,7 +265,7 @@ class ReaderParams(object):
     def checksum_validation(self):
         """Gets the checksum_validation of this ReaderParams.  # noqa: E501
 
-        Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies               # noqa: E501
+        Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies   # noqa: E501
 
         :return: The checksum_validation of this ReaderParams.  # noqa: E501
         :rtype: ChecksumValidation
@@ -276,7 +276,7 @@ class ReaderParams(object):
     def checksum_validation(self, checksum_validation):
         """Sets the checksum_validation of this ReaderParams.
 
-        Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies               # noqa: E501
+        Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies   # noqa: E501
 
         :param checksum_validation: The checksum_validation of this ReaderParams.  # noqa: E501
         :type: ChecksumValidation
@@ -334,7 +334,7 @@ class ReaderParams(object):
     def rect_x(self):
         """Gets the rect_x of this ReaderParams.  # noqa: E501
 
-        Set X for area for recognition.               # noqa: E501
+        Set X for area for recognition.   # noqa: E501
 
         :return: The rect_x of this ReaderParams.  # noqa: E501
         :rtype: int
@@ -345,7 +345,7 @@ class ReaderParams(object):
     def rect_x(self, rect_x):
         """Sets the rect_x of this ReaderParams.
 
-        Set X for area for recognition.               # noqa: E501
+        Set X for area for recognition.   # noqa: E501
 
         :param rect_x: The rect_x of this ReaderParams.  # noqa: E501
         :type: int
@@ -357,7 +357,7 @@ class ReaderParams(object):
     def rect_y(self):
         """Gets the rect_y of this ReaderParams.  # noqa: E501
 
-        Set Y for area for recognition.               # noqa: E501
+        Set Y for area for recognition.   # noqa: E501
 
         :return: The rect_y of this ReaderParams.  # noqa: E501
         :rtype: int
@@ -368,7 +368,7 @@ class ReaderParams(object):
     def rect_y(self, rect_y):
         """Sets the rect_y of this ReaderParams.
 
-        Set Y for area for recognition.               # noqa: E501
+        Set Y for area for recognition.   # noqa: E501
 
         :param rect_y: The rect_y of this ReaderParams.  # noqa: E501
         :type: int
@@ -380,7 +380,7 @@ class ReaderParams(object):
     def rect_width(self):
         """Gets the rect_width of this ReaderParams.  # noqa: E501
 
-        Set Width of area for recognition.               # noqa: E501
+        Set Width of area for recognition.   # noqa: E501
 
         :return: The rect_width of this ReaderParams.  # noqa: E501
         :rtype: int
@@ -391,7 +391,7 @@ class ReaderParams(object):
     def rect_width(self, rect_width):
         """Sets the rect_width of this ReaderParams.
 
-        Set Width of area for recognition.               # noqa: E501
+        Set Width of area for recognition.   # noqa: E501
 
         :param rect_width: The rect_width of this ReaderParams.  # noqa: E501
         :type: int
@@ -403,7 +403,7 @@ class ReaderParams(object):
     def rect_height(self):
         """Gets the rect_height of this ReaderParams.  # noqa: E501
 
-        Set Height of area for recognition.               # noqa: E501
+        Set Height of area for recognition.   # noqa: E501
 
         :return: The rect_height of this ReaderParams.  # noqa: E501
         :rtype: int
@@ -414,7 +414,7 @@ class ReaderParams(object):
     def rect_height(self, rect_height):
         """Sets the rect_height of this ReaderParams.
 
-        Set Height of area for recognition.               # noqa: E501
+        Set Height of area for recognition.   # noqa: E501
 
         :param rect_height: The rect_height of this ReaderParams.  # noqa: E501
         :type: int
@@ -426,7 +426,7 @@ class ReaderParams(object):
     def strip_fnc(self):
         """Gets the strip_fnc of this ReaderParams.  # noqa: E501
 
-        Value indicating whether FNC symbol strip must be done.               # noqa: E501
+        Value indicating whether FNC symbol strip must be done.   # noqa: E501
 
         :return: The strip_fnc of this ReaderParams.  # noqa: E501
         :rtype: bool
@@ -437,7 +437,7 @@ class ReaderParams(object):
     def strip_fnc(self, strip_fnc):
         """Sets the strip_fnc of this ReaderParams.
 
-        Value indicating whether FNC symbol strip must be done.               # noqa: E501
+        Value indicating whether FNC symbol strip must be done.   # noqa: E501
 
         :param strip_fnc: The strip_fnc of this ReaderParams.  # noqa: E501
         :type: bool
@@ -449,7 +449,7 @@ class ReaderParams(object):
     def timeout(self):
         """Gets the timeout of this ReaderParams.  # noqa: E501
 
-        Timeout of recognition process.               # noqa: E501
+        Timeout of recognition process.   # noqa: E501
 
         :return: The timeout of this ReaderParams.  # noqa: E501
         :rtype: int
@@ -460,7 +460,7 @@ class ReaderParams(object):
     def timeout(self, timeout):
         """Sets the timeout of this ReaderParams.
 
-        Timeout of recognition process.               # noqa: E501
+        Timeout of recognition process.   # noqa: E501
 
         :param timeout: The timeout of this ReaderParams.  # noqa: E501
         :type: int
