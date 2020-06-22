@@ -20,6 +20,11 @@ clean:
 dist: clean
 	python3 setup.py sdist bdist_wheel
 
+.PHONY: check_git
+check_git:
+	git fetch origin
+	git diff origin/master --exit-code
+
 .PHONY: publish
-publish: format test dist
+publish: check_git test dist
 	python3 -m twine upload dist/*
