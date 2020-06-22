@@ -525,7 +525,7 @@ class FileApi(object):
         >>> thread = FileApi().upload_file(path, file, async_req=True)
         >>> result = thread.get()
 
-        :param str path: Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.              # noqa: E501
+        :param str path: Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.  # noqa: E501
         :param file file: File to upload # noqa: E501
         :param str storage_name: Storage name # noqa: E501
         :param async_req bool
@@ -548,7 +548,7 @@ class FileApi(object):
         >>> thread = FileApi().upload_file_with_http_info(path, file, async_req=True)
         >>> result = thread.get()
 
-        :param str path: Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.              # noqa: E501
+        :param str path: Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.  # noqa: E501
         :param file file: File to upload # noqa: E501
         :return: FilesUploadResult
                  If the method is called asynchronously,

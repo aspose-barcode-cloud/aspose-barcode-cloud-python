@@ -219,7 +219,7 @@ class QrParams(object):
     def error_level(self):
         """Gets the error_level of this QrParams.  # noqa: E501
 
-        Level of Reed-Solomon error correction for QR barcode. From low to high: LevelL, LevelM, LevelQ, LevelH. see QRErrorLevel.               # noqa: E501
+        Level of Reed-Solomon error correction for QR barcode. From low to high: LevelL, LevelM, LevelQ, LevelH. see QRErrorLevel.   # noqa: E501
 
         :return: The error_level of this QrParams.  # noqa: E501
         :rtype: QRErrorLevel
@@ -230,7 +230,7 @@ class QrParams(object):
     def error_level(self, error_level):
         """Sets the error_level of this QrParams.
 
-        Level of Reed-Solomon error correction for QR barcode. From low to high: LevelL, LevelM, LevelQ, LevelH. see QRErrorLevel.               # noqa: E501
+        Level of Reed-Solomon error correction for QR barcode. From low to high: LevelL, LevelM, LevelQ, LevelH. see QRErrorLevel.   # noqa: E501
 
         :param error_level: The error_level of this QrParams.  # noqa: E501
         :type: QRErrorLevel

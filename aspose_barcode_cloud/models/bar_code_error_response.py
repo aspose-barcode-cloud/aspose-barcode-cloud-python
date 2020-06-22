@@ -61,7 +61,7 @@ class BarCodeErrorResponse(object):
     def error(self):
         """Gets the error of this BarCodeErrorResponse.  # noqa: E501
 
-        Error               # noqa: E501
+        Error   # noqa: E501
 
         :return: The error of this BarCodeErrorResponse.  # noqa: E501
         :rtype: Error
@@ -72,7 +72,7 @@ class BarCodeErrorResponse(object):
     def error(self, error):
         """Sets the error of this BarCodeErrorResponse.
 
-        Error               # noqa: E501
+        Error   # noqa: E501
 
         :param error: The error of this BarCodeErrorResponse.  # noqa: E501
         :type: Error

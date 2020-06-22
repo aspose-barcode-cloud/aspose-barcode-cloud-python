@@ -80,7 +80,7 @@ class AztecParams(object):
     def aspect_ratio(self):
         """Gets the aspect_ratio of this AztecParams.  # noqa: E501
 
-        Height/Width ratio of 2D BarCode module.               # noqa: E501
+        Height/Width ratio of 2D BarCode module.   # noqa: E501
 
         :return: The aspect_ratio of this AztecParams.  # noqa: E501
         :rtype: float
@@ -91,7 +91,7 @@ class AztecParams(object):
     def aspect_ratio(self, aspect_ratio):
         """Sets the aspect_ratio of this AztecParams.
 
-        Height/Width ratio of 2D BarCode module.               # noqa: E501
+        Height/Width ratio of 2D BarCode module.   # noqa: E501
 
         :param aspect_ratio: The aspect_ratio of this AztecParams.  # noqa: E501
         :type: float
@@ -149,7 +149,7 @@ class AztecParams(object):
     def text_encoding(self):
         """Gets the text_encoding of this AztecParams.  # noqa: E501
 
-        Sets the encoding of codetext.               # noqa: E501
+        Sets the encoding of codetext.   # noqa: E501
 
         :return: The text_encoding of this AztecParams.  # noqa: E501
         :rtype: str
@@ -160,7 +160,7 @@ class AztecParams(object):
     def text_encoding(self, text_encoding):
         """Sets the text_encoding of this AztecParams.
 
-        Sets the encoding of codetext.               # noqa: E501
+        Sets the encoding of codetext.   # noqa: E501
 
         :param text_encoding: The text_encoding of this AztecParams.  # noqa: E501
         :type: str

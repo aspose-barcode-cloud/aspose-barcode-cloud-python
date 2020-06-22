@@ -65,7 +65,7 @@ class GeneratorParamsList(object):
     def barcode_builders(self):
         """Gets the barcode_builders of this GeneratorParamsList.  # noqa: E501
 
-        List of barcode generators               # noqa: E501
+        List of barcode generators   # noqa: E501
 
         :return: The barcode_builders of this GeneratorParamsList.  # noqa: E501
         :rtype: list[GeneratorParams]
@@ -76,7 +76,7 @@ class GeneratorParamsList(object):
     def barcode_builders(self, barcode_builders):
         """Sets the barcode_builders of this GeneratorParamsList.
 
-        List of barcode generators               # noqa: E501
+        List of barcode generators   # noqa: E501
 
         :param barcode_builders: The barcode_builders of this GeneratorParamsList.  # noqa: E501
         :type: list[GeneratorParams]
@@ -88,7 +88,7 @@ class GeneratorParamsList(object):
     def x_step(self):
         """Gets the x_step of this GeneratorParamsList.  # noqa: E501
 
-        Shift step according to X axis               # noqa: E501
+        Shift step according to X axis   # noqa: E501
 
         :return: The x_step of this GeneratorParamsList.  # noqa: E501
         :rtype: int
@@ -99,7 +99,7 @@ class GeneratorParamsList(object):
     def x_step(self, x_step):
         """Sets the x_step of this GeneratorParamsList.
 
-        Shift step according to X axis               # noqa: E501
+        Shift step according to X axis   # noqa: E501
 
         :param x_step: The x_step of this GeneratorParamsList.  # noqa: E501
         :type: int
@@ -113,7 +113,7 @@ class GeneratorParamsList(object):
     def y_step(self):
         """Gets the y_step of this GeneratorParamsList.  # noqa: E501
 
-        Shift step according to Y axis               # noqa: E501
+        Shift step according to Y axis   # noqa: E501
 
         :return: The y_step of this GeneratorParamsList.  # noqa: E501
         :rtype: int
@@ -124,7 +124,7 @@ class GeneratorParamsList(object):
     def y_step(self, y_step):
         """Sets the y_step of this GeneratorParamsList.
 
-        Shift step according to Y axis               # noqa: E501
+        Shift step according to Y axis   # noqa: E501
 
         :param y_step: The y_step of this GeneratorParamsList.  # noqa: E501
         :type: int

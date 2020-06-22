@@ -90,7 +90,7 @@ class CaptionParams(object):
     def text(self):
         """Gets the text of this CaptionParams.  # noqa: E501
 
-        Caption text.               # noqa: E501
+        Caption text.   # noqa: E501
 
         :return: The text of this CaptionParams.  # noqa: E501
         :rtype: str
@@ -101,7 +101,7 @@ class CaptionParams(object):
     def text(self, text):
         """Sets the text of this CaptionParams.
 
-        Caption text.               # noqa: E501
+        Caption text.   # noqa: E501
 
         :param text: The text of this CaptionParams.  # noqa: E501
         :type: str
@@ -113,7 +113,7 @@ class CaptionParams(object):
     def alignment(self):
         """Gets the alignment of this CaptionParams.  # noqa: E501
 
-        Text alignment.               # noqa: E501
+        Text alignment.   # noqa: E501
 
         :return: The alignment of this CaptionParams.  # noqa: E501
         :rtype: TextAlignment
@@ -124,7 +124,7 @@ class CaptionParams(object):
     def alignment(self, alignment):
         """Sets the alignment of this CaptionParams.
 
-        Text alignment.               # noqa: E501
+        Text alignment.   # noqa: E501
 
         :param alignment: The alignment of this CaptionParams.  # noqa: E501
         :type: TextAlignment
@@ -136,7 +136,7 @@ class CaptionParams(object):
     def color(self):
         """Gets the color of this CaptionParams.  # noqa: E501
 
-        Text color.               # noqa: E501
+        Text color.   # noqa: E501
 
         :return: The color of this CaptionParams.  # noqa: E501
         :rtype: str
@@ -147,7 +147,7 @@ class CaptionParams(object):
     def color(self, color):
         """Sets the color of this CaptionParams.
 
-        Text color.               # noqa: E501
+        Text color.   # noqa: E501
 
         :param color: The color of this CaptionParams.  # noqa: E501
         :type: str
@@ -159,7 +159,7 @@ class CaptionParams(object):
     def visible(self):
         """Gets the visible of this CaptionParams.  # noqa: E501
 
-        Is caption visible.               # noqa: E501
+        Is caption visible.   # noqa: E501
 
         :return: The visible of this CaptionParams.  # noqa: E501
         :rtype: bool
@@ -170,7 +170,7 @@ class CaptionParams(object):
     def visible(self, visible):
         """Sets the visible of this CaptionParams.
 
-        Is caption visible.               # noqa: E501
+        Is caption visible.   # noqa: E501
 
         :param visible: The visible of this CaptionParams.  # noqa: E501
         :type: bool
@@ -182,7 +182,7 @@ class CaptionParams(object):
     def font(self):
         """Gets the font of this CaptionParams.  # noqa: E501
 
-        Font.               # noqa: E501
+        Font.   # noqa: E501
 
         :return: The font of this CaptionParams.  # noqa: E501
         :rtype: FontParams
@@ -193,7 +193,7 @@ class CaptionParams(object):
     def font(self, font):
         """Sets the font of this CaptionParams.
 
-        Font.               # noqa: E501
+        Font.   # noqa: E501
 
         :param font: The font of this CaptionParams.  # noqa: E501
         :type: FontParams
@@ -205,7 +205,7 @@ class CaptionParams(object):
     def padding(self):
         """Gets the padding of this CaptionParams.  # noqa: E501
 
-        Padding.               # noqa: E501
+        Padding.   # noqa: E501
 
         :return: The padding of this CaptionParams.  # noqa: E501
         :rtype: Padding
@@ -216,7 +216,7 @@ class CaptionParams(object):
     def padding(self, padding):
         """Sets the padding of this CaptionParams.
 
-        Padding.               # noqa: E501
+        Padding.   # noqa: E501
 
         :param padding: The padding of this CaptionParams.  # noqa: E501
         :type: Padding

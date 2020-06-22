@@ -62,7 +62,7 @@ class RegionPoint(object):
     def x(self):
         """Gets the x of this RegionPoint.  # noqa: E501
 
-        X-coordinate               # noqa: E501
+        X-coordinate   # noqa: E501
 
         :return: The x of this RegionPoint.  # noqa: E501
         :rtype: int
@@ -73,7 +73,7 @@ class RegionPoint(object):
     def x(self, x):
         """Sets the x of this RegionPoint.
 
-        X-coordinate               # noqa: E501
+        X-coordinate   # noqa: E501
 
         :param x: The x of this RegionPoint.  # noqa: E501
         :type: int
@@ -87,7 +87,7 @@ class RegionPoint(object):
     def y(self):
         """Gets the y of this RegionPoint.  # noqa: E501
 
-        Y-coordinate               # noqa: E501
+        Y-coordinate   # noqa: E501
 
         :return: The y of this RegionPoint.  # noqa: E501
         :rtype: int
@@ -98,7 +98,7 @@ class RegionPoint(object):
     def y(self, y):
         """Sets the y of this RegionPoint.
 
-        Y-coordinate               # noqa: E501
+        Y-coordinate   # noqa: E501
 
         :param y: The y of this RegionPoint.  # noqa: E501
         :type: int

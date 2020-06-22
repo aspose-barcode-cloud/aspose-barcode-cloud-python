@@ -61,7 +61,7 @@ class BarcodeResponseList(object):
     def barcodes(self):
         """Gets the barcodes of this BarcodeResponseList.  # noqa: E501
 
-        List of barcodes which are present in image.               # noqa: E501
+        List of barcodes which are present in image.   # noqa: E501
 
         :return: The barcodes of this BarcodeResponseList.  # noqa: E501
         :rtype: list[BarcodeResponse]
@@ -72,7 +72,7 @@ class BarcodeResponseList(object):
     def barcodes(self, barcodes):
         """Sets the barcodes of this BarcodeResponseList.
 
-        List of barcodes which are present in image.               # noqa: E501
+        List of barcodes which are present in image.   # noqa: E501
 
         :param barcodes: The barcodes of this BarcodeResponseList.  # noqa: E501
         :type: list[BarcodeResponse]
