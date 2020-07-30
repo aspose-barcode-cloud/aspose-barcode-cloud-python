@@ -17,7 +17,7 @@ def from_file(filename):
     """
     @rtype: Configuration
     """
-    with open(filename, "rb") as json_file:
+    with open(filename, "r") as json_file:
         js = json.load(json_file)
 
     return Configuration(**js)

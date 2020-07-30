@@ -22,7 +22,7 @@ class TestHeaders(unittest.TestCase):
 
         BarcodeApi(api_client).get_barcode_generate(EncodeBarcodeType.CODE128, "Test")
 
-        self.rest_client_mock.GET.assert_called_once()
+        self.assertEqual(1, self.rest_client_mock.GET.call_count)
         headers = self.rest_client_mock.GET.call_args[1]["headers"]
         self.assertEqual("Aspose-Barcode-SDK/20.8.0/python", headers["User-Agent"])
         self.assertEqual("python sdk", headers["x-aspose-client"])
@@ -34,6 +34,6 @@ class TestHeaders(unittest.TestCase):
 
         BarcodeApi(api_client).get_barcode_generate(EncodeBarcodeType.CODE128, "Test")
 
-        self.rest_client_mock.GET.assert_called_once()
+        self.assertEqual(1, self.rest_client_mock.GET.call_count)
         headers = self.rest_client_mock.GET.call_args[1]["headers"]
         self.assertEqual("some custom sdk", headers["x-aspose-client"])
