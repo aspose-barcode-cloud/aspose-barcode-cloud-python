@@ -1,14 +1,13 @@
-# coding: utf-8
-
-from __future__ import absolute_import
+from __future__ import absolute_import, division
 
 import os
 import unittest
 import uuid
 
-from aspose_barcode_cloud import (Configuration, ApiClient, EncodeBarcodeType, DecodeBarcodeType, PresetType,
-                                  GeneratorParamsList, GeneratorParams, ReaderParams)
+from aspose_barcode_cloud import (ApiClient, EncodeBarcodeType, DecodeBarcodeType, PresetType,
+                                  GeneratorParamsList, GeneratorParams, ReaderParams, FileApi)
 from aspose_barcode_cloud.api.barcode_api import BarcodeApi
+from .load_configuration import TEST_CONFIGURATION
 
 
 class TestBarcodeApi(unittest.TestCase):
@@ -20,10 +19,7 @@ class TestBarcodeApi(unittest.TestCase):
     def setUpClass(cls):
         cls.test_filename = os.path.join('testdata', 'pdf417Sample.png')
 
-        cls.config = Configuration.from_file(os.path.join(os.path.split(os.path.abspath(__file__))[0],
-                                                          'configuration.json'))
-
-        cls.api_client = ApiClient(configuration=cls.config)
+        cls.api_client = ApiClient(configuration=TEST_CONFIGURATION)
 
         cls.api = BarcodeApi(api_client=cls.api_client)
         cls.temp_folder_path = 'BarcodeTests/%s' % uuid.uuid4()
@@ -44,15 +40,15 @@ class TestBarcodeApi(unittest.TestCase):
 
         Recognize barcode from a file on server.
         """
-        filename = self.test_put_barcode_generate_file()
+        filename = self.upload_test_file("testdata/pdf417Sample.png")
 
         response = self.api.get_barcode_recognize(filename, folder=self.temp_folder_path,
                                                   preset=PresetType.HIGHPERFORMANCE)
 
         self.assertEqual(1, len(response.barcodes))
         barcode = response.barcodes[0]
-        self.assertEqual(self.GENERATED_BARCODE_TYPE, barcode.type)
-        self.assertEqual(self.GENERATED_BARCODE_TEXT, barcode.barcode_value)
+        self.assertEqual(DecodeBarcodeType.PDF417, barcode.type)
+        self.assertEqual("Aspose.BarCode for Cloud Sample", barcode.barcode_value)
 
     def test_post_barcode_recognize_from_url_or_content(self):
         """Test case for post_barcode_recognize_from_url_or_content
@@ -145,6 +141,17 @@ class TestBarcodeApi(unittest.TestCase):
         self.assertGreater(response.file_size, 0)
         self.assertGreater(response.image_width, 0)
         self.assertGreater(response.image_height, 0)
+
+    def upload_test_file(self, file_path):
+        file_api = FileApi(self.api_client)
+        file_name = os.path.split(file_path)[-1]
+
+        upload_result = file_api.upload_file(self.temp_folder_path + '/' + file_name, file_path)
+
+        self.assertFalse(upload_result.errors, str(upload_result.errors))
+        self.assertTrue(upload_result.uploaded)
+
+        return upload_result.uploaded[0]
 
 
 if __name__ == '__main__':

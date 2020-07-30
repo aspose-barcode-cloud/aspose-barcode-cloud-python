@@ -1,17 +1,18 @@
+from __future__ import absolute_import, division
+
 import os
 import tempfile
 import unittest
 
-from aspose_barcode_cloud import Configuration, BarcodeApi, ApiClient, EncodeBarcodeType, PresetType, DecodeBarcodeType
+from aspose_barcode_cloud import BarcodeApi, ApiClient, EncodeBarcodeType, PresetType, DecodeBarcodeType
+from .load_configuration import TEST_CONFIGURATION
 
 
 class TestGenerateAndRecognize(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.config = Configuration.from_file(os.path.join(os.path.split(os.path.abspath(__file__))[0],
-                                                          'configuration.json'))
-        cls.api_client = ApiClient(cls.config)
+        cls.api_client = ApiClient(TEST_CONFIGURATION)
         cls.api = BarcodeApi(cls.api_client)
 
     def test_generate_and_recognize(self):

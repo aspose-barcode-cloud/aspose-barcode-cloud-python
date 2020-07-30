@@ -18,14 +18,14 @@ Copy file
 
 ### Example
 ```python
-from __future__ import print_function
+from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: JWT
-configuration = aspose_barcode_cloud.Configuration(access_token='YOUR_ACCESS_TOKEN')
+configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOKEN")
 
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.FileApi(aspose_barcode_cloud.ApiClient(configuration))
@@ -74,14 +74,14 @@ Delete file
 
 ### Example
 ```python
-from __future__ import print_function
+from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: JWT
-configuration = aspose_barcode_cloud.Configuration(access_token='YOUR_ACCESS_TOKEN')
+configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOKEN")
 
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.FileApi(aspose_barcode_cloud.ApiClient(configuration))
@@ -126,14 +126,14 @@ Download file
 
 ### Example
 ```python
-from __future__ import print_function
+from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: JWT
-configuration = aspose_barcode_cloud.Configuration(access_token='YOUR_ACCESS_TOKEN')
+configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOKEN")
 
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.FileApi(aspose_barcode_cloud.ApiClient(configuration))
@@ -179,14 +179,14 @@ Move file
 
 ### Example
 ```python
-from __future__ import print_function
+from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: JWT
-configuration = aspose_barcode_cloud.Configuration(access_token='YOUR_ACCESS_TOKEN')
+configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOKEN")
 
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.FileApi(aspose_barcode_cloud.ApiClient(configuration))
@@ -235,18 +235,18 @@ Upload file
 
 ### Example
 ```python
-from __future__ import print_function
+from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: JWT
-configuration = aspose_barcode_cloud.Configuration(access_token='YOUR_ACCESS_TOKEN')
+configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOKEN")
 
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.FileApi(aspose_barcode_cloud.ApiClient(configuration))
-path = 'path_example' # str | Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header. 
+path = 'path_example' # str | Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext  If the content is multipart and path does not contains the file name it tries to get them from filename parameter  from Content-Disposition header.
 file = '/path/to/file.txt' # file | File to upload
 storage_name = 'storage_name_example' # str | Storage name (optional)
 
@@ -262,7 +262,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **str**| Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.  | 
+ **path** | **str**| Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext  If the content is multipart and path does not contains the file name it tries to get them from filename parameter  from Content-Disposition header. | 
  **file** | **file**| File to upload | 
  **storage_name** | **str**| Storage name | [optional] 
 

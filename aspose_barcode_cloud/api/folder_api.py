@@ -25,7 +25,7 @@
 """
 
 
-from __future__ import absolute_import
+from __future__ import absolute_import, division
 
 import re  # noqa: F401
 
@@ -107,12 +107,12 @@ class FolderApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'src_path' is set
+        # verify the required parameter "src_path" is set
         if "src_path" not in params or params["src_path"] is None:
-            raise ValueError("Missing the required parameter `src_path` when calling `copy_folder`")
-        # verify the required parameter 'dest_path' is set
+            raise ValueError("Missing the required parameter 'src_path' when calling 'copy_folder'")
+        # verify the required parameter "dest_path" is set
         if "dest_path" not in params or params["dest_path"] is None:
-            raise ValueError("Missing the required parameter `dest_path` when calling `copy_folder`")
+            raise ValueError("Missing the required parameter 'dest_path' when calling 'copy_folder'")
 
         collection_formats = {}
 
@@ -134,10 +134,10 @@ class FolderApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(["application/json"])
 
         # Authentication setting
@@ -212,9 +212,9 @@ class FolderApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'path' is set
+        # verify the required parameter "path" is set
         if "path" not in params or params["path"] is None:
-            raise ValueError("Missing the required parameter `path` when calling `create_folder`")
+            raise ValueError("Missing the required parameter 'path' when calling 'create_folder'")
 
         collection_formats = {}
 
@@ -232,10 +232,10 @@ class FolderApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(["application/json"])
 
         # Authentication setting
@@ -311,9 +311,9 @@ class FolderApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'path' is set
+        # verify the required parameter "path" is set
         if "path" not in params or params["path"] is None:
-            raise ValueError("Missing the required parameter `path` when calling `delete_folder`")
+            raise ValueError("Missing the required parameter 'path' when calling 'delete_folder'")
 
         collection_formats = {}
 
@@ -333,10 +333,10 @@ class FolderApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(["application/json"])
 
         # Authentication setting
@@ -411,9 +411,9 @@ class FolderApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'path' is set
+        # verify the required parameter "path" is set
         if "path" not in params or params["path"] is None:
-            raise ValueError("Missing the required parameter `path` when calling `get_files_list`")
+            raise ValueError("Missing the required parameter 'path' when calling 'get_files_list'")
 
         collection_formats = {}
 
@@ -431,10 +431,10 @@ class FolderApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(["application/json"])
 
         # Authentication setting
@@ -518,12 +518,12 @@ class FolderApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'src_path' is set
+        # verify the required parameter "src_path" is set
         if "src_path" not in params or params["src_path"] is None:
-            raise ValueError("Missing the required parameter `src_path` when calling `move_folder`")
-        # verify the required parameter 'dest_path' is set
+            raise ValueError("Missing the required parameter 'src_path' when calling 'move_folder'")
+        # verify the required parameter "dest_path" is set
         if "dest_path" not in params or params["dest_path"] is None:
-            raise ValueError("Missing the required parameter `dest_path` when calling `move_folder`")
+            raise ValueError("Missing the required parameter 'dest_path' when calling 'move_folder'")
 
         collection_formats = {}
 
@@ -545,10 +545,10 @@ class FolderApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(["application/json"])
 
         # Authentication setting

@@ -95,6 +95,7 @@ class GeneratorParams(object):
         "pdf417": "Pdf417Params",
         "postal": "PostalParams",
         "qr": "QrParams",
+        "patch_code": "PatchCodeParams",
     }
 
     attribute_map = {
@@ -148,6 +149,7 @@ class GeneratorParams(object):
         "pdf417": "Pdf417",
         "postal": "Postal",
         "qr": "QR",
+        "patch_code": "PatchCode",
     }
 
     def __init__(
@@ -202,6 +204,7 @@ class GeneratorParams(object):
         pdf417=None,
         postal=None,
         qr=None,
+        patch_code=None,
     ):  # noqa: E501
         """GeneratorParams - a model defined in Swagger"""  # noqa: E501
 
@@ -255,6 +258,7 @@ class GeneratorParams(object):
         self._pdf417 = None
         self._postal = None
         self._qr = None
+        self._patch_code = None
         self.discriminator = None
 
         self.type_of_barcode = type_of_barcode
@@ -355,12 +359,14 @@ class GeneratorParams(object):
             self.postal = postal
         if qr is not None:
             self.qr = qr
+        if patch_code is not None:
+            self.patch_code = patch_code
 
     @property
     def type_of_barcode(self):
         """Gets the type_of_barcode of this GeneratorParams.  # noqa: E501
 
-        Type of barcode to generate.   # noqa: E501
+        Type of barcode to generate.  # noqa: E501
 
         :return: The type_of_barcode of this GeneratorParams.  # noqa: E501
         :rtype: EncodeBarcodeType
@@ -371,7 +377,7 @@ class GeneratorParams(object):
     def type_of_barcode(self, type_of_barcode):
         """Sets the type_of_barcode of this GeneratorParams.
 
-        Type of barcode to generate.   # noqa: E501
+        Type of barcode to generate.  # noqa: E501
 
         :param type_of_barcode: The type_of_barcode of this GeneratorParams.  # noqa: E501
         :type: EncodeBarcodeType
@@ -385,7 +391,7 @@ class GeneratorParams(object):
     def text(self):
         """Gets the text of this GeneratorParams.  # noqa: E501
 
-        Text to encode.   # noqa: E501
+        Text to encode.  # noqa: E501
 
         :return: The text of this GeneratorParams.  # noqa: E501
         :rtype: str
@@ -396,7 +402,7 @@ class GeneratorParams(object):
     def text(self, text):
         """Sets the text of this GeneratorParams.
 
-        Text to encode.   # noqa: E501
+        Text to encode.  # noqa: E501
 
         :param text: The text of this GeneratorParams.  # noqa: E501
         :type: str
@@ -456,7 +462,7 @@ class GeneratorParams(object):
     def text_alignment(self):
         """Gets the text_alignment of this GeneratorParams.  # noqa: E501
 
-        Text alignment.   # noqa: E501
+        Text alignment.  # noqa: E501
 
         :return: The text_alignment of this GeneratorParams.  # noqa: E501
         :rtype: TextAlignment
@@ -467,7 +473,7 @@ class GeneratorParams(object):
     def text_alignment(self, text_alignment):
         """Sets the text_alignment of this GeneratorParams.
 
-        Text alignment.   # noqa: E501
+        Text alignment.  # noqa: E501
 
         :param text_alignment: The text_alignment of this GeneratorParams.  # noqa: E501
         :type: TextAlignment
@@ -571,7 +577,7 @@ class GeneratorParams(object):
     def resolution_x(self):
         """Gets the resolution_x of this GeneratorParams.  # noqa: E501
 
-        DEPRECATED: Use 'Resolution' instead.   # noqa: E501
+        DEPRECATED: Use 'Resolution' instead.  # noqa: E501
 
         :return: The resolution_x of this GeneratorParams.  # noqa: E501
         :rtype: float
@@ -582,7 +588,7 @@ class GeneratorParams(object):
     def resolution_x(self, resolution_x):
         """Sets the resolution_x of this GeneratorParams.
 
-        DEPRECATED: Use 'Resolution' instead.   # noqa: E501
+        DEPRECATED: Use 'Resolution' instead.  # noqa: E501
 
         :param resolution_x: The resolution_x of this GeneratorParams.  # noqa: E501
         :type: float
@@ -594,7 +600,7 @@ class GeneratorParams(object):
     def resolution_y(self):
         """Gets the resolution_y of this GeneratorParams.  # noqa: E501
 
-        DEPRECATED: Use 'Resolution' instead.   # noqa: E501
+        DEPRECATED: Use 'Resolution' instead.  # noqa: E501
 
         :return: The resolution_y of this GeneratorParams.  # noqa: E501
         :rtype: float
@@ -605,7 +611,7 @@ class GeneratorParams(object):
     def resolution_y(self, resolution_y):
         """Sets the resolution_y of this GeneratorParams.
 
-        DEPRECATED: Use 'Resolution' instead.   # noqa: E501
+        DEPRECATED: Use 'Resolution' instead.  # noqa: E501
 
         :param resolution_y: The resolution_y of this GeneratorParams.  # noqa: E501
         :type: float
@@ -663,7 +669,7 @@ class GeneratorParams(object):
     def units(self):
         """Gets the units of this GeneratorParams.  # noqa: E501
 
-        Common Units for all measuring in query. Default units: pixel.   # noqa: E501
+        Common Units for all measuring in query. Default units: pixel.  # noqa: E501
 
         :return: The units of this GeneratorParams.  # noqa: E501
         :rtype: AvailableGraphicsUnit
@@ -674,7 +680,7 @@ class GeneratorParams(object):
     def units(self, units):
         """Sets the units of this GeneratorParams.
 
-        Common Units for all measuring in query. Default units: pixel.   # noqa: E501
+        Common Units for all measuring in query. Default units: pixel.  # noqa: E501
 
         :param units: The units of this GeneratorParams.  # noqa: E501
         :type: AvailableGraphicsUnit
@@ -709,7 +715,7 @@ class GeneratorParams(object):
     def bar_height(self):
         """Gets the bar_height of this GeneratorParams.  # noqa: E501
 
-        Height of the barcode in given units. Default units: pixel.   # noqa: E501
+        Height of the barcode in given units. Default units: pixel.  # noqa: E501
 
         :return: The bar_height of this GeneratorParams.  # noqa: E501
         :rtype: float
@@ -720,7 +726,7 @@ class GeneratorParams(object):
     def bar_height(self, bar_height):
         """Sets the bar_height of this GeneratorParams.
 
-        Height of the barcode in given units. Default units: pixel.   # noqa: E501
+        Height of the barcode in given units. Default units: pixel.  # noqa: E501
 
         :param bar_height: The bar_height of this GeneratorParams.  # noqa: E501
         :type: float
@@ -732,7 +738,7 @@ class GeneratorParams(object):
     def image_height(self):
         """Gets the image_height of this GeneratorParams.  # noqa: E501
 
-        Height of the barcode image in given units. Default units: pixel.   # noqa: E501
+        Height of the barcode image in given units. Default units: pixel.  # noqa: E501
 
         :return: The image_height of this GeneratorParams.  # noqa: E501
         :rtype: float
@@ -743,7 +749,7 @@ class GeneratorParams(object):
     def image_height(self, image_height):
         """Sets the image_height of this GeneratorParams.
 
-        Height of the barcode image in given units. Default units: pixel.   # noqa: E501
+        Height of the barcode image in given units. Default units: pixel.  # noqa: E501
 
         :param image_height: The image_height of this GeneratorParams.  # noqa: E501
         :type: float
@@ -755,7 +761,7 @@ class GeneratorParams(object):
     def image_width(self):
         """Gets the image_width of this GeneratorParams.  # noqa: E501
 
-        Width of the barcode image in given units. Default units: pixel.   # noqa: E501
+        Width of the barcode image in given units. Default units: pixel.  # noqa: E501
 
         :return: The image_width of this GeneratorParams.  # noqa: E501
         :rtype: float
@@ -766,7 +772,7 @@ class GeneratorParams(object):
     def image_width(self, image_width):
         """Sets the image_width of this GeneratorParams.
 
-        Width of the barcode image in given units. Default units: pixel.   # noqa: E501
+        Width of the barcode image in given units. Default units: pixel.  # noqa: E501
 
         :param image_width: The image_width of this GeneratorParams.  # noqa: E501
         :type: float
@@ -824,7 +830,7 @@ class GeneratorParams(object):
     def caption_above(self):
         """Gets the caption_above of this GeneratorParams.  # noqa: E501
 
-        Additional caption above barcode.   # noqa: E501
+        Additional caption above barcode.  # noqa: E501
 
         :return: The caption_above of this GeneratorParams.  # noqa: E501
         :rtype: CaptionParams
@@ -835,7 +841,7 @@ class GeneratorParams(object):
     def caption_above(self, caption_above):
         """Sets the caption_above of this GeneratorParams.
 
-        Additional caption above barcode.   # noqa: E501
+        Additional caption above barcode.  # noqa: E501
 
         :param caption_above: The caption_above of this GeneratorParams.  # noqa: E501
         :type: CaptionParams
@@ -847,7 +853,7 @@ class GeneratorParams(object):
     def caption_below(self):
         """Gets the caption_below of this GeneratorParams.  # noqa: E501
 
-        Additional caption below barcode.   # noqa: E501
+        Additional caption below barcode.  # noqa: E501
 
         :return: The caption_below of this GeneratorParams.  # noqa: E501
         :rtype: CaptionParams
@@ -858,7 +864,7 @@ class GeneratorParams(object):
     def caption_below(self, caption_below):
         """Sets the caption_below of this GeneratorParams.
 
-        Additional caption below barcode.   # noqa: E501
+        Additional caption below barcode.  # noqa: E501
 
         :param caption_below: The caption_below of this GeneratorParams.  # noqa: E501
         :type: CaptionParams
@@ -1008,7 +1014,7 @@ class GeneratorParams(object):
     def enable_checksum(self):
         """Gets the enable_checksum of this GeneratorParams.  # noqa: E501
 
-        Enable checksum during generation 1D barcodes. Default is treated as Yes for symbology which must contain checksum, as No where checksum only possible. Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN, Codabar Checksum always used: Rest symbology   # noqa: E501
+        Enable checksum during generation 1D barcodes. Default is treated as Yes for symbology which must contain checksum, as No where checksum only possible. Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN, Codabar Checksum always used: Rest symbology  # noqa: E501
 
         :return: The enable_checksum of this GeneratorParams.  # noqa: E501
         :rtype: EnableChecksum
@@ -1019,7 +1025,7 @@ class GeneratorParams(object):
     def enable_checksum(self, enable_checksum):
         """Sets the enable_checksum of this GeneratorParams.
 
-        Enable checksum during generation 1D barcodes. Default is treated as Yes for symbology which must contain checksum, as No where checksum only possible. Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN, Codabar Checksum always used: Rest symbology   # noqa: E501
+        Enable checksum during generation 1D barcodes. Default is treated as Yes for symbology which must contain checksum, as No where checksum only possible. Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN, Codabar Checksum always used: Rest symbology  # noqa: E501
 
         :param enable_checksum: The enable_checksum of this GeneratorParams.  # noqa: E501
         :type: EnableChecksum
@@ -1077,7 +1083,7 @@ class GeneratorParams(object):
     def always_show_checksum(self):
         """Gets the always_show_checksum of this GeneratorParams.  # noqa: E501
 
-        Always display checksum digit in the human readable text for Code128 and GS1Code128 barcodes.   # noqa: E501
+        Always display checksum digit in the human readable text for Code128 and GS1Code128 barcodes.  # noqa: E501
 
         :return: The always_show_checksum of this GeneratorParams.  # noqa: E501
         :rtype: bool
@@ -1088,7 +1094,7 @@ class GeneratorParams(object):
     def always_show_checksum(self, always_show_checksum):
         """Sets the always_show_checksum of this GeneratorParams.
 
-        Always display checksum digit in the human readable text for Code128 and GS1Code128 barcodes.   # noqa: E501
+        Always display checksum digit in the human readable text for Code128 and GS1Code128 barcodes.  # noqa: E501
 
         :param always_show_checksum: The always_show_checksum of this GeneratorParams.  # noqa: E501
         :type: bool
@@ -1509,6 +1515,29 @@ class GeneratorParams(object):
         """
 
         self._qr = qr
+
+    @property
+    def patch_code(self):
+        """Gets the patch_code of this GeneratorParams.  # noqa: E501
+
+        PatchCode params.  # noqa: E501
+
+        :return: The patch_code of this GeneratorParams.  # noqa: E501
+        :rtype: PatchCodeParams
+        """
+        return self._patch_code
+
+    @patch_code.setter
+    def patch_code(self, patch_code):
+        """Sets the patch_code of this GeneratorParams.
+
+        PatchCode params.  # noqa: E501
+
+        :param patch_code: The patch_code of this GeneratorParams.  # noqa: E501
+        :type: PatchCodeParams
+        """
+
+        self._patch_code = patch_code
 
     def to_dict(self):
         """Returns the model properties as a dict"""

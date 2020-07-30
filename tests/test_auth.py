@@ -1,23 +1,22 @@
-import os
+from __future__ import absolute_import, division
+
 import unittest
 
 from aspose_barcode_cloud import Configuration, ApiClient, BarcodeApi, EncodeBarcodeType
+from .load_configuration import TEST_CONFIGURATION
 
-CONFIG_FILENAME = os.path.join(os.path.split(os.path.abspath(__file__))[0], 'configuration.wo-token.json')
 
-
-@unittest.skipUnless(os.path.exists(CONFIG_FILENAME), "Requested file '%s' does not exist" % CONFIG_FILENAME)
+@unittest.skipUnless(TEST_CONFIGURATION._app_sid and TEST_CONFIGURATION._app_key, "No app_sid and app_key provided")
 class TestAuth(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.config = Configuration.from_file(CONFIG_FILENAME)
-        cls.api_client = ApiClient(cls.config)
+        cls.api_client = ApiClient(TEST_CONFIGURATION)
         cls.api = BarcodeApi(cls.api_client)
 
     def test_access_token(self):
-        self.assertIsNone(self.config._access_token)
-        token = self.config.access_token
+        self.assertIsNone(TEST_CONFIGURATION._access_token)
+        token = TEST_CONFIGURATION.access_token
         self.assertTrue(token, "Token=%s" % token)
 
     def test_access_token_raises(self):
@@ -25,10 +24,10 @@ class TestAuth(unittest.TestCase):
         with self.assertRaises(ValueError) as cm:
             token = config.access_token
         the_exception = cm.exception
-        self.assertEqual("No access token or app_sid and app_key specified", the_exception.args[0])
+        self.assertEqual("No access_token or app_sid and app_key specified", the_exception.args[0])
 
     def test_works_with_access_token(self):
-        api = BarcodeApi(ApiClient(Configuration(access_token=self.config.access_token, host=self.config.host)))
+        api = BarcodeApi(ApiClient(Configuration(access_token=TEST_CONFIGURATION.access_token, host=TEST_CONFIGURATION.host)))
         response = api.get_barcode_generate(EncodeBarcodeType.QR, "Testing")
         self.assertEqual(200, response.status)
 

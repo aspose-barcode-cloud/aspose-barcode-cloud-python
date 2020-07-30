@@ -61,7 +61,7 @@ class PostalParams(object):
     def short_bar_height(self):
         """Gets the short_bar_height of this PostalParams.  # noqa: E501
 
-        Short bar's height of Postal barcodes.   # noqa: E501
+        Short bar's height of Postal barcodes.  # noqa: E501
 
         :return: The short_bar_height of this PostalParams.  # noqa: E501
         :rtype: float
@@ -72,7 +72,7 @@ class PostalParams(object):
     def short_bar_height(self, short_bar_height):
         """Sets the short_bar_height of this PostalParams.
 
-        Short bar's height of Postal barcodes.   # noqa: E501
+        Short bar's height of Postal barcodes.  # noqa: E501
 
         :param short_bar_height: The short_bar_height of this PostalParams.  # noqa: E501
         :type: float

@@ -23,7 +23,7 @@
 
 """
 
-from __future__ import absolute_import
+from __future__ import absolute_import, division
 
 import datetime
 import json
@@ -84,13 +84,13 @@ class ApiClient(object):
         self.rest_client = rest.RESTClientObject(configuration)
         self.default_headers = {
             "x-aspose-client": "python sdk",
-            "x-aspose-client-version": "20.6.0",
+            "x-aspose-client-version": "20.8.0",
         }
         if header_name is not None:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = "Aspose-Barcode-SDK/20.6.0/python"
+        self.user_agent = "Aspose-Barcode-SDK/20.8.0/python"
 
     def __del__(self):
         if self._pool is not None:
@@ -229,7 +229,7 @@ class ApiClient(object):
             obj_dict = obj
         else:
             # Convert model obj to dict except
-            # attributes `swagger_types`, `attribute_map`
+            # attributes 'swagger_types', 'attribute_map'
             # and attributes which value is not None.
             # Convert attribute name to json key in
             # model definition for request.
@@ -330,11 +330,11 @@ class ApiClient(object):
             placed in the request header.
         :param body: Request body.
         :param post_params dict: Request post form parameters,
-            for `application/x-www-form-urlencoded`, `multipart/form-data`.
+            for 'application/x-www-form-urlencoded', 'multipart/form-data'.
         :param auth_settings list: Auth Settings names for the request.
         :param response: Response data type.
         :param files dict: key -> filename, value -> filepath,
-            for `multipart/form-data`.
+            for 'multipart/form-data'.
         :param async_req bool: execute request asynchronously
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -471,7 +471,7 @@ class ApiClient(object):
                 body=body,
             )
         else:
-            raise ValueError("http method must be `GET`, `HEAD`, `OPTIONS`," " `POST`, `PATCH`, `PUT` or `DELETE`.")
+            raise ValueError("http method must be 'GET', 'HEAD', 'OPTIONS'," " 'POST', 'PATCH', 'PUT' or 'DELETE'.")
 
     def parameters_to_tuples(self, params, collection_formats):
         """Get parameters as list of tuples, formatting collections.
@@ -529,7 +529,7 @@ class ApiClient(object):
         return params
 
     def select_header_accept(self, accepts):
-        """Returns `Accept` based on an array of accepts provided.
+        """Returns 'Accept' based on an array of accepts provided.
 
         :param accepts: List of headers.
         :return: Accept (e.g. application/json).
@@ -545,7 +545,7 @@ class ApiClient(object):
             return ", ".join(accepts)
 
     def select_header_content_type(self, content_types):
-        """Returns `Content-Type` based on an array of content_types provided.
+        """Returns 'Content-Type' based on an array of content_types provided.
 
         :param content_types: List of content-types.
         :return: Content-Type (e.g. application/json).
@@ -580,13 +580,13 @@ class ApiClient(object):
                 elif auth_setting["in"] == "query":
                     querys.append((auth_setting["key"], auth_setting["value"]))
                 else:
-                    raise ValueError("Authentication token must be in `query` or `header`")
+                    raise ValueError("Authentication token must be in 'query' or 'header'")
 
     def __deserialize_file(self, response):
         """Deserializes body to file
 
         Saves response body into a file in a temporary folder,
-        using the filename from the `Content-Disposition` header if provided.
+        using the filename from the 'Content-Disposition' header if provided.
 
         :param response:  RESTResponse.
         :return: file path.
@@ -640,7 +640,7 @@ class ApiClient(object):
         except ImportError:
             return string
         except ValueError:
-            raise rest.ApiException(status=0, reason="Failed to parse `{0}` as date object".format(string))
+            raise rest.ApiException(status=0, reason="Failed to parse '{0}' as date object".format(string))
 
     def __deserialize_datetime(self, string):
         """Deserializes string to datetime.
@@ -657,7 +657,7 @@ class ApiClient(object):
         except ImportError:
             return string
         except ValueError:
-            raise rest.ApiException(status=0, reason=("Failed to parse `{0}` as datetime object".format(string)))
+            raise rest.ApiException(status=0, reason=("Failed to parse '{0}' as datetime object".format(string)))
 
     def __hasattr(self, object, name):
         return name in object.__class__.__dict__

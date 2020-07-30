@@ -73,6 +73,8 @@ from aspose_barcode_cloud.models.itf_params import ITFParams
 from aspose_barcode_cloud.models.maxi_code_params import MaxiCodeParams
 from aspose_barcode_cloud.models.object_exist import ObjectExist
 from aspose_barcode_cloud.models.padding import Padding
+from aspose_barcode_cloud.models.patch_code_params import PatchCodeParams
+from aspose_barcode_cloud.models.patch_format import PatchFormat
 from aspose_barcode_cloud.models.pdf417_compaction_mode import Pdf417CompactionMode
 from aspose_barcode_cloud.models.pdf417_error_level import Pdf417ErrorLevel
 from aspose_barcode_cloud.models.pdf417_params import Pdf417Params

@@ -122,7 +122,7 @@ class Pdf417Params(object):
     def aspect_ratio(self):
         """Gets the aspect_ratio of this Pdf417Params.  # noqa: E501
 
-        Height/Width ratio of 2D BarCode module.   # noqa: E501
+        Height/Width ratio of 2D BarCode module.  # noqa: E501
 
         :return: The aspect_ratio of this Pdf417Params.  # noqa: E501
         :rtype: float
@@ -133,7 +133,7 @@ class Pdf417Params(object):
     def aspect_ratio(self, aspect_ratio):
         """Sets the aspect_ratio of this Pdf417Params.
 
-        Height/Width ratio of 2D BarCode module.   # noqa: E501
+        Height/Width ratio of 2D BarCode module.  # noqa: E501
 
         :param aspect_ratio: The aspect_ratio of this Pdf417Params.  # noqa: E501
         :type: float
@@ -145,7 +145,7 @@ class Pdf417Params(object):
     def text_encoding(self):
         """Gets the text_encoding of this Pdf417Params.  # noqa: E501
 
-        Encoding of codetext.   # noqa: E501
+        Encoding of codetext.  # noqa: E501
 
         :return: The text_encoding of this Pdf417Params.  # noqa: E501
         :rtype: str
@@ -156,7 +156,7 @@ class Pdf417Params(object):
     def text_encoding(self, text_encoding):
         """Sets the text_encoding of this Pdf417Params.
 
-        Encoding of codetext.   # noqa: E501
+        Encoding of codetext.  # noqa: E501
 
         :param text_encoding: The text_encoding of this Pdf417Params.  # noqa: E501
         :type: str
@@ -168,7 +168,7 @@ class Pdf417Params(object):
     def columns(self):
         """Gets the columns of this Pdf417Params.  # noqa: E501
 
-        Columns count.   # noqa: E501
+        Columns count.  # noqa: E501
 
         :return: The columns of this Pdf417Params.  # noqa: E501
         :rtype: int
@@ -179,7 +179,7 @@ class Pdf417Params(object):
     def columns(self, columns):
         """Sets the columns of this Pdf417Params.
 
-        Columns count.   # noqa: E501
+        Columns count.  # noqa: E501
 
         :param columns: The columns of this Pdf417Params.  # noqa: E501
         :type: int

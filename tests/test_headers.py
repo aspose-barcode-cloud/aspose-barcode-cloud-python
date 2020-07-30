@@ -1,3 +1,5 @@
+from __future__ import absolute_import, division
+
 import unittest
 
 from six.moves import mock
@@ -22,9 +24,9 @@ class TestHeaders(unittest.TestCase):
 
         self.rest_client_mock.GET.assert_called_once()
         headers = self.rest_client_mock.GET.call_args[1]['headers']
-        self.assertEqual("Aspose-Barcode-SDK/20.6.0/python", headers['User-Agent'])
+        self.assertEqual("Aspose-Barcode-SDK/20.8.0/python", headers['User-Agent'])
         self.assertEqual('python sdk', headers['x-aspose-client'])
-        self.assertEqual('20.6.0', headers['x-aspose-client-version'])
+        self.assertEqual('20.8.0', headers['x-aspose-client-version'])
 
     def test_header_override(self):
         api_client = ApiClient(self.local_config, header_name='x-aspose-client', header_value='some custom sdk')
