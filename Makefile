@@ -8,7 +8,7 @@ format: format_code format_doc
 
 .PHONY: format_code
 format_code:
-	python3 -m black --line-length=120 --target-version=py27 -v $(SRC)
+	python3 -m black --line-length=120 --target-version=py27 -v $(SRC) tests
 
 .PHONY: format_doc
 format_doc:

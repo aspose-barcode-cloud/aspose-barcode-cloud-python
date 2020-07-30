@@ -12,7 +12,7 @@ class TestLoadConfiguration(unittest.TestCase):
         self.uniq_prefix = uuid.uuid4()
 
     def test_load_from_file(self):
-        file_name = os.path.join(os.path.split(os.path.abspath(__file__))[0], 'configuration.example.json')
+        file_name = os.path.join(os.path.split(os.path.abspath(__file__))[0], "configuration.example.json")
         config = load_configuration.from_file(file_name)
 
         self.assertEqual("JWT token", config.access_token)
@@ -20,7 +20,7 @@ class TestLoadConfiguration(unittest.TestCase):
         self.assertEqual("https://api.aspose.cloud/connect/token", config.token_url)
 
     def test_load_from_env(self):
-        os.environ['%s_ACCESS_TOKEN' % self.uniq_prefix] = "Access Token"
+        os.environ["%s_ACCESS_TOKEN" % self.uniq_prefix] = "Access Token"
         config = load_configuration.from_env(self.uniq_prefix)
 
         self.assertEqual("Access Token", config.access_token)

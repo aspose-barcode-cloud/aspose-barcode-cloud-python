@@ -9,7 +9,7 @@ from aspose_barcode_cloud import Configuration
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_CONFIG_FILENAME = os.path.join(os.path.split(os.path.abspath(__file__))[0], 'configuration.json')
+DEFAULT_CONFIG_FILENAME = os.path.join(os.path.split(os.path.abspath(__file__))[0], "configuration.json")
 DEFAULT_ENV_PREFIX = "TEST"
 
 
@@ -30,7 +30,7 @@ def from_env(prefix):
     constructor_param_names = inspect.getargspec(Configuration.__init__).args[1:]
     kwargs = {}
     for name in constructor_param_names:
-        env_name = '%s_%s' % (prefix, name.upper())
+        env_name = "%s_%s" % (prefix, name.upper())
         value = os.environ.get(env_name)
         if value is not None:
             logger.warning("Set '%s' from environ to %s" % (env_name, name))
@@ -39,6 +39,6 @@ def from_env(prefix):
     return Configuration(**kwargs)
 
 
-TEST_CONFIGURATION = (from_file(DEFAULT_CONFIG_FILENAME)
-                      if os.path.isfile(DEFAULT_CONFIG_FILENAME)
-                      else from_env(DEFAULT_ENV_PREFIX))
+TEST_CONFIGURATION = (
+    from_file(DEFAULT_CONFIG_FILENAME) if os.path.isfile(DEFAULT_CONFIG_FILENAME) else from_env(DEFAULT_ENV_PREFIX)
+)

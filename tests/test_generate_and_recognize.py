@@ -9,7 +9,6 @@ from .load_configuration import TEST_CONFIGURATION
 
 
 class TestGenerateAndRecognize(unittest.TestCase):
-
     @classmethod
     def setUpClass(cls):
         cls.api_client = ApiClient(TEST_CONFIGURATION)
@@ -21,12 +20,12 @@ class TestGenerateAndRecognize(unittest.TestCase):
 
         temp_filename = tempfile.mktemp()
         try:
-            with open(temp_filename, 'wb') as f:
+            with open(temp_filename, "wb") as f:
                 f.write(generated.data)
 
             recognized = self.api.post_barcode_recognize_from_url_or_content(
-                image=temp_filename,
-                preset=PresetType.HIGHPERFORMANCE)
+                image=temp_filename, preset=PresetType.HIGHPERFORMANCE
+            )
         finally:
             os.remove(temp_filename)
 
@@ -34,7 +33,3 @@ class TestGenerateAndRecognize(unittest.TestCase):
         barcode = recognized.barcodes[0]
         self.assertEqual(DecodeBarcodeType.QR, barcode.type)
         self.assertEqual("Should recognize this", barcode.barcode_value)
-
-
-if __name__ == '__main__':
-    unittest.main()

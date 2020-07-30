@@ -290,8 +290,6 @@ class Configuration(object):
 
     @staticmethod
     def fetch_token(app_sid, app_key, token_url):
-        from aspose_barcode_cloud import ApiClient
-
         client = RESTClientObject(Configuration(app_sid=app_sid, app_key=app_key, token_url=token_url))
         response = client.POST(
             token_url,
