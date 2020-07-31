@@ -24,8 +24,7 @@
 
 """
 
-
-from __future__ import absolute_import
+from __future__ import absolute_import, division
 
 import re  # noqa: F401
 
@@ -85,30 +84,30 @@ class BarcodeApi(object):
         async_req=False,
         **kwargs
     ):
-        """Generate barcode. 
+        """Generate barcode.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = BarcodeApi().get_barcode_generate(type, text, async_req=True)
         >>> result = thread.get()
 
-        :param str type: Type of barcode to generate.  # noqa: E501
-        :param str text: Text to encode.  # noqa: E501
+        :param str type: Type of barcode to generate. # noqa: E501
+        :param str text: Text to encode. # noqa: E501
         :param str two_d_display_text: Text that will be displayed instead of codetext in 2D barcodes. Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode # noqa: E501
         :param str text_location: Specify the displaying Text Location, set to CodeLocation.None to hide CodeText. Default value: CodeLocation.Below. # noqa: E501
-        :param str text_alignment: Text alignment.  # noqa: E501
+        :param str text_alignment: Text alignment. # noqa: E501
         :param str text_color: Specify the displaying CodeText's Color. Default value: Color.Black. # noqa: E501
         :param str font_size_mode: Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto. # noqa: E501
         :param float resolution: Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. # noqa: E501
-        :param float resolution_x: DEPRECATED: Use 'Resolution' instead.  # noqa: E501
-        :param float resolution_y: DEPRECATED: Use 'Resolution' instead.  # noqa: E501
+        :param float resolution_x: DEPRECATED: Use 'Resolution' instead. # noqa: E501
+        :param float resolution_y: DEPRECATED: Use 'Resolution' instead. # noqa: E501
         :param float dimension_x: The smallest width of the unit of BarCode bars or spaces. Increase this will increase the whole barcode image width. Ignored if AutoSizeMode property is set to AutoSizeMode.Nearest or AutoSizeMode.Interpolation. # noqa: E501
         :param float text_space: Space between the CodeText and the BarCode in Unit value. Default value: 2pt. Ignored for EAN8, EAN13, UPCE, UPCA, ISBN, ISMN, ISSN, UpcaGs1DatabarCoupon. # noqa: E501
-        :param str units: Common Units for all measuring in query. Default units: pixel.  # noqa: E501
+        :param str units: Common Units for all measuring in query. Default units: pixel. # noqa: E501
         :param str size_mode: Specifies the different types of automatic sizing modes. Default value: AutoSizeMode.None. # noqa: E501
-        :param float bar_height: Height of the barcode in given units. Default units: pixel.  # noqa: E501
-        :param float image_height: Height of the barcode image in given units. Default units: pixel.  # noqa: E501
-        :param float image_width: Width of the barcode image in given units. Default units: pixel.  # noqa: E501
+        :param float bar_height: Height of the barcode in given units. Default units: pixel. # noqa: E501
+        :param float image_height: Height of the barcode image in given units. Default units: pixel. # noqa: E501
+        :param float image_width: Width of the barcode image in given units. Default units: pixel. # noqa: E501
         :param float rotation_angle: BarCode image rotation angle, measured in degree, e.g. RotationAngle = 0 or RotationAngle = 360 means no rotation. If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image. Default value: 0. # noqa: E501
         :param str back_color: Background color of the barcode image. Default value: Color.White. # noqa: E501
         :param str bar_color: Bars color. Default value: Color.Black. # noqa: E501
@@ -116,10 +115,10 @@ class BarcodeApi(object):
         :param float border_width: Border width. Default value: 0. Ignored if Visible is set to false. # noqa: E501
         :param str border_dash_style: Border dash style. Default value: BorderDashStyle.Solid. # noqa: E501
         :param bool border_visible: Border visibility. If false than parameter Width is always ignored (0). Default value: false. # noqa: E501
-        :param str enable_checksum: Enable checksum during generation 1D barcodes. Default is treated as Yes for symbology which must contain checksum, as No where checksum only possible. Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN, Codabar Checksum always used: Rest symbology  # noqa: E501
+        :param str enable_checksum: Enable checksum during generation 1D barcodes. Default is treated as Yes for symbology which must contain checksum, as No where checksum only possible. Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN, Codabar Checksum always used: Rest symbology # noqa: E501
         :param bool enable_escape: Indicates whether explains the character \"\\\" as an escape character in CodeText property. Used for Pdf417, DataMatrix, Code128 only If the EnableEscape is true, \"\\\" will be explained as a special escape character. Otherwise, \"\\\" acts as normal characters. Aspose.BarCode supports input decimal ascii code and mnemonic for ASCII control-code characters. For example, \\013 and \\\\CR stands for CR. # noqa: E501
         :param bool filled_bars: Value indicating whether bars are filled. Only for 1D barcodes. Default value: true. # noqa: E501
-        :param bool always_show_checksum: Always display checksum digit in the human readable text for Code128 and GS1Code128 barcodes.  # noqa: E501
+        :param bool always_show_checksum: Always display checksum digit in the human readable text for Code128 and GS1Code128 barcodes. # noqa: E501
         :param float wide_narrow_ratio: Wide bars to Narrow bars ratio. Default value: 3, that is, wide bars are 3 times as wide as narrow bars. Used for ITF, PZN, PharmaCode, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, IATA2of5, VIN, DeutschePost, OPC, Code32, DataLogic2of5, PatchCode, Code39Extended, Code39Standard # noqa: E501
         :param bool validate_text: Only for 1D barcodes. If codetext is incorrect and value set to true - exception will be thrown. Otherwise codetext will be corrected to match barcode's specification. Exception always will be thrown for: Databar symbology if codetext is incorrect. Exception always will not be thrown for: AustraliaPost, SingaporePost, Code39Extended, Code93Extended, Code16K, Code128 symbology if codetext is incorrect. # noqa: E501
         :param str supplement_data: Supplement parameters. Used for Interleaved2of5, Standard2of5, EAN13, EAN8, UPCA, UPCE, ISBN, ISSN, ISMN. # noqa: E501
@@ -208,15 +207,15 @@ class BarcodeApi(object):
             return data
 
     def get_barcode_generate_with_http_info(self, type, text, **kwargs):
-        """Generate barcode. 
+        """Generate barcode.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = BarcodeApi().get_barcode_generate_with_http_info(type, text, async_req=True)
         >>> result = thread.get()
 
-        :param str type: Type of barcode to generate.  # noqa: E501
-        :param str text: Text to encode.  # noqa: E501
+        :param str type: Type of barcode to generate. # noqa: E501
+        :param str text: Text to encode. # noqa: E501
         :return: file
                  If the method is called asynchronously,
                  returns the request thread.
@@ -271,12 +270,12 @@ class BarcodeApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'type' is set
+        # verify the required parameter "type" is set
         if "type" not in params or params["type"] is None:
-            raise ValueError("Missing the required parameter `type` when calling `get_barcode_generate`")
-        # verify the required parameter 'text' is set
+            raise ValueError("Missing the required parameter 'type' when calling 'get_barcode_generate'")
+        # verify the required parameter "text" is set
         if "text" not in params or params["text"] is None:
-            raise ValueError("Missing the required parameter `text` when calling `get_barcode_generate`")
+            raise ValueError("Missing the required parameter 'text' when calling 'get_barcode_generate'")
 
         collection_formats = {}
 
@@ -356,12 +355,12 @@ class BarcodeApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(
             ["image/png", "image/bmp", "image/gif", "image/jpeg", "image/svg+xml", "image/tiff"]
         )
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(["application/json"])
 
         # Authentication setting
@@ -424,7 +423,7 @@ class BarcodeApi(object):
         async_req=False,
         **kwargs
     ):
-        """Recognize barcode from a file on server. 
+        """Recognize barcode from a file on server.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -432,16 +431,16 @@ class BarcodeApi(object):
         >>> result = thread.get()
 
         :param str name: The image file name. # noqa: E501
-        :param str type: The type of barcode to read.  # noqa: E501
-        :param str checksum_validation: Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies  # noqa: E501
+        :param str type: The type of barcode to read. # noqa: E501
+        :param str checksum_validation: Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies # noqa: E501
         :param bool detect_encoding: A flag which force engine to detect codetext encoding for Unicode. # noqa: E501
         :param str preset: Preset allows to configure recognition quality and speed manually. You can quickly set up Preset by embedded presets: HighPerformance, NormalQuality, HighQuality, MaxBarCodes or you can manually configure separate options. Default value of Preset is NormalQuality. # noqa: E501
-        :param int rect_x: Set X for area for recognition.  # noqa: E501
-        :param int rect_y: Set Y for area for recognition.  # noqa: E501
-        :param int rect_width: Set Width of area for recognition.  # noqa: E501
-        :param int rect_height: Set Height of area for recognition.  # noqa: E501
-        :param bool strip_fnc: Value indicating whether FNC symbol strip must be done.  # noqa: E501
-        :param int timeout: Timeout of recognition process.  # noqa: E501
+        :param int rect_x: Set X for area for recognition. # noqa: E501
+        :param int rect_y: Set Y for area for recognition. # noqa: E501
+        :param int rect_width: Set Width of area for recognition. # noqa: E501
+        :param int rect_height: Set Height of area for recognition. # noqa: E501
+        :param bool strip_fnc: Value indicating whether FNC symbol strip must be done. # noqa: E501
+        :param int timeout: Timeout of recognition process. # noqa: E501
         :param int median_smoothing_window_size: Window size for median smoothing. Typical values are 3 or 4. Default value is 3. AllowMedianSmoothing must be set. # noqa: E501
         :param bool allow_median_smoothing: Allows engine to enable median smoothing as additional scan. Mode helps to recognize noised barcodes. # noqa: E501
         :param bool allow_complex_background: Allows engine to recognize color barcodes on color background as additional scan. Extremely slow mode. # noqa: E501
@@ -457,10 +456,10 @@ class BarcodeApi(object):
         :param bool allow_regular_image: Allows engine to recognize regular image without any restorations as main scan. Mode to recognize image as is. # noqa: E501
         :param bool allow_salt_and_pepper_filtering: Allows engine to recognize barcodes with salt and pepper noise type. Mode can remove small noise with white and black dots. # noqa: E501
         :param bool allow_white_spots_removing: Allows engine to recognize image without small white spots as additional scan. Mode helps to recognize noised image as well as median smoothing filtering. # noqa: E501
-        :param float region_likelihood_threshold_percent: Sets threshold for detected regions that may contain barcodes.  Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time. # noqa: E501
-        :param list[int] scan_window_sizes: Scan window sizes in pixels.  Allowed sizes are 10, 15, 20, 25, 30. Scanning with small window size takes more time and provides more accuracy but may fail in detecting very big barcodes. Combining of several window sizes can improve detection quality. # noqa: E501
-        :param float similarity: Similarity coefficient depends on how homogeneous barcodes are.  Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9] # noqa: E501
-        :param bool skip_diagonal_search: Allows detector to skip search for diagonal barcodes.  Setting it to false will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time. # noqa: E501
+        :param float region_likelihood_threshold_percent: Sets threshold for detected regions that may contain barcodes. Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time. # noqa: E501
+        :param list[int] scan_window_sizes: Scan window sizes in pixels. Allowed sizes are 10, 15, 20, 25, 30. Scanning with small window size takes more time and provides more accuracy but may fail in detecting very big barcodes. Combining of several window sizes can improve detection quality. # noqa: E501
+        :param float similarity: Similarity coefficient depends on how homogeneous barcodes are. Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9] # noqa: E501
+        :param bool skip_diagonal_search: Allows detector to skip search for diagonal barcodes. Setting it to false will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time. # noqa: E501
         :param str australian_post_encoding_table: Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. # noqa: E501
         :param str rectangle_region: # noqa: E501
         :param str storage: The image storage. # noqa: E501
@@ -550,7 +549,7 @@ class BarcodeApi(object):
             return data
 
     def get_barcode_recognize_with_http_info(self, name, **kwargs):
-        """Recognize barcode from a file on server. 
+        """Recognize barcode from a file on server.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -613,9 +612,9 @@ class BarcodeApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'name' is set
+        # verify the required parameter "name" is set
         if "name" not in params or params["name"] is None:
-            raise ValueError("Missing the required parameter `name` when calling `get_barcode_recognize`")
+            raise ValueError("Missing the required parameter 'name' when calling 'get_barcode_recognize'")
 
         collection_formats = {}
 
@@ -698,10 +697,10 @@ class BarcodeApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(["application/json"])
 
         # Authentication setting
@@ -763,23 +762,23 @@ class BarcodeApi(object):
         async_req=False,
         **kwargs
     ):
-        """Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image or encoded with base64. 
+        """Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image or encoded with base64.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = BarcodeApi().post_barcode_recognize_from_url_or_content(async_req=True)
         >>> result = thread.get()
 
-        :param str type: The type of barcode to read.  # noqa: E501
-        :param str checksum_validation: Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies  # noqa: E501
+        :param str type: The type of barcode to read. # noqa: E501
+        :param str checksum_validation: Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies # noqa: E501
         :param bool detect_encoding: A flag which force engine to detect codetext encoding for Unicode. # noqa: E501
         :param str preset: Preset allows to configure recognition quality and speed manually. You can quickly set up Preset by embedded presets: HighPerformance, NormalQuality, HighQuality, MaxBarCodes or you can manually configure separate options. Default value of Preset is NormalQuality. # noqa: E501
-        :param int rect_x: Set X for area for recognition.  # noqa: E501
-        :param int rect_y: Set Y for area for recognition.  # noqa: E501
-        :param int rect_width: Set Width of area for recognition.  # noqa: E501
-        :param int rect_height: Set Height of area for recognition.  # noqa: E501
-        :param bool strip_fnc: Value indicating whether FNC symbol strip must be done.  # noqa: E501
-        :param int timeout: Timeout of recognition process.  # noqa: E501
+        :param int rect_x: Set X for area for recognition. # noqa: E501
+        :param int rect_y: Set Y for area for recognition. # noqa: E501
+        :param int rect_width: Set Width of area for recognition. # noqa: E501
+        :param int rect_height: Set Height of area for recognition. # noqa: E501
+        :param bool strip_fnc: Value indicating whether FNC symbol strip must be done. # noqa: E501
+        :param int timeout: Timeout of recognition process. # noqa: E501
         :param int median_smoothing_window_size: Window size for median smoothing. Typical values are 3 or 4. Default value is 3. AllowMedianSmoothing must be set. # noqa: E501
         :param bool allow_median_smoothing: Allows engine to enable median smoothing as additional scan. Mode helps to recognize noised barcodes. # noqa: E501
         :param bool allow_complex_background: Allows engine to recognize color barcodes on color background as additional scan. Extremely slow mode. # noqa: E501
@@ -795,10 +794,10 @@ class BarcodeApi(object):
         :param bool allow_regular_image: Allows engine to recognize regular image without any restorations as main scan. Mode to recognize image as is. # noqa: E501
         :param bool allow_salt_and_pepper_filtering: Allows engine to recognize barcodes with salt and pepper noise type. Mode can remove small noise with white and black dots. # noqa: E501
         :param bool allow_white_spots_removing: Allows engine to recognize image without small white spots as additional scan. Mode helps to recognize noised image as well as median smoothing filtering. # noqa: E501
-        :param float region_likelihood_threshold_percent: Sets threshold for detected regions that may contain barcodes.  Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time. # noqa: E501
-        :param list[int] scan_window_sizes: Scan window sizes in pixels.  Allowed sizes are 10, 15, 20, 25, 30. Scanning with small window size takes more time and provides more accuracy but may fail in detecting very big barcodes. Combining of several window sizes can improve detection quality. # noqa: E501
-        :param float similarity: Similarity coefficient depends on how homogeneous barcodes are.  Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9] # noqa: E501
-        :param bool skip_diagonal_search: Allows detector to skip search for diagonal barcodes.  Setting it to false will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time. # noqa: E501
+        :param float region_likelihood_threshold_percent: Sets threshold for detected regions that may contain barcodes. Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time. # noqa: E501
+        :param list[int] scan_window_sizes: Scan window sizes in pixels. Allowed sizes are 10, 15, 20, 25, 30. Scanning with small window size takes more time and provides more accuracy but may fail in detecting very big barcodes. Combining of several window sizes can improve detection quality. # noqa: E501
+        :param float similarity: Similarity coefficient depends on how homogeneous barcodes are. Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9] # noqa: E501
+        :param bool skip_diagonal_search: Allows detector to skip search for diagonal barcodes. Setting it to false will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time. # noqa: E501
         :param str australian_post_encoding_table: Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. # noqa: E501
         :param str rectangle_region: # noqa: E501
         :param str url: The image file url. # noqa: E501
@@ -886,7 +885,7 @@ class BarcodeApi(object):
             return data
 
     def post_barcode_recognize_from_url_or_content_with_http_info(self, **kwargs):
-        """Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image or encoded with base64. 
+        """Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image or encoded with base64.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1030,11 +1029,13 @@ class BarcodeApi(object):
             local_var_files["image"] = params["image"]
 
         body_params = None
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
-        # HTTP header `Content-Type`
-        header_params["Content-Type"] = self.api_client.select_header_content_type(["application/octet-stream"])
+        # HTTP header "Content-Type"
+        header_params["Content-Type"] = self.api_client.select_header_content_type(
+            ["application/octet-stream", "multipart/form-data"]
+        )
 
         # Authentication setting
         auth_settings = ["JWT"]
@@ -1058,7 +1059,7 @@ class BarcodeApi(object):
         )
 
     def post_generate_multiple(self, generator_params_list, format="png", async_req=False, **kwargs):
-        """Generate multiple barcodes and return in response stream 
+        """Generate multiple barcodes and return in response stream
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1080,7 +1081,7 @@ class BarcodeApi(object):
             return data
 
     def post_generate_multiple_with_http_info(self, generator_params_list, **kwargs):
-        """Generate multiple barcodes and return in response stream 
+        """Generate multiple barcodes and return in response stream
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1108,10 +1109,10 @@ class BarcodeApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'generator_params_list' is set
+        # verify the required parameter "generator_params_list" is set
         if "generator_params_list" not in params or params["generator_params_list"] is None:
             raise ValueError(
-                "Missing the required parameter `generator_params_list` when calling `post_generate_multiple`"
+                "Missing the required parameter 'generator_params_list' when calling 'post_generate_multiple'"
             )
 
         collection_formats = {}
@@ -1130,12 +1131,12 @@ class BarcodeApi(object):
         body_params = None
         if "generator_params_list" in params:
             body_params = params["generator_params_list"]
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(
             ["image/png", "image/bmp", "image/gif", "image/jpeg", "image/svg+xml", "image/tiff"]
         )
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(
             ["application/json", "application/xml"]
         )
@@ -1202,7 +1203,7 @@ class BarcodeApi(object):
         async_req=False,
         **kwargs
     ):
-        """Generate barcode and save on server (from query params or from file with json or xml content) 
+        """Generate barcode and save on server (from query params or from file with json or xml content)
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1210,23 +1211,23 @@ class BarcodeApi(object):
         >>> result = thread.get()
 
         :param str name: The image file name. # noqa: E501
-        :param str type: Type of barcode to generate.  # noqa: E501
-        :param str text: Text to encode.  # noqa: E501
+        :param str type: Type of barcode to generate. # noqa: E501
+        :param str text: Text to encode. # noqa: E501
         :param str two_d_display_text: Text that will be displayed instead of codetext in 2D barcodes. Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode # noqa: E501
         :param str text_location: Specify the displaying Text Location, set to CodeLocation.None to hide CodeText. Default value: CodeLocation.Below. # noqa: E501
-        :param str text_alignment: Text alignment.  # noqa: E501
+        :param str text_alignment: Text alignment. # noqa: E501
         :param str text_color: Specify the displaying CodeText's Color. Default value: Color.Black. # noqa: E501
         :param str font_size_mode: Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto. # noqa: E501
         :param float resolution: Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. # noqa: E501
-        :param float resolution_x: DEPRECATED: Use 'Resolution' instead.  # noqa: E501
-        :param float resolution_y: DEPRECATED: Use 'Resolution' instead.  # noqa: E501
+        :param float resolution_x: DEPRECATED: Use 'Resolution' instead. # noqa: E501
+        :param float resolution_y: DEPRECATED: Use 'Resolution' instead. # noqa: E501
         :param float dimension_x: The smallest width of the unit of BarCode bars or spaces. Increase this will increase the whole barcode image width. Ignored if AutoSizeMode property is set to AutoSizeMode.Nearest or AutoSizeMode.Interpolation. # noqa: E501
         :param float text_space: Space between the CodeText and the BarCode in Unit value. Default value: 2pt. Ignored for EAN8, EAN13, UPCE, UPCA, ISBN, ISMN, ISSN, UpcaGs1DatabarCoupon. # noqa: E501
-        :param str units: Common Units for all measuring in query. Default units: pixel.  # noqa: E501
+        :param str units: Common Units for all measuring in query. Default units: pixel. # noqa: E501
         :param str size_mode: Specifies the different types of automatic sizing modes. Default value: AutoSizeMode.None. # noqa: E501
-        :param float bar_height: Height of the barcode in given units. Default units: pixel.  # noqa: E501
-        :param float image_height: Height of the barcode image in given units. Default units: pixel.  # noqa: E501
-        :param float image_width: Width of the barcode image in given units. Default units: pixel.  # noqa: E501
+        :param float bar_height: Height of the barcode in given units. Default units: pixel. # noqa: E501
+        :param float image_height: Height of the barcode image in given units. Default units: pixel. # noqa: E501
+        :param float image_width: Width of the barcode image in given units. Default units: pixel. # noqa: E501
         :param float rotation_angle: BarCode image rotation angle, measured in degree, e.g. RotationAngle = 0 or RotationAngle = 360 means no rotation. If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image. Default value: 0. # noqa: E501
         :param str back_color: Background color of the barcode image. Default value: Color.White. # noqa: E501
         :param str bar_color: Bars color. Default value: Color.Black. # noqa: E501
@@ -1234,10 +1235,10 @@ class BarcodeApi(object):
         :param float border_width: Border width. Default value: 0. Ignored if Visible is set to false. # noqa: E501
         :param str border_dash_style: Border dash style. Default value: BorderDashStyle.Solid. # noqa: E501
         :param bool border_visible: Border visibility. If false than parameter Width is always ignored (0). Default value: false. # noqa: E501
-        :param str enable_checksum: Enable checksum during generation 1D barcodes. Default is treated as Yes for symbology which must contain checksum, as No where checksum only possible. Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN, Codabar Checksum always used: Rest symbology  # noqa: E501
+        :param str enable_checksum: Enable checksum during generation 1D barcodes. Default is treated as Yes for symbology which must contain checksum, as No where checksum only possible. Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN, Codabar Checksum always used: Rest symbology # noqa: E501
         :param bool enable_escape: Indicates whether explains the character \"\\\" as an escape character in CodeText property. Used for Pdf417, DataMatrix, Code128 only If the EnableEscape is true, \"\\\" will be explained as a special escape character. Otherwise, \"\\\" acts as normal characters. Aspose.BarCode supports input decimal ascii code and mnemonic for ASCII control-code characters. For example, \\013 and \\\\CR stands for CR. # noqa: E501
         :param bool filled_bars: Value indicating whether bars are filled. Only for 1D barcodes. Default value: true. # noqa: E501
-        :param bool always_show_checksum: Always display checksum digit in the human readable text for Code128 and GS1Code128 barcodes.  # noqa: E501
+        :param bool always_show_checksum: Always display checksum digit in the human readable text for Code128 and GS1Code128 barcodes. # noqa: E501
         :param float wide_narrow_ratio: Wide bars to Narrow bars ratio. Default value: 3, that is, wide bars are 3 times as wide as narrow bars. Used for ITF, PZN, PharmaCode, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, IATA2of5, VIN, DeutschePost, OPC, Code32, DataLogic2of5, PatchCode, Code39Extended, Code39Standard # noqa: E501
         :param bool validate_text: Only for 1D barcodes. If codetext is incorrect and value set to true - exception will be thrown. Otherwise codetext will be corrected to match barcode's specification. Exception always will be thrown for: Databar symbology if codetext is incorrect. Exception always will not be thrown for: AustraliaPost, SingaporePost, Code39Extended, Code93Extended, Code16K, Code128 symbology if codetext is incorrect. # noqa: E501
         :param str supplement_data: Supplement parameters. Used for Interleaved2of5, Standard2of5, EAN13, EAN8, UPCA, UPCE, ISBN, ISSN, ISMN. # noqa: E501
@@ -1334,7 +1335,7 @@ class BarcodeApi(object):
             return data
 
     def put_barcode_generate_file_with_http_info(self, name, type, text, **kwargs):
-        """Generate barcode and save on server (from query params or from file with json or xml content) 
+        """Generate barcode and save on server (from query params or from file with json or xml content)
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1342,8 +1343,8 @@ class BarcodeApi(object):
         >>> result = thread.get()
 
         :param str name: The image file name. # noqa: E501
-        :param str type: Type of barcode to generate.  # noqa: E501
-        :param str text: Text to encode.  # noqa: E501
+        :param str type: Type of barcode to generate. # noqa: E501
+        :param str text: Text to encode. # noqa: E501
         :return: ResultImageInfo
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1401,15 +1402,15 @@ class BarcodeApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'name' is set
+        # verify the required parameter "name" is set
         if "name" not in params or params["name"] is None:
-            raise ValueError("Missing the required parameter `name` when calling `put_barcode_generate_file`")
-        # verify the required parameter 'type' is set
+            raise ValueError("Missing the required parameter 'name' when calling 'put_barcode_generate_file'")
+        # verify the required parameter "type" is set
         if "type" not in params or params["type"] is None:
-            raise ValueError("Missing the required parameter `type` when calling `put_barcode_generate_file`")
-        # verify the required parameter 'text' is set
+            raise ValueError("Missing the required parameter 'type' when calling 'put_barcode_generate_file'")
+        # verify the required parameter "text" is set
         if "text" not in params or params["text"] is None:
-            raise ValueError("Missing the required parameter `text` when calling `put_barcode_generate_file`")
+            raise ValueError("Missing the required parameter 'text' when calling 'put_barcode_generate_file'")
 
         collection_formats = {}
 
@@ -1495,12 +1496,12 @@ class BarcodeApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(
-            ["application/json", "application/xml"]
+            ["application/json", "application/xml", "multipart/form-data"]
         )
 
         # Authentication setting
@@ -1527,7 +1528,7 @@ class BarcodeApi(object):
     def put_barcode_recognize_from_body(
         self, name, reader_params, type=None, storage=None, folder=None, async_req=False, **kwargs
     ):
-        """Recognition of a barcode from file on server with parameters in body. 
+        """Recognition of a barcode from file on server with parameters in body.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1556,7 +1557,7 @@ class BarcodeApi(object):
             return data
 
     def put_barcode_recognize_from_body_with_http_info(self, name, reader_params, **kwargs):
-        """Recognition of a barcode from file on server with parameters in body. 
+        """Recognition of a barcode from file on server with parameters in body.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1587,13 +1588,13 @@ class BarcodeApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'name' is set
+        # verify the required parameter "name" is set
         if "name" not in params or params["name"] is None:
-            raise ValueError("Missing the required parameter `name` when calling `put_barcode_recognize_from_body`")
-        # verify the required parameter 'reader_params' is set
+            raise ValueError("Missing the required parameter 'name' when calling 'put_barcode_recognize_from_body'")
+        # verify the required parameter "reader_params" is set
         if "reader_params" not in params or params["reader_params"] is None:
             raise ValueError(
-                "Missing the required parameter `reader_params` when calling `put_barcode_recognize_from_body`"
+                "Missing the required parameter 'reader_params' when calling 'put_barcode_recognize_from_body'"
             )
 
         collection_formats = {}
@@ -1618,10 +1619,10 @@ class BarcodeApi(object):
         body_params = None
         if "reader_params" in params:
             body_params = params["reader_params"]
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(["application/json"])
 
         # Authentication setting
@@ -1648,7 +1649,7 @@ class BarcodeApi(object):
     def put_generate_multiple(
         self, name, generator_params_list, format="png", folder=None, storage=None, async_req=False, **kwargs
     ):
-        """Generate image with multiple barcodes and put new file on server 
+        """Generate image with multiple barcodes and put new file on server
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1677,7 +1678,7 @@ class BarcodeApi(object):
             return data
 
     def put_generate_multiple_with_http_info(self, name, generator_params_list, **kwargs):
-        """Generate image with multiple barcodes and put new file on server 
+        """Generate image with multiple barcodes and put new file on server
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1706,13 +1707,13 @@ class BarcodeApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'name' is set
+        # verify the required parameter "name" is set
         if "name" not in params or params["name"] is None:
-            raise ValueError("Missing the required parameter `name` when calling `put_generate_multiple`")
-        # verify the required parameter 'generator_params_list' is set
+            raise ValueError("Missing the required parameter 'name' when calling 'put_generate_multiple'")
+        # verify the required parameter "generator_params_list" is set
         if "generator_params_list" not in params or params["generator_params_list"] is None:
             raise ValueError(
-                "Missing the required parameter `generator_params_list` when calling `put_generate_multiple`"
+                "Missing the required parameter 'generator_params_list' when calling 'put_generate_multiple'"
             )
 
         collection_formats = {}
@@ -1737,10 +1738,10 @@ class BarcodeApi(object):
         body_params = None
         if "generator_params_list" in params:
             body_params = params["generator_params_list"]
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(
             ["application/json", "application/xml"]
         )

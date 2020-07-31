@@ -18,14 +18,14 @@ Copy folder
 
 ### Example
 ```python
-from __future__ import print_function
+from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: JWT
-configuration = aspose_barcode_cloud.Configuration(access_token='YOUR_ACCESS_TOKEN')
+configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOKEN")
 
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.FolderApi(aspose_barcode_cloud.ApiClient(configuration))
@@ -72,14 +72,14 @@ Create the folder
 
 ### Example
 ```python
-from __future__ import print_function
+from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: JWT
-configuration = aspose_barcode_cloud.Configuration(access_token='YOUR_ACCESS_TOKEN')
+configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOKEN")
 
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.FolderApi(aspose_barcode_cloud.ApiClient(configuration))
@@ -122,20 +122,20 @@ Delete folder
 
 ### Example
 ```python
-from __future__ import print_function
+from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: JWT
-configuration = aspose_barcode_cloud.Configuration(access_token='YOUR_ACCESS_TOKEN')
+configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOKEN")
 
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.FolderApi(aspose_barcode_cloud.ApiClient(configuration))
 path = 'path_example' # str | Folder path e.g. '/folder'
 storage_name = 'storage_name_example' # str | Storage name (optional)
-recursive = false # bool | Enable to delete folders, subfolders and files (optional) (default to false)
+recursive = False # bool | Enable to delete folders, subfolders and files (optional) (default to False)
 
 try:
     # Delete folder
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **str**| Folder path e.g. &#39;/folder&#39; | 
  **storage_name** | **str**| Storage name | [optional] 
- **recursive** | **bool**| Enable to delete folders, subfolders and files | [optional] [default to false]
+ **recursive** | **bool**| Enable to delete folders, subfolders and files | [optional] [default to False]
 
 ### Return type
 
@@ -174,14 +174,14 @@ Get all files and folders within a folder
 
 ### Example
 ```python
-from __future__ import print_function
+from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: JWT
-configuration = aspose_barcode_cloud.Configuration(access_token='YOUR_ACCESS_TOKEN')
+configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOKEN")
 
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.FolderApi(aspose_barcode_cloud.ApiClient(configuration))
@@ -225,14 +225,14 @@ Move folder
 
 ### Example
 ```python
-from __future__ import print_function
+from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: JWT
-configuration = aspose_barcode_cloud.Configuration(access_token='YOUR_ACCESS_TOKEN')
+configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOKEN")
 
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.FolderApi(aspose_barcode_cloud.ApiClient(configuration))

@@ -29,7 +29,7 @@ import os
 from setuptools import setup, find_packages
 
 NAME = "aspose-barcode-cloud"
-VERSION = "20.6.0"
+VERSION = "20.8.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -46,36 +46,36 @@ REQUIRES = [
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-with open(os.path.join(here, 'README.md'), 'rt') as f:
+with open(os.path.join(here, "README.md"), "rt") as f:
     long_description = f.read()
 
 setup(
     name=NAME,
     version=VERSION,
     description="Aspose.Barcode Cloud API Reference",
-    author='Aspose Barcode Cloud',
+    author="Aspose Barcode Cloud",
     url="https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-python",
-    license='MIT',
+    license="MIT",
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
-        'Intended Audience :: Developers',
-        'Topic :: Software Development',
-        'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 3',
+        "Development Status :: 5 - Production/Stable",
+        "Intended Audience :: Developers",
+        "Topic :: Software Development",
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 2",
+        "Programming Language :: Python :: 3",
     ],
     keywords=["Aspose", "Barcode", "Cloud"],
     install_requires=REQUIRES,
-    packages=find_packages(exclude=['tests']),
+    packages=find_packages(exclude=["tests"]),
     long_description=long_description,
     long_description_content_type="text/markdown",
     project_urls={
-        'Source With Tests': 'https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-python',
-        'Website': 'https://www.aspose.cloud',
-        'Product Home': 'https://products.aspose.cloud/barcode/cloud',
-        'Documentation': 'https://docs.aspose.cloud/display/barcodecloud/Home',
-        'Free Support Forum': 'https://forum.aspose.cloud/c/barcode',
-        'Paid Support Helpdesk': 'https://helpdesk.aspose.cloud/',
-        'Blog': 'https://blog.aspose.cloud/category/barcode/',
+        "Source With Tests": "https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-python",
+        "Website": "https://www.aspose.cloud",
+        "Product Home": "https://products.aspose.cloud/barcode/cloud",
+        "Documentation": "https://docs.aspose.cloud/display/barcodecloud/Home",
+        "Free Support Forum": "https://forum.aspose.cloud/c/barcode",
+        "Paid Support Helpdesk": "https://helpdesk.aspose.cloud/",
+        "Blog": "https://blog.aspose.cloud/category/barcode/",
     },
 )

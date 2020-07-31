@@ -24,7 +24,7 @@
 
 """
 
-from __future__ import absolute_import
+from __future__ import absolute_import, division
 
 import copy
 import json
@@ -124,7 +124,7 @@ class Configuration(object):
         # Proxy URL
         self.proxy = None
         # Safe chars for path_param
-        self.safe_chars_for_path_param = ""
+        self.safe_chars_for_path_param = "/"
 
     @property
     def access_token(self):
@@ -135,7 +135,7 @@ class Configuration(object):
             self._access_token = self.fetch_token(self._app_sid, self._app_key, self._token_url)
             return self._access_token
 
-        raise ValueError("No access token or app_sid and app_key specified")
+        raise ValueError("No access_token or app_sid and app_key specified")
 
     @property
     def token_url(self):
@@ -285,20 +285,11 @@ class Configuration(object):
             "OS: {env}\n"
             "Python Version: {pyversion}\n"
             "Version of the API: 3.0\n"
-            "SDK Package Version: 20.6.0".format(env=sys.platform, pyversion=sys.version)
+            "SDK Package Version: 20.8.0".format(env=sys.platform, pyversion=sys.version)
         )
-
-    @classmethod
-    def from_file(cls, filename):
-        with open(filename, "rb") as json_file:
-            js = json.load(json_file)
-
-        return Configuration(**js)
 
     @staticmethod
     def fetch_token(app_sid, app_key, token_url):
-        from aspose_barcode_cloud import ApiClient
-
         client = RESTClientObject(Configuration(app_sid=app_sid, app_key=app_key, token_url=token_url))
         response = client.POST(
             token_url,

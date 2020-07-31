@@ -24,8 +24,7 @@
 
 """
 
-
-from __future__ import absolute_import
+from __future__ import absolute_import, division
 
 import re  # noqa: F401
 
@@ -125,12 +124,12 @@ class FileApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'src_path' is set
+        # verify the required parameter "src_path" is set
         if "src_path" not in params or params["src_path"] is None:
-            raise ValueError("Missing the required parameter `src_path` when calling `copy_file`")
-        # verify the required parameter 'dest_path' is set
+            raise ValueError("Missing the required parameter 'src_path' when calling 'copy_file'")
+        # verify the required parameter "dest_path" is set
         if "dest_path" not in params or params["dest_path"] is None:
-            raise ValueError("Missing the required parameter `dest_path` when calling `copy_file`")
+            raise ValueError("Missing the required parameter 'dest_path' when calling 'copy_file'")
 
         collection_formats = {}
 
@@ -154,10 +153,10 @@ class FileApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(["application/json"])
 
         # Authentication setting
@@ -233,9 +232,9 @@ class FileApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'path' is set
+        # verify the required parameter "path" is set
         if "path" not in params or params["path"] is None:
-            raise ValueError("Missing the required parameter `path` when calling `delete_file`")
+            raise ValueError("Missing the required parameter 'path' when calling 'delete_file'")
 
         collection_formats = {}
 
@@ -255,10 +254,10 @@ class FileApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(["application/json"])
 
         # Authentication setting
@@ -334,9 +333,9 @@ class FileApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'path' is set
+        # verify the required parameter "path" is set
         if "path" not in params or params["path"] is None:
-            raise ValueError("Missing the required parameter `path` when calling `download_file`")
+            raise ValueError("Missing the required parameter 'path' when calling 'download_file'")
 
         collection_formats = {}
 
@@ -356,10 +355,10 @@ class FileApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["multipart/form-data"])
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(["application/json"])
 
         # Authentication setting
@@ -461,12 +460,12 @@ class FileApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'src_path' is set
+        # verify the required parameter "src_path" is set
         if "src_path" not in params or params["src_path"] is None:
-            raise ValueError("Missing the required parameter `src_path` when calling `move_file`")
-        # verify the required parameter 'dest_path' is set
+            raise ValueError("Missing the required parameter 'src_path' when calling 'move_file'")
+        # verify the required parameter "dest_path" is set
         if "dest_path" not in params or params["dest_path"] is None:
-            raise ValueError("Missing the required parameter `dest_path` when calling `move_file`")
+            raise ValueError("Missing the required parameter 'dest_path' when calling 'move_file'")
 
         collection_formats = {}
 
@@ -490,10 +489,10 @@ class FileApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(["application/json"])
 
         # Authentication setting
@@ -525,7 +524,7 @@ class FileApi(object):
         >>> thread = FileApi().upload_file(path, file, async_req=True)
         >>> result = thread.get()
 
-        :param str path: Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.  # noqa: E501
+        :param str path: Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext  If the content is multipart and path does not contains the file name it tries to get them from filename parameter  from Content-Disposition header. # noqa: E501
         :param file file: File to upload # noqa: E501
         :param str storage_name: Storage name # noqa: E501
         :param async_req bool
@@ -548,7 +547,7 @@ class FileApi(object):
         >>> thread = FileApi().upload_file_with_http_info(path, file, async_req=True)
         >>> result = thread.get()
 
-        :param str path: Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.  # noqa: E501
+        :param str path: Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext  If the content is multipart and path does not contains the file name it tries to get them from filename parameter  from Content-Disposition header. # noqa: E501
         :param file file: File to upload # noqa: E501
         :return: FilesUploadResult
                  If the method is called asynchronously,
@@ -570,12 +569,12 @@ class FileApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'path' is set
+        # verify the required parameter "path" is set
         if "path" not in params or params["path"] is None:
-            raise ValueError("Missing the required parameter `path` when calling `upload_file`")
-        # verify the required parameter 'file' is set
+            raise ValueError("Missing the required parameter 'path' when calling 'upload_file'")
+        # verify the required parameter "file" is set
         if "file" not in params or params["file"] is None:
-            raise ValueError("Missing the required parameter `file` when calling `upload_file`")
+            raise ValueError("Missing the required parameter 'file' when calling 'upload_file'")
 
         collection_formats = {}
 
@@ -595,10 +594,10 @@ class FileApi(object):
             local_var_files["File"] = params["file"]
 
         body_params = None
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(["multipart/form-data"])
 
         # Authentication setting

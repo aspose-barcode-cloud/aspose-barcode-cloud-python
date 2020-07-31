@@ -17,14 +17,14 @@ Get disc usage
 
 ### Example
 ```python
-from __future__ import print_function
+from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: JWT
-configuration = aspose_barcode_cloud.Configuration(access_token='YOUR_ACCESS_TOKEN')
+configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOKEN")
 
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.StorageApi(aspose_barcode_cloud.ApiClient(configuration))
@@ -66,14 +66,14 @@ Get file versions
 
 ### Example
 ```python
-from __future__ import print_function
+from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: JWT
-configuration = aspose_barcode_cloud.Configuration(access_token='YOUR_ACCESS_TOKEN')
+configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOKEN")
 
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.StorageApi(aspose_barcode_cloud.ApiClient(configuration))
@@ -117,14 +117,14 @@ Check if file or folder exists
 
 ### Example
 ```python
-from __future__ import print_function
+from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: JWT
-configuration = aspose_barcode_cloud.Configuration(access_token='YOUR_ACCESS_TOKEN')
+configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOKEN")
 
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.StorageApi(aspose_barcode_cloud.ApiClient(configuration))
@@ -170,14 +170,14 @@ Check if storage exists
 
 ### Example
 ```python
-from __future__ import print_function
+from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: JWT
-configuration = aspose_barcode_cloud.Configuration(access_token='YOUR_ACCESS_TOKEN')
+configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOKEN")
 
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.StorageApi(aspose_barcode_cloud.ApiClient(configuration))

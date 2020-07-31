@@ -46,6 +46,8 @@ class DataMatrixEncodeMode(object):
     CUSTOM = "Custom"
     C40 = "C40"
     TEXT = "Text"
+    EDIFACT = "EDIFACT"
+    ANSIX12 = "ANSIX12"
 
     """
     Attributes:

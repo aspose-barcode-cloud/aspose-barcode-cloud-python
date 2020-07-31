@@ -1,7 +1,7 @@
 # Aspose.BarCode Cloud SDK for Python
 
 - API version: 3.0
-- Package version: 20.6.0
+- Package version: 20.8.0
 
 [Aspose.BarCode for Cloud](https://products.aspose.cloud/barcode/cloud) is a REST API for Linear, 2D and postal barcode generation and recognition in the cloud. API recognizes and generates barcode images in a variety of formats. Barcode REST API allows to specify barcode image attributes like image width, height, border style and output image format in order to customize the generation process. Developers can also specify the barcode type and text attributes such as text location and font styles in order to suit the application requirements.
 
@@ -43,7 +43,7 @@ import aspose_barcode_cloud
 The examples below show how you can generate and recognize Code128 barcode and save it into local file using aspose-barcode-cloud:
 
 ```python
-from __future__ import print_function
+from __future__ import division, print_function
 
 from pprint import pprint
 
@@ -64,7 +64,7 @@ text = 'text_example'  # str | Text to encode.
 try:
     # Generate barcode.
     response = api.get_barcode_generate(type, text)
-    with open('example.png', 'wb') as f:
+    with open("example.png", "wb") as f:
         f.write(response.data)
     print("Barcode saved to file 'example.png'")
 except ApiException as e:
@@ -72,7 +72,7 @@ except ApiException as e:
 
 
 # Recognize barcode
-response = api.post_barcode_recognize_from_url_or_content(image='example.png',
+response = api.post_barcode_recognize_from_url_or_content(image="example.png",
                                                           preset=aspose_barcode_cloud.PresetType.HIGHPERFORMANCE)
 pprint(response)
 ```
@@ -169,6 +169,8 @@ Class | Method | HTTP request | Description
 - [MaxiCodeParams](docs/MaxiCodeParams.md)
 - [ObjectExist](docs/ObjectExist.md)
 - [Padding](docs/Padding.md)
+- [PatchCodeParams](docs/PatchCodeParams.md)
+- [PatchFormat](docs/PatchFormat.md)
 - [Pdf417CompactionMode](docs/Pdf417CompactionMode.md)
 - [Pdf417ErrorLevel](docs/Pdf417ErrorLevel.md)
 - [Pdf417Params](docs/Pdf417Params.md)

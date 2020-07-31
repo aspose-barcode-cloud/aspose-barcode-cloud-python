@@ -24,8 +24,7 @@
 
 """
 
-
-from __future__ import absolute_import
+from __future__ import absolute_import, division
 
 import re  # noqa: F401
 
@@ -111,10 +110,10 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(["application/json"])
 
         # Authentication setting
@@ -189,9 +188,9 @@ class StorageApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'path' is set
+        # verify the required parameter "path" is set
         if "path" not in params or params["path"] is None:
-            raise ValueError("Missing the required parameter `path` when calling `get_file_versions`")
+            raise ValueError("Missing the required parameter 'path' when calling 'get_file_versions'")
 
         collection_formats = {}
 
@@ -209,10 +208,10 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(["application/json"])
 
         # Authentication setting
@@ -288,9 +287,9 @@ class StorageApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'path' is set
+        # verify the required parameter "path" is set
         if "path" not in params or params["path"] is None:
-            raise ValueError("Missing the required parameter `path` when calling `object_exists`")
+            raise ValueError("Missing the required parameter 'path' when calling 'object_exists'")
 
         collection_formats = {}
 
@@ -310,10 +309,10 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(["application/json"])
 
         # Authentication setting
@@ -387,9 +386,9 @@ class StorageApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'storage_name' is set
+        # verify the required parameter "storage_name" is set
         if "storage_name" not in params or params["storage_name"] is None:
-            raise ValueError("Missing the required parameter `storage_name` when calling `storage_exists`")
+            raise ValueError("Missing the required parameter 'storage_name' when calling 'storage_exists'")
 
         collection_formats = {}
 
@@ -405,10 +404,10 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
+        # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
-        # HTTP header `Content-Type`
+        # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(["application/json"])
 
         # Authentication setting
