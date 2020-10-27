@@ -272,7 +272,7 @@ class Configuration(object):
         :return: The Auth Settings information dict.
         """
         return {
-            "JWT": {"type": "oauth2", "in": "header", "key": "Authorization", "value": "Bearer " + self.access_token},
+            "JWT": {"type": "oauth2", "in": "header", "key": "Authorization", "value": "Bearer " + self.access_token}
         }
 
     def to_debug_report(self):
@@ -285,7 +285,7 @@ class Configuration(object):
             "OS: {env}\n"
             "Python Version: {pyversion}\n"
             "Version of the API: 3.0\n"
-            "SDK Package Version: 20.8.0".format(env=sys.platform, pyversion=sys.version)
+            "SDK Package Version: 20.10.0".format(env=sys.platform, pyversion=sys.version)
         )
 
     @staticmethod

@@ -74,6 +74,7 @@ class ReaderParams(object):
         "scan_window_sizes": "list[int]",
         "similarity": "float",
         "skip_diagonal_search": "bool",
+        "read_tiny_barcodes": "bool",
         "australian_post_encoding_table": "CustomerInformationInterpretingType",
     }
 
@@ -107,6 +108,7 @@ class ReaderParams(object):
         "scan_window_sizes": "ScanWindowSizes",
         "similarity": "Similarity",
         "skip_diagonal_search": "SkipDiagonalSearch",
+        "read_tiny_barcodes": "ReadTinyBarcodes",
         "australian_post_encoding_table": "AustralianPostEncodingTable",
     }
 
@@ -141,6 +143,7 @@ class ReaderParams(object):
         scan_window_sizes=None,
         similarity=None,
         skip_diagonal_search=None,
+        read_tiny_barcodes=None,
         australian_post_encoding_table=None,
     ):  # noqa: E501
         """ReaderParams - a model defined in Swagger"""  # noqa: E501
@@ -174,6 +177,7 @@ class ReaderParams(object):
         self._scan_window_sizes = None
         self._similarity = None
         self._skip_diagonal_search = None
+        self._read_tiny_barcodes = None
         self._australian_post_encoding_table = None
         self.discriminator = None
 
@@ -235,6 +239,8 @@ class ReaderParams(object):
             self.similarity = similarity
         if skip_diagonal_search is not None:
             self.skip_diagonal_search = skip_diagonal_search
+        if read_tiny_barcodes is not None:
+            self.read_tiny_barcodes = read_tiny_barcodes
         if australian_post_encoding_table is not None:
             self.australian_post_encoding_table = australian_post_encoding_table
 
@@ -904,6 +910,29 @@ class ReaderParams(object):
         """
 
         self._skip_diagonal_search = skip_diagonal_search
+
+    @property
+    def read_tiny_barcodes(self):
+        """Gets the read_tiny_barcodes of this ReaderParams.  # noqa: E501
+
+        Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False.  # noqa: E501
+
+        :return: The read_tiny_barcodes of this ReaderParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._read_tiny_barcodes
+
+    @read_tiny_barcodes.setter
+    def read_tiny_barcodes(self, read_tiny_barcodes):
+        """Sets the read_tiny_barcodes of this ReaderParams.
+
+        Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False.  # noqa: E501
+
+        :param read_tiny_barcodes: The read_tiny_barcodes of this ReaderParams.  # noqa: E501
+        :type: bool
+        """
+
+        self._read_tiny_barcodes = read_tiny_barcodes
 
     @property
     def australian_post_encoding_table(self):
