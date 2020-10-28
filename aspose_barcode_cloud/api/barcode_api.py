@@ -80,6 +80,7 @@ class BarcodeApi(object):
         validate_text=None,
         supplement_data=None,
         supplement_space=None,
+        bar_width_reduction=None,
         format=None,
         async_req=False,
         **kwargs
@@ -123,6 +124,7 @@ class BarcodeApi(object):
         :param bool validate_text: Only for 1D barcodes. If codetext is incorrect and value set to true - exception will be thrown. Otherwise codetext will be corrected to match barcode's specification. Exception always will be thrown for: Databar symbology if codetext is incorrect. Exception always will not be thrown for: AustraliaPost, SingaporePost, Code39Extended, Code93Extended, Code16K, Code128 symbology if codetext is incorrect. # noqa: E501
         :param str supplement_data: Supplement parameters. Used for Interleaved2of5, Standard2of5, EAN13, EAN8, UPCA, UPCE, ISBN, ISSN, ISMN. # noqa: E501
         :param float supplement_space: Space between main the BarCode and supplement BarCode. # noqa: E501
+        :param float bar_width_reduction: Bars reduction value that is used to compensate ink spread while printing. # noqa: E501
         :param str format: Result image format. # noqa: E501
         :param async_req bool
         :return: file
@@ -164,6 +166,7 @@ class BarcodeApi(object):
                 validate_text=validate_text,
                 supplement_data=supplement_data,
                 supplement_space=supplement_space,
+                bar_width_reduction=bar_width_reduction,
                 format=format,
                 **kwargs
             )
@@ -201,6 +204,7 @@ class BarcodeApi(object):
                 validate_text=validate_text,
                 supplement_data=supplement_data,
                 supplement_space=supplement_space,
+                bar_width_reduction=bar_width_reduction,
                 format=format,
                 **kwargs
             )
@@ -254,6 +258,7 @@ class BarcodeApi(object):
             "validate_text",
             "supplement_data",
             "supplement_space",
+            "bar_width_reduction",
             "format",
         }
         all_params.add("async_req")
@@ -346,6 +351,8 @@ class BarcodeApi(object):
             query_params.append(("SupplementData", params["supplement_data"]))
         if "supplement_space" in params:
             query_params.append(("SupplementSpace", params["supplement_space"]))
+        if "bar_width_reduction" in params:
+            query_params.append(("BarWidthReduction", params["bar_width_reduction"]))
         if "format" in params:
             query_params.append(("format", params["format"]))
 
@@ -416,6 +423,7 @@ class BarcodeApi(object):
         scan_window_sizes=None,
         similarity=None,
         skip_diagonal_search=None,
+        read_tiny_barcodes=None,
         australian_post_encoding_table=None,
         rectangle_region=None,
         storage=None,
@@ -460,6 +468,7 @@ class BarcodeApi(object):
         :param list[int] scan_window_sizes: Scan window sizes in pixels. Allowed sizes are 10, 15, 20, 25, 30. Scanning with small window size takes more time and provides more accuracy but may fail in detecting very big barcodes. Combining of several window sizes can improve detection quality. # noqa: E501
         :param float similarity: Similarity coefficient depends on how homogeneous barcodes are. Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9] # noqa: E501
         :param bool skip_diagonal_search: Allows detector to skip search for diagonal barcodes. Setting it to false will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time. # noqa: E501
+        :param bool read_tiny_barcodes: Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False. # noqa: E501
         :param str australian_post_encoding_table: Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. # noqa: E501
         :param str rectangle_region: # noqa: E501
         :param str storage: The image storage. # noqa: E501
@@ -502,6 +511,7 @@ class BarcodeApi(object):
                 scan_window_sizes=scan_window_sizes,
                 similarity=similarity,
                 skip_diagonal_search=skip_diagonal_search,
+                read_tiny_barcodes=read_tiny_barcodes,
                 australian_post_encoding_table=australian_post_encoding_table,
                 rectangle_region=rectangle_region,
                 storage=storage,
@@ -540,6 +550,7 @@ class BarcodeApi(object):
                 scan_window_sizes=scan_window_sizes,
                 similarity=similarity,
                 skip_diagonal_search=skip_diagonal_search,
+                read_tiny_barcodes=read_tiny_barcodes,
                 australian_post_encoding_table=australian_post_encoding_table,
                 rectangle_region=rectangle_region,
                 storage=storage,
@@ -593,6 +604,7 @@ class BarcodeApi(object):
             "scan_window_sizes",
             "similarity",
             "skip_diagonal_search",
+            "read_tiny_barcodes",
             "australian_post_encoding_table",
             "rectangle_region",
             "storage",
@@ -682,6 +694,8 @@ class BarcodeApi(object):
             query_params.append(("Similarity", params["similarity"]))
         if "skip_diagonal_search" in params:
             query_params.append(("SkipDiagonalSearch", params["skip_diagonal_search"]))
+        if "read_tiny_barcodes" in params:
+            query_params.append(("ReadTinyBarcodes", params["read_tiny_barcodes"]))
         if "australian_post_encoding_table" in params:
             query_params.append(("AustralianPostEncodingTable", params["australian_post_encoding_table"]))
         if "rectangle_region" in params:
@@ -755,6 +769,7 @@ class BarcodeApi(object):
         scan_window_sizes=None,
         similarity=None,
         skip_diagonal_search=None,
+        read_tiny_barcodes=None,
         australian_post_encoding_table=None,
         rectangle_region=None,
         url=None,
@@ -798,6 +813,7 @@ class BarcodeApi(object):
         :param list[int] scan_window_sizes: Scan window sizes in pixels. Allowed sizes are 10, 15, 20, 25, 30. Scanning with small window size takes more time and provides more accuracy but may fail in detecting very big barcodes. Combining of several window sizes can improve detection quality. # noqa: E501
         :param float similarity: Similarity coefficient depends on how homogeneous barcodes are. Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9] # noqa: E501
         :param bool skip_diagonal_search: Allows detector to skip search for diagonal barcodes. Setting it to false will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time. # noqa: E501
+        :param bool read_tiny_barcodes: Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False. # noqa: E501
         :param str australian_post_encoding_table: Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. # noqa: E501
         :param str rectangle_region: # noqa: E501
         :param str url: The image file url. # noqa: E501
@@ -839,6 +855,7 @@ class BarcodeApi(object):
                 scan_window_sizes=scan_window_sizes,
                 similarity=similarity,
                 skip_diagonal_search=skip_diagonal_search,
+                read_tiny_barcodes=read_tiny_barcodes,
                 australian_post_encoding_table=australian_post_encoding_table,
                 rectangle_region=rectangle_region,
                 url=url,
@@ -876,6 +893,7 @@ class BarcodeApi(object):
                 scan_window_sizes=scan_window_sizes,
                 similarity=similarity,
                 skip_diagonal_search=skip_diagonal_search,
+                read_tiny_barcodes=read_tiny_barcodes,
                 australian_post_encoding_table=australian_post_encoding_table,
                 rectangle_region=rectangle_region,
                 url=url,
@@ -927,6 +945,7 @@ class BarcodeApi(object):
             "scan_window_sizes",
             "similarity",
             "skip_diagonal_search",
+            "read_tiny_barcodes",
             "australian_post_encoding_table",
             "rectangle_region",
             "url",
@@ -1014,6 +1033,8 @@ class BarcodeApi(object):
             query_params.append(("Similarity", params["similarity"]))
         if "skip_diagonal_search" in params:
             query_params.append(("SkipDiagonalSearch", params["skip_diagonal_search"]))
+        if "read_tiny_barcodes" in params:
+            query_params.append(("ReadTinyBarcodes", params["read_tiny_barcodes"]))
         if "australian_post_encoding_table" in params:
             query_params.append(("AustralianPostEncodingTable", params["australian_post_encoding_table"]))
         if "rectangle_region" in params:
@@ -1034,7 +1055,7 @@ class BarcodeApi(object):
 
         # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(
-            ["application/octet-stream", "multipart/form-data"]
+            ["multipart/form-data", "application/octet-stream"]
         )
 
         # Authentication setting
@@ -1197,6 +1218,7 @@ class BarcodeApi(object):
         validate_text=None,
         supplement_data=None,
         supplement_space=None,
+        bar_width_reduction=None,
         storage=None,
         folder=None,
         format=None,
@@ -1243,6 +1265,7 @@ class BarcodeApi(object):
         :param bool validate_text: Only for 1D barcodes. If codetext is incorrect and value set to true - exception will be thrown. Otherwise codetext will be corrected to match barcode's specification. Exception always will be thrown for: Databar symbology if codetext is incorrect. Exception always will not be thrown for: AustraliaPost, SingaporePost, Code39Extended, Code93Extended, Code16K, Code128 symbology if codetext is incorrect. # noqa: E501
         :param str supplement_data: Supplement parameters. Used for Interleaved2of5, Standard2of5, EAN13, EAN8, UPCA, UPCE, ISBN, ISSN, ISMN. # noqa: E501
         :param float supplement_space: Space between main the BarCode and supplement BarCode. # noqa: E501
+        :param float bar_width_reduction: Bars reduction value that is used to compensate ink spread while printing. # noqa: E501
         :param str storage: Image's storage. # noqa: E501
         :param str folder: Image's folder. # noqa: E501
         :param str format: The image format. # noqa: E501
@@ -1287,6 +1310,7 @@ class BarcodeApi(object):
                 validate_text=validate_text,
                 supplement_data=supplement_data,
                 supplement_space=supplement_space,
+                bar_width_reduction=bar_width_reduction,
                 storage=storage,
                 folder=folder,
                 format=format,
@@ -1327,6 +1351,7 @@ class BarcodeApi(object):
                 validate_text=validate_text,
                 supplement_data=supplement_data,
                 supplement_space=supplement_space,
+                bar_width_reduction=bar_width_reduction,
                 storage=storage,
                 folder=folder,
                 format=format,
@@ -1384,6 +1409,7 @@ class BarcodeApi(object):
             "validate_text",
             "supplement_data",
             "supplement_space",
+            "bar_width_reduction",
             "storage",
             "folder",
             "format",
@@ -1483,6 +1509,8 @@ class BarcodeApi(object):
             query_params.append(("SupplementData", params["supplement_data"]))
         if "supplement_space" in params:
             query_params.append(("SupplementSpace", params["supplement_space"]))
+        if "bar_width_reduction" in params:
+            query_params.append(("BarWidthReduction", params["bar_width_reduction"]))
         if "storage" in params:
             query_params.append(("storage", params["storage"]))
         if "folder" in params:

@@ -40,6 +40,7 @@ class ECIEncodings(object):
     """
     allowed enum values
     """
+    NONE = "NONE"
     ISO_8859_1 = "ISO_8859_1"
     ISO_8859_2 = "ISO_8859_2"
     ISO_8859_3 = "ISO_8859_3"

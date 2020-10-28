@@ -81,6 +81,7 @@ class GeneratorParams(object):
         "validate_text": "bool",
         "supplement_data": "str",
         "supplement_space": "float",
+        "bar_width_reduction": "float",
         "australian_post": "AustralianPostParams",
         "aztec": "AztecParams",
         "codabar": "CodabarParams",
@@ -135,6 +136,7 @@ class GeneratorParams(object):
         "validate_text": "ValidateText",
         "supplement_data": "SupplementData",
         "supplement_space": "SupplementSpace",
+        "bar_width_reduction": "BarWidthReduction",
         "australian_post": "AustralianPost",
         "aztec": "Aztec",
         "codabar": "Codabar",
@@ -190,6 +192,7 @@ class GeneratorParams(object):
         validate_text=None,
         supplement_data=None,
         supplement_space=None,
+        bar_width_reduction=None,
         australian_post=None,
         aztec=None,
         codabar=None,
@@ -244,6 +247,7 @@ class GeneratorParams(object):
         self._validate_text = None
         self._supplement_data = None
         self._supplement_space = None
+        self._bar_width_reduction = None
         self._australian_post = None
         self._aztec = None
         self._codabar = None
@@ -331,6 +335,8 @@ class GeneratorParams(object):
             self.supplement_data = supplement_data
         if supplement_space is not None:
             self.supplement_space = supplement_space
+        if bar_width_reduction is not None:
+            self.bar_width_reduction = bar_width_reduction
         if australian_post is not None:
             self.australian_post = australian_post
         if aztec is not None:
@@ -1193,6 +1199,29 @@ class GeneratorParams(object):
         """
 
         self._supplement_space = supplement_space
+
+    @property
+    def bar_width_reduction(self):
+        """Gets the bar_width_reduction of this GeneratorParams.  # noqa: E501
+
+        Bars reduction value that is used to compensate ink spread while printing.  # noqa: E501
+
+        :return: The bar_width_reduction of this GeneratorParams.  # noqa: E501
+        :rtype: float
+        """
+        return self._bar_width_reduction
+
+    @bar_width_reduction.setter
+    def bar_width_reduction(self, bar_width_reduction):
+        """Sets the bar_width_reduction of this GeneratorParams.
+
+        Bars reduction value that is used to compensate ink spread while printing.  # noqa: E501
+
+        :param bar_width_reduction: The bar_width_reduction of this GeneratorParams.  # noqa: E501
+        :type: float
+        """
+
+        self._bar_width_reduction = bar_width_reduction
 
     @property
     def australian_post(self):

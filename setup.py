@@ -29,7 +29,7 @@ import os
 from setuptools import setup, find_packages
 
 NAME = "aspose-barcode-cloud"
-VERSION = "20.8.0"
+VERSION = "20.10.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -73,7 +73,7 @@ setup(
         "Source With Tests": "https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-python",
         "Website": "https://www.aspose.cloud",
         "Product Home": "https://products.aspose.cloud/barcode/cloud",
-        "Documentation": "https://docs.aspose.cloud/display/barcodecloud/Home",
+        "Documentation": "https://docs.aspose.cloud/barcode/",
         "Free Support Forum": "https://forum.aspose.cloud/c/barcode",
         "Paid Support Helpdesk": "https://helpdesk.aspose.cloud/",
         "Blog": "https://blog.aspose.cloud/category/barcode/",

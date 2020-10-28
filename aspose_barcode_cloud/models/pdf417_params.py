@@ -55,6 +55,8 @@ class Pdf417Params(object):
         "macro_segments_count": "int",
         "rows": "int",
         "truncate": "bool",
+        "pdf417_eci_encoding": "ECIEncodings",
+        "is_reader_initialization": "bool",
     }
 
     attribute_map = {
@@ -68,6 +70,8 @@ class Pdf417Params(object):
         "macro_segments_count": "MacroSegmentsCount",
         "rows": "Rows",
         "truncate": "Truncate",
+        "pdf417_eci_encoding": "Pdf417ECIEncoding",
+        "is_reader_initialization": "IsReaderInitialization",
     }
 
     def __init__(
@@ -82,6 +86,8 @@ class Pdf417Params(object):
         macro_segments_count=None,
         rows=None,
         truncate=None,
+        pdf417_eci_encoding=None,
+        is_reader_initialization=None,
     ):  # noqa: E501
         """Pdf417Params - a model defined in Swagger"""  # noqa: E501
 
@@ -95,6 +101,8 @@ class Pdf417Params(object):
         self._macro_segments_count = None
         self._rows = None
         self._truncate = None
+        self._pdf417_eci_encoding = None
+        self._is_reader_initialization = None
         self.discriminator = None
 
         if aspect_ratio is not None:
@@ -117,6 +125,10 @@ class Pdf417Params(object):
             self.rows = rows
         if truncate is not None:
             self.truncate = truncate
+        if pdf417_eci_encoding is not None:
+            self.pdf417_eci_encoding = pdf417_eci_encoding
+        if is_reader_initialization is not None:
+            self.is_reader_initialization = is_reader_initialization
 
     @property
     def aspect_ratio(self):
@@ -347,6 +359,52 @@ class Pdf417Params(object):
         """
 
         self._truncate = truncate
+
+    @property
+    def pdf417_eci_encoding(self):
+        """Gets the pdf417_eci_encoding of this Pdf417Params.  # noqa: E501
+
+        Extended Channel Interpretation Identifiers. It is used to tell the barcode reader details about the used references for encoding the data in the symbol. Current implementation consists all well known charset encodings.  # noqa: E501
+
+        :return: The pdf417_eci_encoding of this Pdf417Params.  # noqa: E501
+        :rtype: ECIEncodings
+        """
+        return self._pdf417_eci_encoding
+
+    @pdf417_eci_encoding.setter
+    def pdf417_eci_encoding(self, pdf417_eci_encoding):
+        """Sets the pdf417_eci_encoding of this Pdf417Params.
+
+        Extended Channel Interpretation Identifiers. It is used to tell the barcode reader details about the used references for encoding the data in the symbol. Current implementation consists all well known charset encodings.  # noqa: E501
+
+        :param pdf417_eci_encoding: The pdf417_eci_encoding of this Pdf417Params.  # noqa: E501
+        :type: ECIEncodings
+        """
+
+        self._pdf417_eci_encoding = pdf417_eci_encoding
+
+    @property
+    def is_reader_initialization(self):
+        """Gets the is_reader_initialization of this Pdf417Params.  # noqa: E501
+
+        Used to instruct the reader to interpret the data contained within the symbol as programming for reader initialization  # noqa: E501
+
+        :return: The is_reader_initialization of this Pdf417Params.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_reader_initialization
+
+    @is_reader_initialization.setter
+    def is_reader_initialization(self, is_reader_initialization):
+        """Sets the is_reader_initialization of this Pdf417Params.
+
+        Used to instruct the reader to interpret the data contained within the symbol as programming for reader initialization  # noqa: E501
+
+        :param is_reader_initialization: The is_reader_initialization of this Pdf417Params.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_reader_initialization = is_reader_initialization
 
     def to_dict(self):
         """Returns the model properties as a dict"""
