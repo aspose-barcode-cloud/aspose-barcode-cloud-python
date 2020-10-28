@@ -27,7 +27,7 @@ clean:
 
 .PHONY: dist
 dist: clean
-	python3 setup.py sdist bdist_wheel
+	python3 setup.py sdist bdist_wheel --universal
 
 .PHONY: check_git
 check_git:
