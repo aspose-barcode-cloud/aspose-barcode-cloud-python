@@ -6,20 +6,7 @@ from aspose_barcode_cloud import Configuration, ApiClient, BarcodeApi, EncodeBar
 from .load_configuration import TEST_CONFIGURATION
 
 
-@unittest.skipUnless(
-    TEST_CONFIGURATION._client_id and TEST_CONFIGURATION._client_secret, "No client_id and client_secret provided"
-)
 class TestAuth(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.api_client = ApiClient(TEST_CONFIGURATION)
-        cls.api = BarcodeApi(cls.api_client)
-
-    def test_access_token(self):
-        self.assertIsNone(TEST_CONFIGURATION._access_token)
-        token = TEST_CONFIGURATION.access_token
-        self.assertTrue(token, "Token=%s" % token)
-
     def test_access_token_raises(self):
         config = Configuration()
         with self.assertRaises(ValueError) as cm:
