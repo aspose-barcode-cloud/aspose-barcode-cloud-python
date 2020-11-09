@@ -6,8 +6,9 @@ from aspose_barcode_cloud import Configuration, ApiClient, BarcodeApi, EncodeBar
 from .load_configuration import TEST_CONFIGURATION
 
 
-@unittest.skipUnless(TEST_CONFIGURATION._client_id and TEST_CONFIGURATION._client_secret,
-                     "No client_id and client_secret provided")
+@unittest.skipUnless(
+    TEST_CONFIGURATION._client_id and TEST_CONFIGURATION._client_secret, "No client_id and client_secret provided"
+)
 class TestAuth(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
