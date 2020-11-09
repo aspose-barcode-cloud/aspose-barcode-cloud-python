@@ -51,7 +51,7 @@ class Configuration(object):
     def __init__(
         self,
         client_id=None,
-        app_key=None,
+        client_secret=None,
         access_token=None,
         host=None,
         token_url="https://api.aspose.cloud/connect/token",
@@ -82,7 +82,7 @@ class Configuration(object):
         # access token for OAuth
         self._access_token = access_token
         self._client_id = client_id
-        self._app_key = app_key
+        self._client_secret = client_secret
         self._token_url = token_url
 
         # Logging Settings
@@ -131,11 +131,11 @@ class Configuration(object):
         if self._access_token:
             return self._access_token
 
-        if self._client_id and self._app_key and self._token_url:
-            self._access_token = self.fetch_token(self._client_id, self._app_key, self._token_url)
+        if self._client_id and self._client_secret and self._token_url:
+            self._access_token = self.fetch_token(self._client_id, self._client_secret, self._token_url)
             return self._access_token
 
-        raise ValueError("No access_token or client_id and app_key specified")
+        raise ValueError("No access_token or client_id and client_secret specified")
 
     @property
     def token_url(self):
@@ -289,12 +289,12 @@ class Configuration(object):
         )
 
     @staticmethod
-    def fetch_token(client_id, app_key, token_url):
-        client = RESTClientObject(Configuration(client_id=client_id, app_key=app_key, token_url=token_url))
+    def fetch_token(client_id, client_secret, token_url):
+        client = RESTClientObject(Configuration(client_id=client_id, client_secret=client_secret, token_url=token_url))
         response = client.POST(
             token_url,
             headers={"Content-Type": "application/x-www-form-urlencoded"},
-            post_params={"grant_type": "client_credentials", "client_id": client_id, "client_secret": app_key},
+            post_params={"grant_type": "client_credentials", "client_id": client_id, "client_secret": client_secret},
         )
         js_data = json.loads(response.data)
         access_token = js_data["access_token"]

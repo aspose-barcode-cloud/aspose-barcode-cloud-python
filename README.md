@@ -12,7 +12,7 @@ Supported Python versions:
 - Python 2.7
 - Python 3.4+
 
-To use these SDKs, you will need Client Id and App Key which can be looked up at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/#/apps) (free registration in Aspose Cloud is required for this).
+To use these SDKs, you will need Client Id and Client Secret which can be looked up at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/#/apps) (free registration in Aspose Cloud is required for this).
 
 ## How to use the SDK
 
@@ -20,7 +20,7 @@ The complete source code is available in this repository folder. You can either 
 
 ## Prerequisites
 
-To use Aspose.BarCode Cloud SDK for Python you need to register an account with [Aspose Cloud](https://www.aspose.cloud/) and lookup/create App Key and Client Id at [Cloud Dashboard](https://dashboard.aspose.cloud/#/apps). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
+To use Aspose.BarCode Cloud SDK for Python you need to register an account with [Aspose Cloud](https://www.aspose.cloud/) and lookup/create Client Secret and Client Id at [Cloud Dashboard](https://dashboard.aspose.cloud/#/apps). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
 
 ## Installation
 
@@ -53,7 +53,7 @@ from aspose_barcode_cloud.rest import ApiException
 # Configure OAuth2 access token for authorization: JWT
 configuration = aspose_barcode_cloud.Configuration(
     client_id="Client Id from https://dashboard.aspose.cloud/#/apps",
-    app_key="App Key from https://dashboard.aspose.cloud/#/apps",
+    client_secret="Client Secret from https://dashboard.aspose.cloud/#/apps",
 )
 
 # create an instance of the API class
