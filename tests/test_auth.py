@@ -6,7 +6,7 @@ from aspose_barcode_cloud import Configuration, ApiClient, BarcodeApi, EncodeBar
 from .load_configuration import TEST_CONFIGURATION
 
 
-@unittest.skipUnless(TEST_CONFIGURATION._app_sid and TEST_CONFIGURATION._app_key, "No app_sid and app_key provided")
+@unittest.skipUnless(TEST_CONFIGURATION._client_id and TEST_CONFIGURATION._app_key, "No client_id and app_key provided")
 class TestAuth(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -23,7 +23,7 @@ class TestAuth(unittest.TestCase):
         with self.assertRaises(ValueError) as cm:
             _ = config.access_token
         the_exception = cm.exception
-        self.assertEqual("No access_token or app_sid and app_key specified", the_exception.args[0])
+        self.assertEqual("No access_token or client_id and app_key specified", the_exception.args[0])
 
     def test_works_with_access_token(self):
         api = BarcodeApi(
@@ -33,7 +33,7 @@ class TestAuth(unittest.TestCase):
         self.assertEqual(200, response.status)
 
     def test_unauthorized_raises(self):
-        api = BarcodeApi(ApiClient(Configuration(access_token="incorrect token")))
+        api = BarcodeApi(ApiClient(Configuration(access_token="incorrect token", host=TEST_CONFIGURATION.host)))
 
         with self.assertRaises(Exception) as context:
             api.get_barcode_generate(EncodeBarcodeType.QR, "Testing")
