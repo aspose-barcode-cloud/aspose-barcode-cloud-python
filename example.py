@@ -6,8 +6,8 @@ from pprint import pprint
 from aspose_barcode_cloud import BarcodeApi, ApiClient, Configuration, EncodeBarcodeType, PresetType
 
 config = Configuration(
-    app_sid="App SID from https://dashboard.aspose.cloud/#/apps",
-    app_key="App Key from https://dashboard.aspose.cloud/#/apps",
+    client_id="Client Id from https://dashboard.aspose.cloud/applications",
+    client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
     access_token=os.environ.get("TEST_ACCESS_TOKEN")  # Only for testing in CI, remove this line
 )
 

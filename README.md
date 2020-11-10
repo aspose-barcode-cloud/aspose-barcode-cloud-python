@@ -1,7 +1,7 @@
 # Aspose.BarCode Cloud SDK for Python
 
 - API version: 3.0
-- Package version: 20.10.0
+- Package version: 20.11.0
 
 [Aspose.BarCode for Cloud](https://products.aspose.cloud/barcode/cloud) is a REST API for Linear, 2D and postal barcode generation and recognition in the cloud. API recognizes and generates barcode images in a variety of formats. Barcode REST API allows to specify barcode image attributes like image width, height, border style and output image format in order to customize the generation process. Developers can also specify the barcode type and text attributes such as text location and font styles in order to suit the application requirements.
 
@@ -12,7 +12,7 @@ Supported Python versions:
 - Python 2.7
 - Python 3.4+
 
-To use these SDKs, you will need App SID and App Key which can be looked up at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/#/apps) (free registration in Aspose Cloud is required for this).
+To use these SDKs, you will need Client Id and Client Secret which can be looked up at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/applications) (free registration in Aspose Cloud is required for this).
 
 ## How to use the SDK
 
@@ -20,7 +20,7 @@ The complete source code is available in this repository folder. You can either 
 
 ## Prerequisites
 
-To use Aspose.BarCode Cloud SDK for Python you need to register an account with [Aspose Cloud](https://www.aspose.cloud/) and lookup/create App Key and SID at [Cloud Dashboard](https://dashboard.aspose.cloud/#/apps). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
+To use Aspose.BarCode Cloud SDK for Python you need to register an account with [Aspose Cloud](https://www.aspose.cloud/) and lookup/create Client Secret and Client Id at [Cloud Dashboard](https://dashboard.aspose.cloud/applications). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
 
 ## Installation
 
@@ -52,8 +52,8 @@ from aspose_barcode_cloud.rest import ApiException
 
 # Configure OAuth2 access token for authorization: JWT
 configuration = aspose_barcode_cloud.Configuration(
-    app_sid="App SID from https://dashboard.aspose.cloud/#/apps",
-    app_key="App Key from https://dashboard.aspose.cloud/#/apps",
+    client_id="Client Id from https://dashboard.aspose.cloud/applications",
+    client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
 )
 
 # create an instance of the API class

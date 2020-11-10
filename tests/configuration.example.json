@@ -1,7 +1,7 @@
 {
   "access_token": "JWT token",
-  "app_sid": "App SID from https://dashboard.aspose.cloud/#/apps",
-  "app_key": "App Key from https://dashboard.aspose.cloud/#/apps",
+  "client_id": "Client Id from https://dashboard.aspose.cloud/applications",
+  "client_secret": "Client Secret from https://dashboard.aspose.cloud/applications",
   "host": "https://api.aspose.cloud/v3.0",
   "token_url": "https://api.aspose.cloud/connect/token"
 }
