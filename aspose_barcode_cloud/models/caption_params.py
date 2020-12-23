@@ -51,6 +51,7 @@ class CaptionParams(object):
         "visible": "bool",
         "font": "FontParams",
         "padding": "Padding",
+        "no_wrap": "bool",
     }
 
     attribute_map = {
@@ -60,9 +61,12 @@ class CaptionParams(object):
         "visible": "Visible",
         "font": "Font",
         "padding": "Padding",
+        "no_wrap": "NoWrap",
     }
 
-    def __init__(self, text=None, alignment=None, color=None, visible=None, font=None, padding=None):  # noqa: E501
+    def __init__(
+        self, text=None, alignment=None, color=None, visible=None, font=None, padding=None, no_wrap=None
+    ):  # noqa: E501
         """CaptionParams - a model defined in Swagger"""  # noqa: E501
 
         self._text = None
@@ -71,6 +75,7 @@ class CaptionParams(object):
         self._visible = None
         self._font = None
         self._padding = None
+        self._no_wrap = None
         self.discriminator = None
 
         if text is not None:
@@ -85,6 +90,8 @@ class CaptionParams(object):
             self.font = font
         if padding is not None:
             self.padding = padding
+        if no_wrap is not None:
+            self.no_wrap = no_wrap
 
     @property
     def text(self):
@@ -223,6 +230,29 @@ class CaptionParams(object):
         """
 
         self._padding = padding
+
+    @property
+    def no_wrap(self):
+        """Gets the no_wrap of this CaptionParams.  # noqa: E501
+
+        Specify word wraps (line breaks) within text. Default value: false.  # noqa: E501
+
+        :return: The no_wrap of this CaptionParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._no_wrap
+
+    @no_wrap.setter
+    def no_wrap(self, no_wrap):
+        """Sets the no_wrap of this CaptionParams.
+
+        Specify word wraps (line breaks) within text. Default value: false.  # noqa: E501
+
+        :param no_wrap: The no_wrap of this CaptionParams.  # noqa: E501
+        :type: bool
+        """
+
+        self._no_wrap = no_wrap
 
     def to_dict(self):
         """Returns the model properties as a dict"""

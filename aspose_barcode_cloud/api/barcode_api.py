@@ -55,6 +55,7 @@ class BarcodeApi(object):
         text_alignment=None,
         text_color=None,
         font_size_mode=None,
+        no_wrap=None,
         resolution=None,
         resolution_x=None,
         resolution_y=None,
@@ -99,6 +100,7 @@ class BarcodeApi(object):
         :param str text_alignment: Text alignment. # noqa: E501
         :param str text_color: Specify the displaying CodeText's Color. Default value: Color.Black. # noqa: E501
         :param str font_size_mode: Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto. # noqa: E501
+        :param bool no_wrap: Specify word wraps (line breaks) within text. Default value: false. # noqa: E501
         :param float resolution: Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. # noqa: E501
         :param float resolution_x: DEPRECATED: Use 'Resolution' instead. # noqa: E501
         :param float resolution_y: DEPRECATED: Use 'Resolution' instead. # noqa: E501
@@ -141,6 +143,7 @@ class BarcodeApi(object):
                 text_alignment=text_alignment,
                 text_color=text_color,
                 font_size_mode=font_size_mode,
+                no_wrap=no_wrap,
                 resolution=resolution,
                 resolution_x=resolution_x,
                 resolution_y=resolution_y,
@@ -179,6 +182,7 @@ class BarcodeApi(object):
                 text_alignment=text_alignment,
                 text_color=text_color,
                 font_size_mode=font_size_mode,
+                no_wrap=no_wrap,
                 resolution=resolution,
                 resolution_x=resolution_x,
                 resolution_y=resolution_y,
@@ -233,6 +237,7 @@ class BarcodeApi(object):
             "text_alignment",
             "text_color",
             "font_size_mode",
+            "no_wrap",
             "resolution",
             "resolution_x",
             "resolution_y",
@@ -301,6 +306,8 @@ class BarcodeApi(object):
             query_params.append(("TextColor", params["text_color"]))
         if "font_size_mode" in params:
             query_params.append(("FontSizeMode", params["font_size_mode"]))
+        if "no_wrap" in params:
+            query_params.append(("NoWrap", params["no_wrap"]))
         if "resolution" in params:
             query_params.append(("Resolution", params["resolution"]))
         if "resolution_x" in params:
@@ -1193,6 +1200,7 @@ class BarcodeApi(object):
         text_alignment=None,
         text_color=None,
         font_size_mode=None,
+        no_wrap=None,
         resolution=None,
         resolution_x=None,
         resolution_y=None,
@@ -1240,6 +1248,7 @@ class BarcodeApi(object):
         :param str text_alignment: Text alignment. # noqa: E501
         :param str text_color: Specify the displaying CodeText's Color. Default value: Color.Black. # noqa: E501
         :param str font_size_mode: Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto. # noqa: E501
+        :param bool no_wrap: Specify word wraps (line breaks) within text. Default value: false. # noqa: E501
         :param float resolution: Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. # noqa: E501
         :param float resolution_x: DEPRECATED: Use 'Resolution' instead. # noqa: E501
         :param float resolution_y: DEPRECATED: Use 'Resolution' instead. # noqa: E501
@@ -1285,6 +1294,7 @@ class BarcodeApi(object):
                 text_alignment=text_alignment,
                 text_color=text_color,
                 font_size_mode=font_size_mode,
+                no_wrap=no_wrap,
                 resolution=resolution,
                 resolution_x=resolution_x,
                 resolution_y=resolution_y,
@@ -1326,6 +1336,7 @@ class BarcodeApi(object):
                 text_alignment=text_alignment,
                 text_color=text_color,
                 font_size_mode=font_size_mode,
+                no_wrap=no_wrap,
                 resolution=resolution,
                 resolution_x=resolution_x,
                 resolution_y=resolution_y,
@@ -1384,6 +1395,7 @@ class BarcodeApi(object):
             "text_alignment",
             "text_color",
             "font_size_mode",
+            "no_wrap",
             "resolution",
             "resolution_x",
             "resolution_y",
@@ -1459,6 +1471,8 @@ class BarcodeApi(object):
             query_params.append(("TextColor", params["text_color"]))
         if "font_size_mode" in params:
             query_params.append(("FontSizeMode", params["font_size_mode"]))
+        if "no_wrap" in params:
+            query_params.append(("NoWrap", params["no_wrap"]))
         if "resolution" in params:
             query_params.append(("Resolution", params["resolution"]))
         if "resolution_x" in params:

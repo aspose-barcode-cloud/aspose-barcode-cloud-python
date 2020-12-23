@@ -44,16 +44,37 @@ class DataBarParams(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"aspect_ratio": "float", "columns": "int", "rows": "int"}
+    swagger_types = {
+        "aspect_ratio": "float",
+        "columns": "int",
+        "rows": "int",
+        "is2_d_composite_component": "bool",
+        "is_allow_only_gs1_encoding": "bool",
+    }
 
-    attribute_map = {"aspect_ratio": "AspectRatio", "columns": "Columns", "rows": "Rows"}
+    attribute_map = {
+        "aspect_ratio": "AspectRatio",
+        "columns": "Columns",
+        "rows": "Rows",
+        "is2_d_composite_component": "Is2DCompositeComponent",
+        "is_allow_only_gs1_encoding": "IsAllowOnlyGS1Encoding",
+    }
 
-    def __init__(self, aspect_ratio=None, columns=None, rows=None):  # noqa: E501
+    def __init__(
+        self,
+        aspect_ratio=None,
+        columns=None,
+        rows=None,
+        is2_d_composite_component=None,
+        is_allow_only_gs1_encoding=None,
+    ):  # noqa: E501
         """DataBarParams - a model defined in Swagger"""  # noqa: E501
 
         self._aspect_ratio = None
         self._columns = None
         self._rows = None
+        self._is2_d_composite_component = None
+        self._is_allow_only_gs1_encoding = None
         self.discriminator = None
 
         if aspect_ratio is not None:
@@ -62,6 +83,10 @@ class DataBarParams(object):
             self.columns = columns
         if rows is not None:
             self.rows = rows
+        if is2_d_composite_component is not None:
+            self.is2_d_composite_component = is2_d_composite_component
+        if is_allow_only_gs1_encoding is not None:
+            self.is_allow_only_gs1_encoding = is_allow_only_gs1_encoding
 
     @property
     def aspect_ratio(self):
@@ -131,6 +156,52 @@ class DataBarParams(object):
         """
 
         self._rows = rows
+
+    @property
+    def is2_d_composite_component(self):
+        """Gets the is2_d_composite_component of this DataBarParams.  # noqa: E501
+
+        Enables flag of 2D composite component with DataBar barcode  # noqa: E501
+
+        :return: The is2_d_composite_component of this DataBarParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is2_d_composite_component
+
+    @is2_d_composite_component.setter
+    def is2_d_composite_component(self, is2_d_composite_component):
+        """Sets the is2_d_composite_component of this DataBarParams.
+
+        Enables flag of 2D composite component with DataBar barcode  # noqa: E501
+
+        :param is2_d_composite_component: The is2_d_composite_component of this DataBarParams.  # noqa: E501
+        :type: bool
+        """
+
+        self._is2_d_composite_component = is2_d_composite_component
+
+    @property
+    def is_allow_only_gs1_encoding(self):
+        """Gets the is_allow_only_gs1_encoding of this DataBarParams.  # noqa: E501
+
+        If this flag is set, it allows only GS1 encoding standard for Databar barcode types  # noqa: E501
+
+        :return: The is_allow_only_gs1_encoding of this DataBarParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_allow_only_gs1_encoding
+
+    @is_allow_only_gs1_encoding.setter
+    def is_allow_only_gs1_encoding(self, is_allow_only_gs1_encoding):
+        """Sets the is_allow_only_gs1_encoding of this DataBarParams.
+
+        If this flag is set, it allows only GS1 encoding standard for Databar barcode types  # noqa: E501
+
+        :param is_allow_only_gs1_encoding: The is_allow_only_gs1_encoding of this DataBarParams.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_allow_only_gs1_encoding = is_allow_only_gs1_encoding
 
     def to_dict(self):
         """Returns the model properties as a dict"""

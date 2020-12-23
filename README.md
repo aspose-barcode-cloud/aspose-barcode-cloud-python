@@ -1,7 +1,7 @@
 # Aspose.BarCode Cloud SDK for Python
 
 - API version: 3.0
-- Package version: 20.11.0
+- Package version: 20.12.0
 
 [Aspose.BarCode for Cloud](https://products.aspose.cloud/barcode/cloud) is a REST API for Linear, 2D and postal barcode generation and recognition in the cloud. API recognizes and generates barcode images in a variety of formats. Barcode REST API allows to specify barcode image attributes like image width, height, border style and output image format in order to customize the generation process. Developers can also specify the barcode type and text attributes such as text location and font styles in order to suit the application requirements.
 
@@ -167,6 +167,7 @@ Class | Method | HTTP request | Description
 - [GeneratorParamsList](docs/GeneratorParamsList.md)
 - [ITF14BorderType](docs/ITF14BorderType.md)
 - [ITFParams](docs/ITFParams.md)
+- [MacroCharacter](docs/MacroCharacter.md)
 - [MaxiCodeParams](docs/MaxiCodeParams.md)
 - [ObjectExist](docs/ObjectExist.md)
 - [Padding](docs/Padding.md)
@@ -187,6 +188,7 @@ Class | Method | HTTP request | Description
 - [ResultImageInfo](docs/ResultImageInfo.md)
 - [StorageExist](docs/StorageExist.md)
 - [StorageFile](docs/StorageFile.md)
+- [StructuredAppend](docs/StructuredAppend.md)
 - [TextAlignment](docs/TextAlignment.md)
 - [FileVersion](docs/FileVersion.md)
 

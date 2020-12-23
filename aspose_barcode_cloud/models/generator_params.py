@@ -53,6 +53,7 @@ class GeneratorParams(object):
         "text_color": "str",
         "font": "FontParams",
         "font_size_mode": "FontMode",
+        "no_wrap": "bool",
         "resolution": "float",
         "resolution_x": "float",
         "resolution_y": "float",
@@ -108,6 +109,7 @@ class GeneratorParams(object):
         "text_color": "TextColor",
         "font": "Font",
         "font_size_mode": "FontSizeMode",
+        "no_wrap": "NoWrap",
         "resolution": "Resolution",
         "resolution_x": "ResolutionX",
         "resolution_y": "ResolutionY",
@@ -164,6 +166,7 @@ class GeneratorParams(object):
         text_color=None,
         font=None,
         font_size_mode=None,
+        no_wrap=None,
         resolution=None,
         resolution_x=None,
         resolution_y=None,
@@ -219,6 +222,7 @@ class GeneratorParams(object):
         self._text_color = None
         self._font = None
         self._font_size_mode = None
+        self._no_wrap = None
         self._resolution = None
         self._resolution_x = None
         self._resolution_y = None
@@ -279,6 +283,8 @@ class GeneratorParams(object):
             self.font = font
         if font_size_mode is not None:
             self.font_size_mode = font_size_mode
+        if no_wrap is not None:
+            self.no_wrap = no_wrap
         if resolution is not None:
             self.resolution = resolution
         if resolution_x is not None:
@@ -555,6 +561,29 @@ class GeneratorParams(object):
         """
 
         self._font_size_mode = font_size_mode
+
+    @property
+    def no_wrap(self):
+        """Gets the no_wrap of this GeneratorParams.  # noqa: E501
+
+        Specify word wraps (line breaks) within text. Default value: false.  # noqa: E501
+
+        :return: The no_wrap of this GeneratorParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._no_wrap
+
+    @no_wrap.setter
+    def no_wrap(self, no_wrap):
+        """Sets the no_wrap of this GeneratorParams.
+
+        Specify word wraps (line breaks) within text. Default value: false.  # noqa: E501
+
+        :param no_wrap: The no_wrap of this GeneratorParams.  # noqa: E501
+        :type: bool
+        """
+
+        self._no_wrap = no_wrap
 
     @property
     def resolution(self):
