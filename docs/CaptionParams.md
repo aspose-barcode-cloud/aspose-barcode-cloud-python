@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **visible** | **bool** | Is caption visible. | [optional] 
 **font** | [**FontParams**](FontParams.md) | Font. | [optional] 
 **padding** | [**Padding**](Padding.md) | Padding. | [optional] 
+**no_wrap** | **bool** | Specify word wraps (line breaks) within text. Default value: False. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

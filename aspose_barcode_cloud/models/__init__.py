@@ -71,6 +71,7 @@ from aspose_barcode_cloud.models.generator_params import GeneratorParams
 from aspose_barcode_cloud.models.generator_params_list import GeneratorParamsList
 from aspose_barcode_cloud.models.itf14_border_type import ITF14BorderType
 from aspose_barcode_cloud.models.itf_params import ITFParams
+from aspose_barcode_cloud.models.macro_character import MacroCharacter
 from aspose_barcode_cloud.models.maxi_code_params import MaxiCodeParams
 from aspose_barcode_cloud.models.object_exist import ObjectExist
 from aspose_barcode_cloud.models.padding import Padding
@@ -91,5 +92,6 @@ from aspose_barcode_cloud.models.region_point import RegionPoint
 from aspose_barcode_cloud.models.result_image_info import ResultImageInfo
 from aspose_barcode_cloud.models.storage_exist import StorageExist
 from aspose_barcode_cloud.models.storage_file import StorageFile
+from aspose_barcode_cloud.models.structured_append import StructuredAppend
 from aspose_barcode_cloud.models.text_alignment import TextAlignment
 from aspose_barcode_cloud.models.file_version import FileVersion

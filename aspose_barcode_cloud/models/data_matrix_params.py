@@ -51,6 +51,7 @@ class DataMatrixParams(object):
         "data_matrix_ecc": "DataMatrixEccType",
         "data_matrix_encode_mode": "DataMatrixEncodeMode",
         "rows": "int",
+        "macro_characters": "MacroCharacter",
     }
 
     attribute_map = {
@@ -60,6 +61,7 @@ class DataMatrixParams(object):
         "data_matrix_ecc": "DataMatrixEcc",
         "data_matrix_encode_mode": "DataMatrixEncodeMode",
         "rows": "Rows",
+        "macro_characters": "MacroCharacters",
     }
 
     def __init__(
@@ -70,6 +72,7 @@ class DataMatrixParams(object):
         data_matrix_ecc=None,
         data_matrix_encode_mode=None,
         rows=None,
+        macro_characters=None,
     ):  # noqa: E501
         """DataMatrixParams - a model defined in Swagger"""  # noqa: E501
 
@@ -79,6 +82,7 @@ class DataMatrixParams(object):
         self._data_matrix_ecc = None
         self._data_matrix_encode_mode = None
         self._rows = None
+        self._macro_characters = None
         self.discriminator = None
 
         if aspect_ratio is not None:
@@ -93,6 +97,8 @@ class DataMatrixParams(object):
             self.data_matrix_encode_mode = data_matrix_encode_mode
         if rows is not None:
             self.rows = rows
+        if macro_characters is not None:
+            self.macro_characters = macro_characters
 
     @property
     def aspect_ratio(self):
@@ -231,6 +237,29 @@ class DataMatrixParams(object):
         """
 
         self._rows = rows
+
+    @property
+    def macro_characters(self):
+        """Gets the macro_characters of this DataMatrixParams.  # noqa: E501
+
+        Macro Characters 05 and 06 values are used to obtain more compact encoding in special modes. Can be used only with DataMatrixEccType.Ecc200 or DataMatrixEccType.EccAuto. Cannot be used with EncodeTypes.GS1DataMatrix Default value: MacroCharacters.None.  # noqa: E501
+
+        :return: The macro_characters of this DataMatrixParams.  # noqa: E501
+        :rtype: MacroCharacter
+        """
+        return self._macro_characters
+
+    @macro_characters.setter
+    def macro_characters(self, macro_characters):
+        """Sets the macro_characters of this DataMatrixParams.
+
+        Macro Characters 05 and 06 values are used to obtain more compact encoding in special modes. Can be used only with DataMatrixEccType.Ecc200 or DataMatrixEccType.EccAuto. Cannot be used with EncodeTypes.GS1DataMatrix Default value: MacroCharacters.None.  # noqa: E501
+
+        :param macro_characters: The macro_characters of this DataMatrixParams.  # noqa: E501
+        :type: MacroCharacter
+        """
+
+        self._macro_characters = macro_characters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

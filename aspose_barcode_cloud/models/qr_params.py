@@ -52,6 +52,7 @@ class QrParams(object):
         "encode_mode": "QREncodeMode",
         "error_level": "QRErrorLevel",
         "version": "QRVersion",
+        "structured_append": "StructuredAppend",
     }
 
     attribute_map = {
@@ -62,6 +63,7 @@ class QrParams(object):
         "encode_mode": "EncodeMode",
         "error_level": "ErrorLevel",
         "version": "Version",
+        "structured_append": "StructuredAppend",
     }
 
     def __init__(
@@ -73,6 +75,7 @@ class QrParams(object):
         encode_mode=None,
         error_level=None,
         version=None,
+        structured_append=None,
     ):  # noqa: E501
         """QrParams - a model defined in Swagger"""  # noqa: E501
 
@@ -83,6 +86,7 @@ class QrParams(object):
         self._encode_mode = None
         self._error_level = None
         self._version = None
+        self._structured_append = None
         self.discriminator = None
 
         if aspect_ratio is not None:
@@ -99,6 +103,8 @@ class QrParams(object):
             self.error_level = error_level
         if version is not None:
             self.version = version
+        if structured_append is not None:
+            self.structured_append = structured_append
 
     @property
     def aspect_ratio(self):
@@ -260,6 +266,29 @@ class QrParams(object):
         """
 
         self._version = version
+
+    @property
+    def structured_append(self):
+        """Gets the structured_append of this QrParams.  # noqa: E501
+
+        QR structured append parameters.  # noqa: E501
+
+        :return: The structured_append of this QrParams.  # noqa: E501
+        :rtype: StructuredAppend
+        """
+        return self._structured_append
+
+    @structured_append.setter
+    def structured_append(self, structured_append):
+        """Sets the structured_append of this QrParams.
+
+        QR structured append parameters.  # noqa: E501
+
+        :param structured_append: The structured_append of this QrParams.  # noqa: E501
+        :type: StructuredAppend
+        """
+
+        self._structured_append = structured_append
 
     def to_dict(self):
         """Returns the model properties as a dict"""
