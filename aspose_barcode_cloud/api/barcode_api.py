@@ -426,6 +426,7 @@ class BarcodeApi(object):
         allow_regular_image=None,
         allow_salt_and_pepper_filtering=None,
         allow_white_spots_removing=None,
+        check_more1_d_variants=None,
         region_likelihood_threshold_percent=None,
         scan_window_sizes=None,
         similarity=None,
@@ -471,6 +472,7 @@ class BarcodeApi(object):
         :param bool allow_regular_image: Allows engine to recognize regular image without any restorations as main scan. Mode to recognize image as is. # noqa: E501
         :param bool allow_salt_and_pepper_filtering: Allows engine to recognize barcodes with salt and pepper noise type. Mode can remove small noise with white and black dots. # noqa: E501
         :param bool allow_white_spots_removing: Allows engine to recognize image without small white spots as additional scan. Mode helps to recognize noised image as well as median smoothing filtering. # noqa: E501
+        :param bool check_more1_d_variants: Allows engine to recognize 1D barcodes with checksum by checking more recognition variants. Default value: False. # noqa: E501
         :param float region_likelihood_threshold_percent: Sets threshold for detected regions that may contain barcodes. Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time. # noqa: E501
         :param list[int] scan_window_sizes: Scan window sizes in pixels. Allowed sizes are 10, 15, 20, 25, 30. Scanning with small window size takes more time and provides more accuracy but may fail in detecting very big barcodes. Combining of several window sizes can improve detection quality. # noqa: E501
         :param float similarity: Similarity coefficient depends on how homogeneous barcodes are. Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9] # noqa: E501
@@ -514,6 +516,7 @@ class BarcodeApi(object):
                 allow_regular_image=allow_regular_image,
                 allow_salt_and_pepper_filtering=allow_salt_and_pepper_filtering,
                 allow_white_spots_removing=allow_white_spots_removing,
+                check_more1_d_variants=check_more1_d_variants,
                 region_likelihood_threshold_percent=region_likelihood_threshold_percent,
                 scan_window_sizes=scan_window_sizes,
                 similarity=similarity,
@@ -553,6 +556,7 @@ class BarcodeApi(object):
                 allow_regular_image=allow_regular_image,
                 allow_salt_and_pepper_filtering=allow_salt_and_pepper_filtering,
                 allow_white_spots_removing=allow_white_spots_removing,
+                check_more1_d_variants=check_more1_d_variants,
                 region_likelihood_threshold_percent=region_likelihood_threshold_percent,
                 scan_window_sizes=scan_window_sizes,
                 similarity=similarity,
@@ -607,6 +611,7 @@ class BarcodeApi(object):
             "allow_regular_image",
             "allow_salt_and_pepper_filtering",
             "allow_white_spots_removing",
+            "check_more1_d_variants",
             "region_likelihood_threshold_percent",
             "scan_window_sizes",
             "similarity",
@@ -692,6 +697,8 @@ class BarcodeApi(object):
             query_params.append(("AllowSaltAndPepperFiltering", params["allow_salt_and_pepper_filtering"]))
         if "allow_white_spots_removing" in params:
             query_params.append(("AllowWhiteSpotsRemoving", params["allow_white_spots_removing"]))
+        if "check_more1_d_variants" in params:
+            query_params.append(("CheckMore1DVariants", params["check_more1_d_variants"]))
         if "region_likelihood_threshold_percent" in params:
             query_params.append(("RegionLikelihoodThresholdPercent", params["region_likelihood_threshold_percent"]))
         if "scan_window_sizes" in params:
@@ -772,6 +779,7 @@ class BarcodeApi(object):
         allow_regular_image=None,
         allow_salt_and_pepper_filtering=None,
         allow_white_spots_removing=None,
+        check_more1_d_variants=None,
         region_likelihood_threshold_percent=None,
         scan_window_sizes=None,
         similarity=None,
@@ -816,6 +824,7 @@ class BarcodeApi(object):
         :param bool allow_regular_image: Allows engine to recognize regular image without any restorations as main scan. Mode to recognize image as is. # noqa: E501
         :param bool allow_salt_and_pepper_filtering: Allows engine to recognize barcodes with salt and pepper noise type. Mode can remove small noise with white and black dots. # noqa: E501
         :param bool allow_white_spots_removing: Allows engine to recognize image without small white spots as additional scan. Mode helps to recognize noised image as well as median smoothing filtering. # noqa: E501
+        :param bool check_more1_d_variants: Allows engine to recognize 1D barcodes with checksum by checking more recognition variants. Default value: False. # noqa: E501
         :param float region_likelihood_threshold_percent: Sets threshold for detected regions that may contain barcodes. Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time. # noqa: E501
         :param list[int] scan_window_sizes: Scan window sizes in pixels. Allowed sizes are 10, 15, 20, 25, 30. Scanning with small window size takes more time and provides more accuracy but may fail in detecting very big barcodes. Combining of several window sizes can improve detection quality. # noqa: E501
         :param float similarity: Similarity coefficient depends on how homogeneous barcodes are. Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9] # noqa: E501
@@ -858,6 +867,7 @@ class BarcodeApi(object):
                 allow_regular_image=allow_regular_image,
                 allow_salt_and_pepper_filtering=allow_salt_and_pepper_filtering,
                 allow_white_spots_removing=allow_white_spots_removing,
+                check_more1_d_variants=check_more1_d_variants,
                 region_likelihood_threshold_percent=region_likelihood_threshold_percent,
                 scan_window_sizes=scan_window_sizes,
                 similarity=similarity,
@@ -896,6 +906,7 @@ class BarcodeApi(object):
                 allow_regular_image=allow_regular_image,
                 allow_salt_and_pepper_filtering=allow_salt_and_pepper_filtering,
                 allow_white_spots_removing=allow_white_spots_removing,
+                check_more1_d_variants=check_more1_d_variants,
                 region_likelihood_threshold_percent=region_likelihood_threshold_percent,
                 scan_window_sizes=scan_window_sizes,
                 similarity=similarity,
@@ -948,6 +959,7 @@ class BarcodeApi(object):
             "allow_regular_image",
             "allow_salt_and_pepper_filtering",
             "allow_white_spots_removing",
+            "check_more1_d_variants",
             "region_likelihood_threshold_percent",
             "scan_window_sizes",
             "similarity",
@@ -1031,6 +1043,8 @@ class BarcodeApi(object):
             query_params.append(("AllowSaltAndPepperFiltering", params["allow_salt_and_pepper_filtering"]))
         if "allow_white_spots_removing" in params:
             query_params.append(("AllowWhiteSpotsRemoving", params["allow_white_spots_removing"]))
+        if "check_more1_d_variants" in params:
+            query_params.append(("CheckMore1DVariants", params["check_more1_d_variants"]))
         if "region_likelihood_threshold_percent" in params:
             query_params.append(("RegionLikelihoodThresholdPercent", params["region_likelihood_threshold_percent"]))
         if "scan_window_sizes" in params:

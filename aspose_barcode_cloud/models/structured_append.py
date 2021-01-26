@@ -94,7 +94,7 @@ class StructuredAppend(object):
     def total_count(self):
         """Gets the total_count of this StructuredAppend.  # noqa: E501
 
-        Gets or sets the QR structured append mode barcodes quantity. Max value is 16.  # noqa: E501
+        QR structured append mode barcodes quantity. Max value is 16.  # noqa: E501
 
         :return: The total_count of this StructuredAppend.  # noqa: E501
         :rtype: int
@@ -105,7 +105,7 @@ class StructuredAppend(object):
     def total_count(self, total_count):
         """Sets the total_count of this StructuredAppend.
 
-        Gets or sets the QR structured append mode barcodes quantity. Max value is 16.  # noqa: E501
+        QR structured append mode barcodes quantity. Max value is 16.  # noqa: E501
 
         :param total_count: The total_count of this StructuredAppend.  # noqa: E501
         :type: int
@@ -117,7 +117,7 @@ class StructuredAppend(object):
     def parity_byte(self):
         """Gets the parity_byte of this StructuredAppend.  # noqa: E501
 
-        Gets or sets the QR structured append mode parity data.  # noqa: E501
+        QR structured append mode parity data.  # noqa: E501
 
         :return: The parity_byte of this StructuredAppend.  # noqa: E501
         :rtype: int
@@ -128,7 +128,7 @@ class StructuredAppend(object):
     def parity_byte(self, parity_byte):
         """Sets the parity_byte of this StructuredAppend.
 
-        Gets or sets the QR structured append mode parity data.  # noqa: E501
+        QR structured append mode parity data.  # noqa: E501
 
         :param parity_byte: The parity_byte of this StructuredAppend.  # noqa: E501
         :type: int
