@@ -70,6 +70,7 @@ class ReaderParams(object):
         "allow_regular_image": "bool",
         "allow_salt_and_pepper_filtering": "bool",
         "allow_white_spots_removing": "bool",
+        "check_more1_d_variants": "bool",
         "region_likelihood_threshold_percent": "float",
         "scan_window_sizes": "list[int]",
         "similarity": "float",
@@ -104,6 +105,7 @@ class ReaderParams(object):
         "allow_regular_image": "AllowRegularImage",
         "allow_salt_and_pepper_filtering": "AllowSaltAndPepperFiltering",
         "allow_white_spots_removing": "AllowWhiteSpotsRemoving",
+        "check_more1_d_variants": "CheckMore1DVariants",
         "region_likelihood_threshold_percent": "RegionLikelihoodThresholdPercent",
         "scan_window_sizes": "ScanWindowSizes",
         "similarity": "Similarity",
@@ -139,6 +141,7 @@ class ReaderParams(object):
         allow_regular_image=None,
         allow_salt_and_pepper_filtering=None,
         allow_white_spots_removing=None,
+        check_more1_d_variants=None,
         region_likelihood_threshold_percent=None,
         scan_window_sizes=None,
         similarity=None,
@@ -173,6 +176,7 @@ class ReaderParams(object):
         self._allow_regular_image = None
         self._allow_salt_and_pepper_filtering = None
         self._allow_white_spots_removing = None
+        self._check_more1_d_variants = None
         self._region_likelihood_threshold_percent = None
         self._scan_window_sizes = None
         self._similarity = None
@@ -231,6 +235,8 @@ class ReaderParams(object):
             self.allow_salt_and_pepper_filtering = allow_salt_and_pepper_filtering
         if allow_white_spots_removing is not None:
             self.allow_white_spots_removing = allow_white_spots_removing
+        if check_more1_d_variants is not None:
+            self.check_more1_d_variants = check_more1_d_variants
         if region_likelihood_threshold_percent is not None:
             self.region_likelihood_threshold_percent = region_likelihood_threshold_percent
         if scan_window_sizes is not None:
@@ -818,6 +824,29 @@ class ReaderParams(object):
         """
 
         self._allow_white_spots_removing = allow_white_spots_removing
+
+    @property
+    def check_more1_d_variants(self):
+        """Gets the check_more1_d_variants of this ReaderParams.  # noqa: E501
+
+        Allows engine to recognize 1D barcodes with checksum by checking more recognition variants. Default value: False.  # noqa: E501
+
+        :return: The check_more1_d_variants of this ReaderParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._check_more1_d_variants
+
+    @check_more1_d_variants.setter
+    def check_more1_d_variants(self, check_more1_d_variants):
+        """Sets the check_more1_d_variants of this ReaderParams.
+
+        Allows engine to recognize 1D barcodes with checksum by checking more recognition variants. Default value: False.  # noqa: E501
+
+        :param check_more1_d_variants: The check_more1_d_variants of this ReaderParams.  # noqa: E501
+        :type: bool
+        """
+
+        self._check_more1_d_variants = check_more1_d_variants
 
     @property
     def region_likelihood_threshold_percent(self):

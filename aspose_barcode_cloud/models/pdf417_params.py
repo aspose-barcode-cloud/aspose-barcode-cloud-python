@@ -57,6 +57,13 @@ class Pdf417Params(object):
         "truncate": "bool",
         "pdf417_eci_encoding": "ECIEncodings",
         "is_reader_initialization": "bool",
+        "macro_time_stamp": "datetime",
+        "macro_sender": "str",
+        "macro_file_size": "int",
+        "macro_checksum": "int",
+        "macro_file_name": "str",
+        "macro_addressee": "str",
+        "macro_eci_encoding": "ECIEncodings",
     }
 
     attribute_map = {
@@ -72,6 +79,13 @@ class Pdf417Params(object):
         "truncate": "Truncate",
         "pdf417_eci_encoding": "Pdf417ECIEncoding",
         "is_reader_initialization": "IsReaderInitialization",
+        "macro_time_stamp": "MacroTimeStamp",
+        "macro_sender": "MacroSender",
+        "macro_file_size": "MacroFileSize",
+        "macro_checksum": "MacroChecksum",
+        "macro_file_name": "MacroFileName",
+        "macro_addressee": "MacroAddressee",
+        "macro_eci_encoding": "MacroECIEncoding",
     }
 
     def __init__(
@@ -88,6 +102,13 @@ class Pdf417Params(object):
         truncate=None,
         pdf417_eci_encoding=None,
         is_reader_initialization=None,
+        macro_time_stamp=None,
+        macro_sender=None,
+        macro_file_size=None,
+        macro_checksum=None,
+        macro_file_name=None,
+        macro_addressee=None,
+        macro_eci_encoding=None,
     ):  # noqa: E501
         """Pdf417Params - a model defined in Swagger"""  # noqa: E501
 
@@ -103,6 +124,13 @@ class Pdf417Params(object):
         self._truncate = None
         self._pdf417_eci_encoding = None
         self._is_reader_initialization = None
+        self._macro_time_stamp = None
+        self._macro_sender = None
+        self._macro_file_size = None
+        self._macro_checksum = None
+        self._macro_file_name = None
+        self._macro_addressee = None
+        self._macro_eci_encoding = None
         self.discriminator = None
 
         if aspect_ratio is not None:
@@ -129,6 +157,20 @@ class Pdf417Params(object):
             self.pdf417_eci_encoding = pdf417_eci_encoding
         if is_reader_initialization is not None:
             self.is_reader_initialization = is_reader_initialization
+        if macro_time_stamp is not None:
+            self.macro_time_stamp = macro_time_stamp
+        if macro_sender is not None:
+            self.macro_sender = macro_sender
+        if macro_file_size is not None:
+            self.macro_file_size = macro_file_size
+        if macro_checksum is not None:
+            self.macro_checksum = macro_checksum
+        if macro_file_name is not None:
+            self.macro_file_name = macro_file_name
+        if macro_addressee is not None:
+            self.macro_addressee = macro_addressee
+        if macro_eci_encoding is not None:
+            self.macro_eci_encoding = macro_eci_encoding
 
     @property
     def aspect_ratio(self):
@@ -405,6 +447,167 @@ class Pdf417Params(object):
         """
 
         self._is_reader_initialization = is_reader_initialization
+
+    @property
+    def macro_time_stamp(self):
+        """Gets the macro_time_stamp of this Pdf417Params.  # noqa: E501
+
+        Macro Pdf417 barcode time stamp  # noqa: E501
+
+        :return: The macro_time_stamp of this Pdf417Params.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._macro_time_stamp
+
+    @macro_time_stamp.setter
+    def macro_time_stamp(self, macro_time_stamp):
+        """Sets the macro_time_stamp of this Pdf417Params.
+
+        Macro Pdf417 barcode time stamp  # noqa: E501
+
+        :param macro_time_stamp: The macro_time_stamp of this Pdf417Params.  # noqa: E501
+        :type: datetime
+        """
+
+        self._macro_time_stamp = macro_time_stamp
+
+    @property
+    def macro_sender(self):
+        """Gets the macro_sender of this Pdf417Params.  # noqa: E501
+
+        Macro Pdf417 barcode sender name  # noqa: E501
+
+        :return: The macro_sender of this Pdf417Params.  # noqa: E501
+        :rtype: str
+        """
+        return self._macro_sender
+
+    @macro_sender.setter
+    def macro_sender(self, macro_sender):
+        """Sets the macro_sender of this Pdf417Params.
+
+        Macro Pdf417 barcode sender name  # noqa: E501
+
+        :param macro_sender: The macro_sender of this Pdf417Params.  # noqa: E501
+        :type: str
+        """
+
+        self._macro_sender = macro_sender
+
+    @property
+    def macro_file_size(self):
+        """Gets the macro_file_size of this Pdf417Params.  # noqa: E501
+
+        Macro Pdf417 file size. The file size field contains the size in bytes of the entire source file  # noqa: E501
+
+        :return: The macro_file_size of this Pdf417Params.  # noqa: E501
+        :rtype: int
+        """
+        return self._macro_file_size
+
+    @macro_file_size.setter
+    def macro_file_size(self, macro_file_size):
+        """Sets the macro_file_size of this Pdf417Params.
+
+        Macro Pdf417 file size. The file size field contains the size in bytes of the entire source file  # noqa: E501
+
+        :param macro_file_size: The macro_file_size of this Pdf417Params.  # noqa: E501
+        :type: int
+        """
+
+        self._macro_file_size = macro_file_size
+
+    @property
+    def macro_checksum(self):
+        """Gets the macro_checksum of this Pdf417Params.  # noqa: E501
+
+        Macro Pdf417 barcode checksum. The checksum field contains the value of the 16-bit (2 bytes) CRC checksum using the CCITT-16 polynomial  # noqa: E501
+
+        :return: The macro_checksum of this Pdf417Params.  # noqa: E501
+        :rtype: int
+        """
+        return self._macro_checksum
+
+    @macro_checksum.setter
+    def macro_checksum(self, macro_checksum):
+        """Sets the macro_checksum of this Pdf417Params.
+
+        Macro Pdf417 barcode checksum. The checksum field contains the value of the 16-bit (2 bytes) CRC checksum using the CCITT-16 polynomial  # noqa: E501
+
+        :param macro_checksum: The macro_checksum of this Pdf417Params.  # noqa: E501
+        :type: int
+        """
+
+        self._macro_checksum = macro_checksum
+
+    @property
+    def macro_file_name(self):
+        """Gets the macro_file_name of this Pdf417Params.  # noqa: E501
+
+        Macro Pdf417 barcode file name  # noqa: E501
+
+        :return: The macro_file_name of this Pdf417Params.  # noqa: E501
+        :rtype: str
+        """
+        return self._macro_file_name
+
+    @macro_file_name.setter
+    def macro_file_name(self, macro_file_name):
+        """Sets the macro_file_name of this Pdf417Params.
+
+        Macro Pdf417 barcode file name  # noqa: E501
+
+        :param macro_file_name: The macro_file_name of this Pdf417Params.  # noqa: E501
+        :type: str
+        """
+
+        self._macro_file_name = macro_file_name
+
+    @property
+    def macro_addressee(self):
+        """Gets the macro_addressee of this Pdf417Params.  # noqa: E501
+
+        Macro Pdf417 barcode addressee name  # noqa: E501
+
+        :return: The macro_addressee of this Pdf417Params.  # noqa: E501
+        :rtype: str
+        """
+        return self._macro_addressee
+
+    @macro_addressee.setter
+    def macro_addressee(self, macro_addressee):
+        """Sets the macro_addressee of this Pdf417Params.
+
+        Macro Pdf417 barcode addressee name  # noqa: E501
+
+        :param macro_addressee: The macro_addressee of this Pdf417Params.  # noqa: E501
+        :type: str
+        """
+
+        self._macro_addressee = macro_addressee
+
+    @property
+    def macro_eci_encoding(self):
+        """Gets the macro_eci_encoding of this Pdf417Params.  # noqa: E501
+
+        Extended Channel Interpretation Identifiers. Applies for Macro PDF417 text fields.  # noqa: E501
+
+        :return: The macro_eci_encoding of this Pdf417Params.  # noqa: E501
+        :rtype: ECIEncodings
+        """
+        return self._macro_eci_encoding
+
+    @macro_eci_encoding.setter
+    def macro_eci_encoding(self, macro_eci_encoding):
+        """Sets the macro_eci_encoding of this Pdf417Params.
+
+        Extended Channel Interpretation Identifiers. Applies for Macro PDF417 text fields.  # noqa: E501
+
+        :param macro_eci_encoding: The macro_eci_encoding of this Pdf417Params.  # noqa: E501
+        :type: ECIEncodings
+        """
+
+        self._macro_eci_encoding = macro_eci_encoding
 
     def to_dict(self):
         """Returns the model properties as a dict"""
