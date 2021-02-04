@@ -8,6 +8,7 @@ WORKDIR /aspose-barcode-cloud-python
 COPY . .
 
 RUN pip install -r publish-requirements.txt
+RUN echo '[pypi]\nusername = __token__\npassword = ${TWINE_PASSWORD}' > $HOME/.pypirc
 
 ENTRYPOINT ["make"]
-CMD ["publish", "--username=__token__"]
+CMD ["publish"]
