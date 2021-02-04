@@ -10,7 +10,7 @@ from aspose_barcode_cloud import Configuration
 logger = logging.getLogger(__name__)
 
 DEFAULT_CONFIG_FILENAME = os.path.join(os.path.split(os.path.abspath(__file__))[0], "configuration.json")
-DEFAULT_ENV_PREFIX = "TEST"
+DEFAULT_ENV_PREFIX = "TEST_CONFIGURATION"
 
 
 def from_file(filename):
