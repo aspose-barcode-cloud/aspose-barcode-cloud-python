@@ -8,7 +8,7 @@ from aspose_barcode_cloud import BarcodeApi, ApiClient, Configuration, EncodeBar
 config = Configuration(
     client_id="Client Id from https://dashboard.aspose.cloud/applications",
     client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
-    access_token=os.environ.get("TEST_ACCESS_TOKEN")  # Only for testing in CI, remove this line
+    access_token=os.environ.get("TEST_CONFIGURATION_ACCESS_TOKEN")  # Only for testing in CI, remove this line
 )
 
 api = BarcodeApi(ApiClient(config))
