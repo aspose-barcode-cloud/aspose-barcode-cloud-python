@@ -7,5 +7,7 @@ FROM python:latest
 WORKDIR /aspose-barcode-cloud-python
 COPY . .
 
+RUN pip install tox
+
 ENTRYPOINT ["make"]
 CMD ["publish", "--username=__token__"]
