@@ -1,0 +1,3 @@
+tox
+setuptools
+twine
