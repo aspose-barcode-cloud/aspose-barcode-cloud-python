@@ -26,7 +26,7 @@ clean:
 	git clean -dfx --exclude='tests/configuration*.json'
 
 .PHONY: dist
-dist: clean
+dist:
 	python3 setup.py sdist bdist_wheel --universal
 
 .PHONY: check_git
@@ -35,7 +35,7 @@ check_git:
 	git diff origin/master --exit-code
 
 .PHONY: publish
-publish: check_git test dist
+publish: check_git test clean dist
 	python3 -m twine upload dist/*
 
 .PHONY: init-docker
