@@ -37,3 +37,11 @@ check_git:
 .PHONY: publish
 publish: check_git test dist
 	python3 -m twine upload dist/*
+
+.PHONY: init-docker
+init-docker:
+	pip install -r publish-requirements.txt
+
+.PHONY: publish-docker
+publish-docker: init-docker test dist
+	python3 -m twine upload dist/*
