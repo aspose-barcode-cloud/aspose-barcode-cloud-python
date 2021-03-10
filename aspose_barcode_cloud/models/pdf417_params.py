@@ -64,6 +64,7 @@ class Pdf417Params(object):
         "macro_file_name": "str",
         "macro_addressee": "str",
         "macro_eci_encoding": "ECIEncodings",
+        "code128_emulation": "Code128Emulation",
     }
 
     attribute_map = {
@@ -86,6 +87,7 @@ class Pdf417Params(object):
         "macro_file_name": "MacroFileName",
         "macro_addressee": "MacroAddressee",
         "macro_eci_encoding": "MacroECIEncoding",
+        "code128_emulation": "Code128Emulation",
     }
 
     def __init__(
@@ -109,6 +111,7 @@ class Pdf417Params(object):
         macro_file_name=None,
         macro_addressee=None,
         macro_eci_encoding=None,
+        code128_emulation=None,
     ):  # noqa: E501
         """Pdf417Params - a model defined in Swagger"""  # noqa: E501
 
@@ -131,6 +134,7 @@ class Pdf417Params(object):
         self._macro_file_name = None
         self._macro_addressee = None
         self._macro_eci_encoding = None
+        self._code128_emulation = None
         self.discriminator = None
 
         if aspect_ratio is not None:
@@ -171,6 +175,8 @@ class Pdf417Params(object):
             self.macro_addressee = macro_addressee
         if macro_eci_encoding is not None:
             self.macro_eci_encoding = macro_eci_encoding
+        if code128_emulation is not None:
+            self.code128_emulation = code128_emulation
 
     @property
     def aspect_ratio(self):
@@ -608,6 +614,29 @@ class Pdf417Params(object):
         """
 
         self._macro_eci_encoding = macro_eci_encoding
+
+    @property
+    def code128_emulation(self):
+        """Gets the code128_emulation of this Pdf417Params.  # noqa: E501
+
+        Function codeword for Code 128 emulation. Applied for MicroPDF417 only. Ignored for PDF417 and MacroPDF417 barcodes.  # noqa: E501
+
+        :return: The code128_emulation of this Pdf417Params.  # noqa: E501
+        :rtype: Code128Emulation
+        """
+        return self._code128_emulation
+
+    @code128_emulation.setter
+    def code128_emulation(self, code128_emulation):
+        """Sets the code128_emulation of this Pdf417Params.
+
+        Function codeword for Code 128 emulation. Applied for MicroPDF417 only. Ignored for PDF417 and MacroPDF417 barcodes.  # noqa: E501
+
+        :param code128_emulation: The code128_emulation of this Pdf417Params.  # noqa: E501
+        :type: Code128Emulation
+        """
+
+        self._code128_emulation = code128_emulation
 
     def to_dict(self):
         """Returns the model properties as a dict"""
