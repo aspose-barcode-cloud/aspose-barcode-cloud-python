@@ -37,10 +37,14 @@ VERSION = "21.3.0"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-here = os.path.abspath(os.path.dirname(__file__))
+REQUIRES = [
+    "certifi>=2017.4.17",
+    "python-dateutil>=2.1",
+    "six>=1.10",
+    "urllib3>=1.23"
+]
 
-with open(os.path.join(here, "requirements.txt"), "rt") as f:
-    install_requires = [l.strip() for l in f]
+here = os.path.abspath(os.path.dirname(__file__))
 
 with open(os.path.join(here, "README.md"), "rt") as f:
     long_description = f.read()
@@ -61,7 +65,7 @@ setup(
         "Programming Language :: Python :: 3",
     ],
     keywords=["Aspose", "Barcode", "Cloud"],
-    install_requires=install_requires,
+    install_requires=REQUIRES,
     packages=find_packages(exclude=["tests"]),
     long_description=long_description,
     long_description_content_type="text/markdown",
