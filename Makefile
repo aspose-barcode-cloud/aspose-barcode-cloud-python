@@ -45,3 +45,7 @@ init-docker:
 .PHONY: publish-docker
 publish-docker: init-docker test dist
 	python3 -m twine upload dist/*
+
+.PHONY: update
+update:
+	echo "Not implemented"
