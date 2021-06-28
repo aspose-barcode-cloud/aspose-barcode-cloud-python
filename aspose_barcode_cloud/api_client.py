@@ -82,12 +82,12 @@ class ApiClient(object):
         # Use the pool property to lazily initialize the ThreadPool.
         self._pool = None
         self.rest_client = rest.RESTClientObject(configuration)
-        self.default_headers = {"x-aspose-client": "python sdk", "x-aspose-client-version": "21.3.0"}
+        self.default_headers = {"x-aspose-client": "python sdk", "x-aspose-client-version": "21.6.0"}
         if header_name is not None:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = "Aspose-Barcode-SDK/21.3.0/python"
+        self.user_agent = "Aspose-Barcode-SDK/21.6.0/python"
 
     def __del__(self):
         if self._pool is not None:
