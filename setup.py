@@ -186,7 +186,7 @@ setup(
     project_urls={
         "Source With Tests": "https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-python",
         "Website": "https://www.aspose.cloud",
-        "Product Home": "https://products.aspose.cloud/barcode/cloud",
+        "Product Home": "https://products.aspose.cloud/barcode/",
         "Documentation": "https://docs.aspose.cloud/barcode/",
         "Free Support Forum": "https://forum.aspose.cloud/c/barcode",
         "Paid Support Helpdesk": "https://helpdesk.aspose.cloud/",
