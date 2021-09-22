@@ -1076,7 +1076,7 @@ class BarcodeApi(object):
 
         # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(
-            ["multipart/form-data", "application/octet-stream"]
+            ["multipart/form-data", "application/octet-stream", "application/x-www-form-urlencoded"]
         )
 
         # Authentication setting
@@ -1557,7 +1557,7 @@ class BarcodeApi(object):
 
         # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(
-            ["application/json", "application/xml", "multipart/form-data"]
+            ["application/json", "application/xml", "multipart/form-data", "application/x-www-form-urlencoded"]
         )
 
         # Authentication setting
