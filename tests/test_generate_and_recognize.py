@@ -29,6 +29,7 @@ class TestGenerateAndRecognize(unittest.TestCase):
         finally:
             os.remove(temp_filename)
 
+        self.assertIsNotNone(recognized and recognized.barcodes)
         self.assertEqual(1, len(recognized.barcodes))
         barcode = recognized.barcodes[0]
         self.assertEqual(DecodeBarcodeType.QR, barcode.type)
