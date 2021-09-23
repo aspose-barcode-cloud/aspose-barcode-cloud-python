@@ -40,7 +40,7 @@ publish: check_git test clean dist
 
 .PHONY: init-docker
 init-docker:
-	pip install -r publish-requirements.txt
+	python3 -m pip install -r publish-requirements.txt
 
 .PHONY: publish-docker
 publish-docker: init-docker test dist
