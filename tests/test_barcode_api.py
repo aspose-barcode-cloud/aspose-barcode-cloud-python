@@ -71,6 +71,7 @@ class TestBarcodeApi(unittest.TestCase):
             type=DecodeBarcodeType.PDF417, preset=PresetType.HIGHPERFORMANCE, image=self.test_filename
         )
 
+        self.assertIsNotNone(response and response.barcodes)
         self.assertEqual(1, len(response.barcodes))
         barcode = response.barcodes[0]
         self.assertEqual("Pdf417", barcode.type)

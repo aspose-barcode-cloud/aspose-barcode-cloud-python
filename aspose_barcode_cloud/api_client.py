@@ -82,12 +82,12 @@ class ApiClient(object):
         # Use the pool property to lazily initialize the ThreadPool.
         self._pool = None
         self.rest_client = rest.RESTClientObject(configuration)
-        self.default_headers = {"x-aspose-client": "python sdk", "x-aspose-client-version": "21.7.0"}
+        self.default_headers = {"x-aspose-client": "python sdk", "x-aspose-client-version": "21.9.0"}
         if header_name is not None:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = "Aspose-Barcode-SDK/21.7.0/python"
+        self.user_agent = "Aspose-Barcode-SDK/21.9.0/python"
 
     def __del__(self):
         if self._pool is not None:
@@ -138,8 +138,9 @@ class ApiClient(object):
         if self.cookie:
             header_params["Cookie"] = self.cookie
         if header_params:
-            header_params = self.sanitize_for_serialization(header_params)
-            header_params = dict(self.parameters_to_tuples(header_params, collection_formats))
+            header_params = dict(
+                self.parameters_to_tuples(self.sanitize_for_serialization(header_params), collection_formats)
+            )
 
         # path parameters
         if path_params:
@@ -156,9 +157,9 @@ class ApiClient(object):
 
         # post parameters
         if post_params or files:
-            post_params = self.prepare_post_parameters(post_params, files)
-            post_params = self.sanitize_for_serialization(post_params)
-            post_params = self.parameters_to_tuples(post_params, collection_formats)
+            post_params = self.parameters_to_tuples(
+                self.sanitize_for_serialization(self.prepare_post_parameters(post_params, files)), collection_formats
+            )
 
         # auth setting
         self.update_params_for_auth(header_params, query_params, auth_settings)
