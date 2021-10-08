@@ -427,12 +427,14 @@ class BarcodeApi(object):
         allow_salt_and_pepper_filtering=None,
         allow_white_spots_removing=None,
         check_more1_d_variants=None,
+        fast_scan_only=None,
         region_likelihood_threshold_percent=None,
         scan_window_sizes=None,
         similarity=None,
         skip_diagonal_search=None,
         read_tiny_barcodes=None,
         australian_post_encoding_table=None,
+        ignore_ending_filling_patterns_for_c_table=None,
         rectangle_region=None,
         storage=None,
         folder=None,
@@ -473,12 +475,14 @@ class BarcodeApi(object):
         :param bool allow_salt_and_pepper_filtering: Allows engine to recognize barcodes with salt and pepper noise type. Mode can remove small noise with white and black dots. # noqa: E501
         :param bool allow_white_spots_removing: Allows engine to recognize image without small white spots as additional scan. Mode helps to recognize noised image as well as median smoothing filtering. # noqa: E501
         :param bool check_more1_d_variants: Allows engine to recognize 1D barcodes with checksum by checking more recognition variants. Default value: False. # noqa: E501
+        :param bool fast_scan_only: Allows engine for 1D barcodes to quickly recognize middle slice of an image and return result without using any time-consuming algorithms. Default value: False. # noqa: E501
         :param float region_likelihood_threshold_percent: Sets threshold for detected regions that may contain barcodes. Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time. # noqa: E501
         :param list[int] scan_window_sizes: Scan window sizes in pixels. Allowed sizes are 10, 15, 20, 25, 30. Scanning with small window size takes more time and provides more accuracy but may fail in detecting very big barcodes. Combining of several window sizes can improve detection quality. # noqa: E501
         :param float similarity: Similarity coefficient depends on how homogeneous barcodes are. Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9] # noqa: E501
         :param bool skip_diagonal_search: Allows detector to skip search for diagonal barcodes. Setting it to false will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time. # noqa: E501
         :param bool read_tiny_barcodes: Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False. # noqa: E501
         :param str australian_post_encoding_table: Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. # noqa: E501
+        :param bool ignore_ending_filling_patterns_for_c_table: The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method.  CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\". # noqa: E501
         :param str rectangle_region: # noqa: E501
         :param str storage: The image storage. # noqa: E501
         :param str folder: The image folder. # noqa: E501
@@ -517,12 +521,14 @@ class BarcodeApi(object):
                 allow_salt_and_pepper_filtering=allow_salt_and_pepper_filtering,
                 allow_white_spots_removing=allow_white_spots_removing,
                 check_more1_d_variants=check_more1_d_variants,
+                fast_scan_only=fast_scan_only,
                 region_likelihood_threshold_percent=region_likelihood_threshold_percent,
                 scan_window_sizes=scan_window_sizes,
                 similarity=similarity,
                 skip_diagonal_search=skip_diagonal_search,
                 read_tiny_barcodes=read_tiny_barcodes,
                 australian_post_encoding_table=australian_post_encoding_table,
+                ignore_ending_filling_patterns_for_c_table=ignore_ending_filling_patterns_for_c_table,
                 rectangle_region=rectangle_region,
                 storage=storage,
                 folder=folder,
@@ -557,12 +563,14 @@ class BarcodeApi(object):
                 allow_salt_and_pepper_filtering=allow_salt_and_pepper_filtering,
                 allow_white_spots_removing=allow_white_spots_removing,
                 check_more1_d_variants=check_more1_d_variants,
+                fast_scan_only=fast_scan_only,
                 region_likelihood_threshold_percent=region_likelihood_threshold_percent,
                 scan_window_sizes=scan_window_sizes,
                 similarity=similarity,
                 skip_diagonal_search=skip_diagonal_search,
                 read_tiny_barcodes=read_tiny_barcodes,
                 australian_post_encoding_table=australian_post_encoding_table,
+                ignore_ending_filling_patterns_for_c_table=ignore_ending_filling_patterns_for_c_table,
                 rectangle_region=rectangle_region,
                 storage=storage,
                 folder=folder,
@@ -612,12 +620,14 @@ class BarcodeApi(object):
             "allow_salt_and_pepper_filtering",
             "allow_white_spots_removing",
             "check_more1_d_variants",
+            "fast_scan_only",
             "region_likelihood_threshold_percent",
             "scan_window_sizes",
             "similarity",
             "skip_diagonal_search",
             "read_tiny_barcodes",
             "australian_post_encoding_table",
+            "ignore_ending_filling_patterns_for_c_table",
             "rectangle_region",
             "storage",
             "folder",
@@ -699,6 +709,8 @@ class BarcodeApi(object):
             query_params.append(("AllowWhiteSpotsRemoving", params["allow_white_spots_removing"]))
         if "check_more1_d_variants" in params:
             query_params.append(("CheckMore1DVariants", params["check_more1_d_variants"]))
+        if "fast_scan_only" in params:
+            query_params.append(("FastScanOnly", params["fast_scan_only"]))
         if "region_likelihood_threshold_percent" in params:
             query_params.append(("RegionLikelihoodThresholdPercent", params["region_likelihood_threshold_percent"]))
         if "scan_window_sizes" in params:
@@ -712,6 +724,10 @@ class BarcodeApi(object):
             query_params.append(("ReadTinyBarcodes", params["read_tiny_barcodes"]))
         if "australian_post_encoding_table" in params:
             query_params.append(("AustralianPostEncodingTable", params["australian_post_encoding_table"]))
+        if "ignore_ending_filling_patterns_for_c_table" in params:
+            query_params.append(
+                ("IgnoreEndingFillingPatternsForCTable", params["ignore_ending_filling_patterns_for_c_table"])
+            )
         if "rectangle_region" in params:
             query_params.append(("RectangleRegion", params["rectangle_region"]))
         if "storage" in params:
@@ -780,12 +796,14 @@ class BarcodeApi(object):
         allow_salt_and_pepper_filtering=None,
         allow_white_spots_removing=None,
         check_more1_d_variants=None,
+        fast_scan_only=None,
         region_likelihood_threshold_percent=None,
         scan_window_sizes=None,
         similarity=None,
         skip_diagonal_search=None,
         read_tiny_barcodes=None,
         australian_post_encoding_table=None,
+        ignore_ending_filling_patterns_for_c_table=None,
         rectangle_region=None,
         url=None,
         image=None,
@@ -825,12 +843,14 @@ class BarcodeApi(object):
         :param bool allow_salt_and_pepper_filtering: Allows engine to recognize barcodes with salt and pepper noise type. Mode can remove small noise with white and black dots. # noqa: E501
         :param bool allow_white_spots_removing: Allows engine to recognize image without small white spots as additional scan. Mode helps to recognize noised image as well as median smoothing filtering. # noqa: E501
         :param bool check_more1_d_variants: Allows engine to recognize 1D barcodes with checksum by checking more recognition variants. Default value: False. # noqa: E501
+        :param bool fast_scan_only: Allows engine for 1D barcodes to quickly recognize middle slice of an image and return result without using any time-consuming algorithms. Default value: False. # noqa: E501
         :param float region_likelihood_threshold_percent: Sets threshold for detected regions that may contain barcodes. Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time. # noqa: E501
         :param list[int] scan_window_sizes: Scan window sizes in pixels. Allowed sizes are 10, 15, 20, 25, 30. Scanning with small window size takes more time and provides more accuracy but may fail in detecting very big barcodes. Combining of several window sizes can improve detection quality. # noqa: E501
         :param float similarity: Similarity coefficient depends on how homogeneous barcodes are. Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9] # noqa: E501
         :param bool skip_diagonal_search: Allows detector to skip search for diagonal barcodes. Setting it to false will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time. # noqa: E501
         :param bool read_tiny_barcodes: Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False. # noqa: E501
         :param str australian_post_encoding_table: Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. # noqa: E501
+        :param bool ignore_ending_filling_patterns_for_c_table: The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method.  CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\". # noqa: E501
         :param str rectangle_region: # noqa: E501
         :param str url: The image file url. # noqa: E501
         :param file image: Image data # noqa: E501
@@ -868,12 +888,14 @@ class BarcodeApi(object):
                 allow_salt_and_pepper_filtering=allow_salt_and_pepper_filtering,
                 allow_white_spots_removing=allow_white_spots_removing,
                 check_more1_d_variants=check_more1_d_variants,
+                fast_scan_only=fast_scan_only,
                 region_likelihood_threshold_percent=region_likelihood_threshold_percent,
                 scan_window_sizes=scan_window_sizes,
                 similarity=similarity,
                 skip_diagonal_search=skip_diagonal_search,
                 read_tiny_barcodes=read_tiny_barcodes,
                 australian_post_encoding_table=australian_post_encoding_table,
+                ignore_ending_filling_patterns_for_c_table=ignore_ending_filling_patterns_for_c_table,
                 rectangle_region=rectangle_region,
                 url=url,
                 image=image,
@@ -907,12 +929,14 @@ class BarcodeApi(object):
                 allow_salt_and_pepper_filtering=allow_salt_and_pepper_filtering,
                 allow_white_spots_removing=allow_white_spots_removing,
                 check_more1_d_variants=check_more1_d_variants,
+                fast_scan_only=fast_scan_only,
                 region_likelihood_threshold_percent=region_likelihood_threshold_percent,
                 scan_window_sizes=scan_window_sizes,
                 similarity=similarity,
                 skip_diagonal_search=skip_diagonal_search,
                 read_tiny_barcodes=read_tiny_barcodes,
                 australian_post_encoding_table=australian_post_encoding_table,
+                ignore_ending_filling_patterns_for_c_table=ignore_ending_filling_patterns_for_c_table,
                 rectangle_region=rectangle_region,
                 url=url,
                 image=image,
@@ -960,12 +984,14 @@ class BarcodeApi(object):
             "allow_salt_and_pepper_filtering",
             "allow_white_spots_removing",
             "check_more1_d_variants",
+            "fast_scan_only",
             "region_likelihood_threshold_percent",
             "scan_window_sizes",
             "similarity",
             "skip_diagonal_search",
             "read_tiny_barcodes",
             "australian_post_encoding_table",
+            "ignore_ending_filling_patterns_for_c_table",
             "rectangle_region",
             "url",
             "image",
@@ -1045,6 +1071,8 @@ class BarcodeApi(object):
             query_params.append(("AllowWhiteSpotsRemoving", params["allow_white_spots_removing"]))
         if "check_more1_d_variants" in params:
             query_params.append(("CheckMore1DVariants", params["check_more1_d_variants"]))
+        if "fast_scan_only" in params:
+            query_params.append(("FastScanOnly", params["fast_scan_only"]))
         if "region_likelihood_threshold_percent" in params:
             query_params.append(("RegionLikelihoodThresholdPercent", params["region_likelihood_threshold_percent"]))
         if "scan_window_sizes" in params:
@@ -1058,6 +1086,10 @@ class BarcodeApi(object):
             query_params.append(("ReadTinyBarcodes", params["read_tiny_barcodes"]))
         if "australian_post_encoding_table" in params:
             query_params.append(("AustralianPostEncodingTable", params["australian_post_encoding_table"]))
+        if "ignore_ending_filling_patterns_for_c_table" in params:
+            query_params.append(
+                ("IgnoreEndingFillingPatternsForCTable", params["ignore_ending_filling_patterns_for_c_table"])
+            )
         if "rectangle_region" in params:
             query_params.append(("RectangleRegion", params["rectangle_region"]))
         if "url" in params:
@@ -1076,7 +1108,7 @@ class BarcodeApi(object):
 
         # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(
-            ["multipart/form-data", "application/x-www-form-urlencoded", "application/octet-stream"]
+            ["multipart/form-data", "application/octet-stream"]
         )
 
         # Authentication setting
@@ -1557,7 +1589,7 @@ class BarcodeApi(object):
 
         # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(
-            ["multipart/form-data", "application/x-www-form-urlencoded", "application/json", "application/xml"]
+            ["application/json", "application/xml", "multipart/form-data"]
         )
 
         # Authentication setting

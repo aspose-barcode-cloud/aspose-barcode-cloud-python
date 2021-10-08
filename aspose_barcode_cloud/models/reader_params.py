@@ -71,12 +71,14 @@ class ReaderParams(object):
         "allow_salt_and_pepper_filtering": "bool",
         "allow_white_spots_removing": "bool",
         "check_more1_d_variants": "bool",
+        "fast_scan_only": "bool",
         "region_likelihood_threshold_percent": "float",
         "scan_window_sizes": "list[int]",
         "similarity": "float",
         "skip_diagonal_search": "bool",
         "read_tiny_barcodes": "bool",
         "australian_post_encoding_table": "CustomerInformationInterpretingType",
+        "ignore_ending_filling_patterns_for_c_table": "bool",
     }
 
     attribute_map = {
@@ -106,12 +108,14 @@ class ReaderParams(object):
         "allow_salt_and_pepper_filtering": "AllowSaltAndPepperFiltering",
         "allow_white_spots_removing": "AllowWhiteSpotsRemoving",
         "check_more1_d_variants": "CheckMore1DVariants",
+        "fast_scan_only": "FastScanOnly",
         "region_likelihood_threshold_percent": "RegionLikelihoodThresholdPercent",
         "scan_window_sizes": "ScanWindowSizes",
         "similarity": "Similarity",
         "skip_diagonal_search": "SkipDiagonalSearch",
         "read_tiny_barcodes": "ReadTinyBarcodes",
         "australian_post_encoding_table": "AustralianPostEncodingTable",
+        "ignore_ending_filling_patterns_for_c_table": "IgnoreEndingFillingPatternsForCTable",
     }
 
     def __init__(
@@ -142,12 +146,14 @@ class ReaderParams(object):
         allow_salt_and_pepper_filtering=None,
         allow_white_spots_removing=None,
         check_more1_d_variants=None,
+        fast_scan_only=None,
         region_likelihood_threshold_percent=None,
         scan_window_sizes=None,
         similarity=None,
         skip_diagonal_search=None,
         read_tiny_barcodes=None,
         australian_post_encoding_table=None,
+        ignore_ending_filling_patterns_for_c_table=None,
     ):  # noqa: E501
         """ReaderParams - a model defined in Swagger"""  # noqa: E501
 
@@ -177,12 +183,14 @@ class ReaderParams(object):
         self._allow_salt_and_pepper_filtering = None
         self._allow_white_spots_removing = None
         self._check_more1_d_variants = None
+        self._fast_scan_only = None
         self._region_likelihood_threshold_percent = None
         self._scan_window_sizes = None
         self._similarity = None
         self._skip_diagonal_search = None
         self._read_tiny_barcodes = None
         self._australian_post_encoding_table = None
+        self._ignore_ending_filling_patterns_for_c_table = None
         self.discriminator = None
 
         if type is not None:
@@ -237,6 +245,8 @@ class ReaderParams(object):
             self.allow_white_spots_removing = allow_white_spots_removing
         if check_more1_d_variants is not None:
             self.check_more1_d_variants = check_more1_d_variants
+        if fast_scan_only is not None:
+            self.fast_scan_only = fast_scan_only
         if region_likelihood_threshold_percent is not None:
             self.region_likelihood_threshold_percent = region_likelihood_threshold_percent
         if scan_window_sizes is not None:
@@ -249,6 +259,8 @@ class ReaderParams(object):
             self.read_tiny_barcodes = read_tiny_barcodes
         if australian_post_encoding_table is not None:
             self.australian_post_encoding_table = australian_post_encoding_table
+        if ignore_ending_filling_patterns_for_c_table is not None:
+            self.ignore_ending_filling_patterns_for_c_table = ignore_ending_filling_patterns_for_c_table
 
     @property
     def type(self):
@@ -849,6 +861,29 @@ class ReaderParams(object):
         self._check_more1_d_variants = check_more1_d_variants
 
     @property
+    def fast_scan_only(self):
+        """Gets the fast_scan_only of this ReaderParams.  # noqa: E501
+
+        Allows engine for 1D barcodes to quickly recognize middle slice of an image and return result without using any time-consuming algorithms. Default value: False.  # noqa: E501
+
+        :return: The fast_scan_only of this ReaderParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._fast_scan_only
+
+    @fast_scan_only.setter
+    def fast_scan_only(self, fast_scan_only):
+        """Sets the fast_scan_only of this ReaderParams.
+
+        Allows engine for 1D barcodes to quickly recognize middle slice of an image and return result without using any time-consuming algorithms. Default value: False.  # noqa: E501
+
+        :param fast_scan_only: The fast_scan_only of this ReaderParams.  # noqa: E501
+        :type: bool
+        """
+
+        self._fast_scan_only = fast_scan_only
+
+    @property
     def region_likelihood_threshold_percent(self):
         """Gets the region_likelihood_threshold_percent of this ReaderParams.  # noqa: E501
 
@@ -985,6 +1020,29 @@ class ReaderParams(object):
         """
 
         self._australian_post_encoding_table = australian_post_encoding_table
+
+    @property
+    def ignore_ending_filling_patterns_for_c_table(self):
+        """Gets the ignore_ending_filling_patterns_for_c_table of this ReaderParams.  # noqa: E501
+
+        The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method.  CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\".  # noqa: E501
+
+        :return: The ignore_ending_filling_patterns_for_c_table of this ReaderParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ignore_ending_filling_patterns_for_c_table
+
+    @ignore_ending_filling_patterns_for_c_table.setter
+    def ignore_ending_filling_patterns_for_c_table(self, ignore_ending_filling_patterns_for_c_table):
+        """Sets the ignore_ending_filling_patterns_for_c_table of this ReaderParams.
+
+        The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method.  CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\".  # noqa: E501
+
+        :param ignore_ending_filling_patterns_for_c_table: The ignore_ending_filling_patterns_for_c_table of this ReaderParams.  # noqa: E501
+        :type: bool
+        """
+
+        self._ignore_ending_filling_patterns_for_c_table = ignore_ending_filling_patterns_for_c_table
 
     def to_dict(self):
         """Returns the model properties as a dict"""
