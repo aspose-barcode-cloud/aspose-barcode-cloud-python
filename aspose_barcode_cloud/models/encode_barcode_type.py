@@ -106,6 +106,7 @@ class EncodeBarcodeType(object):
     UPCAGS1DATABARCOUPON = "UpcaGs1DatabarCoupon"
     CODABLOCKF = "CodablockF"
     GS1CODABLOCKF = "GS1CodablockF"
+    MAILMARK = "Mailmark"
 
     """
     Attributes:
