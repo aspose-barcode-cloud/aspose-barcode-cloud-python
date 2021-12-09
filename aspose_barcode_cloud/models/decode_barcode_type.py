@@ -107,6 +107,7 @@ class DecodeBarcodeType(object):
     DOTCODE = "DotCode"
     DUTCHKIX = "DutchKIX"
     CODABLOCKF = "CodablockF"
+    MAILMARK = "Mailmark"
 
     """
     Attributes:
