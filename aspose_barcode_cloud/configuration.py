@@ -2,7 +2,7 @@
 
 """
 
-    Copyright (c) 2021 Aspose.BarCode for Cloud
+    Copyright (c) 2022 Aspose.BarCode for Cloud
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -285,7 +285,7 @@ class Configuration(object):
             "OS: {env}\n"
             "Python Version: {pyversion}\n"
             "Version of the API: 3.0\n"
-            "SDK Package Version: 21.12.0".format(env=sys.platform, pyversion=sys.version)
+            "SDK Package Version: 22.1.0".format(env=sys.platform, pyversion=sys.version)
         )
 
     @staticmethod

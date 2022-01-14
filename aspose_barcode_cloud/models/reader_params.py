@@ -2,7 +2,7 @@
 
 """
 
-    Copyright (c) 2021 Aspose.BarCode for Cloud
+    Copyright (c) 2022 Aspose.BarCode for Cloud
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -1025,7 +1025,7 @@ class ReaderParams(object):
     def ignore_ending_filling_patterns_for_c_table(self):
         """Gets the ignore_ending_filling_patterns_for_c_table of this ReaderParams.  # noqa: E501
 
-        The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method.  CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\".  # noqa: E501
+        The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\".  # noqa: E501
 
         :return: The ignore_ending_filling_patterns_for_c_table of this ReaderParams.  # noqa: E501
         :rtype: bool
@@ -1036,7 +1036,7 @@ class ReaderParams(object):
     def ignore_ending_filling_patterns_for_c_table(self, ignore_ending_filling_patterns_for_c_table):
         """Sets the ignore_ending_filling_patterns_for_c_table of this ReaderParams.
 
-        The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method.  CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\".  # noqa: E501
+        The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\".  # noqa: E501
 
         :param ignore_ending_filling_patterns_for_c_table: The ignore_ending_filling_patterns_for_c_table of this ReaderParams.  # noqa: E501
         :type: bool

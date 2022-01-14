@@ -2,7 +2,7 @@
 
 """
 
-    Copyright (c) 2021 Aspose.BarCode for Cloud
+    Copyright (c) 2022 Aspose.BarCode for Cloud
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@ import os
 from setuptools import setup, find_packages
 
 NAME = "aspose-barcode-cloud"
-VERSION = "21.12.0"
+VERSION = "22.1.0"
 # To install the library, run the following
 #
 # python setup.py install

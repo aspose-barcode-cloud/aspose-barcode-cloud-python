@@ -182,7 +182,7 @@ similarity = 1.2 # float | Similarity coefficient depends on how homogeneous bar
 skip_diagonal_search = True # bool | Allows detector to skip search for diagonal barcodes. Setting it to False will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time. (optional)
 read_tiny_barcodes = True # bool | Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False. (optional)
 australian_post_encoding_table = 'australian_post_encoding_table_example' # str | Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. (optional)
-ignore_ending_filling_patterns_for_c_table = True # bool | The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method.  CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\". (optional)
+ignore_ending_filling_patterns_for_c_table = True # bool | The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\". (optional)
 rectangle_region = 'rectangle_region_example' # str |  (optional)
 storage = 'storage_example' # str | The image storage. (optional)
 folder = 'folder_example' # str | The image folder. (optional)
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
  **skip_diagonal_search** | **bool**| Allows detector to skip search for diagonal barcodes. Setting it to False will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time. | [optional] 
  **read_tiny_barcodes** | **bool**| Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False. | [optional] 
  **australian_post_encoding_table** | **str**| Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. | [optional] 
- **ignore_ending_filling_patterns_for_c_table** | **bool**| The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method.  CTable encoding method does not have any gaps in encoding table and sequnce \&quot;333\&quot; of filling paterns is decoded as letter \&quot;z\&quot;. | [optional] 
+ **ignore_ending_filling_patterns_for_c_table** | **bool**| The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequnce \&quot;333\&quot; of filling paterns is decoded as letter \&quot;z\&quot;. | [optional] 
  **rectangle_region** | **str**|  | [optional] 
  **storage** | **str**| The image storage. | [optional] 
  **folder** | **str**| The image folder. | [optional] 
@@ -304,7 +304,7 @@ similarity = 1.2 # float | Similarity coefficient depends on how homogeneous bar
 skip_diagonal_search = True # bool | Allows detector to skip search for diagonal barcodes. Setting it to False will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time. (optional)
 read_tiny_barcodes = True # bool | Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False. (optional)
 australian_post_encoding_table = 'australian_post_encoding_table_example' # str | Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. (optional)
-ignore_ending_filling_patterns_for_c_table = True # bool | The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method.  CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\". (optional)
+ignore_ending_filling_patterns_for_c_table = True # bool | The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\". (optional)
 rectangle_region = 'rectangle_region_example' # str |  (optional)
 url = 'url_example' # str | The image file url. (optional)
 image = '/path/to/file.txt' # file | Image data (optional)
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
  **skip_diagonal_search** | **bool**| Allows detector to skip search for diagonal barcodes. Setting it to False will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time. | [optional] 
  **read_tiny_barcodes** | **bool**| Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False. | [optional] 
  **australian_post_encoding_table** | **str**| Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. | [optional] 
- **ignore_ending_filling_patterns_for_c_table** | **bool**| The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method.  CTable encoding method does not have any gaps in encoding table and sequnce \&quot;333\&quot; of filling paterns is decoded as letter \&quot;z\&quot;. | [optional] 
+ **ignore_ending_filling_patterns_for_c_table** | **bool**| The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequnce \&quot;333\&quot; of filling paterns is decoded as letter \&quot;z\&quot;. | [optional] 
  **rectangle_region** | **str**|  | [optional] 
  **url** | **str**| The image file url. | [optional] 
  **image** | **file**| Image data | [optional] 
@@ -369,7 +369,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data, application/octet-stream
+ - **Content-Type**: multipart/form-data, application/x-www-form-urlencoded, application/octet-stream
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -543,7 +543,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/xml, multipart/form-data
+ - **Content-Type**: multipart/form-data, application/x-www-form-urlencoded, application/json, application/xml
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
