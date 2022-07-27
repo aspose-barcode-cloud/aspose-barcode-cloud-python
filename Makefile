@@ -44,7 +44,7 @@ init-docker:
 
 .PHONY: publish-docker
 publish-docker: init-docker test dist
-	python3 -m twine upload dist/*
+	python3 -m twine upload dist/* --verbose
 
 .PHONY: update
 update:
