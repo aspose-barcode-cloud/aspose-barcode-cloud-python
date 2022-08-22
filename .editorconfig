@@ -9,10 +9,10 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[*.python]
+[*.py]
 indent_style = space
-tab_width = 4
+indent_size = 4
 max_line_length = 120
 
-[CODEOWNERS]
+[{CODEOWNERS,Makefile}]
 indent_style = tab
