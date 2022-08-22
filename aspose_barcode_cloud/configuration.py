@@ -272,7 +272,7 @@ class Configuration(object):
         :return: The Auth Settings information dict.
         """
         return {
-            "JWT": {"type": "oauth2", "in": "header", "key": "Authorization", "value": "Bearer " + self.access_token}
+            "JWT": {"type": "oauth2", "in": "header", "key": "Authorization", "value": "Bearer " + self.access_token},
         }
 
     def to_debug_report(self):
