@@ -32,7 +32,7 @@ dist:
 .PHONY: check_git
 check_git:
 	git fetch origin
-	git diff origin/master --exit-code
+	git diff origin/main --exit-code
 
 .PHONY: publish
 publish: check_git test clean dist
