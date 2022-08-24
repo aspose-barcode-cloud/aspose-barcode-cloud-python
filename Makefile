@@ -56,7 +56,7 @@ publish-docker: init-docker test-all dist
 
 .PHONY: test
 test:
-	python -Werror -m pytest
+	python -Werror -m pytest --cov tests/
 
 .PHONY: test-all
 test-all: lint
