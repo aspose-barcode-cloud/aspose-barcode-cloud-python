@@ -30,5 +30,4 @@ jobs:
     - name: Test
       env:
         TEST_CONFIGURATION_ACCESS_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}
-      run: |
-        make test
+      run: make test
