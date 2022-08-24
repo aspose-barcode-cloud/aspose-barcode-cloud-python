@@ -40,4 +40,4 @@ class TestAuth(unittest.TestCase):
         with self.assertRaises(Exception) as context:
             api.get_barcode_generate(EncodeBarcodeType.QR, "Testing")
 
-        self.assertEqual(400, context.exception.status)
+        self.assertEqual(401, context.exception.status)

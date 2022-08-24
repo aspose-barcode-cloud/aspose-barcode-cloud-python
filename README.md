@@ -22,7 +22,7 @@ This repository contains Aspose.BarCode Cloud SDK for Python source code. This S
 Supported Python versions:
 
 - Python 2.7
-- Python 3.4+
+- Python 3.5+
 
 To use these SDKs, you will need Client Id and Client Secret which can be looked up at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/applications) (free registration in Aspose Cloud is required for this).
 

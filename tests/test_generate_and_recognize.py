@@ -18,7 +18,7 @@ class TestGenerateAndRecognize(unittest.TestCase):
         generated = self.api.get_barcode_generate(EncodeBarcodeType.QR, "Should recognize this")
         self.assertGreater(len(generated.data), 0)
 
-        temp_filename = tempfile.mktemp()
+        _, temp_filename = tempfile.mkstemp()
         try:
             with open(temp_filename, "wb") as f:
                 f.write(generated.data)
