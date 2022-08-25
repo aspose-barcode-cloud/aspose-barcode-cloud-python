@@ -33,7 +33,7 @@ format_doc:
 .PHONY: init
 init:
 	python -m pip install --upgrade pip
-	python -m pip install -r requirements.txt -r test-requirements.txt
+	python -m pip install -r requirements.txt -r lint-requirements.txt -r test-requirements.txt
 
 .PHONY: init-docker
 init-docker:
@@ -59,7 +59,7 @@ test:
 	python -Werror -m pytest --cov tests/
 
 .PHONY: test-all
-test-all: lint
+test-all:
 	tox $(SRC)
 
 .PHONY: update
