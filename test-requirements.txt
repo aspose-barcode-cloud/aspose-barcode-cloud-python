@@ -1,3 +1,5 @@
-coverage>=4.0.3
+pytest
+pytest-cov
+flake8
 mock; python_version < "3"
 black; python_version > "3.7"

@@ -1,7 +1,20 @@
 SRC=./aspose_barcode_cloud
 
 .PHONY: all
-all: format test
+all: format lint test-all
+
+.PHONY: check_git
+check_git:
+	git fetch origin
+	git diff origin/main --exit-code
+
+.PHONY: clean
+clean:
+	git clean -dfx --exclude='tests/configuration*.json'
+
+.PHONY: dist
+dist:
+	python3 setup.py sdist bdist_wheel --universal
 
 .PHONY: format
 format: format_code format_doc
@@ -17,34 +30,37 @@ format_doc:
 	# Replace true->True false->False: sed -e "s/\b\(false\|true\)/\u\1/g"
 	find . -type f -iname '*.md' -exec sed -i -e 's_\b\(false\|true\)_\u\1_g' '{}' \;
 
-.PHONY: test
-test:
-	tox $(SRC)
-
-.PHONY: clean
-clean:
-	git clean -dfx --exclude='tests/configuration*.json'
-
-.PHONY: dist
-dist:
-	python3 setup.py sdist bdist_wheel --universal
-
-.PHONY: check_git
-check_git:
-	git fetch origin
-	git diff origin/main --exit-code
-
-.PHONY: publish
-publish: check_git test clean dist
-	python3 -m twine upload dist/*
+.PHONY: init
+init:
+	python -m pip install --upgrade pip
+	python -m pip install -r requirements.txt -r test-requirements.txt
 
 .PHONY: init-docker
 init-docker:
 	python3 -m pip install -r publish-requirements.txt
 
+.PHONY: lint
+lint:
+	# stop the build if there are Python syntax errors or undefined names
+	flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics --extend-exclude '.*'
+	# exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+	flake8 . --count --exit-zero --max-line-length=127 --statistics --extend-ignore=E501 --extend-exclude '.*'
+
+.PHONY: publish
+publish: check_git test-all clean dist
+	python3 -m twine upload dist/*
+
 .PHONY: publish-docker
-publish-docker: init-docker test dist
+publish-docker: init-docker test-all dist
 	python3 -m twine upload dist/* --verbose
+
+.PHONY: test
+test:
+	python -Werror -m pytest --cov tests/
+
+.PHONY: test-all
+test-all: lint
+	tox $(SRC)
 
 .PHONY: update
 update:
