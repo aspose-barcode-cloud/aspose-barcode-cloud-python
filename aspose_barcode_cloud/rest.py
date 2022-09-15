@@ -370,6 +370,9 @@ class RESTClientObject(object):
             body=body,
         )
 
+    def close(self):
+        self.pool_manager.clear()
+
 
 class ApiException(Exception):
     def __init__(self, status=None, reason=None, http_resp=None):
