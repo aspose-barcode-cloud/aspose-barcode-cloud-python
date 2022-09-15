@@ -39,14 +39,14 @@ from six.moves.urllib.parse import quote
 
 from aspose_barcode_cloud.configuration import Configuration
 import aspose_barcode_cloud.models
-from aspose_barcode_cloud import rest
+from aspose_barcode_cloud.rest import RESTClientObject, ApiException
 
 
 class ApiClient(object):
     """Generic API client for Swagger client library builds.
 
-    Swagger generic API client. This client handles the client-
-    server communication, and is invariant across implementations. Specifics of
+    Swagger generic API client. This client handles the client-server communication,
+    and is invariant across implementations. Specifics of
     the methods and models for each application are generated from the Swagger
     templates.
 
@@ -81,7 +81,7 @@ class ApiClient(object):
 
         # Use the pool property to lazily initialize the ThreadPool.
         self._pool = None
-        self.rest_client = rest.RESTClientObject(configuration)
+        self.rest_client = RESTClientObject(configuration)
         self.default_headers = {
             "x-aspose-client": "python sdk",
             "x-aspose-client-version": "22.8.0",
@@ -642,7 +642,7 @@ class ApiClient(object):
         except ImportError:
             return string
         except ValueError:
-            raise rest.ApiException(status=0, reason="Failed to parse '{0}' as date object".format(string))
+            raise ApiException(status=0, reason="Failed to parse '{0}' as date object".format(string))
 
     def __deserialize_datetime(self, string):
         """Deserializes string to datetime.
@@ -659,7 +659,7 @@ class ApiClient(object):
         except ImportError:
             return string
         except ValueError:
-            raise rest.ApiException(status=0, reason=("Failed to parse '{0}' as datetime object".format(string)))
+            raise ApiException(status=0, reason=("Failed to parse '{0}' as datetime object".format(string)))
 
     def __hasattr(self, object, name):
         return name in object.__class__.__dict__

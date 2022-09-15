@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 
-# flake8: noqa
+# flake8: noqa: F401
 
 # import apis into api package
 from aspose_barcode_cloud.api.barcode_api import BarcodeApi

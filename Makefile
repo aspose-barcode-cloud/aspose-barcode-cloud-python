@@ -58,6 +58,10 @@ publish-docker: init-docker test-tox dist
 test:
 	python -Werror -m pytest --cov tests/
 
+.PHONY: unittest
+unittest:
+	python -Werror -m unittest discover -v
+
 .PHONY: test-example
 test-example:
 	python -Werror example.py
