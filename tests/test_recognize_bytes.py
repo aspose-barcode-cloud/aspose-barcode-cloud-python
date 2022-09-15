@@ -9,7 +9,9 @@ from .load_configuration import TEST_CONFIGURATION
 class TestRecognizeBytes(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.test_filename = os.path.join(os.path.dirname(__file__), "..", "testdata", "pdf417Sample.png")
+        cls.test_filename = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), "..", "testdata", "pdf417Sample.png")
+        )
 
         cls.api = BarcodeApi(api_client=ApiClient(configuration=TEST_CONFIGURATION))
 

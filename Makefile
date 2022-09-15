@@ -8,9 +8,13 @@ check_git:
 	git fetch origin
 	git diff origin/main --exit-code
 
-.PHONY: clean
-clean:
+.PHONY: clean-git
+clean-git:
 	git clean -dfx --exclude='tests/configuration*.json'
+
+.PHONY: clean-pyc
+clean-pyc:
+	find . -type f -name '*.pyc' -delete
 
 .PHONY: dist
 dist:

@@ -29,6 +29,8 @@
 
 from __future__ import absolute_import
 
+from aspose_barcode_cloud.rest import ApiException
+
 # import apis into sdk package
 from aspose_barcode_cloud.api.barcode_api import BarcodeApi
 from aspose_barcode_cloud.api.file_api import FileApi
@@ -107,5 +109,3 @@ from aspose_barcode_cloud.models.storage_file import StorageFile
 from aspose_barcode_cloud.models.structured_append import StructuredAppend
 from aspose_barcode_cloud.models.text_alignment import TextAlignment
 from aspose_barcode_cloud.models.file_version import FileVersion
-
-from aspose_barcode_cloud.rest import ApiException

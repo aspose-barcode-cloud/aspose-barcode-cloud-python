@@ -1,6 +1,6 @@
 # coding: utf-8
 
-# flake8: noqa: F401
+# flake8: noqa
 """
 
     Copyright (c) 2022 Aspose.BarCode for Cloud
