@@ -26,6 +26,7 @@
 
 from __future__ import absolute_import, division
 
+import contextlib
 import copy
 import json
 import logging
@@ -290,12 +291,20 @@ class Configuration(object):
 
     @staticmethod
     def fetch_token(client_id, client_secret, token_url):
-        client = RESTClientObject(Configuration(client_id=client_id, client_secret=client_secret, token_url=token_url))
-        response = client.POST(
-            token_url,
-            headers={"Content-Type": "application/x-www-form-urlencoded"},
-            post_params={"grant_type": "client_credentials", "client_id": client_id, "client_secret": client_secret},
-        )
-        js_data = json.loads(response.data)
+        with contextlib.closing(
+            RESTClientObject(Configuration(client_id=client_id, client_secret=client_secret, token_url=token_url))
+        ) as client:
+            response = client.POST(
+                token_url,
+                headers={"Content-Type": "application/x-www-form-urlencoded"},
+                post_params={
+                    "grant_type": "client_credentials",
+                    "client_id": client_id,
+                    "client_secret": client_secret,
+                },
+            )
+            js_data = json.loads(response.data)
+
         access_token = js_data["access_token"]
+
         return access_token

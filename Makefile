@@ -1,7 +1,7 @@
 SRC=./aspose_barcode_cloud
 
 .PHONY: all
-all: format lint test-all
+all: format lint test-tox
 
 .PHONY: check_git
 check_git:
@@ -47,19 +47,23 @@ lint:
 	flake8 . --count --exit-zero --max-line-length=127 --statistics --extend-ignore=E501 --extend-exclude '.*'
 
 .PHONY: publish
-publish: check_git test-all clean dist
+publish: check_git test-tox clean dist
 	python3 -m twine upload dist/*
 
 .PHONY: publish-docker
-publish-docker: init-docker test-all dist
+publish-docker: init-docker test-tox dist
 	python3 -m twine upload dist/* --verbose
 
 .PHONY: test
 test:
 	python -Werror -m pytest --cov tests/
 
-.PHONY: test-all
-test-all:
+.PHONY: test-example
+test-example:
+	python -Werror example.py
+
+.PHONY: test-tox
+test-tox:
 	tox $(SRC)
 
 .PHONY: update
