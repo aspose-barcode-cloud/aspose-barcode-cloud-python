@@ -93,6 +93,7 @@ class ApiClient(object):
         self.user_agent = "Aspose-Barcode-SDK/22.9.0/python"
 
     def __del__(self):
+        self.rest_client.close()
         if self._pool is not None:
             self._pool.close()
             self._pool.join()
