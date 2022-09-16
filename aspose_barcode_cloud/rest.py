@@ -229,7 +229,7 @@ class RESTClientObject(object):
                     msg = """Cannot prepare a request message for provided
                              arguments. Please check that your arguments match
                              declared content type."""
-                    raise ApiException(status=0, reason=msg)
+                    raise ApiException(reason=msg)
             # For 'GET', 'HEAD'
             else:
                 r = self.pool_manager.request(
@@ -237,7 +237,7 @@ class RESTClientObject(object):
                 )
         except urllib3.exceptions.SSLError as e:
             msg = "{0}\n{1}".format(type(e).__name__, str(e))
-            raise ApiException(status=0, reason=msg)
+            raise ApiException(reason=msg)
 
         if _preload_content:
             r = RESTResponse(r)
@@ -375,7 +375,8 @@ class RESTClientObject(object):
 
 
 class ApiException(Exception):
-    def __init__(self, status=None, reason=None, http_resp=None):
+    def __init__(self, status=0, reason=None, http_resp=None):
+        # type: (int, str, RESTResponse) -> None
         if http_resp:
             self.status = http_resp.status
             self.reason = http_resp.reason

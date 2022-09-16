@@ -8,9 +8,13 @@ check_git:
 	git fetch origin
 	git diff origin/main --exit-code
 
-.PHONY: clean
-clean:
+.PHONY: clean-git
+clean-git:
 	git clean -dfx --exclude='tests/configuration*.json'
+
+.PHONY: clean-pyc
+clean-pyc:
+	find . -type f -name '*.pyc' -delete
 
 .PHONY: dist
 dist:
@@ -57,6 +61,10 @@ publish-docker: init-docker test-tox dist
 .PHONY: test
 test:
 	python -Werror -m pytest --cov tests/
+
+.PHONY: unittest
+unittest:
+	python -Werror -m unittest discover -v
 
 .PHONY: test-example
 test-example:
