@@ -1,4 +1,6 @@
 import os
+import sys
+
 import six
 import unittest
 
@@ -7,6 +9,8 @@ from .load_configuration import TEST_CONFIGURATION
 
 if not six.PY2:
     import pathlib
+
+PY35orLess = sys.version_info[0:2] <= (3, 5)
 
 
 class TestRecognizeFile(unittest.TestCase):
@@ -34,7 +38,7 @@ class TestRecognizeFile(unittest.TestCase):
         self.assertEqual(DecodeBarcodeType.PDF417, barcode.type)
         self.assertEqual("Aspose.BarCode for Cloud Sample", barcode.barcode_value)
 
-    @unittest.skipIf(six.PY2, "No pathlib in Python2 ")
+    @unittest.skipIf(PY35orLess, "No pathlib in Python2 and Python3.5 raises an error")
     def test_post_barcode_recognize_from_url_or_content_pathlike(self):
         """Test case for post_barcode_recognize_from_url_or_content
 
