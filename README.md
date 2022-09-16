@@ -5,7 +5,7 @@
 [![PyPI](https://img.shields.io/pypi/v/aspose-barcode-cloud)](https://pypi.org/project/aspose-barcode-cloud/)
 
 - API version: 3.0
-- Package version: 22.8.0
+- Package version: 22.9.0
 
 ## Demo applications
 
@@ -105,7 +105,7 @@ All Aspose.BarCode for Cloud SDKs, helper scripts and templates are licensed und
 - [**Documentation**](https://docs.aspose.cloud/barcode/)
 - [**Free Support Forum**](https://forum.aspose.cloud/c/barcode)
 - [**Paid Support Helpdesk**](https://helpdesk.aspose.cloud/)
-- [**Blog**](https://blog.aspose.cloud/category/barcode/)
+- [**Blog**](https://blog.aspose.cloud/categories/aspose.barcode-cloud-product-family/)
 
 ## Documentation for API Endpoints
 
