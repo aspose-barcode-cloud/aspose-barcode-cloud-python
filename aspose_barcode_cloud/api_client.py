@@ -72,7 +72,7 @@ class ApiClient(object):
     PRIMITIVE_TYPES = (float, bool, bytes, six.text_type) + six.integer_types
     NATIVE_TYPES_MAPPING = {
         "int": int,
-        "long": int if six.PY3 else long,
+        "long": int if six.PY3 else long,  # noqa: F821
         "float": float,
         "str": str,
         "bool": bool,
@@ -515,7 +515,7 @@ class ApiClient(object):
         return any(ord(c) >= 128 for c in string)
 
     def prepare_one_file(self, file_data):
-        # type: (Union[bytes, str, file]) -> FileFieldData
+        # type: (Union[bytes, str, file]) -> FileFieldData # noqa: F821
 
         # Python 2 has no difference between Bytes and Str
         # So decide non-ascii string is Bytes
@@ -532,7 +532,7 @@ class ApiClient(object):
         if isinstance(file_data, io.BytesIO):
             return FileFieldData("data.bin", file_data.read(), "application/octet-stream")
 
-        if isinstance(file_data, io.BufferedReader) or (six.PY2 and isinstance(file_data, file)):
+        if isinstance(file_data, io.BufferedReader) or (six.PY2 and isinstance(file_data, file)):  # noqa: F821
             return FileFieldData(os.path.basename(file_data.name), file_data.read(), "application/octet-stream")
 
         raise ApiException(reason="Unknown type {type_name} for file parameter".format(type_name=type(file_data)))
