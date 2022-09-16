@@ -515,7 +515,7 @@ class ApiClient(object):
         return any(ord(c) >= 128 for c in string)
 
     def prepare_one_file(self, file_data):
-        # type: (Union[bytes, str, file]) -> FileFieldData # noqa: F821
+        # type: (Union[bytes, str, file, pathlib.Path, io.BytesIO]) -> FileFieldData # noqa: F821
 
         # Python 2 has no difference between Bytes and Str
         # So decide non-ascii string is Bytes

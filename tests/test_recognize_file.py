@@ -43,7 +43,7 @@ class TestRecognizeFile(unittest.TestCase):
 
         response = self.api.post_barcode_recognize_from_url_or_content(
             preset=PresetType.HIGHPERFORMANCE,
-            image=pathlib.PurePath(self.test_filename),
+            image=pathlib.Path(self.test_filename),
         )
 
         self.assertEqual(1, len(response.barcodes))
