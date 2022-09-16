@@ -2,7 +2,7 @@ from __future__ import absolute_import, division
 
 import unittest
 
-from aspose_barcode_cloud import Configuration, ApiClient, BarcodeApi, EncodeBarcodeType
+from aspose_barcode_cloud import Configuration, ApiClient, BarcodeApi, EncodeBarcodeType, ApiException
 from .load_configuration import TEST_CONFIGURATION
 
 
@@ -37,7 +37,7 @@ class TestAuth(unittest.TestCase):
     def test_unauthorized_raises(self):
         api = BarcodeApi(ApiClient(Configuration(access_token="incorrect token", host=TEST_CONFIGURATION.host)))
 
-        with self.assertRaises(Exception) as context:
+        with self.assertRaises(ApiException) as context:
             api.get_barcode_generate(EncodeBarcodeType.QR, "Testing")
 
         self.assertEqual(401, context.exception.status)

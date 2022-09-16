@@ -26,10 +26,13 @@ class TestBarcodeApi(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.test_filename = os.path.join("testdata", "pdf417Sample.png")
+        cls.test_filename = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), "..", "testdata", "pdf417Sample.png")
+        )
 
         cls.api_client = ApiClient(configuration=TEST_CONFIGURATION)
 
+        # noinspection PyUnresolvedReferences
         cls.api = BarcodeApi(api_client=cls.api_client)
         cls.temp_folder_path = "BarcodeTests/%s" % uuid.uuid4()
 
@@ -49,7 +52,9 @@ class TestBarcodeApi(unittest.TestCase):
 
         Recognize barcode from a file on server.
         """
-        filename = self.upload_test_file("testdata/pdf417Sample.png")
+        filename = self.upload_test_file(
+            file_path=os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "testdata", "pdf417Sample.png"))
+        )
 
         response = self.api.get_barcode_recognize(
             filename, folder=self.temp_folder_path, preset=PresetType.HIGHPERFORMANCE
@@ -154,10 +159,11 @@ class TestBarcodeApi(unittest.TestCase):
         self.assertGreater(response.image_height, 0)
 
     def upload_test_file(self, file_path):
+        self.assertTrue(os.path.isfile(file_path))
         file_api = FileApi(self.api_client)
-        file_name = os.path.split(file_path)[-1]
+        fname = os.path.basename(file_path)
 
-        upload_result = file_api.upload_file(self.temp_folder_path + "/" + file_name, file_path)
+        upload_result = file_api.upload_file(path=self.temp_folder_path + "/" + fname, file=file_path)
 
         self.assertFalse(upload_result.errors, str(upload_result.errors))
         self.assertTrue(upload_result.uploaded)

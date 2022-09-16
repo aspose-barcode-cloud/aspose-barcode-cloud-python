@@ -1,6 +1,6 @@
 # coding: utf-8
 
-# flake8: noqa
+# flake8: noqa: F401
 
 """
 
@@ -28,6 +28,8 @@
 
 
 from __future__ import absolute_import
+
+from aspose_barcode_cloud.rest import ApiException
 
 # import apis into sdk package
 from aspose_barcode_cloud.api.barcode_api import BarcodeApi
