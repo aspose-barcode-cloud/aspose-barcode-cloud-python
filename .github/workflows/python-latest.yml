@@ -19,7 +19,7 @@ jobs:
       uses: actions/setup-python@v4
     - name: Install dependencies
       run: |
-        python3 -m pip install -r test-requirements.txt
+        python3 -m pip install -r requirements.txt -r test-requirements.txt
     - name: Lint
       run: |
         python3 -m black --line-length=120 --check .
