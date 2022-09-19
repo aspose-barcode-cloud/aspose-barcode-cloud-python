@@ -1,4 +1,4 @@
-name: Latest Python
+name: Latest Python Support
 
 on:
   push:
