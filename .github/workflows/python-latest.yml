@@ -23,7 +23,7 @@ jobs:
         pip install -r test-requirements.txt
     - name: Lint
       run: |
-        python -m black --line-length=120 --check
+        python -m black --line-length=120 --check .
         python -m check_python_versions --expect 2.7,3.5- --only setup.py
     - name: Test
       env:
