@@ -37,12 +37,7 @@ VERSION = "22.9.0"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = [
-    "certifi>=2017.4.17",
-    "python-dateutil>=2.1",
-    "six>=1.10",
-    "urllib3>=1.23"
-]
+REQUIRES = ["certifi>=2017.4.17", "python-dateutil>=2.1", "six>=1.10", "urllib3>=1.23"]
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -61,8 +56,17 @@ setup(
         "Intended Audience :: Developers",
         "Topic :: Software Development",
         "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
     ],
     keywords=[
         "Barcode-Scan",
@@ -177,7 +181,7 @@ setup(
         "Standard2of5",
         "SwissPostParcel",
         "UpcaGs1Code128Coupon",
-        "UpcaGs1DatabarCoupon"
+        "UpcaGs1DatabarCoupon",
     ],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["tests"]),

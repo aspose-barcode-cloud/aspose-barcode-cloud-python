@@ -1,0 +1,45 @@
+name: Latest Python Support
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  # Define the job to run before your matrix job
+  get-python-versions:
+    runs-on: ubuntu-latest
+    outputs:
+      python-matrix: ${{ steps.get-python-versions-action.outputs.latest-python-versions }}
+    steps:
+    - uses: snok/latest-python-versions@v1
+      id: get-python-versions-action
+      with:
+        min-version: '3.10'
+
+  test:
+    needs: [get-python-versions]
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-latest, windows-latest, macOS-latest ]
+        python-version: ${{ fromJson(needs.get-python-versions.outputs.python-matrix) }}
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python on ${{ matrix.operating-system }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python3 -m pip install -r requirements.txt -r test-requirements.txt
+    - name: Lint
+      run: |
+        python3 -m black --line-length=120 --check .
+        python3 -m check_python_versions --expect 2.7,3.5- --only setup.py
+    - name: Test
+      env:
+        TEST_CONFIGURATION_ACCESS_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}
+      run: python3 -Werror -m pytest
