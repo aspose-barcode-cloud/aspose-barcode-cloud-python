@@ -69,7 +69,7 @@ class ApiClient(object):
         to the API
     """
 
-    PRIMITIVE_TYPES = (float, bool, bytes, six.text_type) + six.integer_types
+    PRIMITIVE_TYPES = (float, bool, bytes, bytearray, six.text_type) + six.integer_types
     NATIVE_TYPES_MAPPING = {
         "int": int,
         "long": int if six.PY3 else long,  # noqa: F821
@@ -207,7 +207,7 @@ class ApiClient(object):
         if _return_http_data_only:
             return return_data
         else:
-            return (return_data, response_data.status, response_data.getheaders())
+            return return_data, response_data.status, response_data.getheaders()
 
     def sanitize_for_serialization(self, obj):
         """Builds a JSON POST object.
@@ -285,7 +285,7 @@ class ApiClient(object):
 
         if type(klass) == str:
             if klass.startswith("list["):
-                sub_kls = re.match(r"list\[(.*)\]", klass).group(1)
+                sub_kls = re.match(r"list\[(.*)]", klass).group(1)
                 return [self.__deserialize(sub_data, sub_kls) for sub_data in data]
 
             if klass.startswith("dict("):
@@ -338,13 +338,13 @@ class ApiClient(object):
         :param header_params: Header parameters to be
             placed in the request header.
         :param body: Request body.
-        :param post_params dict: Request post form parameters,
+        :param post_params: dict: Request post form parameters,
             for 'application/x-www-form-urlencoded', 'multipart/form-data'.
-        :param auth_settings list: Auth Settings names for the request.
-        :param response: Response data type.
-        :param files dict: key -> filename, value -> filepath,
+        :param response_type: Response data type.
+        :param auth_settings: list: Auth Settings names for the request.
+        :param files: dict: key -> filename, value -> filepath,
             for 'multipart/form-data'.
-        :param async_req bool: execute request asynchronously
+        :param async_req: bool: execute request asynchronously
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param collection_formats: dict of collection formats for path, query,
@@ -511,16 +511,8 @@ class ApiClient(object):
                 new_params.append((k, v))
         return new_params
 
-    def is_not_ascii(self, string):
-        return any(ord(c) >= 128 for c in string)
-
     def prepare_one_file(self, file_data):
         # type: (Union[bytes, str, file, pathlib.Path, io.BytesIO]) -> FileFieldData # noqa: F821
-
-        # Python 2 has no difference between Bytes and Str
-        # So decide non-ascii string is Bytes
-        if isinstance(file_data, bytes) and (not six.PY2 or self.is_not_ascii(file_data)):
-            return FileFieldData("data.bin", file_data, "application/octet-stream")
 
         if isinstance(file_data, str) or (not six.PY2 and isinstance(file_data, pathlib.PurePath)):
             with open(file_data, "rb") as f:
@@ -528,6 +520,11 @@ class ApiClient(object):
                 file_bytes = f.read()
             mime_type = mimetypes.guess_type(fname)[0] or "application/octet-stream"
             return FileFieldData(fname, file_bytes, mime_type)
+
+        # Python 2 has no difference between bytes and str
+        # Use bytearray in Python 2 to make a difference with str
+        if isinstance(file_data, bytes) or isinstance(file_data, bytearray):
+            return FileFieldData("data.bin", file_data, "application/octet-stream")
 
         if isinstance(file_data, io.BytesIO):
             return FileFieldData("data.bin", file_data.read(), "application/octet-stream")
@@ -687,8 +684,8 @@ class ApiClient(object):
         except ValueError:
             raise ApiException(reason=("Failed to parse '{0}' as datetime object".format(string)))
 
-    def __hasattr(self, object, name):
-        return name in object.__class__.__dict__
+    def __hasattr(self, obj, name):
+        return name in obj.__class__.__dict__
 
     def __deserialize_model(self, data, klass):
         """Deserializes list or dict to model.
