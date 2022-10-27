@@ -112,7 +112,10 @@ class TestBarcodeApi(unittest.TestCase):
         """
 
         response = self.api.put_barcode_generate_file(
-            self.test_put_barcode_generate_filename, self.GENERATED_BARCODE_TYPE, self.GENERATED_BARCODE_TEXT, folder=self.temp_folder_path
+            self.test_put_barcode_generate_filename,
+            self.GENERATED_BARCODE_TYPE,
+            self.GENERATED_BARCODE_TEXT,
+            folder=self.temp_folder_path,
         )
 
         self.assertGreater(response.file_size, 0)
@@ -129,7 +132,9 @@ class TestBarcodeApi(unittest.TestCase):
         self.test_put_barcode_generate_file()
 
         response = self.api.put_barcode_recognize_from_body(
-            self.test_put_barcode_generate_filename, ReaderParams(preset=PresetType.HIGHPERFORMANCE), folder=self.temp_folder_path
+            self.test_put_barcode_generate_filename,
+            ReaderParams(preset=PresetType.HIGHPERFORMANCE),
+            folder=self.temp_folder_path,
         )
 
         self.assertEqual(1, len(response.barcodes))
