@@ -35,6 +35,7 @@ class TestBarcodeApi(unittest.TestCase):
         # noinspection PyUnresolvedReferences
         cls.api = BarcodeApi(api_client=cls.api_client)
         cls.temp_folder_path = "BarcodeTests/%s" % uuid.uuid4()
+        cls.test_put_barcode_generate_filename = "test_put_barcode_generate_file.png"
 
     def test_get_barcode_generate(self):
         """Test case for get_barcode_generate
@@ -109,27 +110,26 @@ class TestBarcodeApi(unittest.TestCase):
 
         Generate barcode and save on server (from query params or from file with json or xml content)
         """
-        filename = "test_put_barcode_generate_file.png"
 
         response = self.api.put_barcode_generate_file(
-            filename, self.GENERATED_BARCODE_TYPE, self.GENERATED_BARCODE_TEXT, folder=self.temp_folder_path
+            self.test_put_barcode_generate_filename, self.GENERATED_BARCODE_TYPE, self.GENERATED_BARCODE_TEXT, folder=self.temp_folder_path
         )
 
         self.assertGreater(response.file_size, 0)
         self.assertGreater(response.image_width, 0)
         self.assertGreater(response.image_height, 0)
 
-        return filename
-
     def test_put_barcode_recognize_from_body(self):
         """Test case for put_barcode_recognize_from_body
 
         Recognition of a barcode from file on server with parameters in body.
         """
-        filename = self.test_put_barcode_generate_file()
+
+        # Ensure file self.test_put_barcode_generate_filename generated
+        self.test_put_barcode_generate_file()
 
         response = self.api.put_barcode_recognize_from_body(
-            filename, ReaderParams(preset=PresetType.HIGHPERFORMANCE), folder=self.temp_folder_path
+            self.test_put_barcode_generate_filename, ReaderParams(preset=PresetType.HIGHPERFORMANCE), folder=self.temp_folder_path
         )
 
         self.assertEqual(1, len(response.barcodes))
