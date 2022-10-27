@@ -2,6 +2,8 @@ import io
 import os
 import unittest
 
+import six
+
 from aspose_barcode_cloud import PresetType, ApiClient, BarcodeApi, DecodeBarcodeType
 from .load_configuration import TEST_CONFIGURATION
 
@@ -15,6 +17,7 @@ class TestRecognizeBytes(unittest.TestCase):
 
         cls.api = BarcodeApi(api_client=ApiClient(configuration=TEST_CONFIGURATION))
 
+    @unittest.skipIf(six.PY2, "Python 2 has no difference between bytes and str")
     def test_post_barcode_recognize_from_url_or_content_bytes(self):
         """Test case for post_barcode_recognize_from_url_or_content
 
@@ -22,6 +25,24 @@ class TestRecognizeBytes(unittest.TestCase):
         """
         with open(self.test_filename, "rb") as f:
             image_bytes = f.read()
+
+        response = self.api.post_barcode_recognize_from_url_or_content(
+            preset=PresetType.HIGHPERFORMANCE,
+            image=image_bytes,
+        )
+
+        self.assertEqual(1, len(response.barcodes))
+        barcode = response.barcodes[0]
+        self.assertEqual(DecodeBarcodeType.PDF417, barcode.type)
+        self.assertEqual("Aspose.BarCode for Cloud Sample", barcode.barcode_value)
+
+    def test_post_barcode_recognize_from_url_or_content_bytearray(self):
+        """Test case for post_barcode_recognize_from_url_or_content
+
+        Recognize barcode from bytes.
+        """
+        with open(self.test_filename, "rb") as f:
+            image_bytes = bytearray(f.read())
 
         response = self.api.post_barcode_recognize_from_url_or_content(
             preset=PresetType.HIGHPERFORMANCE,

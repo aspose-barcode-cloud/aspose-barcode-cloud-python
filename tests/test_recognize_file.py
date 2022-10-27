@@ -1,8 +1,8 @@
 import os
 import sys
+import unittest
 
 import six
-import unittest
 
 from aspose_barcode_cloud import PresetType, ApiClient, BarcodeApi, DecodeBarcodeType
 from .load_configuration import TEST_CONFIGURATION
