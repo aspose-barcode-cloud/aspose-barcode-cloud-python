@@ -47,7 +47,9 @@ logger = logging.getLogger(__name__)
 
 
 class RESTResponse(io.IOBase):
-    def __init__(self, resp):
+    def __init__(self, resp, *args, **kwargs):
+        super(RESTResponse, self).__init__(*args, **kwargs)
+
         self.urllib3_response = resp
         self.status = resp.status
         self.reason = resp.reason
@@ -219,8 +221,8 @@ class RESTClientObject(object):
                         headers=headers,
                     )
                 elif headers["Content-Type"] == "application/octet-stream":
-                    file = post_params.pop(-1)
-                    body = file[1][1]
+                    file_data = post_params.pop(-1)
+                    body = file_data[1][1]
                     r = self.pool_manager.request(
                         method, url, body=body, preload_content=_preload_content, timeout=timeout, headers=headers
                     )
@@ -255,6 +257,7 @@ class RESTClientObject(object):
 
         return r
 
+    # noinspection PyPep8Naming
     def GET(self, url, headers=None, query_params=None, _preload_content=True, _request_timeout=None):
         return self._request(
             "GET",
@@ -265,6 +268,7 @@ class RESTClientObject(object):
             query_params=query_params,
         )
 
+    # noinspection PyPep8Naming
     def HEAD(self, url, headers=None, query_params=None, _preload_content=True, _request_timeout=None):
         return self._request(
             "HEAD",
@@ -275,6 +279,7 @@ class RESTClientObject(object):
             query_params=query_params,
         )
 
+    # noinspection PyPep8Naming
     def OPTIONS(
         self,
         url,
@@ -296,6 +301,7 @@ class RESTClientObject(object):
             body=body,
         )
 
+    # noinspection PyPep8Naming
     def DELETE(self, url, headers=None, query_params=None, body=None, _preload_content=True, _request_timeout=None):
         return self._request(
             "DELETE",
@@ -307,6 +313,7 @@ class RESTClientObject(object):
             body=body,
         )
 
+    # noinspection PyPep8Naming
     def POST(
         self,
         url,
@@ -328,6 +335,7 @@ class RESTClientObject(object):
             body=body,
         )
 
+    # noinspection PyPep8Naming
     def PUT(
         self,
         url,
@@ -349,6 +357,7 @@ class RESTClientObject(object):
             body=body,
         )
 
+    # noinspection PyPep8Naming
     def PATCH(
         self,
         url,
