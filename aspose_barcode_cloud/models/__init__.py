@@ -80,6 +80,7 @@ from aspose_barcode_cloud.models.patch_code_params import PatchCodeParams
 from aspose_barcode_cloud.models.patch_format import PatchFormat
 from aspose_barcode_cloud.models.pdf417_compaction_mode import Pdf417CompactionMode
 from aspose_barcode_cloud.models.pdf417_error_level import Pdf417ErrorLevel
+from aspose_barcode_cloud.models.pdf417_macro_terminator import Pdf417MacroTerminator
 from aspose_barcode_cloud.models.pdf417_params import Pdf417Params
 from aspose_barcode_cloud.models.postal_params import PostalParams
 from aspose_barcode_cloud.models.preset_type import PresetType
