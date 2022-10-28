@@ -5,7 +5,7 @@
 [![PyPI](https://img.shields.io/pypi/v/aspose-barcode-cloud)](https://pypi.org/project/aspose-barcode-cloud/)
 
 - API version: 3.0
-- Package version: 22.9.0
+- Package version: 22.10.0
 
 ## Demo applications
 
@@ -188,6 +188,7 @@ Class | Method | HTTP request | Description
 - [PatchFormat](docs/PatchFormat.md)
 - [Pdf417CompactionMode](docs/Pdf417CompactionMode.md)
 - [Pdf417ErrorLevel](docs/Pdf417ErrorLevel.md)
+- [Pdf417MacroTerminator](docs/Pdf417MacroTerminator.md)
 - [Pdf417Params](docs/Pdf417Params.md)
 - [PostalParams](docs/PostalParams.md)
 - [PresetType](docs/PresetType.md)

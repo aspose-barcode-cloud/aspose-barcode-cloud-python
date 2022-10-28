@@ -65,6 +65,7 @@ class Pdf417Params(object):
         "macro_addressee": "str",
         "macro_eci_encoding": "ECIEncodings",
         "code128_emulation": "Code128Emulation",
+        "pdf417_macro_terminator": "Pdf417MacroTerminator",
     }
 
     attribute_map = {
@@ -88,6 +89,7 @@ class Pdf417Params(object):
         "macro_addressee": "MacroAddressee",
         "macro_eci_encoding": "MacroECIEncoding",
         "code128_emulation": "Code128Emulation",
+        "pdf417_macro_terminator": "Pdf417MacroTerminator",
     }
 
     def __init__(
@@ -112,6 +114,7 @@ class Pdf417Params(object):
         macro_addressee=None,
         macro_eci_encoding=None,
         code128_emulation=None,
+        pdf417_macro_terminator=None,
     ):  # noqa: E501
         """Pdf417Params - a model defined in Swagger"""  # noqa: E501
 
@@ -135,6 +138,7 @@ class Pdf417Params(object):
         self._macro_addressee = None
         self._macro_eci_encoding = None
         self._code128_emulation = None
+        self._pdf417_macro_terminator = None
         self.discriminator = None
 
         if aspect_ratio is not None:
@@ -177,6 +181,8 @@ class Pdf417Params(object):
             self.macro_eci_encoding = macro_eci_encoding
         if code128_emulation is not None:
             self.code128_emulation = code128_emulation
+        if pdf417_macro_terminator is not None:
+            self.pdf417_macro_terminator = pdf417_macro_terminator
 
     @property
     def aspect_ratio(self):
@@ -637,6 +643,29 @@ class Pdf417Params(object):
         """
 
         self._code128_emulation = code128_emulation
+
+    @property
+    def pdf417_macro_terminator(self):
+        """Gets the pdf417_macro_terminator of this Pdf417Params.  # noqa: E501
+
+        Used to tell the encoder whether to add Macro PDF417 Terminator (codeword 922) to the segment. Applied only for Macro PDF417.  # noqa: E501
+
+        :return: The pdf417_macro_terminator of this Pdf417Params.  # noqa: E501
+        :rtype: Pdf417MacroTerminator
+        """
+        return self._pdf417_macro_terminator
+
+    @pdf417_macro_terminator.setter
+    def pdf417_macro_terminator(self, pdf417_macro_terminator):
+        """Sets the pdf417_macro_terminator of this Pdf417Params.
+
+        Used to tell the encoder whether to add Macro PDF417 Terminator (codeword 922) to the segment. Applied only for Macro PDF417.  # noqa: E501
+
+        :param pdf417_macro_terminator: The pdf417_macro_terminator of this Pdf417Params.  # noqa: E501
+        :type: Pdf417MacroTerminator
+        """
+
+        self._pdf417_macro_terminator = pdf417_macro_terminator
 
     def to_dict(self):
         """Returns the model properties as a dict"""
