@@ -5,7 +5,7 @@
 [![PyPI](https://img.shields.io/pypi/v/aspose-barcode-cloud)](https://pypi.org/project/aspose-barcode-cloud/)
 
 - API version: 3.0
-- Package version: 22.10.0
+- Package version: 22.11.0
 
 ## Demo applications
 
@@ -181,6 +181,7 @@ Class | Method | HTTP request | Description
 - [ITF14BorderType](docs/ITF14BorderType.md)
 - [ITFParams](docs/ITFParams.md)
 - [MacroCharacter](docs/MacroCharacter.md)
+- [MaxiCodeMode](docs/MaxiCodeMode.md)
 - [MaxiCodeParams](docs/MaxiCodeParams.md)
 - [ObjectExist](docs/ObjectExist.md)
 - [Padding](docs/Padding.md)

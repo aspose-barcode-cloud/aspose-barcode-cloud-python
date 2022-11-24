@@ -73,6 +73,7 @@ from aspose_barcode_cloud.models.generator_params_list import GeneratorParamsLis
 from aspose_barcode_cloud.models.itf14_border_type import ITF14BorderType
 from aspose_barcode_cloud.models.itf_params import ITFParams
 from aspose_barcode_cloud.models.macro_character import MacroCharacter
+from aspose_barcode_cloud.models.maxi_code_mode import MaxiCodeMode
 from aspose_barcode_cloud.models.maxi_code_params import MaxiCodeParams
 from aspose_barcode_cloud.models.object_exist import ObjectExist
 from aspose_barcode_cloud.models.padding import Padding
