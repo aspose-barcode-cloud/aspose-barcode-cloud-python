@@ -9,7 +9,7 @@ on:
 jobs:
   # Define the job to run before your matrix job
   get-python-versions:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     outputs:
       python-matrix: ${{ steps.get-python-versions-action.outputs.latest-python-versions }}
     steps:
