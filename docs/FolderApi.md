@@ -3,7 +3,7 @@
 All URIs are relative to *https://api.aspose.cloud/v3.0*
 
 Method | HTTP request | Description
-------------- | ------------- | -------------
+------ | ------------ | -----------
 [**copy_folder**](FolderApi.md#copy_folder) | **PUT** /barcode/storage/folder/copy/{srcPath} | Copy folder
 [**create_folder**](FolderApi.md#create_folder) | **PUT** /barcode/storage/folder/{path} | Create the folder
 [**delete_folder**](FolderApi.md#delete_folder) | **DELETE** /barcode/storage/folder/{path} | Delete folder
@@ -44,7 +44,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **src_path** | **str**| Source folder path e.g. &#39;/src&#39; | 
  **dest_path** | **str**| Destination folder path e.g. &#39;/dst&#39; | 
  **src_storage_name** | **str**| Source storage name | [optional] 
@@ -96,7 +96,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **path** | **str**| Folder path to create e.g. &#39;folder_1/folder_2/&#39; | 
  **storage_name** | **str**| Storage name | [optional] 
 
@@ -147,7 +147,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **path** | **str**| Folder path e.g. &#39;/folder&#39; | 
  **storage_name** | **str**| Storage name | [optional] 
  **recursive** | **bool**| Enable to delete folders, subfolders and files | [optional] [default to False]
@@ -199,7 +199,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **path** | **str**| Folder path e.g. &#39;/folder&#39; | 
  **storage_name** | **str**| Storage name | [optional] 
 
@@ -251,7 +251,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **src_path** | **str**| Folder path to move e.g. &#39;/folder&#39; | 
  **dest_path** | **str**| Destination folder path to move to e.g &#39;/dst&#39; | 
  **src_storage_name** | **str**| Source storage name | [optional] 

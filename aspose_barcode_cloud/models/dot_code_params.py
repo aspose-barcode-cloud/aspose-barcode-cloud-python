@@ -87,7 +87,7 @@ class DotCodeParams(object):
     def dot_code_mask(self):
         """Gets the dot_code_mask of this DotCodeParams.  # noqa: E501
 
-        Mask of Dotcode barcode. Default value: -1.  # noqa: E501
+        DEPRECATED: DotCodeMask is now calculated automatically  # noqa: E501
 
         :return: The dot_code_mask of this DotCodeParams.  # noqa: E501
         :rtype: int
@@ -98,7 +98,7 @@ class DotCodeParams(object):
     def dot_code_mask(self, dot_code_mask):
         """Sets the dot_code_mask of this DotCodeParams.
 
-        Mask of Dotcode barcode. Default value: -1.  # noqa: E501
+        DEPRECATED: DotCodeMask is now calculated automatically  # noqa: E501
 
         :param dot_code_mask: The dot_code_mask of this DotCodeParams.  # noqa: E501
         :type: int
