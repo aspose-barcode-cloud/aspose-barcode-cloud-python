@@ -3,7 +3,7 @@
 All URIs are relative to *https://api.aspose.cloud/v3.0*
 
 Method | HTTP request | Description
-------------- | ------------- | -------------
+------ | ------------ | -----------
 [**get_barcode_generate**](BarcodeApi.md#get_barcode_generate) | **GET** /barcode/generate | Generate barcode.
 [**get_barcode_recognize**](BarcodeApi.md#get_barcode_recognize) | **GET** /barcode/{name}/recognize | Recognize barcode from a file on server.
 [**post_barcode_recognize_from_url_or_content**](BarcodeApi.md#post_barcode_recognize_from_url_or_content) | **POST** /barcode/recognize | Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image or encoded with base64.
@@ -78,7 +78,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **type** | **str**| Type of barcode to generate. | 
  **text** | **str**| Text to encode. | 
  **two_d_display_text** | **str**| Text that will be displayed instead of codetext in 2D barcodes. Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode | [optional] 
@@ -198,7 +198,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **name** | **str**| The image file name. | 
  **type** | **str**| The type of barcode to read. | [optional] 
  **checksum_validation** | **str**| Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies | [optional] 
@@ -320,7 +320,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **type** | **str**| The type of barcode to read. | [optional] 
  **checksum_validation** | **str**| Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies | [optional] 
  **detect_encoding** | **bool**| A flag which force engine to detect codetext encoding for Unicode. | [optional] 
@@ -406,7 +406,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **generator_params_list** | [**GeneratorParamsList**](GeneratorParamsList.md)| List of barcodes | 
  **format** | **str**| Format to return stream in | [optional] [default to png]
 
@@ -493,7 +493,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **name** | **str**| The image file name. | 
  **type** | **str**| Type of barcode to generate. | 
  **text** | **str**| Text to encode. | 
@@ -583,7 +583,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **name** | **str**| The image file name. | 
  **reader_params** | [**ReaderParams**](ReaderParams.md)| BarcodeReader object with parameters. | 
  **type** | **str**|  | [optional] 
@@ -640,7 +640,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **name** | **str**| New filename | 
  **generator_params_list** | [**GeneratorParamsList**](GeneratorParamsList.md)| List of barcodes | 
  **format** | **str**| Format of file | [optional] [default to png]

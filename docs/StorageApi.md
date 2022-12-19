@@ -3,7 +3,7 @@
 All URIs are relative to *https://api.aspose.cloud/v3.0*
 
 Method | HTTP request | Description
-------------- | ------------- | -------------
+------ | ------------ | -----------
 [**get_disc_usage**](StorageApi.md#get_disc_usage) | **GET** /barcode/storage/disc | Get disc usage
 [**get_file_versions**](StorageApi.md#get_file_versions) | **GET** /barcode/storage/version/{path} | Get file versions
 [**object_exists**](StorageApi.md#object_exists) | **GET** /barcode/storage/exist/{path} | Check if file or folder exists
@@ -41,7 +41,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **storage_name** | **str**| Storage name | [optional] 
 
 ### Return type
@@ -91,7 +91,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **path** | **str**| File path e.g. &#39;/file.ext&#39; | 
  **storage_name** | **str**| Storage name | [optional] 
 
@@ -143,7 +143,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **path** | **str**| File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39; | 
  **storage_name** | **str**| Storage name | [optional] 
  **version_id** | **str**| File version ID | [optional] 
@@ -194,7 +194,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **storage_name** | **str**| Storage name | 
 
 ### Return type

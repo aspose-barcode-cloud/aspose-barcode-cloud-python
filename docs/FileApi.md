@@ -3,7 +3,7 @@
 All URIs are relative to *https://api.aspose.cloud/v3.0*
 
 Method | HTTP request | Description
-------------- | ------------- | -------------
+------ | ------------ | -----------
 [**copy_file**](FileApi.md#copy_file) | **PUT** /barcode/storage/file/copy/{srcPath} | Copy file
 [**delete_file**](FileApi.md#delete_file) | **DELETE** /barcode/storage/file/{path} | Delete file
 [**download_file**](FileApi.md#download_file) | **GET** /barcode/storage/file/{path} | Download file
@@ -45,7 +45,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **src_path** | **str**| Source file path e.g. &#39;/folder/file.ext&#39; | 
  **dest_path** | **str**| Destination file path | 
  **src_storage_name** | **str**| Source storage name | [optional] 
@@ -99,7 +99,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **path** | **str**| File path e.g. &#39;/folder/file.ext&#39; | 
  **storage_name** | **str**| Storage name | [optional] 
  **version_id** | **str**| File version ID to delete | [optional] 
@@ -152,7 +152,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **path** | **str**| File path e.g. &#39;/folder/file.ext&#39; | 
  **storage_name** | **str**| Storage name | [optional] 
  **version_id** | **str**| File version ID to download | [optional] 
@@ -206,7 +206,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **src_path** | **str**| Source file path e.g. &#39;/src.ext&#39; | 
  **dest_path** | **str**| Destination file path e.g. &#39;/dest.ext&#39; | 
  **src_storage_name** | **str**| Source storage name | [optional] 
@@ -261,7 +261,7 @@ except ApiException as e:
 ### Parameters
 
 Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+---- | ---- | ------------ | -----
  **path** | **str**| Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext  If the content is multipart and path does not contains the file name it tries to get them from filename parameter  from Content-Disposition header. | 
  **file** | **file**| File to upload | 
  **storage_name** | **str**| Storage name | [optional] 
