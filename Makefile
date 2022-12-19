@@ -51,7 +51,7 @@ lint:
 	flake8 . --count --exit-zero --max-line-length=127 --statistics --extend-ignore=E501 --extend-exclude '.*'
 
 .PHONY: publish
-publish: check_git test-tox clean dist
+publish: check_git test-tox dist
 	python3 -m twine upload dist/*
 
 .PHONY: publish-docker
