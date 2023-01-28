@@ -2,7 +2,7 @@
 
 """
 
-    Copyright (c) 2022 Aspose.BarCode for Cloud
+    Copyright (c) 2023 Aspose.BarCode for Cloud
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -107,6 +107,7 @@ class EncodeBarcodeType(object):
     CODABLOCKF = "CodablockF"
     GS1CODABLOCKF = "GS1CodablockF"
     MAILMARK = "Mailmark"
+    GS1DOTCODE = "GS1DotCode"
 
     """
     Attributes:

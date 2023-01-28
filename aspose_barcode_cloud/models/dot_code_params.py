@@ -2,7 +2,7 @@
 
 """
 
-    Copyright (c) 2022 Aspose.BarCode for Cloud
+    Copyright (c) 2023 Aspose.BarCode for Cloud
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -44,21 +44,55 @@ class DotCodeParams(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"aspect_ratio": "float", "dot_code_mask": "int"}
+    swagger_types = {
+        "aspect_ratio": "float",
+        "columns": "int",
+        "encode_mode": "DotCodeEncodeMode",
+        "eci_encoding": "ECIEncodings",
+        "is_reader_initialization": "bool",
+        "rows": "int",
+    }
 
-    attribute_map = {"aspect_ratio": "AspectRatio", "dot_code_mask": "DotCodeMask"}
+    attribute_map = {
+        "aspect_ratio": "AspectRatio",
+        "columns": "Columns",
+        "encode_mode": "EncodeMode",
+        "eci_encoding": "ECIEncoding",
+        "is_reader_initialization": "IsReaderInitialization",
+        "rows": "Rows",
+    }
 
-    def __init__(self, aspect_ratio=None, dot_code_mask=None):  # noqa: E501
+    def __init__(
+        self,
+        aspect_ratio=None,
+        columns=None,
+        encode_mode=None,
+        eci_encoding=None,
+        is_reader_initialization=None,
+        rows=None,
+    ):  # noqa: E501
         """DotCodeParams - a model defined in Swagger"""  # noqa: E501
 
         self._aspect_ratio = None
-        self._dot_code_mask = None
+        self._columns = None
+        self._encode_mode = None
+        self._eci_encoding = None
+        self._is_reader_initialization = None
+        self._rows = None
         self.discriminator = None
 
         if aspect_ratio is not None:
             self.aspect_ratio = aspect_ratio
-        if dot_code_mask is not None:
-            self.dot_code_mask = dot_code_mask
+        if columns is not None:
+            self.columns = columns
+        if encode_mode is not None:
+            self.encode_mode = encode_mode
+        if eci_encoding is not None:
+            self.eci_encoding = eci_encoding
+        if is_reader_initialization is not None:
+            self.is_reader_initialization = is_reader_initialization
+        if rows is not None:
+            self.rows = rows
 
     @property
     def aspect_ratio(self):
@@ -84,27 +118,119 @@ class DotCodeParams(object):
         self._aspect_ratio = aspect_ratio
 
     @property
-    def dot_code_mask(self):
-        """Gets the dot_code_mask of this DotCodeParams.  # noqa: E501
+    def columns(self):
+        """Gets the columns of this DotCodeParams.  # noqa: E501
 
-        DEPRECATED: DotCodeMask is now calculated automatically  # noqa: E501
+        Identifies columns count. Sum of the number of rows plus the number of columns of a DotCode symbol must be odd. Number of columns must be at least 5.  # noqa: E501
 
-        :return: The dot_code_mask of this DotCodeParams.  # noqa: E501
+        :return: The columns of this DotCodeParams.  # noqa: E501
         :rtype: int
         """
-        return self._dot_code_mask
+        return self._columns
 
-    @dot_code_mask.setter
-    def dot_code_mask(self, dot_code_mask):
-        """Sets the dot_code_mask of this DotCodeParams.
+    @columns.setter
+    def columns(self, columns):
+        """Sets the columns of this DotCodeParams.
 
-        DEPRECATED: DotCodeMask is now calculated automatically  # noqa: E501
+        Identifies columns count. Sum of the number of rows plus the number of columns of a DotCode symbol must be odd. Number of columns must be at least 5.  # noqa: E501
 
-        :param dot_code_mask: The dot_code_mask of this DotCodeParams.  # noqa: E501
+        :param columns: The columns of this DotCodeParams.  # noqa: E501
         :type: int
         """
 
-        self._dot_code_mask = dot_code_mask
+        self._columns = columns
+
+    @property
+    def encode_mode(self):
+        """Gets the encode_mode of this DotCodeParams.  # noqa: E501
+
+        Identifies DotCode encode mode. Default value: Auto.  # noqa: E501
+
+        :return: The encode_mode of this DotCodeParams.  # noqa: E501
+        :rtype: DotCodeEncodeMode
+        """
+        return self._encode_mode
+
+    @encode_mode.setter
+    def encode_mode(self, encode_mode):
+        """Sets the encode_mode of this DotCodeParams.
+
+        Identifies DotCode encode mode. Default value: Auto.  # noqa: E501
+
+        :param encode_mode: The encode_mode of this DotCodeParams.  # noqa: E501
+        :type: DotCodeEncodeMode
+        """
+
+        self._encode_mode = encode_mode
+
+    @property
+    def eci_encoding(self):
+        """Gets the eci_encoding of this DotCodeParams.  # noqa: E501
+
+        Identifies ECI encoding. Used when DotCodeEncodeMode is Auto. Default value: ISO-8859-1.  # noqa: E501
+
+        :return: The eci_encoding of this DotCodeParams.  # noqa: E501
+        :rtype: ECIEncodings
+        """
+        return self._eci_encoding
+
+    @eci_encoding.setter
+    def eci_encoding(self, eci_encoding):
+        """Sets the eci_encoding of this DotCodeParams.
+
+        Identifies ECI encoding. Used when DotCodeEncodeMode is Auto. Default value: ISO-8859-1.  # noqa: E501
+
+        :param eci_encoding: The eci_encoding of this DotCodeParams.  # noqa: E501
+        :type: ECIEncodings
+        """
+
+        self._eci_encoding = eci_encoding
+
+    @property
+    def is_reader_initialization(self):
+        """Gets the is_reader_initialization of this DotCodeParams.  # noqa: E501
+
+        Indicates whether code is used for instruct reader to interpret the following data as instructions for initialization or reprogramming of the bar code reader. Default value is false.  # noqa: E501
+
+        :return: The is_reader_initialization of this DotCodeParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_reader_initialization
+
+    @is_reader_initialization.setter
+    def is_reader_initialization(self, is_reader_initialization):
+        """Sets the is_reader_initialization of this DotCodeParams.
+
+        Indicates whether code is used for instruct reader to interpret the following data as instructions for initialization or reprogramming of the bar code reader. Default value is false.  # noqa: E501
+
+        :param is_reader_initialization: The is_reader_initialization of this DotCodeParams.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_reader_initialization = is_reader_initialization
+
+    @property
+    def rows(self):
+        """Gets the rows of this DotCodeParams.  # noqa: E501
+
+        Identifies rows count. Sum of the number of rows plus the number of columns of a DotCode symbol must be odd. Number of rows must be at least 5.  # noqa: E501
+
+        :return: The rows of this DotCodeParams.  # noqa: E501
+        :rtype: int
+        """
+        return self._rows
+
+    @rows.setter
+    def rows(self, rows):
+        """Sets the rows of this DotCodeParams.
+
+        Identifies rows count. Sum of the number of rows plus the number of columns of a DotCode symbol must be odd. Number of rows must be at least 5.  # noqa: E501
+
+        :param rows: The rows of this DotCodeParams.  # noqa: E501
+        :type: int
+        """
+
+        self._rows = rows
 
     def to_dict(self):
         """Returns the model properties as a dict"""

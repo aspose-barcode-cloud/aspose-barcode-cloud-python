@@ -5,7 +5,7 @@
 [![PyPI](https://img.shields.io/pypi/v/aspose-barcode-cloud)](https://pypi.org/project/aspose-barcode-cloud/)
 
 - API version: 3.0
-- Package version: 22.12.0
+- Package version: 23.1.0
 
 ## Demo applications
 
@@ -164,6 +164,7 @@ Class | Method | HTTP request | Description
 - [DataMatrixParams](docs/DataMatrixParams.md)
 - [DecodeBarcodeType](docs/DecodeBarcodeType.md)
 - [DiscUsage](docs/DiscUsage.md)
+- [DotCodeEncodeMode](docs/DotCodeEncodeMode.md)
 - [DotCodeParams](docs/DotCodeParams.md)
 - [ECIEncodings](docs/ECIEncodings.md)
 - [EnableChecksum](docs/EnableChecksum.md)
@@ -181,6 +182,7 @@ Class | Method | HTTP request | Description
 - [ITF14BorderType](docs/ITF14BorderType.md)
 - [ITFParams](docs/ITFParams.md)
 - [MacroCharacter](docs/MacroCharacter.md)
+- [MaxiCodeEncodeMode](docs/MaxiCodeEncodeMode.md)
 - [MaxiCodeMode](docs/MaxiCodeMode.md)
 - [MaxiCodeParams](docs/MaxiCodeParams.md)
 - [ObjectExist](docs/ObjectExist.md)
