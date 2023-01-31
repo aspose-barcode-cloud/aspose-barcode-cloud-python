@@ -2,7 +2,7 @@
 
 """
 
-    Copyright (c) 2022 Aspose.BarCode for Cloud
+    Copyright (c) 2023 Aspose.BarCode for Cloud
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -390,7 +390,7 @@ class ApiException(Exception):
             self.status = http_resp.status
             self.reason = http_resp.reason
             self.body = http_resp.data
-            self.headers = http_resp.getheaders()
+            self.headers = http_resp.headers
         else:
             self.status = status
             self.reason = reason

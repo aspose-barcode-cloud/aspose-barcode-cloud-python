@@ -72,7 +72,7 @@ test-example:
 
 .PHONY: test-tox
 test-tox:
-	tox $(SRC)
+	python3 -m tox $(SRC)
 
 .PHONY: update
 update:

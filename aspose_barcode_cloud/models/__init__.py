@@ -3,7 +3,7 @@
 # flake8: noqa
 """
 
-    Copyright (c) 2022 Aspose.BarCode for Cloud
+    Copyright (c) 2023 Aspose.BarCode for Cloud
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -56,6 +56,7 @@ from aspose_barcode_cloud.models.data_matrix_encode_mode import DataMatrixEncode
 from aspose_barcode_cloud.models.data_matrix_params import DataMatrixParams
 from aspose_barcode_cloud.models.decode_barcode_type import DecodeBarcodeType
 from aspose_barcode_cloud.models.disc_usage import DiscUsage
+from aspose_barcode_cloud.models.dot_code_encode_mode import DotCodeEncodeMode
 from aspose_barcode_cloud.models.dot_code_params import DotCodeParams
 from aspose_barcode_cloud.models.eci_encodings import ECIEncodings
 from aspose_barcode_cloud.models.enable_checksum import EnableChecksum
@@ -73,6 +74,7 @@ from aspose_barcode_cloud.models.generator_params_list import GeneratorParamsLis
 from aspose_barcode_cloud.models.itf14_border_type import ITF14BorderType
 from aspose_barcode_cloud.models.itf_params import ITFParams
 from aspose_barcode_cloud.models.macro_character import MacroCharacter
+from aspose_barcode_cloud.models.maxi_code_encode_mode import MaxiCodeEncodeMode
 from aspose_barcode_cloud.models.maxi_code_mode import MaxiCodeMode
 from aspose_barcode_cloud.models.maxi_code_params import MaxiCodeParams
 from aspose_barcode_cloud.models.object_exist import ObjectExist

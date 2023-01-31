@@ -2,7 +2,7 @@
 
 """
 
-    Copyright (c) 2022 Aspose.BarCode for Cloud
+    Copyright (c) 2023 Aspose.BarCode for Cloud
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -44,21 +44,24 @@ class MaxiCodeParams(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"aspect_ratio": "float", "mode": "MaxiCodeMode"}
+    swagger_types = {"aspect_ratio": "float", "mode": "MaxiCodeMode", "encode_mode": "MaxiCodeEncodeMode"}
 
-    attribute_map = {"aspect_ratio": "AspectRatio", "mode": "Mode"}
+    attribute_map = {"aspect_ratio": "AspectRatio", "mode": "Mode", "encode_mode": "EncodeMode"}
 
-    def __init__(self, aspect_ratio=None, mode=None):  # noqa: E501
+    def __init__(self, aspect_ratio=None, mode=None, encode_mode=None):  # noqa: E501
         """MaxiCodeParams - a model defined in Swagger"""  # noqa: E501
 
         self._aspect_ratio = None
         self._mode = None
+        self._encode_mode = None
         self.discriminator = None
 
         if aspect_ratio is not None:
             self.aspect_ratio = aspect_ratio
         if mode is not None:
             self.mode = mode
+        if encode_mode is not None:
+            self.encode_mode = encode_mode
 
     @property
     def aspect_ratio(self):
@@ -87,7 +90,7 @@ class MaxiCodeParams(object):
     def mode(self):
         """Gets the mode of this MaxiCodeParams.  # noqa: E501
 
-        Encoding mode for MaxiCode barcodes.  # noqa: E501
+        Mode for MaxiCode barcodes.  # noqa: E501
 
         :return: The mode of this MaxiCodeParams.  # noqa: E501
         :rtype: MaxiCodeMode
@@ -98,13 +101,36 @@ class MaxiCodeParams(object):
     def mode(self, mode):
         """Sets the mode of this MaxiCodeParams.
 
-        Encoding mode for MaxiCode barcodes.  # noqa: E501
+        Mode for MaxiCode barcodes.  # noqa: E501
 
         :param mode: The mode of this MaxiCodeParams.  # noqa: E501
         :type: MaxiCodeMode
         """
 
         self._mode = mode
+
+    @property
+    def encode_mode(self):
+        """Gets the encode_mode of this MaxiCodeParams.  # noqa: E501
+
+        Encoding mode for MaxiCode barcodes.  # noqa: E501
+
+        :return: The encode_mode of this MaxiCodeParams.  # noqa: E501
+        :rtype: MaxiCodeEncodeMode
+        """
+        return self._encode_mode
+
+    @encode_mode.setter
+    def encode_mode(self, encode_mode):
+        """Sets the encode_mode of this MaxiCodeParams.
+
+        Encoding mode for MaxiCode barcodes.  # noqa: E501
+
+        :param encode_mode: The encode_mode of this MaxiCodeParams.  # noqa: E501
+        :type: MaxiCodeEncodeMode
+        """
+
+        self._encode_mode = encode_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -2,7 +2,7 @@
 
 """
 
-    Copyright (c) 2022 Aspose.BarCode for Cloud
+    Copyright (c) 2023 Aspose.BarCode for Cloud
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -108,6 +108,17 @@ class DecodeBarcodeType(object):
     DUTCHKIX = "DutchKIX"
     CODABLOCKF = "CodablockF"
     MAILMARK = "Mailmark"
+    GS1DOTCODE = "GS1DotCode"
+    HIBCCODE39LIC = "HIBCCode39LIC"
+    HIBCCODE128LIC = "HIBCCode128LIC"
+    HIBCAZTECLIC = "HIBCAztecLIC"
+    HIBCDATAMATRIXLIC = "HIBCDataMatrixLIC"
+    HIBCQRLIC = "HIBCQRLIC"
+    HIBCCODE39PAS = "HIBCCode39PAS"
+    HIBCCODE128PAS = "HIBCCode128PAS"
+    HIBCAZTECPAS = "HIBCAztecPAS"
+    HIBCDATAMATRIXPAS = "HIBCDataMatrixPAS"
+    HIBCQRPAS = "HIBCQRPAS"
 
     """
     Attributes:
