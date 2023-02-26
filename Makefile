@@ -60,7 +60,11 @@ publish-docker: init-docker test-tox dist
 
 .PHONY: test
 test:
-	python -Werror -m pytest --cov tests/
+	python -Werror -m pytest --cov=aspose_barcode_cloud tests/
+
+.PHONY: cover
+cover:
+	python -Werror -m pytest --cov-report html:coverage --cov=aspose_barcode_cloud tests/
 
 .PHONY: unittest
 unittest:

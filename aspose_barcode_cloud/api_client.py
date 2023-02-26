@@ -139,7 +139,6 @@ class ApiClient(object):
         _preload_content=True,
         _request_timeout=None,
     ):
-
         config = self.configuration
 
         # header parameters
@@ -206,7 +205,7 @@ class ApiClient(object):
         if _return_http_data_only:
             return return_data
         else:
-            return (return_data, response_data.status, response_data.getheaders())
+            return return_data, response_data.status, response_data.getheaders()
 
     def sanitize_for_serialization(self, obj):
         """Builds a JSON POST object.
