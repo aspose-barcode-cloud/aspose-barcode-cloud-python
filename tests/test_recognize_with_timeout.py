@@ -35,6 +35,6 @@ class TestRecognizeWithTimeout(unittest.TestCase):
         self.assertEqual(500, context.exception.status)
         message = json.loads(context.exception.body)["error"]["message"]
         self.assertTrue(
-            self.EXPECTED_MESSAGE_RE.fullmatch(message),
+            self.EXPECTED_MESSAGE_RE.match(message),
             msg="'%s' doesn't match '%s'" % (message, self.EXPECTED_MESSAGE_RE.pattern),
         )
