@@ -10,7 +10,9 @@ from .load_configuration import TEST_CONFIGURATION
 
 
 class TestRecognizeWithTimeout(unittest.TestCase):
-    EXPECTED_MESSAGE_RE = re.compile(r"^Recognition is aborted. Execution time: \d+ ms\.$")
+    EXPECTED_MESSAGE_RE = re.compile(
+        r"^Try reducing the image size to avoid the timeout\. Recognition is aborted\. Execution time: \d+ ms\.$"
+    )
 
     @classmethod
     def setUpClass(cls):
@@ -32,7 +34,7 @@ class TestRecognizeWithTimeout(unittest.TestCase):
                 image=self.test_filename,
                 timeout=1,
             )
-        self.assertEqual(500, context.exception.status)
+        self.assertEqual(408, context.exception.status)
         message = json.loads(context.exception.body)["error"]["message"]
         self.assertTrue(
             self.EXPECTED_MESSAGE_RE.match(message),
