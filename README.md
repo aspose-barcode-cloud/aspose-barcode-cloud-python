@@ -5,7 +5,7 @@
 [![PyPI](https://img.shields.io/pypi/v/aspose-barcode-cloud)](https://pypi.org/project/aspose-barcode-cloud/)
 
 - API version: 3.0
-- Package version: 23.1.0
+- Package version: 23.2.0
 
 ## Demo applications
 
@@ -115,7 +115,7 @@ Class | Method | HTTP request | Description
 ----- | ------ | ------------ | -----------
 *BarcodeApi* | [**get_barcode_generate**](docs/BarcodeApi.md#get_barcode_generate) | **GET** /barcode/generate | Generate barcode.
 *BarcodeApi* | [**get_barcode_recognize**](docs/BarcodeApi.md#get_barcode_recognize) | **GET** /barcode/{name}/recognize | Recognize barcode from a file on server.
-*BarcodeApi* | [**post_barcode_recognize_from_url_or_content**](docs/BarcodeApi.md#post_barcode_recognize_from_url_or_content) | **POST** /barcode/recognize | Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image or encoded with base64.
+*BarcodeApi* | [**post_barcode_recognize_from_url_or_content**](docs/BarcodeApi.md#post_barcode_recognize_from_url_or_content) | **POST** /barcode/recognize | Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image with content-type \&quot;application/octet-stream\&quot;. An image can also be passed as a form field.
 *BarcodeApi* | [**post_generate_multiple**](docs/BarcodeApi.md#post_generate_multiple) | **POST** /barcode/generateMultiple | Generate multiple barcodes and return in response stream
 *BarcodeApi* | [**put_barcode_generate_file**](docs/BarcodeApi.md#put_barcode_generate_file) | **PUT** /barcode/{name}/generate | Generate barcode and save on server (from query params or from file with json or xml content)
 *BarcodeApi* | [**put_barcode_recognize_from_body**](docs/BarcodeApi.md#put_barcode_recognize_from_body) | **PUT** /barcode/{name}/recognize | Recognition of a barcode from file on server with parameters in body.

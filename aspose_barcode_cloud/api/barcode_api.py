@@ -458,7 +458,7 @@ class BarcodeApi(object):
         :param int rect_width: Set Width of area for recognition. # noqa: E501
         :param int rect_height: Set Height of area for recognition. # noqa: E501
         :param bool strip_fnc: Value indicating whether FNC symbol strip must be done. # noqa: E501
-        :param int timeout: Timeout of recognition process. # noqa: E501
+        :param int timeout: Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout. # noqa: E501
         :param int median_smoothing_window_size: Window size for median smoothing. Typical values are 3 or 4. Default value is 3. AllowMedianSmoothing must be set. # noqa: E501
         :param bool allow_median_smoothing: Allows engine to enable median smoothing as additional scan. Mode helps to recognize noised barcodes. # noqa: E501
         :param bool allow_complex_background: Allows engine to recognize color barcodes on color background as additional scan. Extremely slow mode. # noqa: E501
@@ -482,7 +482,7 @@ class BarcodeApi(object):
         :param bool skip_diagonal_search: Allows detector to skip search for diagonal barcodes. Setting it to false will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time. # noqa: E501
         :param bool read_tiny_barcodes: Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False. # noqa: E501
         :param str australian_post_encoding_table: Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. # noqa: E501
-        :param bool ignore_ending_filling_patterns_for_c_table: The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\". # noqa: E501
+        :param bool ignore_ending_filling_patterns_for_c_table: The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequence \"333\" of filling patterns is decoded as letter \"z\". # noqa: E501
         :param str rectangle_region: # noqa: E501
         :param str storage: The image storage. # noqa: E501
         :param str folder: The image folder. # noqa: E501
@@ -810,7 +810,7 @@ class BarcodeApi(object):
         async_req=False,
         **kwargs
     ):
-        """Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image or encoded with base64.
+        """Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image with content-type \"application/octet-stream\". An image can also be passed as a form field.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -826,7 +826,7 @@ class BarcodeApi(object):
         :param int rect_width: Set Width of area for recognition. # noqa: E501
         :param int rect_height: Set Height of area for recognition. # noqa: E501
         :param bool strip_fnc: Value indicating whether FNC symbol strip must be done. # noqa: E501
-        :param int timeout: Timeout of recognition process. # noqa: E501
+        :param int timeout: Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout. # noqa: E501
         :param int median_smoothing_window_size: Window size for median smoothing. Typical values are 3 or 4. Default value is 3. AllowMedianSmoothing must be set. # noqa: E501
         :param bool allow_median_smoothing: Allows engine to enable median smoothing as additional scan. Mode helps to recognize noised barcodes. # noqa: E501
         :param bool allow_complex_background: Allows engine to recognize color barcodes on color background as additional scan. Extremely slow mode. # noqa: E501
@@ -850,7 +850,7 @@ class BarcodeApi(object):
         :param bool skip_diagonal_search: Allows detector to skip search for diagonal barcodes. Setting it to false will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time. # noqa: E501
         :param bool read_tiny_barcodes: Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False. # noqa: E501
         :param str australian_post_encoding_table: Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. # noqa: E501
-        :param bool ignore_ending_filling_patterns_for_c_table: The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\". # noqa: E501
+        :param bool ignore_ending_filling_patterns_for_c_table: The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequence \"333\" of filling patterns is decoded as letter \"z\". # noqa: E501
         :param str rectangle_region: # noqa: E501
         :param str url: The image file url. # noqa: E501
         :param file image: Image data # noqa: E501
@@ -945,7 +945,7 @@ class BarcodeApi(object):
             return data
 
     def post_barcode_recognize_from_url_or_content_with_http_info(self, **kwargs):
-        """Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image or encoded with base64.
+        """Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image with content-type \"application/octet-stream\". An image can also be passed as a form field.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

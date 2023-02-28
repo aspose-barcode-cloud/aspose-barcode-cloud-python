@@ -90,13 +90,13 @@ class ApiClient(object):
         self.rest_client = RESTClientObject(configuration)
         self.default_headers = {
             "x-aspose-client": "python sdk",
-            "x-aspose-client-version": "23.1.0",
+            "x-aspose-client-version": "23.2.0",
         }
         if header_name is not None:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = "Aspose-Barcode-SDK/23.1.0/python"
+        self.user_agent = "Aspose-Barcode-SDK/23.2.0/python"
 
     def __del__(self):
         self.rest_client.close()
@@ -139,7 +139,6 @@ class ApiClient(object):
         _preload_content=True,
         _request_timeout=None,
     ):
-
         config = self.configuration
 
         # header parameters
@@ -206,7 +205,7 @@ class ApiClient(object):
         if _return_http_data_only:
             return return_data
         else:
-            return (return_data, response_data.status, response_data.getheaders())
+            return return_data, response_data.status, response_data.getheaders()
 
     def sanitize_for_serialization(self, obj):
         """Builds a JSON POST object.

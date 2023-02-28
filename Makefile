@@ -41,7 +41,7 @@ init:
 
 .PHONY: init-docker
 init-docker:
-	python3 -m pip install -r publish-requirements.txt
+	python3 -m pip install -r publish-requirements.txt -r requirements.txt
 
 .PHONY: lint
 lint:
@@ -55,16 +55,20 @@ publish: check_git test-tox dist
 	python3 -m twine upload dist/*
 
 .PHONY: publish-docker
-publish-docker: init-docker test-tox dist
+publish-docker: init-docker unittest dist
 	python3 -m twine upload dist/* --verbose
 
 .PHONY: test
 test:
-	python -Werror -m pytest --cov tests/
+	python -Werror -m pytest --cov=aspose_barcode_cloud tests/
+
+.PHONY: cover
+cover:
+	python -Werror -m pytest --cov-report html:coverage --cov=aspose_barcode_cloud tests/
 
 .PHONY: unittest
 unittest:
-	python -Werror -m unittest discover -v
+	python3 -Werror -m unittest discover -v
 
 .PHONY: test-example
 test-example:

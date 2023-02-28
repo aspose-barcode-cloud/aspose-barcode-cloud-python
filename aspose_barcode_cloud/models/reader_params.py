@@ -473,7 +473,7 @@ class ReaderParams(object):
     def timeout(self):
         """Gets the timeout of this ReaderParams.  # noqa: E501
 
-        Timeout of recognition process.  # noqa: E501
+        Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout.  # noqa: E501
 
         :return: The timeout of this ReaderParams.  # noqa: E501
         :rtype: int
@@ -484,7 +484,7 @@ class ReaderParams(object):
     def timeout(self, timeout):
         """Sets the timeout of this ReaderParams.
 
-        Timeout of recognition process.  # noqa: E501
+        Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout.  # noqa: E501
 
         :param timeout: The timeout of this ReaderParams.  # noqa: E501
         :type: int
@@ -1025,7 +1025,7 @@ class ReaderParams(object):
     def ignore_ending_filling_patterns_for_c_table(self):
         """Gets the ignore_ending_filling_patterns_for_c_table of this ReaderParams.  # noqa: E501
 
-        The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\".  # noqa: E501
+        The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequence \"333\" of filling patterns is decoded as letter \"z\".  # noqa: E501
 
         :return: The ignore_ending_filling_patterns_for_c_table of this ReaderParams.  # noqa: E501
         :rtype: bool
@@ -1036,7 +1036,7 @@ class ReaderParams(object):
     def ignore_ending_filling_patterns_for_c_table(self, ignore_ending_filling_patterns_for_c_table):
         """Sets the ignore_ending_filling_patterns_for_c_table of this ReaderParams.
 
-        The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\".  # noqa: E501
+        The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequence \"333\" of filling patterns is decoded as letter \"z\".  # noqa: E501
 
         :param ignore_ending_filling_patterns_for_c_table: The ignore_ending_filling_patterns_for_c_table of this ReaderParams.  # noqa: E501
         :type: bool
