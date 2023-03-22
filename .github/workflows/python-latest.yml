@@ -2,9 +2,9 @@ name: Latest Python Support
 
 on:
   push:
-    branches: [ master, main ]
+    branches: [ main ]
   pull_request:
-    branches: [ master, main ]
+    branches: [ main ]
 
 jobs:
   # Define the job to run before your matrix job
