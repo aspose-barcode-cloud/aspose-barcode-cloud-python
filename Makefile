@@ -21,10 +21,7 @@ dist:
 	python3 setup.py sdist bdist_wheel --universal
 
 .PHONY: format
-format: format_code format_doc
-
-.PHONY: format_code
-format_code:
+format:
 	python3 -m black --line-length=120 -v $(SRC) tests
 
 .PHONY: format_doc
@@ -77,6 +74,9 @@ test-example:
 .PHONY: test-tox
 test-tox:
 	python3 -m tox $(SRC)
+
+.PHONY: after-gen
+after-gen: format format_doc
 
 .PHONY: update
 update:

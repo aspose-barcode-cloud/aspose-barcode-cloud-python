@@ -29,7 +29,7 @@ import os
 from setuptools import setup, find_packages
 
 NAME = "aspose-barcode-cloud"
-VERSION = "23.2.0"
+VERSION = "23.3.0"
 # To install the library, run the following
 #
 # python setup.py install

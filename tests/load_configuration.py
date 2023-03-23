@@ -18,6 +18,7 @@ def from_file(filename):
     """
     @rtype: Configuration
     """
+    logger.debug("Loading test configuration from file '%s'..." % filename)
     with open(filename, "r") as json_file:
         js = json.load(json_file)
 
@@ -28,6 +29,7 @@ def from_env(prefix):
     """
     @rtype: Configuration
     """
+    logger.debug("Loading test configuration from env with prefix '%s'..." % prefix)
     constructor_param_names = (
         inspect.getargspec(Configuration.__init__) if six.PY2 else inspect.getfullargspec(Configuration.__init__)
     ).args[1:]
