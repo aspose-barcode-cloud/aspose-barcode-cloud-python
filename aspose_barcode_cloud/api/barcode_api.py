@@ -458,7 +458,7 @@ class BarcodeApi(object):
         :param int rect_width: Set Width of area for recognition. # noqa: E501
         :param int rect_height: Set Height of area for recognition. # noqa: E501
         :param bool strip_fnc: Value indicating whether FNC symbol strip must be done. # noqa: E501
-        :param int timeout: Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout. # noqa: E501
+        :param int timeout: Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). Maximum value is 60_000 (1 minute). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout. # noqa: E501
         :param int median_smoothing_window_size: Window size for median smoothing. Typical values are 3 or 4. Default value is 3. AllowMedianSmoothing must be set. # noqa: E501
         :param bool allow_median_smoothing: Allows engine to enable median smoothing as additional scan. Mode helps to recognize noised barcodes. # noqa: E501
         :param bool allow_complex_background: Allows engine to recognize color barcodes on color background as additional scan. Extremely slow mode. # noqa: E501
@@ -826,7 +826,7 @@ class BarcodeApi(object):
         :param int rect_width: Set Width of area for recognition. # noqa: E501
         :param int rect_height: Set Height of area for recognition. # noqa: E501
         :param bool strip_fnc: Value indicating whether FNC symbol strip must be done. # noqa: E501
-        :param int timeout: Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout. # noqa: E501
+        :param int timeout: Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). Maximum value is 60_000 (1 minute). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout. # noqa: E501
         :param int median_smoothing_window_size: Window size for median smoothing. Typical values are 3 or 4. Default value is 3. AllowMedianSmoothing must be set. # noqa: E501
         :param bool allow_median_smoothing: Allows engine to enable median smoothing as additional scan. Mode helps to recognize noised barcodes. # noqa: E501
         :param bool allow_complex_background: Allows engine to recognize color barcodes on color background as additional scan. Extremely slow mode. # noqa: E501

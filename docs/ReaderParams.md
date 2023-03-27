@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **rect_width** | **int** | Set Width of area for recognition. | [optional] 
 **rect_height** | **int** | Set Height of area for recognition. | [optional] 
 **strip_fnc** | **bool** | Value indicating whether FNC symbol strip must be done. | [optional] 
-**timeout** | **int** | Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout. | [optional] 
+**timeout** | **int** | Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). Maximum value is 60_000 (1 minute). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout. | [optional] 
 **median_smoothing_window_size** | **int** | Window size for median smoothing. Typical values are 3 or 4. Default value is 3. AllowMedianSmoothing must be set. | [optional] 
 **allow_median_smoothing** | **bool** | Allows engine to enable median smoothing as additional scan. Mode helps to recognize noised barcodes. | [optional] 
 **allow_complex_background** | **bool** | Allows engine to recognize color barcodes on color background as additional scan. Extremely slow mode. | [optional] 
