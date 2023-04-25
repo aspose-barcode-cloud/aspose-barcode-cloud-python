@@ -63,6 +63,7 @@ from aspose_barcode_cloud.models.enable_checksum import EnableChecksum
 from aspose_barcode_cloud.models.encode_barcode_type import EncodeBarcodeType
 from aspose_barcode_cloud.models.error import Error
 from aspose_barcode_cloud.models.error_details import ErrorDetails
+from aspose_barcode_cloud.models.file_version import FileVersion
 from aspose_barcode_cloud.models.file_versions import FileVersions
 from aspose_barcode_cloud.models.files_list import FilesList
 from aspose_barcode_cloud.models.files_upload_result import FilesUploadResult
@@ -99,4 +100,3 @@ from aspose_barcode_cloud.models.storage_exist import StorageExist
 from aspose_barcode_cloud.models.storage_file import StorageFile
 from aspose_barcode_cloud.models.structured_append import StructuredAppend
 from aspose_barcode_cloud.models.text_alignment import TextAlignment
-from aspose_barcode_cloud.models.file_version import FileVersion

@@ -82,6 +82,7 @@ class BarcodeApi(object):
         supplement_data=None,
         supplement_space=None,
         bar_width_reduction=None,
+        use_anti_alias=None,
         format=None,
         async_req=False,
         **kwargs
@@ -127,6 +128,7 @@ class BarcodeApi(object):
         :param str supplement_data: Supplement parameters. Used for Interleaved2of5, Standard2of5, EAN13, EAN8, UPCA, UPCE, ISBN, ISSN, ISMN. # noqa: E501
         :param float supplement_space: Space between main the BarCode and supplement BarCode. # noqa: E501
         :param float bar_width_reduction: Bars reduction value that is used to compensate ink spread while printing. # noqa: E501
+        :param bool use_anti_alias: Indicates whether is used anti-aliasing mode to render image. Anti-aliasing mode is applied to barcode and text drawing. # noqa: E501
         :param str format: Result image format. # noqa: E501
         :param async_req bool
         :return: file
@@ -170,6 +172,7 @@ class BarcodeApi(object):
                 supplement_data=supplement_data,
                 supplement_space=supplement_space,
                 bar_width_reduction=bar_width_reduction,
+                use_anti_alias=use_anti_alias,
                 format=format,
                 **kwargs
             )
@@ -209,6 +212,7 @@ class BarcodeApi(object):
                 supplement_data=supplement_data,
                 supplement_space=supplement_space,
                 bar_width_reduction=bar_width_reduction,
+                use_anti_alias=use_anti_alias,
                 format=format,
                 **kwargs
             )
@@ -264,6 +268,7 @@ class BarcodeApi(object):
             "supplement_data",
             "supplement_space",
             "bar_width_reduction",
+            "use_anti_alias",
             "format",
         }
         all_params.add("async_req")
@@ -360,6 +365,8 @@ class BarcodeApi(object):
             query_params.append(("SupplementSpace", params["supplement_space"]))
         if "bar_width_reduction" in params:
             query_params.append(("BarWidthReduction", params["bar_width_reduction"]))
+        if "use_anti_alias" in params:
+            query_params.append(("UseAntiAlias", params["use_anti_alias"]))
         if "format" in params:
             query_params.append(("format", params["format"]))
 
@@ -435,7 +442,6 @@ class BarcodeApi(object):
         read_tiny_barcodes=None,
         australian_post_encoding_table=None,
         ignore_ending_filling_patterns_for_c_table=None,
-        rectangle_region=None,
         storage=None,
         folder=None,
         async_req=False,
@@ -453,8 +459,8 @@ class BarcodeApi(object):
         :param str checksum_validation: Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies # noqa: E501
         :param bool detect_encoding: A flag which force engine to detect codetext encoding for Unicode. # noqa: E501
         :param str preset: Preset allows to configure recognition quality and speed manually. You can quickly set up Preset by embedded presets: HighPerformance, NormalQuality, HighQuality, MaxBarCodes or you can manually configure separate options. Default value of Preset is NormalQuality. # noqa: E501
-        :param int rect_x: Set X for area for recognition. # noqa: E501
-        :param int rect_y: Set Y for area for recognition. # noqa: E501
+        :param int rect_x: Set X of top left corner of area for recognition. # noqa: E501
+        :param int rect_y: Set Y of top left corner of area for recognition. # noqa: E501
         :param int rect_width: Set Width of area for recognition. # noqa: E501
         :param int rect_height: Set Height of area for recognition. # noqa: E501
         :param bool strip_fnc: Value indicating whether FNC symbol strip must be done. # noqa: E501
@@ -483,7 +489,6 @@ class BarcodeApi(object):
         :param bool read_tiny_barcodes: Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False. # noqa: E501
         :param str australian_post_encoding_table: Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. # noqa: E501
         :param bool ignore_ending_filling_patterns_for_c_table: The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequence \"333\" of filling patterns is decoded as letter \"z\". # noqa: E501
-        :param str rectangle_region: # noqa: E501
         :param str storage: The image storage. # noqa: E501
         :param str folder: The image folder. # noqa: E501
         :param async_req bool
@@ -529,7 +534,6 @@ class BarcodeApi(object):
                 read_tiny_barcodes=read_tiny_barcodes,
                 australian_post_encoding_table=australian_post_encoding_table,
                 ignore_ending_filling_patterns_for_c_table=ignore_ending_filling_patterns_for_c_table,
-                rectangle_region=rectangle_region,
                 storage=storage,
                 folder=folder,
                 **kwargs
@@ -571,7 +575,6 @@ class BarcodeApi(object):
                 read_tiny_barcodes=read_tiny_barcodes,
                 australian_post_encoding_table=australian_post_encoding_table,
                 ignore_ending_filling_patterns_for_c_table=ignore_ending_filling_patterns_for_c_table,
-                rectangle_region=rectangle_region,
                 storage=storage,
                 folder=folder,
                 **kwargs
@@ -628,7 +631,6 @@ class BarcodeApi(object):
             "read_tiny_barcodes",
             "australian_post_encoding_table",
             "ignore_ending_filling_patterns_for_c_table",
-            "rectangle_region",
             "storage",
             "folder",
         }
@@ -728,8 +730,6 @@ class BarcodeApi(object):
             query_params.append(
                 ("IgnoreEndingFillingPatternsForCTable", params["ignore_ending_filling_patterns_for_c_table"])
             )
-        if "rectangle_region" in params:
-            query_params.append(("RectangleRegion", params["rectangle_region"]))
         if "storage" in params:
             query_params.append(("storage", params["storage"]))
         if "folder" in params:
@@ -804,7 +804,6 @@ class BarcodeApi(object):
         read_tiny_barcodes=None,
         australian_post_encoding_table=None,
         ignore_ending_filling_patterns_for_c_table=None,
-        rectangle_region=None,
         url=None,
         image=None,
         async_req=False,
@@ -821,8 +820,8 @@ class BarcodeApi(object):
         :param str checksum_validation: Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies # noqa: E501
         :param bool detect_encoding: A flag which force engine to detect codetext encoding for Unicode. # noqa: E501
         :param str preset: Preset allows to configure recognition quality and speed manually. You can quickly set up Preset by embedded presets: HighPerformance, NormalQuality, HighQuality, MaxBarCodes or you can manually configure separate options. Default value of Preset is NormalQuality. # noqa: E501
-        :param int rect_x: Set X for area for recognition. # noqa: E501
-        :param int rect_y: Set Y for area for recognition. # noqa: E501
+        :param int rect_x: Set X of top left corner of area for recognition. # noqa: E501
+        :param int rect_y: Set Y of top left corner of area for recognition. # noqa: E501
         :param int rect_width: Set Width of area for recognition. # noqa: E501
         :param int rect_height: Set Height of area for recognition. # noqa: E501
         :param bool strip_fnc: Value indicating whether FNC symbol strip must be done. # noqa: E501
@@ -851,7 +850,6 @@ class BarcodeApi(object):
         :param bool read_tiny_barcodes: Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False. # noqa: E501
         :param str australian_post_encoding_table: Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. # noqa: E501
         :param bool ignore_ending_filling_patterns_for_c_table: The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequence \"333\" of filling patterns is decoded as letter \"z\". # noqa: E501
-        :param str rectangle_region: # noqa: E501
         :param str url: The image file url. # noqa: E501
         :param file image: Image data # noqa: E501
         :param async_req bool
@@ -896,7 +894,6 @@ class BarcodeApi(object):
                 read_tiny_barcodes=read_tiny_barcodes,
                 australian_post_encoding_table=australian_post_encoding_table,
                 ignore_ending_filling_patterns_for_c_table=ignore_ending_filling_patterns_for_c_table,
-                rectangle_region=rectangle_region,
                 url=url,
                 image=image,
                 **kwargs
@@ -937,7 +934,6 @@ class BarcodeApi(object):
                 read_tiny_barcodes=read_tiny_barcodes,
                 australian_post_encoding_table=australian_post_encoding_table,
                 ignore_ending_filling_patterns_for_c_table=ignore_ending_filling_patterns_for_c_table,
-                rectangle_region=rectangle_region,
                 url=url,
                 image=image,
                 **kwargs
@@ -992,7 +988,6 @@ class BarcodeApi(object):
             "read_tiny_barcodes",
             "australian_post_encoding_table",
             "ignore_ending_filling_patterns_for_c_table",
-            "rectangle_region",
             "url",
             "image",
         }
@@ -1090,8 +1085,6 @@ class BarcodeApi(object):
             query_params.append(
                 ("IgnoreEndingFillingPatternsForCTable", params["ignore_ending_filling_patterns_for_c_table"])
             )
-        if "rectangle_region" in params:
-            query_params.append(("RectangleRegion", params["rectangle_region"]))
         if "url" in params:
             query_params.append(("url", params["url"]))
 
@@ -1273,6 +1266,7 @@ class BarcodeApi(object):
         supplement_data=None,
         supplement_space=None,
         bar_width_reduction=None,
+        use_anti_alias=None,
         storage=None,
         folder=None,
         format=None,
@@ -1321,6 +1315,7 @@ class BarcodeApi(object):
         :param str supplement_data: Supplement parameters. Used for Interleaved2of5, Standard2of5, EAN13, EAN8, UPCA, UPCE, ISBN, ISSN, ISMN. # noqa: E501
         :param float supplement_space: Space between main the BarCode and supplement BarCode. # noqa: E501
         :param float bar_width_reduction: Bars reduction value that is used to compensate ink spread while printing. # noqa: E501
+        :param bool use_anti_alias: Indicates whether is used anti-aliasing mode to render image. Anti-aliasing mode is applied to barcode and text drawing. # noqa: E501
         :param str storage: Image's storage. # noqa: E501
         :param str folder: Image's folder. # noqa: E501
         :param str format: The image format. # noqa: E501
@@ -1367,6 +1362,7 @@ class BarcodeApi(object):
                 supplement_data=supplement_data,
                 supplement_space=supplement_space,
                 bar_width_reduction=bar_width_reduction,
+                use_anti_alias=use_anti_alias,
                 storage=storage,
                 folder=folder,
                 format=format,
@@ -1409,6 +1405,7 @@ class BarcodeApi(object):
                 supplement_data=supplement_data,
                 supplement_space=supplement_space,
                 bar_width_reduction=bar_width_reduction,
+                use_anti_alias=use_anti_alias,
                 storage=storage,
                 folder=folder,
                 format=format,
@@ -1468,6 +1465,7 @@ class BarcodeApi(object):
             "supplement_data",
             "supplement_space",
             "bar_width_reduction",
+            "use_anti_alias",
             "storage",
             "folder",
             "format",
@@ -1571,6 +1569,8 @@ class BarcodeApi(object):
             query_params.append(("SupplementSpace", params["supplement_space"]))
         if "bar_width_reduction" in params:
             query_params.append(("BarWidthReduction", params["bar_width_reduction"]))
+        if "use_anti_alias" in params:
+            query_params.append(("UseAntiAlias", params["use_anti_alias"]))
         if "storage" in params:
             query_params.append(("storage", params["storage"]))
         if "folder" in params:

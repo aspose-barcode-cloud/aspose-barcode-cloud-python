@@ -358,7 +358,7 @@ class ReaderParams(object):
     def rect_x(self):
         """Gets the rect_x of this ReaderParams.  # noqa: E501
 
-        Set X for area for recognition.  # noqa: E501
+        Set X of top left corner of area for recognition.  # noqa: E501
 
         :return: The rect_x of this ReaderParams.  # noqa: E501
         :rtype: int
@@ -369,7 +369,7 @@ class ReaderParams(object):
     def rect_x(self, rect_x):
         """Sets the rect_x of this ReaderParams.
 
-        Set X for area for recognition.  # noqa: E501
+        Set X of top left corner of area for recognition.  # noqa: E501
 
         :param rect_x: The rect_x of this ReaderParams.  # noqa: E501
         :type: int
@@ -381,7 +381,7 @@ class ReaderParams(object):
     def rect_y(self):
         """Gets the rect_y of this ReaderParams.  # noqa: E501
 
-        Set Y for area for recognition.  # noqa: E501
+        Set Y of top left corner of area for recognition.  # noqa: E501
 
         :return: The rect_y of this ReaderParams.  # noqa: E501
         :rtype: int
@@ -392,7 +392,7 @@ class ReaderParams(object):
     def rect_y(self, rect_y):
         """Sets the rect_y of this ReaderParams.
 
-        Set Y for area for recognition.  # noqa: E501
+        Set Y of top left corner of area for recognition.  # noqa: E501
 
         :param rect_y: The rect_y of this ReaderParams.  # noqa: E501
         :type: int

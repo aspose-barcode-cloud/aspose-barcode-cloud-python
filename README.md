@@ -5,7 +5,7 @@
 [![PyPI](https://img.shields.io/pypi/v/aspose-barcode-cloud)](https://pypi.org/project/aspose-barcode-cloud/)
 
 - API version: 3.0
-- Package version: 23.3.0
+- Package version: 23.4.0
 
 ## Demo applications
 
@@ -171,6 +171,7 @@ Class | Method | HTTP request | Description
 - [EncodeBarcodeType](docs/EncodeBarcodeType.md)
 - [Error](docs/Error.md)
 - [ErrorDetails](docs/ErrorDetails.md)
+- [FileVersion](docs/FileVersion.md)
 - [FileVersions](docs/FileVersions.md)
 - [FilesList](docs/FilesList.md)
 - [FilesUploadResult](docs/FilesUploadResult.md)
@@ -207,5 +208,4 @@ Class | Method | HTTP request | Description
 - [StorageFile](docs/StorageFile.md)
 - [StructuredAppend](docs/StructuredAppend.md)
 - [TextAlignment](docs/TextAlignment.md)
-- [FileVersion](docs/FileVersion.md)
 
