@@ -44,20 +44,170 @@ class FileVersion(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"version_id": "str", "is_latest": "bool"}
+    swagger_types = {
+        "name": "str",
+        "is_folder": "bool",
+        "modified_date": "datetime",
+        "size": "int",
+        "path": "str",
+        "version_id": "str",
+        "is_latest": "bool",
+    }
 
-    attribute_map = {"version_id": "VersionId", "is_latest": "IsLatest"}
+    attribute_map = {
+        "name": "Name",
+        "is_folder": "IsFolder",
+        "modified_date": "ModifiedDate",
+        "size": "Size",
+        "path": "Path",
+        "version_id": "VersionId",
+        "is_latest": "IsLatest",
+    }
 
-    def __init__(self, version_id=None, is_latest=None):  # noqa: E501
+    def __init__(
+        self, name=None, is_folder=None, modified_date=None, size=None, path=None, version_id=None, is_latest=None
+    ):  # noqa: E501
         """FileVersion - a model defined in Swagger"""  # noqa: E501
 
+        self._name = None
+        self._is_folder = None
+        self._modified_date = None
+        self._size = None
+        self._path = None
         self._version_id = None
         self._is_latest = None
         self.discriminator = None
 
+        if name is not None:
+            self.name = name
+        self.is_folder = is_folder
+        if modified_date is not None:
+            self.modified_date = modified_date
+        self.size = size
+        if path is not None:
+            self.path = path
         if version_id is not None:
             self.version_id = version_id
         self.is_latest = is_latest
+
+    @property
+    def name(self):
+        """Gets the name of this FileVersion.  # noqa: E501
+
+        File or folder name.  # noqa: E501
+
+        :return: The name of this FileVersion.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this FileVersion.
+
+        File or folder name.  # noqa: E501
+
+        :param name: The name of this FileVersion.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
+
+    @property
+    def is_folder(self):
+        """Gets the is_folder of this FileVersion.  # noqa: E501
+
+        True if it is a folder.  # noqa: E501
+
+        :return: The is_folder of this FileVersion.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_folder
+
+    @is_folder.setter
+    def is_folder(self, is_folder):
+        """Sets the is_folder of this FileVersion.
+
+        True if it is a folder.  # noqa: E501
+
+        :param is_folder: The is_folder of this FileVersion.  # noqa: E501
+        :type: bool
+        """
+        if is_folder is None:
+            raise ValueError("Invalid value for `is_folder`, must not be `None`")  # noqa: E501
+
+        self._is_folder = is_folder
+
+    @property
+    def modified_date(self):
+        """Gets the modified_date of this FileVersion.  # noqa: E501
+
+        File or folder last modified DateTime.  # noqa: E501
+
+        :return: The modified_date of this FileVersion.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._modified_date
+
+    @modified_date.setter
+    def modified_date(self, modified_date):
+        """Sets the modified_date of this FileVersion.
+
+        File or folder last modified DateTime.  # noqa: E501
+
+        :param modified_date: The modified_date of this FileVersion.  # noqa: E501
+        :type: datetime
+        """
+
+        self._modified_date = modified_date
+
+    @property
+    def size(self):
+        """Gets the size of this FileVersion.  # noqa: E501
+
+        File or folder size.  # noqa: E501
+
+        :return: The size of this FileVersion.  # noqa: E501
+        :rtype: int
+        """
+        return self._size
+
+    @size.setter
+    def size(self, size):
+        """Sets the size of this FileVersion.
+
+        File or folder size.  # noqa: E501
+
+        :param size: The size of this FileVersion.  # noqa: E501
+        :type: int
+        """
+        if size is None:
+            raise ValueError("Invalid value for `size`, must not be `None`")  # noqa: E501
+
+        self._size = size
+
+    @property
+    def path(self):
+        """Gets the path of this FileVersion.  # noqa: E501
+
+        File or folder path.  # noqa: E501
+
+        :return: The path of this FileVersion.  # noqa: E501
+        :rtype: str
+        """
+        return self._path
+
+    @path.setter
+    def path(self, path):
+        """Sets the path of this FileVersion.
+
+        File or folder path.  # noqa: E501
+
+        :param path: The path of this FileVersion.  # noqa: E501
+        :type: str
+        """
+
+        self._path = path
 
     @property
     def version_id(self):
