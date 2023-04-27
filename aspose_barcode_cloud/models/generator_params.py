@@ -83,6 +83,7 @@ class GeneratorParams(object):
         "supplement_data": "str",
         "supplement_space": "float",
         "bar_width_reduction": "float",
+        "use_anti_alias": "bool",
         "australian_post": "AustralianPostParams",
         "aztec": "AztecParams",
         "codabar": "CodabarParams",
@@ -139,6 +140,7 @@ class GeneratorParams(object):
         "supplement_data": "SupplementData",
         "supplement_space": "SupplementSpace",
         "bar_width_reduction": "BarWidthReduction",
+        "use_anti_alias": "UseAntiAlias",
         "australian_post": "AustralianPost",
         "aztec": "Aztec",
         "codabar": "Codabar",
@@ -196,6 +198,7 @@ class GeneratorParams(object):
         supplement_data=None,
         supplement_space=None,
         bar_width_reduction=None,
+        use_anti_alias=None,
         australian_post=None,
         aztec=None,
         codabar=None,
@@ -252,6 +255,7 @@ class GeneratorParams(object):
         self._supplement_data = None
         self._supplement_space = None
         self._bar_width_reduction = None
+        self._use_anti_alias = None
         self._australian_post = None
         self._aztec = None
         self._codabar = None
@@ -343,6 +347,8 @@ class GeneratorParams(object):
             self.supplement_space = supplement_space
         if bar_width_reduction is not None:
             self.bar_width_reduction = bar_width_reduction
+        if use_anti_alias is not None:
+            self.use_anti_alias = use_anti_alias
         if australian_post is not None:
             self.australian_post = australian_post
         if aztec is not None:
@@ -1251,6 +1257,29 @@ class GeneratorParams(object):
         """
 
         self._bar_width_reduction = bar_width_reduction
+
+    @property
+    def use_anti_alias(self):
+        """Gets the use_anti_alias of this GeneratorParams.  # noqa: E501
+
+        Indicates whether is used anti-aliasing mode to render image. Anti-aliasing mode is applied to barcode and text drawing.  # noqa: E501
+
+        :return: The use_anti_alias of this GeneratorParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_anti_alias
+
+    @use_anti_alias.setter
+    def use_anti_alias(self, use_anti_alias):
+        """Sets the use_anti_alias of this GeneratorParams.
+
+        Indicates whether is used anti-aliasing mode to render image. Anti-aliasing mode is applied to barcode and text drawing.  # noqa: E501
+
+        :param use_anti_alias: The use_anti_alias of this GeneratorParams.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_anti_alias = use_anti_alias
 
     @property
     def australian_post(self):

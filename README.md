@@ -5,7 +5,7 @@
 [![PyPI](https://img.shields.io/pypi/v/aspose-barcode-cloud)](https://pypi.org/project/aspose-barcode-cloud/)
 
 - API version: 3.0
-- Package version: 23.3.0
+- Package version: 23.4.0
 
 ## Demo applications
 
