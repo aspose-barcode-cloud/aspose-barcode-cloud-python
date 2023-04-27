@@ -92,7 +92,7 @@ pprint(response)
 ## Requirements
 
 - six >= 1.10
-- urllib3 >= 1.15.1
+- urllib3 >= 1.21.1, <2.0
 
 ## Licensing
 
