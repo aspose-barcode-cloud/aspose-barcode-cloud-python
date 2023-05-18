@@ -24,7 +24,7 @@ class TestHeaders(unittest.TestCase):
 
         self.assertEqual(1, self.rest_client_mock.GET.call_count)
         headers = self.rest_client_mock.GET.call_args[1]["headers"]
-        self.assertEqual("Aspose-Barcode-SDK/23.4.0/python", headers["User-Agent"])
+        self.assertEqual("Aspose-Barcode-SDK/23.5.0/python", headers["User-Agent"])
         self.assertEqual("python sdk", headers["x-aspose-client"])
         self.assertEqual("23.4.0", headers["x-aspose-client-version"])
 
