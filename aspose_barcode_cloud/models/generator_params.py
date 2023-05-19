@@ -99,6 +99,7 @@ class GeneratorParams(object):
         "postal": "PostalParams",
         "qr": "QrParams",
         "patch_code": "PatchCodeParams",
+        "code128": "Code128Params",
     }
 
     attribute_map = {
@@ -156,6 +157,7 @@ class GeneratorParams(object):
         "postal": "Postal",
         "qr": "QR",
         "patch_code": "PatchCode",
+        "code128": "Code128",
     }
 
     def __init__(
@@ -214,6 +216,7 @@ class GeneratorParams(object):
         postal=None,
         qr=None,
         patch_code=None,
+        code128=None,
     ):  # noqa: E501
         """GeneratorParams - a model defined in Swagger"""  # noqa: E501
 
@@ -271,6 +274,7 @@ class GeneratorParams(object):
         self._postal = None
         self._qr = None
         self._patch_code = None
+        self._code128 = None
         self.discriminator = None
 
         self.type_of_barcode = type_of_barcode
@@ -379,6 +383,8 @@ class GeneratorParams(object):
             self.qr = qr
         if patch_code is not None:
             self.patch_code = patch_code
+        if code128 is not None:
+            self.code128 = code128
 
     @property
     def type_of_barcode(self):
@@ -1625,6 +1631,29 @@ class GeneratorParams(object):
         """
 
         self._patch_code = patch_code
+
+    @property
+    def code128(self):
+        """Gets the code128 of this GeneratorParams.  # noqa: E501
+
+        Code128 params.  # noqa: E501
+
+        :return: The code128 of this GeneratorParams.  # noqa: E501
+        :rtype: Code128Params
+        """
+        return self._code128
+
+    @code128.setter
+    def code128(self, code128):
+        """Sets the code128 of this GeneratorParams.
+
+        Code128 params.  # noqa: E501
+
+        :param code128: The code128 of this GeneratorParams.  # noqa: E501
+        :type: Code128Params
+        """
+
+        self._code128 = code128
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -5,7 +5,7 @@
 [![PyPI](https://img.shields.io/pypi/v/aspose-barcode-cloud)](https://pypi.org/project/aspose-barcode-cloud/)
 
 - API version: 3.0
-- Package version: 23.4.0
+- Package version: 23.5.0
 
 ## Demo applications
 
@@ -154,6 +154,8 @@ Class | Method | HTTP request | Description
 - [CodabarSymbol](docs/CodabarSymbol.md)
 - [CodablockParams](docs/CodablockParams.md)
 - [Code128Emulation](docs/Code128Emulation.md)
+- [Code128EncodeMode](docs/Code128EncodeMode.md)
+- [Code128Params](docs/Code128Params.md)
 - [Code16KParams](docs/Code16KParams.md)
 - [CodeLocation](docs/CodeLocation.md)
 - [CouponParams](docs/CouponParams.md)

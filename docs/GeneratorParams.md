@@ -57,6 +57,7 @@ Name | Type | Description | Notes
 **postal** | [**PostalParams**](PostalParams.md) | Postal params. | [optional] 
 **qr** | [**QrParams**](QrParams.md) | QR params. | [optional] 
 **patch_code** | [**PatchCodeParams**](PatchCodeParams.md) | PatchCode params. | [optional] 
+**code128** | [**Code128Params**](Code128Params.md) | Code128 params. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

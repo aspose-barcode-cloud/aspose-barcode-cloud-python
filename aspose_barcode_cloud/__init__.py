@@ -59,6 +59,8 @@ from aspose_barcode_cloud.models.codabar_params import CodabarParams
 from aspose_barcode_cloud.models.codabar_symbol import CodabarSymbol
 from aspose_barcode_cloud.models.codablock_params import CodablockParams
 from aspose_barcode_cloud.models.code128_emulation import Code128Emulation
+from aspose_barcode_cloud.models.code128_encode_mode import Code128EncodeMode
+from aspose_barcode_cloud.models.code128_params import Code128Params
 from aspose_barcode_cloud.models.code16_k_params import Code16KParams
 from aspose_barcode_cloud.models.code_location import CodeLocation
 from aspose_barcode_cloud.models.coupon_params import CouponParams
