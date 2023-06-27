@@ -34,12 +34,12 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        python3 -m pip install -r requirements.txt -r test-requirements.txt
+        python -m pip install -r requirements.txt -r test-requirements.txt
     - name: Lint
       run: |
-        python3 -m black --line-length=120 --check .
-        python3 -m check_python_versions --expect 2.7,3.5- --only setup.py
+        python -m black --line-length=120 --check .
+        python -m check_python_versions --expect 2.7,3.5- --only setup.py
     - name: Test
       env:
         TEST_CONFIGURATION_ACCESS_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}
-      run: python3 -Werror -m pytest
+      run: python -Werror -m pytest

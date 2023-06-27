@@ -18,11 +18,11 @@ clean-pyc:
 
 .PHONY: dist
 dist:
-	python3 setup.py sdist bdist_wheel --universal
+	python setup.py sdist bdist_wheel --universal
 
 .PHONY: format
 format:
-	python3 -m black --line-length=120 -v $(SRC) tests
+	python -m black --line-length=120 -v $(SRC) tests
 
 .PHONY: format_doc
 format_doc:
@@ -38,7 +38,7 @@ init:
 
 .PHONY: init-docker
 init-docker:
-	python3 -m pip install -r publish-requirements.txt -r requirements.txt
+	python -m pip install -r publish-requirements.txt -r requirements.txt
 
 .PHONY: lint
 lint:
@@ -49,11 +49,11 @@ lint:
 
 .PHONY: publish
 publish: check_git test-tox dist
-	python3 -m twine upload dist/*
+	python -m twine upload dist/*
 
 .PHONY: publish-docker
 publish-docker: init-docker unittest dist
-	python3 -m twine upload dist/* --verbose
+	python -m twine upload dist/* --verbose
 
 .PHONY: test
 test:
@@ -65,7 +65,7 @@ cover:
 
 .PHONY: unittest
 unittest:
-	python3 -Werror -m unittest discover -v
+	python -Werror -m unittest discover -v
 
 .PHONY: test-example
 test-example:
@@ -73,7 +73,7 @@ test-example:
 
 .PHONY: test-tox
 test-tox:
-	python3 -m tox $(SRC)
+	python -m tox $(SRC)
 
 .PHONY: after-gen
 after-gen: format format_doc
