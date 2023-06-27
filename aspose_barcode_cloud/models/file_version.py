@@ -65,7 +65,14 @@ class FileVersion(object):
     }
 
     def __init__(
-        self, name=None, is_folder=None, modified_date=None, size=None, path=None, version_id=None, is_latest=None
+        self,
+        name=None,
+        is_folder=None,
+        modified_date=None,
+        size=None,
+        path=None,
+        version_id=None,
+        is_latest=None,
     ):  # noqa: E501
         """FileVersion - a model defined in Swagger"""  # noqa: E501
 

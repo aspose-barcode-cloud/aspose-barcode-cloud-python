@@ -4,7 +4,13 @@ import os
 import tempfile
 import unittest
 
-from aspose_barcode_cloud import BarcodeApi, ApiClient, EncodeBarcodeType, PresetType, DecodeBarcodeType
+from aspose_barcode_cloud import (
+    BarcodeApi,
+    ApiClient,
+    EncodeBarcodeType,
+    PresetType,
+    DecodeBarcodeType,
+)
 from .load_configuration import TEST_CONFIGURATION
 
 

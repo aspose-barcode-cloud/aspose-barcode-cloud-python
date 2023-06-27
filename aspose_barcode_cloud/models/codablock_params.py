@@ -46,7 +46,11 @@ class CodablockParams(object):
     """
     swagger_types = {"aspect_ratio": "float", "columns": "int", "rows": "int"}
 
-    attribute_map = {"aspect_ratio": "AspectRatio", "columns": "Columns", "rows": "Rows"}
+    attribute_map = {
+        "aspect_ratio": "AspectRatio",
+        "columns": "Columns",
+        "rows": "Rows",
+    }
 
     def __init__(self, aspect_ratio=None, columns=None, rows=None):  # noqa: E501
         """CodablockParams - a model defined in Swagger"""  # noqa: E501

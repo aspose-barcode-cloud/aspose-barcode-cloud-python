@@ -44,7 +44,13 @@ class StorageFile(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"name": "str", "is_folder": "bool", "modified_date": "datetime", "size": "int", "path": "str"}
+    swagger_types = {
+        "name": "str",
+        "is_folder": "bool",
+        "modified_date": "datetime",
+        "size": "int",
+        "path": "str",
+    }
 
     attribute_map = {
         "name": "Name",

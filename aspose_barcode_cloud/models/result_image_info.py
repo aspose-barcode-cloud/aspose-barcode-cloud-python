@@ -46,7 +46,11 @@ class ResultImageInfo(object):
     """
     swagger_types = {"file_size": "int", "image_width": "int", "image_height": "int"}
 
-    attribute_map = {"file_size": "FileSize", "image_width": "ImageWidth", "image_height": "ImageHeight"}
+    attribute_map = {
+        "file_size": "FileSize",
+        "image_width": "ImageWidth",
+        "image_height": "ImageHeight",
+    }
 
     def __init__(self, file_size=None, image_width=None, image_height=None):  # noqa: E501
         """ResultImageInfo - a model defined in Swagger"""  # noqa: E501

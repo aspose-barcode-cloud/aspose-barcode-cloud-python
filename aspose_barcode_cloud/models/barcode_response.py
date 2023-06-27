@@ -44,9 +44,19 @@ class BarcodeResponse(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"barcode_value": "str", "type": "str", "region": "list[RegionPoint]", "checksum": "str"}
+    swagger_types = {
+        "barcode_value": "str",
+        "type": "str",
+        "region": "list[RegionPoint]",
+        "checksum": "str",
+    }
 
-    attribute_map = {"barcode_value": "BarcodeValue", "type": "Type", "region": "Region", "checksum": "Checksum"}
+    attribute_map = {
+        "barcode_value": "BarcodeValue",
+        "type": "Type",
+        "region": "Region",
+        "checksum": "Checksum",
+    }
 
     def __init__(self, barcode_value=None, type=None, region=None, checksum=None):  # noqa: E501
         """BarcodeResponse - a model defined in Swagger"""  # noqa: E501

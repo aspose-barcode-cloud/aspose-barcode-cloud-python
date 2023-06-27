@@ -64,7 +64,9 @@ from aspose_barcode_cloud.models.code128_params import Code128Params
 from aspose_barcode_cloud.models.code16_k_params import Code16KParams
 from aspose_barcode_cloud.models.code_location import CodeLocation
 from aspose_barcode_cloud.models.coupon_params import CouponParams
-from aspose_barcode_cloud.models.customer_information_interpreting_type import CustomerInformationInterpretingType
+from aspose_barcode_cloud.models.customer_information_interpreting_type import (
+    CustomerInformationInterpretingType,
+)
 from aspose_barcode_cloud.models.data_bar_params import DataBarParams
 from aspose_barcode_cloud.models.data_matrix_ecc_type import DataMatrixEccType
 from aspose_barcode_cloud.models.data_matrix_encode_mode import DataMatrixEncodeMode

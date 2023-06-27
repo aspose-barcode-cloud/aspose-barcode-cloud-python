@@ -378,7 +378,14 @@ class BarcodeApi(object):
         body_params = None
         # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(
-            ["image/png", "image/bmp", "image/gif", "image/jpeg", "image/svg+xml", "image/tiff"]
+            [
+                "image/png",
+                "image/bmp",
+                "image/gif",
+                "image/jpeg",
+                "image/svg+xml",
+                "image/tiff",
+            ]
         )
 
         # HTTP header "Content-Type"
@@ -686,7 +693,12 @@ class BarcodeApi(object):
         if "allow_complex_background" in params:
             query_params.append(("AllowComplexBackground", params["allow_complex_background"]))
         if "allow_datamatrix_industrial_barcodes" in params:
-            query_params.append(("AllowDatamatrixIndustrialBarcodes", params["allow_datamatrix_industrial_barcodes"]))
+            query_params.append(
+                (
+                    "AllowDatamatrixIndustrialBarcodes",
+                    params["allow_datamatrix_industrial_barcodes"],
+                )
+            )
         if "allow_decreased_image" in params:
             query_params.append(("AllowDecreasedImage", params["allow_decreased_image"]))
         if "allow_detect_scan_gap" in params:
@@ -696,17 +708,37 @@ class BarcodeApi(object):
         if "allow_invert_image" in params:
             query_params.append(("AllowInvertImage", params["allow_invert_image"]))
         if "allow_micro_white_spots_removing" in params:
-            query_params.append(("AllowMicroWhiteSpotsRemoving", params["allow_micro_white_spots_removing"]))
+            query_params.append(
+                (
+                    "AllowMicroWhiteSpotsRemoving",
+                    params["allow_micro_white_spots_removing"],
+                )
+            )
         if "allow_one_d_fast_barcodes_detector" in params:
-            query_params.append(("AllowOneDFastBarcodesDetector", params["allow_one_d_fast_barcodes_detector"]))
+            query_params.append(
+                (
+                    "AllowOneDFastBarcodesDetector",
+                    params["allow_one_d_fast_barcodes_detector"],
+                )
+            )
         if "allow_one_d_wiped_bars_restoration" in params:
-            query_params.append(("AllowOneDWipedBarsRestoration", params["allow_one_d_wiped_bars_restoration"]))
+            query_params.append(
+                (
+                    "AllowOneDWipedBarsRestoration",
+                    params["allow_one_d_wiped_bars_restoration"],
+                )
+            )
         if "allow_qr_micro_qr_restoration" in params:
             query_params.append(("AllowQRMicroQrRestoration", params["allow_qr_micro_qr_restoration"]))
         if "allow_regular_image" in params:
             query_params.append(("AllowRegularImage", params["allow_regular_image"]))
         if "allow_salt_and_pepper_filtering" in params:
-            query_params.append(("AllowSaltAndPepperFiltering", params["allow_salt_and_pepper_filtering"]))
+            query_params.append(
+                (
+                    "AllowSaltAndPepperFiltering",
+                    params["allow_salt_and_pepper_filtering"],
+                )
+            )
         if "allow_white_spots_removing" in params:
             query_params.append(("AllowWhiteSpotsRemoving", params["allow_white_spots_removing"]))
         if "check_more1_d_variants" in params:
@@ -714,7 +746,12 @@ class BarcodeApi(object):
         if "fast_scan_only" in params:
             query_params.append(("FastScanOnly", params["fast_scan_only"]))
         if "region_likelihood_threshold_percent" in params:
-            query_params.append(("RegionLikelihoodThresholdPercent", params["region_likelihood_threshold_percent"]))
+            query_params.append(
+                (
+                    "RegionLikelihoodThresholdPercent",
+                    params["region_likelihood_threshold_percent"],
+                )
+            )
         if "scan_window_sizes" in params:
             query_params.append(("ScanWindowSizes", params["scan_window_sizes"]))
             collection_formats["ScanWindowSizes"] = "multi"
@@ -725,10 +762,18 @@ class BarcodeApi(object):
         if "read_tiny_barcodes" in params:
             query_params.append(("ReadTinyBarcodes", params["read_tiny_barcodes"]))
         if "australian_post_encoding_table" in params:
-            query_params.append(("AustralianPostEncodingTable", params["australian_post_encoding_table"]))
+            query_params.append(
+                (
+                    "AustralianPostEncodingTable",
+                    params["australian_post_encoding_table"],
+                )
+            )
         if "ignore_ending_filling_patterns_for_c_table" in params:
             query_params.append(
-                ("IgnoreEndingFillingPatternsForCTable", params["ignore_ending_filling_patterns_for_c_table"])
+                (
+                    "IgnoreEndingFillingPatternsForCTable",
+                    params["ignore_ending_filling_patterns_for_c_table"],
+                )
             )
         if "storage" in params:
             query_params.append(("storage", params["storage"]))
@@ -1041,7 +1086,12 @@ class BarcodeApi(object):
         if "allow_complex_background" in params:
             query_params.append(("AllowComplexBackground", params["allow_complex_background"]))
         if "allow_datamatrix_industrial_barcodes" in params:
-            query_params.append(("AllowDatamatrixIndustrialBarcodes", params["allow_datamatrix_industrial_barcodes"]))
+            query_params.append(
+                (
+                    "AllowDatamatrixIndustrialBarcodes",
+                    params["allow_datamatrix_industrial_barcodes"],
+                )
+            )
         if "allow_decreased_image" in params:
             query_params.append(("AllowDecreasedImage", params["allow_decreased_image"]))
         if "allow_detect_scan_gap" in params:
@@ -1051,17 +1101,37 @@ class BarcodeApi(object):
         if "allow_invert_image" in params:
             query_params.append(("AllowInvertImage", params["allow_invert_image"]))
         if "allow_micro_white_spots_removing" in params:
-            query_params.append(("AllowMicroWhiteSpotsRemoving", params["allow_micro_white_spots_removing"]))
+            query_params.append(
+                (
+                    "AllowMicroWhiteSpotsRemoving",
+                    params["allow_micro_white_spots_removing"],
+                )
+            )
         if "allow_one_d_fast_barcodes_detector" in params:
-            query_params.append(("AllowOneDFastBarcodesDetector", params["allow_one_d_fast_barcodes_detector"]))
+            query_params.append(
+                (
+                    "AllowOneDFastBarcodesDetector",
+                    params["allow_one_d_fast_barcodes_detector"],
+                )
+            )
         if "allow_one_d_wiped_bars_restoration" in params:
-            query_params.append(("AllowOneDWipedBarsRestoration", params["allow_one_d_wiped_bars_restoration"]))
+            query_params.append(
+                (
+                    "AllowOneDWipedBarsRestoration",
+                    params["allow_one_d_wiped_bars_restoration"],
+                )
+            )
         if "allow_qr_micro_qr_restoration" in params:
             query_params.append(("AllowQRMicroQrRestoration", params["allow_qr_micro_qr_restoration"]))
         if "allow_regular_image" in params:
             query_params.append(("AllowRegularImage", params["allow_regular_image"]))
         if "allow_salt_and_pepper_filtering" in params:
-            query_params.append(("AllowSaltAndPepperFiltering", params["allow_salt_and_pepper_filtering"]))
+            query_params.append(
+                (
+                    "AllowSaltAndPepperFiltering",
+                    params["allow_salt_and_pepper_filtering"],
+                )
+            )
         if "allow_white_spots_removing" in params:
             query_params.append(("AllowWhiteSpotsRemoving", params["allow_white_spots_removing"]))
         if "check_more1_d_variants" in params:
@@ -1069,7 +1139,12 @@ class BarcodeApi(object):
         if "fast_scan_only" in params:
             query_params.append(("FastScanOnly", params["fast_scan_only"]))
         if "region_likelihood_threshold_percent" in params:
-            query_params.append(("RegionLikelihoodThresholdPercent", params["region_likelihood_threshold_percent"]))
+            query_params.append(
+                (
+                    "RegionLikelihoodThresholdPercent",
+                    params["region_likelihood_threshold_percent"],
+                )
+            )
         if "scan_window_sizes" in params:
             query_params.append(("ScanWindowSizes", params["scan_window_sizes"]))
             collection_formats["ScanWindowSizes"] = "multi"
@@ -1080,10 +1155,18 @@ class BarcodeApi(object):
         if "read_tiny_barcodes" in params:
             query_params.append(("ReadTinyBarcodes", params["read_tiny_barcodes"]))
         if "australian_post_encoding_table" in params:
-            query_params.append(("AustralianPostEncodingTable", params["australian_post_encoding_table"]))
+            query_params.append(
+                (
+                    "AustralianPostEncodingTable",
+                    params["australian_post_encoding_table"],
+                )
+            )
         if "ignore_ending_filling_patterns_for_c_table" in params:
             query_params.append(
-                ("IgnoreEndingFillingPatternsForCTable", params["ignore_ending_filling_patterns_for_c_table"])
+                (
+                    "IgnoreEndingFillingPatternsForCTable",
+                    params["ignore_ending_filling_patterns_for_c_table"],
+                )
             )
         if "url" in params:
             query_params.append(("url", params["url"]))
@@ -1101,7 +1184,11 @@ class BarcodeApi(object):
 
         # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(
-            ["multipart/form-data", "application/x-www-form-urlencoded", "application/octet-stream"]
+            [
+                "multipart/form-data",
+                "application/x-www-form-urlencoded",
+                "application/octet-stream",
+            ]
         )
 
         # Authentication setting
@@ -1200,7 +1287,14 @@ class BarcodeApi(object):
             body_params = params["generator_params_list"]
         # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(
-            ["image/png", "image/bmp", "image/gif", "image/jpeg", "image/svg+xml", "image/tiff"]
+            [
+                "image/png",
+                "image/bmp",
+                "image/gif",
+                "image/jpeg",
+                "image/svg+xml",
+                "image/tiff",
+            ]
         )
 
         # HTTP header "Content-Type"
@@ -1589,7 +1683,12 @@ class BarcodeApi(object):
 
         # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(
-            ["multipart/form-data", "application/x-www-form-urlencoded", "application/json", "application/xml"]
+            [
+                "multipart/form-data",
+                "application/x-www-form-urlencoded",
+                "application/json",
+                "application/xml",
+            ]
         )
 
         # Authentication setting

@@ -44,7 +44,11 @@ class ITFParams(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"border_thickness": "float", "border_type": "ITF14BorderType", "quiet_zone_coef": "int"}
+    swagger_types = {
+        "border_thickness": "float",
+        "border_type": "ITF14BorderType",
+        "quiet_zone_coef": "int",
+    }
 
     attribute_map = {
         "border_thickness": "BorderThickness",

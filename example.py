@@ -3,7 +3,13 @@ from __future__ import division, print_function
 import os
 from pprint import pprint
 
-from aspose_barcode_cloud import BarcodeApi, ApiClient, Configuration, EncodeBarcodeType, PresetType
+from aspose_barcode_cloud import (
+    BarcodeApi,
+    ApiClient,
+    Configuration,
+    EncodeBarcodeType,
+    PresetType,
+)
 
 config = Configuration(
     client_id="Client Id from https://dashboard.aspose.cloud/applications",

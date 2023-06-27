@@ -29,7 +29,11 @@ class TestHeaders(unittest.TestCase):
         self.assertEqual("23.5.0", headers["x-aspose-client-version"])
 
     def test_header_override(self):
-        api_client = ApiClient(self.local_config, header_name="x-aspose-client", header_value="some custom sdk")
+        api_client = ApiClient(
+            self.local_config,
+            header_name="x-aspose-client",
+            header_value="some custom sdk",
+        )
         api_client.rest_client = self.rest_client_mock
 
         BarcodeApi(api_client).get_barcode_generate(EncodeBarcodeType.CODE128, "Test")
