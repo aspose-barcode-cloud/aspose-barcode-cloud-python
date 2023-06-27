@@ -60,14 +60,7 @@ class ApiError(object):
         "inner_error": "InnerError",
     }
 
-    def __init__(
-        self,
-        code=None,
-        message=None,
-        description=None,
-        date_time=None,
-        inner_error=None,
-    ):  # noqa: E501
+    def __init__(self, code=None, message=None, description=None, date_time=None, inner_error=None):  # noqa: E501
         """ApiError - a model defined in Swagger"""  # noqa: E501
 
         self._code = None

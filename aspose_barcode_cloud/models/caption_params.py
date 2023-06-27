@@ -65,14 +65,7 @@ class CaptionParams(object):
     }
 
     def __init__(
-        self,
-        text=None,
-        alignment=None,
-        color=None,
-        visible=None,
-        font=None,
-        padding=None,
-        no_wrap=None,
+        self, text=None, alignment=None, color=None, visible=None, font=None, padding=None, no_wrap=None
     ):  # noqa: E501
         """CaptionParams - a model defined in Swagger"""  # noqa: E501
 

@@ -50,11 +50,7 @@ class CodabarParams(object):
         "stop_symbol": "CodabarSymbol",
     }
 
-    attribute_map = {
-        "checksum_mode": "ChecksumMode",
-        "start_symbol": "StartSymbol",
-        "stop_symbol": "StopSymbol",
-    }
+    attribute_map = {"checksum_mode": "ChecksumMode", "start_symbol": "StartSymbol", "stop_symbol": "StopSymbol"}
 
     def __init__(self, checksum_mode=None, start_symbol=None, stop_symbol=None):  # noqa: E501
         """CodabarParams - a model defined in Swagger"""  # noqa: E501

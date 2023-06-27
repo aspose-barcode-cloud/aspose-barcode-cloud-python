@@ -108,6 +108,8 @@ class EncodeBarcodeType(object):
     GS1CODABLOCKF = "GS1CodablockF"
     MAILMARK = "Mailmark"
     GS1DOTCODE = "GS1DotCode"
+    HANXIN = "HanXin"
+    GS1HANXIN = "GS1HanXin"
 
     """
     Attributes:

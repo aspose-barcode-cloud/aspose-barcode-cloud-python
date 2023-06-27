@@ -46,10 +46,7 @@ class PatchCodeParams(object):
     """
     swagger_types = {"extra_barcode_text": "str", "patch_format": "PatchFormat"}
 
-    attribute_map = {
-        "extra_barcode_text": "ExtraBarcodeText",
-        "patch_format": "PatchFormat",
-    }
+    attribute_map = {"extra_barcode_text": "ExtraBarcodeText", "patch_format": "PatchFormat"}
 
     def __init__(self, extra_barcode_text=None, patch_format=None):  # noqa: E501
         """PatchCodeParams - a model defined in Swagger"""  # noqa: E501

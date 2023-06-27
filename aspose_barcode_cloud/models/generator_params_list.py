@@ -44,17 +44,9 @@ class GeneratorParamsList(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        "barcode_builders": "list[GeneratorParams]",
-        "x_step": "int",
-        "y_step": "int",
-    }
+    swagger_types = {"barcode_builders": "list[GeneratorParams]", "x_step": "int", "y_step": "int"}
 
-    attribute_map = {
-        "barcode_builders": "BarcodeBuilders",
-        "x_step": "XStep",
-        "y_step": "YStep",
-    }
+    attribute_map = {"barcode_builders": "BarcodeBuilders", "x_step": "XStep", "y_step": "YStep"}
 
     def __init__(self, barcode_builders=None, x_step=None, y_step=None):  # noqa: E501
         """GeneratorParamsList - a model defined in Swagger"""  # noqa: E501

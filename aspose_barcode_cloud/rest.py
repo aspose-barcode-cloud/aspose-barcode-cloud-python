@@ -224,12 +224,7 @@ class RESTClientObject(object):
                     file_data = post_params.pop(-1)
                     body = file_data[1][1]
                     r = self.pool_manager.request(
-                        method,
-                        url,
-                        body=body,
-                        preload_content=_preload_content,
-                        timeout=timeout,
-                        headers=headers,
+                        method, url, body=body, preload_content=_preload_content, timeout=timeout, headers=headers
                     )
                 else:
                     # Cannot generate the request from given parameters
@@ -240,12 +235,7 @@ class RESTClientObject(object):
             # For 'GET', 'HEAD'
             else:
                 r = self.pool_manager.request(
-                    method,
-                    url,
-                    fields=query_params,
-                    preload_content=_preload_content,
-                    timeout=timeout,
-                    headers=headers,
+                    method, url, fields=query_params, preload_content=_preload_content, timeout=timeout, headers=headers
                 )
         except urllib3.exceptions.SSLError as e:
             msg = "{0}\n{1}".format(type(e).__name__, str(e))
@@ -268,14 +258,7 @@ class RESTClientObject(object):
         return r
 
     # noinspection PyPep8Naming
-    def GET(
-        self,
-        url,
-        headers=None,
-        query_params=None,
-        _preload_content=True,
-        _request_timeout=None,
-    ):
+    def GET(self, url, headers=None, query_params=None, _preload_content=True, _request_timeout=None):
         return self._request(
             "GET",
             url,
@@ -286,14 +269,7 @@ class RESTClientObject(object):
         )
 
     # noinspection PyPep8Naming
-    def HEAD(
-        self,
-        url,
-        headers=None,
-        query_params=None,
-        _preload_content=True,
-        _request_timeout=None,
-    ):
+    def HEAD(self, url, headers=None, query_params=None, _preload_content=True, _request_timeout=None):
         return self._request(
             "HEAD",
             url,
@@ -326,15 +302,7 @@ class RESTClientObject(object):
         )
 
     # noinspection PyPep8Naming
-    def DELETE(
-        self,
-        url,
-        headers=None,
-        query_params=None,
-        body=None,
-        _preload_content=True,
-        _request_timeout=None,
-    ):
+    def DELETE(self, url, headers=None, query_params=None, body=None, _preload_content=True, _request_timeout=None):
         return self._request(
             "DELETE",
             url,

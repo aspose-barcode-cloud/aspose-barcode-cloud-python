@@ -44,17 +44,9 @@ class MaxiCodeParams(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        "aspect_ratio": "float",
-        "mode": "MaxiCodeMode",
-        "encode_mode": "MaxiCodeEncodeMode",
-    }
+    swagger_types = {"aspect_ratio": "float", "mode": "MaxiCodeMode", "encode_mode": "MaxiCodeEncodeMode"}
 
-    attribute_map = {
-        "aspect_ratio": "AspectRatio",
-        "mode": "Mode",
-        "encode_mode": "EncodeMode",
-    }
+    attribute_map = {"aspect_ratio": "AspectRatio", "mode": "Mode", "encode_mode": "EncodeMode"}
 
     def __init__(self, aspect_ratio=None, mode=None, encode_mode=None):  # noqa: E501
         """MaxiCodeParams - a model defined in Swagger"""  # noqa: E501

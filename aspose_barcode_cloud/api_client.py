@@ -167,8 +167,7 @@ class ApiClient(object):
         # post parameters
         if post_params or files:
             post_params = self.parameters_to_tuples(
-                self.sanitize_for_serialization(self.prepare_post_parameters(post_params, files)),
-                collection_formats,
+                self.sanitize_for_serialization(self.prepare_post_parameters(post_params, files)), collection_formats
             )
 
         # auth setting
@@ -529,11 +528,7 @@ class ApiClient(object):
             return FileFieldData("data.bin", file_data.read(), "application/octet-stream")
 
         if isinstance(file_data, io.BufferedReader) or (six.PY2 and isinstance(file_data, file)):  # noqa: F821
-            return FileFieldData(
-                os.path.basename(file_data.name),
-                file_data.read(),
-                "application/octet-stream",
-            )
+            return FileFieldData(os.path.basename(file_data.name), file_data.read(), "application/octet-stream")
 
         raise ApiException(reason="Unknown type {type_name} for file parameter".format(type_name=type(file_data)))
 

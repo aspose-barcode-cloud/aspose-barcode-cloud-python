@@ -44,15 +44,9 @@ class AustralianPostParams(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        "encoding_table": "CustomerInformationInterpretingType",
-        "short_bar_height": "float",
-    }
+    swagger_types = {"encoding_table": "CustomerInformationInterpretingType", "short_bar_height": "float"}
 
-    attribute_map = {
-        "encoding_table": "EncodingTable",
-        "short_bar_height": "ShortBarHeight",
-    }
+    attribute_map = {"encoding_table": "EncodingTable", "short_bar_height": "ShortBarHeight"}
 
     def __init__(self, encoding_table=None, short_bar_height=None):  # noqa: E501
         """AustralianPostParams - a model defined in Swagger"""  # noqa: E501

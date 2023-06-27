@@ -44,11 +44,7 @@ class Code16KParams(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        "aspect_ratio": "float",
-        "quiet_zone_left_coef": "int",
-        "quiet_zone_right_coef": "int",
-    }
+    swagger_types = {"aspect_ratio": "float", "quiet_zone_left_coef": "int", "quiet_zone_right_coef": "int"}
 
     attribute_map = {
         "aspect_ratio": "AspectRatio",

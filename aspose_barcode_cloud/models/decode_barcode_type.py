@@ -119,6 +119,8 @@ class DecodeBarcodeType(object):
     HIBCAZTECPAS = "HIBCAztecPAS"
     HIBCDATAMATRIXPAS = "HIBCDataMatrixPAS"
     HIBCQRPAS = "HIBCQRPAS"
+    HANXIN = "HanXin"
+    GS1HANXIN = "GS1HanXin"
 
     """
     Attributes:

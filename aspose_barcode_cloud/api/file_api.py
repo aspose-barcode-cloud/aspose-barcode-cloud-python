@@ -109,13 +109,7 @@ class FileApi(object):
                  returns the request thread.
         """
 
-        all_params = {
-            "src_path",
-            "dest_path",
-            "src_storage_name",
-            "dest_storage_name",
-            "version_id",
-        }
+        all_params = {"src_path", "dest_path", "src_storage_name", "dest_storage_name", "version_id"}
         all_params.add("async_req")
         all_params.add("_return_http_data_only")
         all_params.add("_preload_content")
@@ -451,13 +445,7 @@ class FileApi(object):
                  returns the request thread.
         """
 
-        all_params = {
-            "src_path",
-            "dest_path",
-            "src_storage_name",
-            "dest_storage_name",
-            "version_id",
-        }
+        all_params = {"src_path", "dest_path", "src_storage_name", "dest_storage_name", "version_id"}
         all_params.add("async_req")
         all_params.add("_return_http_data_only")
         all_params.add("_preload_content")

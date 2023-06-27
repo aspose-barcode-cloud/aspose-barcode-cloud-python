@@ -273,12 +273,7 @@ class Configuration(object):
         :return: The Auth Settings information dict.
         """
         return {
-            "JWT": {
-                "type": "oauth2",
-                "in": "header",
-                "key": "Authorization",
-                "value": "Bearer " + self.access_token,
-            },
+            "JWT": {"type": "oauth2", "in": "header", "key": "Authorization", "value": "Bearer " + self.access_token},
         }
 
     def to_debug_report(self):
@@ -297,13 +292,7 @@ class Configuration(object):
     @staticmethod
     def fetch_token(client_id, client_secret, token_url):
         with contextlib.closing(
-            RESTClientObject(
-                Configuration(
-                    client_id=client_id,
-                    client_secret=client_secret,
-                    token_url=token_url,
-                )
-            )
+            RESTClientObject(Configuration(client_id=client_id, client_secret=client_secret, token_url=token_url))
         ) as client:
             response = client.POST(
                 token_url,

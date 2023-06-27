@@ -44,11 +44,7 @@ class StructuredAppend(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        "sequence_indicator": "int",
-        "total_count": "int",
-        "parity_byte": "int",
-    }
+    swagger_types = {"sequence_indicator": "int", "total_count": "int", "parity_byte": "int"}
 
     attribute_map = {
         "sequence_indicator": "SequenceIndicator",

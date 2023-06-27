@@ -44,19 +44,9 @@ class Error(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        "code": "str",
-        "message": "str",
-        "description": "str",
-        "inner_error": "ErrorDetails",
-    }
+    swagger_types = {"code": "str", "message": "str", "description": "str", "inner_error": "ErrorDetails"}
 
-    attribute_map = {
-        "code": "Code",
-        "message": "Message",
-        "description": "Description",
-        "inner_error": "InnerError",
-    }
+    attribute_map = {"code": "Code", "message": "Message", "description": "Description", "inner_error": "InnerError"}
 
     def __init__(self, code=None, message=None, description=None, inner_error=None):  # noqa: E501
         """Error - a model defined in Swagger"""  # noqa: E501

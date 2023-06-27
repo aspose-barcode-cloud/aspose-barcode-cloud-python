@@ -44,12 +44,7 @@ class Padding(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        "left": "float",
-        "right": "float",
-        "top": "float",
-        "bottom": "float",
-    }
+    swagger_types = {"left": "float", "right": "float", "top": "float", "bottom": "float"}
 
     attribute_map = {"left": "Left", "right": "Right", "top": "Top", "bottom": "Bottom"}
 
