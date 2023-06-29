@@ -11,12 +11,13 @@ on:
 
 jobs:
   build:
-
+    # See https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json
+    # for awailable Python versions on ubuntu
     runs-on: ubuntu-20.04
     strategy:
       matrix:
       # see https://www.python.org/downloads/
-        python-version: ['2.7', '3.5', '3.10']
+        python-version: [ '3.5', '3.11' ]
 
     steps:
     - uses: actions/checkout@v3

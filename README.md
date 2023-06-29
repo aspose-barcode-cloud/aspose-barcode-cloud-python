@@ -5,7 +5,7 @@
 [![PyPI](https://img.shields.io/pypi/v/aspose-barcode-cloud)](https://pypi.org/project/aspose-barcode-cloud/)
 
 - API version: 3.0
-- Package version: 23.5.0
+- Package version: 23.6.0
 
 ## Demo applications
 
@@ -21,7 +21,6 @@ This repository contains Aspose.BarCode Cloud SDK for Python source code. This S
 
 Supported Python versions:
 
-- Python 2.7
 - Python 3.5+
 
 To use these SDKs, you will need Client Id and Client Secret which can be looked up at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/applications) (free registration in Aspose Cloud is required for this).
@@ -181,6 +180,10 @@ Class | Method | HTTP request | Description
 - [FontStyle](docs/FontStyle.md)
 - [GeneratorParams](docs/GeneratorParams.md)
 - [GeneratorParamsList](docs/GeneratorParamsList.md)
+- [HanXinEncodeMode](docs/HanXinEncodeMode.md)
+- [HanXinErrorLevel](docs/HanXinErrorLevel.md)
+- [HanXinParams](docs/HanXinParams.md)
+- [HanXinVersion](docs/HanXinVersion.md)
 - [ITF14BorderType](docs/ITF14BorderType.md)
 - [ITFParams](docs/ITFParams.md)
 - [MacroCharacter](docs/MacroCharacter.md)

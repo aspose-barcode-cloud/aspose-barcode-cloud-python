@@ -100,6 +100,7 @@ class GeneratorParams(object):
         "qr": "QrParams",
         "patch_code": "PatchCodeParams",
         "code128": "Code128Params",
+        "han_xin": "HanXinParams",
     }
 
     attribute_map = {
@@ -158,6 +159,7 @@ class GeneratorParams(object):
         "qr": "QR",
         "patch_code": "PatchCode",
         "code128": "Code128",
+        "han_xin": "HanXin",
     }
 
     def __init__(
@@ -217,6 +219,7 @@ class GeneratorParams(object):
         qr=None,
         patch_code=None,
         code128=None,
+        han_xin=None,
     ):  # noqa: E501
         """GeneratorParams - a model defined in Swagger"""  # noqa: E501
 
@@ -275,6 +278,7 @@ class GeneratorParams(object):
         self._qr = None
         self._patch_code = None
         self._code128 = None
+        self._han_xin = None
         self.discriminator = None
 
         self.type_of_barcode = type_of_barcode
@@ -385,6 +389,8 @@ class GeneratorParams(object):
             self.patch_code = patch_code
         if code128 is not None:
             self.code128 = code128
+        if han_xin is not None:
+            self.han_xin = han_xin
 
     @property
     def type_of_barcode(self):
@@ -1654,6 +1660,29 @@ class GeneratorParams(object):
         """
 
         self._code128 = code128
+
+    @property
+    def han_xin(self):
+        """Gets the han_xin of this GeneratorParams.  # noqa: E501
+
+        HanXin params.  # noqa: E501
+
+        :return: The han_xin of this GeneratorParams.  # noqa: E501
+        :rtype: HanXinParams
+        """
+        return self._han_xin
+
+    @han_xin.setter
+    def han_xin(self, han_xin):
+        """Sets the han_xin of this GeneratorParams.
+
+        HanXin params.  # noqa: E501
+
+        :param han_xin: The han_xin of this GeneratorParams.  # noqa: E501
+        :type: HanXinParams
+        """
+
+        self._han_xin = han_xin
 
     def to_dict(self):
         """Returns the model properties as a dict"""

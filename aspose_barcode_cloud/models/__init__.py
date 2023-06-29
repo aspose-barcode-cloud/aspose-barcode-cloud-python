@@ -73,6 +73,10 @@ from aspose_barcode_cloud.models.font_params import FontParams
 from aspose_barcode_cloud.models.font_style import FontStyle
 from aspose_barcode_cloud.models.generator_params import GeneratorParams
 from aspose_barcode_cloud.models.generator_params_list import GeneratorParamsList
+from aspose_barcode_cloud.models.han_xin_encode_mode import HanXinEncodeMode
+from aspose_barcode_cloud.models.han_xin_error_level import HanXinErrorLevel
+from aspose_barcode_cloud.models.han_xin_params import HanXinParams
+from aspose_barcode_cloud.models.han_xin_version import HanXinVersion
 from aspose_barcode_cloud.models.itf14_border_type import ITF14BorderType
 from aspose_barcode_cloud.models.itf_params import ITFParams
 from aspose_barcode_cloud.models.macro_character import MacroCharacter

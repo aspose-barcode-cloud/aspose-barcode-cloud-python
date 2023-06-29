@@ -58,6 +58,7 @@ Name | Type | Description | Notes
 **qr** | [**QrParams**](QrParams.md) | QR params. | [optional] 
 **patch_code** | [**PatchCodeParams**](PatchCodeParams.md) | PatchCode params. | [optional] 
 **code128** | [**Code128Params**](Code128Params.md) | Code128 params. | [optional] 
+**han_xin** | [**HanXinParams**](HanXinParams.md) | HanXin params. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
