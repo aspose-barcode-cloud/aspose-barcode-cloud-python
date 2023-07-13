@@ -150,7 +150,7 @@ class DataMatrixParams(object):
     def columns(self):
         """Gets the columns of this DataMatrixParams.  # noqa: E501
 
-        Columns count.  # noqa: E501
+        DEPRECATED: Will be replaced with 'DataMatrix.Version' in the next release  Columns count.  # noqa: E501
 
         :return: The columns of this DataMatrixParams.  # noqa: E501
         :rtype: int
@@ -161,7 +161,7 @@ class DataMatrixParams(object):
     def columns(self, columns):
         """Sets the columns of this DataMatrixParams.
 
-        Columns count.  # noqa: E501
+        DEPRECATED: Will be replaced with 'DataMatrix.Version' in the next release  Columns count.  # noqa: E501
 
         :param columns: The columns of this DataMatrixParams.  # noqa: E501
         :type: int
@@ -219,7 +219,7 @@ class DataMatrixParams(object):
     def rows(self):
         """Gets the rows of this DataMatrixParams.  # noqa: E501
 
-        Rows count.  # noqa: E501
+        DEPRECATED: Will be replaced with 'DataMatrix.Version' in the next release  Rows count.  # noqa: E501
 
         :return: The rows of this DataMatrixParams.  # noqa: E501
         :rtype: int
@@ -230,7 +230,7 @@ class DataMatrixParams(object):
     def rows(self, rows):
         """Sets the rows of this DataMatrixParams.
 
-        Rows count.  # noqa: E501
+        DEPRECATED: Will be replaced with 'DataMatrix.Version' in the next release  Rows count.  # noqa: E501
 
         :param rows: The rows of this DataMatrixParams.  # noqa: E501
         :type: int
