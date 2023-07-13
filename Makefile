@@ -75,8 +75,12 @@ test-example:
 test-tox:
 	python -m tox $(SRC)
 
+.PHONY: add-warnings
+add-warnings:
+	./scripts/add-deprecation-warnings.bash
+
 .PHONY: after-gen
-after-gen: format format_doc
+after-gen: format add-warnings format_doc
 
 .PHONY: update
 update:

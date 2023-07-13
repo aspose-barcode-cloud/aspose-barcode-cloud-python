@@ -27,6 +27,7 @@
 
 import pprint
 import re  # noqa: F401
+import warnings  # noqa: F401
 
 import six
 
@@ -166,6 +167,10 @@ class DataMatrixParams(object):
         :param columns: The columns of this DataMatrixParams.  # noqa: E501
         :type: int
         """
+        warnings.warn(
+            "Property 'columns' is deprecated. Will be replaced with 'DataMatrix.Version' in the next release  Columns count.",  # noqa: E501
+            category=DeprecationWarning,
+        )
 
         self._columns = columns
 
@@ -235,6 +240,10 @@ class DataMatrixParams(object):
         :param rows: The rows of this DataMatrixParams.  # noqa: E501
         :type: int
         """
+        warnings.warn(
+            "Property 'rows' is deprecated. Will be replaced with 'DataMatrix.Version' in the next release  Rows count.",  # noqa: E501
+            category=DeprecationWarning,
+        )
 
         self._rows = rows
 

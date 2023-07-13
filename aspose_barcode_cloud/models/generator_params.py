@@ -27,6 +27,7 @@
 
 import pprint
 import re  # noqa: F401
+import warnings  # noqa: F401
 
 import six
 
@@ -646,6 +647,10 @@ class GeneratorParams(object):
         :param resolution_x: The resolution_x of this GeneratorParams.  # noqa: E501
         :type: float
         """
+        warnings.warn(
+            "Property 'resolution_x' is deprecated. Use 'Resolution' instead.",  # noqa: E501
+            category=DeprecationWarning,
+        )
 
         self._resolution_x = resolution_x
 
@@ -669,6 +674,10 @@ class GeneratorParams(object):
         :param resolution_y: The resolution_y of this GeneratorParams.  # noqa: E501
         :type: float
         """
+        warnings.warn(
+            "Property 'resolution_y' is deprecated. Use 'Resolution' instead.",  # noqa: E501
+            category=DeprecationWarning,
+        )
 
         self._resolution_y = resolution_y
 
