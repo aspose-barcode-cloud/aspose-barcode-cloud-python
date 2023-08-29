@@ -5,7 +5,7 @@
 [![PyPI](https://img.shields.io/pypi/v/aspose-barcode-cloud)](https://pypi.org/project/aspose-barcode-cloud/)
 
 - API version: 3.0
-- Package version: 23.7.0
+- Package version: 23.8.0
 
 ## Demo applications
 
@@ -163,6 +163,7 @@ Class | Method | HTTP request | Description
 - [DataMatrixEccType](docs/DataMatrixEccType.md)
 - [DataMatrixEncodeMode](docs/DataMatrixEncodeMode.md)
 - [DataMatrixParams](docs/DataMatrixParams.md)
+- [DataMatrixVersion](docs/DataMatrixVersion.md)
 - [DecodeBarcodeType](docs/DecodeBarcodeType.md)
 - [DiscUsage](docs/DiscUsage.md)
 - [DotCodeEncodeMode](docs/DotCodeEncodeMode.md)

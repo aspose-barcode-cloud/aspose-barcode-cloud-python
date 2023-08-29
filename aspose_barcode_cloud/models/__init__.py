@@ -56,6 +56,7 @@ from aspose_barcode_cloud.models.data_bar_params import DataBarParams
 from aspose_barcode_cloud.models.data_matrix_ecc_type import DataMatrixEccType
 from aspose_barcode_cloud.models.data_matrix_encode_mode import DataMatrixEncodeMode
 from aspose_barcode_cloud.models.data_matrix_params import DataMatrixParams
+from aspose_barcode_cloud.models.data_matrix_version import DataMatrixVersion
 from aspose_barcode_cloud.models.decode_barcode_type import DecodeBarcodeType
 from aspose_barcode_cloud.models.disc_usage import DiscUsage
 from aspose_barcode_cloud.models.dot_code_encode_mode import DotCodeEncodeMode

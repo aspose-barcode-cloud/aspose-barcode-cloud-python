@@ -73,6 +73,7 @@ class ReaderParams(object):
         "allow_white_spots_removing": "bool",
         "check_more1_d_variants": "bool",
         "fast_scan_only": "bool",
+        "allow_additional_restorations": "bool",
         "region_likelihood_threshold_percent": "float",
         "scan_window_sizes": "list[int]",
         "similarity": "float",
@@ -110,6 +111,7 @@ class ReaderParams(object):
         "allow_white_spots_removing": "AllowWhiteSpotsRemoving",
         "check_more1_d_variants": "CheckMore1DVariants",
         "fast_scan_only": "FastScanOnly",
+        "allow_additional_restorations": "AllowAdditionalRestorations",
         "region_likelihood_threshold_percent": "RegionLikelihoodThresholdPercent",
         "scan_window_sizes": "ScanWindowSizes",
         "similarity": "Similarity",
@@ -148,6 +150,7 @@ class ReaderParams(object):
         allow_white_spots_removing=None,
         check_more1_d_variants=None,
         fast_scan_only=None,
+        allow_additional_restorations=None,
         region_likelihood_threshold_percent=None,
         scan_window_sizes=None,
         similarity=None,
@@ -185,6 +188,7 @@ class ReaderParams(object):
         self._allow_white_spots_removing = None
         self._check_more1_d_variants = None
         self._fast_scan_only = None
+        self._allow_additional_restorations = None
         self._region_likelihood_threshold_percent = None
         self._scan_window_sizes = None
         self._similarity = None
@@ -248,6 +252,8 @@ class ReaderParams(object):
             self.check_more1_d_variants = check_more1_d_variants
         if fast_scan_only is not None:
             self.fast_scan_only = fast_scan_only
+        if allow_additional_restorations is not None:
+            self.allow_additional_restorations = allow_additional_restorations
         if region_likelihood_threshold_percent is not None:
             self.region_likelihood_threshold_percent = region_likelihood_threshold_percent
         if scan_window_sizes is not None:
@@ -883,6 +889,29 @@ class ReaderParams(object):
         """
 
         self._fast_scan_only = fast_scan_only
+
+    @property
+    def allow_additional_restorations(self):
+        """Gets the allow_additional_restorations of this ReaderParams.  # noqa: E501
+
+        Allows engine using additional image restorations to recognize corrupted barcodes. At this time, it is used only in MicroPdf417 barcode type. Default value: False.  # noqa: E501
+
+        :return: The allow_additional_restorations of this ReaderParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._allow_additional_restorations
+
+    @allow_additional_restorations.setter
+    def allow_additional_restorations(self, allow_additional_restorations):
+        """Sets the allow_additional_restorations of this ReaderParams.
+
+        Allows engine using additional image restorations to recognize corrupted barcodes. At this time, it is used only in MicroPdf417 barcode type. Default value: False.  # noqa: E501
+
+        :param allow_additional_restorations: The allow_additional_restorations of this ReaderParams.  # noqa: E501
+        :type: bool
+        """
+
+        self._allow_additional_restorations = allow_additional_restorations
 
     @property
     def region_likelihood_threshold_percent(self):

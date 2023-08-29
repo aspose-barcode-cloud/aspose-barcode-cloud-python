@@ -53,6 +53,7 @@ class DataMatrixParams(object):
         "data_matrix_encode_mode": "DataMatrixEncodeMode",
         "rows": "int",
         "macro_characters": "MacroCharacter",
+        "version": "DataMatrixVersion",
     }
 
     attribute_map = {
@@ -63,6 +64,7 @@ class DataMatrixParams(object):
         "data_matrix_encode_mode": "DataMatrixEncodeMode",
         "rows": "Rows",
         "macro_characters": "MacroCharacters",
+        "version": "Version",
     }
 
     def __init__(
@@ -74,6 +76,7 @@ class DataMatrixParams(object):
         data_matrix_encode_mode=None,
         rows=None,
         macro_characters=None,
+        version=None,
     ):  # noqa: E501
         """DataMatrixParams - a model defined in Swagger"""  # noqa: E501
 
@@ -84,6 +87,7 @@ class DataMatrixParams(object):
         self._data_matrix_encode_mode = None
         self._rows = None
         self._macro_characters = None
+        self._version = None
         self.discriminator = None
 
         if aspect_ratio is not None:
@@ -100,6 +104,8 @@ class DataMatrixParams(object):
             self.rows = rows
         if macro_characters is not None:
             self.macro_characters = macro_characters
+        if version is not None:
+            self.version = version
 
     @property
     def aspect_ratio(self):
@@ -269,6 +275,29 @@ class DataMatrixParams(object):
         """
 
         self._macro_characters = macro_characters
+
+    @property
+    def version(self):
+        """Gets the version of this DataMatrixParams.  # noqa: E501
+
+        Sets a Datamatrix symbol size. Default value: DataMatrixVersion.Auto.  # noqa: E501
+
+        :return: The version of this DataMatrixParams.  # noqa: E501
+        :rtype: DataMatrixVersion
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this DataMatrixParams.
+
+        Sets a Datamatrix symbol size. Default value: DataMatrixVersion.Auto.  # noqa: E501
+
+        :param version: The version of this DataMatrixParams.  # noqa: E501
+        :type: DataMatrixVersion
+        """
+
+        self._version = version
 
     def to_dict(self):
         """Returns the model properties as a dict"""
