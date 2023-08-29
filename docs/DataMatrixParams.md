@@ -1,8 +1,11 @@
 # DataMatrixParams
 
+DataMatrix parameters.
+
 ## Properties
+
 Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+---- | ---- | ----------- | -----
 **aspect_ratio** | **float** | Height/Width ratio of 2D BarCode module | [optional] 
 **text_encoding** | **str** | Encoding of codetext. | [optional] 
 **columns** | **int** | DEPRECATED: Will be replaced with &#39;DataMatrix.Version&#39; in the next release  Columns count. | [optional] 
@@ -13,5 +16,3 @@ Name | Type | Description | Notes
 **version** | [**DataMatrixVersion**](DataMatrixVersion.md) | Sets a Datamatrix symbol size. Default value: DataMatrixVersion.Auto. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

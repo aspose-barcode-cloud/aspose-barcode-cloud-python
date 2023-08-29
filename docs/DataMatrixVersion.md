@@ -1,9 +1,78 @@
 # DataMatrixVersion
 
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+
+## Allowable values
+
+* **DataMatrixVersion.AUTO**
+* DataMatrixVersion.ROWSCOLUMNS
+* DataMatrixVersion.ECC000_9X9
+* DataMatrixVersion.ECC000_050_11X11
+* DataMatrixVersion.ECC000_100_13X13
+* DataMatrixVersion.ECC000_100_15X15
+* DataMatrixVersion.ECC000_140_17X17
+* DataMatrixVersion.ECC000_140_19X19
+* DataMatrixVersion.ECC000_140_21X21
+* DataMatrixVersion.ECC000_140_23X23
+* DataMatrixVersion.ECC000_140_25X25
+* DataMatrixVersion.ECC000_140_27X27
+* DataMatrixVersion.ECC000_140_29X29
+* DataMatrixVersion.ECC000_140_31X31
+* DataMatrixVersion.ECC000_140_33X33
+* DataMatrixVersion.ECC000_140_35X35
+* DataMatrixVersion.ECC000_140_37X37
+* DataMatrixVersion.ECC000_140_39X39
+* DataMatrixVersion.ECC000_140_41X41
+* DataMatrixVersion.ECC000_140_43X43
+* DataMatrixVersion.ECC000_140_45X45
+* DataMatrixVersion.ECC000_140_47X47
+* DataMatrixVersion.ECC000_140_49X49
+* DataMatrixVersion.ECC200_10X10
+* DataMatrixVersion.ECC200_12X12
+* DataMatrixVersion.ECC200_14X14
+* DataMatrixVersion.ECC200_16X16
+* DataMatrixVersion.ECC200_18X18
+* DataMatrixVersion.ECC200_20X20
+* DataMatrixVersion.ECC200_22X22
+* DataMatrixVersion.ECC200_24X24
+* DataMatrixVersion.ECC200_26X26
+* DataMatrixVersion.ECC200_32X32
+* DataMatrixVersion.ECC200_36X36
+* DataMatrixVersion.ECC200_40X40
+* DataMatrixVersion.ECC200_44X44
+* DataMatrixVersion.ECC200_48X48
+* DataMatrixVersion.ECC200_52X52
+* DataMatrixVersion.ECC200_64X64
+* DataMatrixVersion.ECC200_72X72
+* DataMatrixVersion.ECC200_80X80
+* DataMatrixVersion.ECC200_88X88
+* DataMatrixVersion.ECC200_96X96
+* DataMatrixVersion.ECC200_104X104
+* DataMatrixVersion.ECC200_120X120
+* DataMatrixVersion.ECC200_132X132
+* DataMatrixVersion.ECC200_144X144
+* DataMatrixVersion.ECC200_8X18
+* DataMatrixVersion.ECC200_8X32
+* DataMatrixVersion.ECC200_12X26
+* DataMatrixVersion.ECC200_12X36
+* DataMatrixVersion.ECC200_16X36
+* DataMatrixVersion.ECC200_16X48
+* DataMatrixVersion.DMRE_8X48
+* DataMatrixVersion.DMRE_8X64
+* DataMatrixVersion.DMRE_8X80
+* DataMatrixVersion.DMRE_8X96
+* DataMatrixVersion.DMRE_8X120
+* DataMatrixVersion.DMRE_8X144
+* DataMatrixVersion.DMRE_12X64
+* DataMatrixVersion.DMRE_12X88
+* DataMatrixVersion.DMRE_16X64
+* DataMatrixVersion.DMRE_20X36
+* DataMatrixVersion.DMRE_20X44
+* DataMatrixVersion.DMRE_20X64
+* DataMatrixVersion.DMRE_22X48
+* DataMatrixVersion.DMRE_24X48
+* DataMatrixVersion.DMRE_24X64
+* DataMatrixVersion.DMRE_26X40
+* DataMatrixVersion.DMRE_26X48
+* DataMatrixVersion.DMRE_26X64
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

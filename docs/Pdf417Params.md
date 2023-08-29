@@ -1,8 +1,11 @@
 # Pdf417Params
 
+PDF417 parameters.
+
 ## Properties
+
 Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+---- | ---- | ----------- | -----
 **aspect_ratio** | **float** | Height/Width ratio of 2D BarCode module. | [optional] 
 **text_encoding** | **str** | Encoding of codetext. | [optional] 
 **columns** | **int** | Columns count. | [optional] 
@@ -26,5 +29,3 @@ Name | Type | Description | Notes
 **pdf417_macro_terminator** | [**Pdf417MacroTerminator**](Pdf417MacroTerminator.md) | Used to tell the encoder whether to add Macro PDF417 Terminator (codeword 922) to the segment. Applied only for Macro PDF417. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

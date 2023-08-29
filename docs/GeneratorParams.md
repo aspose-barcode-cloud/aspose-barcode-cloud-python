@@ -1,8 +1,11 @@
 # GeneratorParams
 
+Represents extended BarcodeGenerator params.
+
 ## Properties
+
 Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+---- | ---- | ----------- | -----
 **type_of_barcode** | [**EncodeBarcodeType**](EncodeBarcodeType.md) | Type of barcode to generate. | 
 **text** | **str** | Text to encode. | 
 **two_d_display_text** | **str** | Text that will be displayed instead of codetext in 2D barcodes. Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode | [optional] 
@@ -61,5 +64,3 @@ Name | Type | Description | Notes
 **han_xin** | [**HanXinParams**](HanXinParams.md) | HanXin params. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

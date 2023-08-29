@@ -1,9 +1,92 @@
 # HanXinVersion
 
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+
+## Allowable values
+
+* **HanXinVersion.AUTO**
+* HanXinVersion.VERSION01
+* HanXinVersion.VERSION02
+* HanXinVersion.VERSION03
+* HanXinVersion.VERSION04
+* HanXinVersion.VERSION05
+* HanXinVersion.VERSION06
+* HanXinVersion.VERSION07
+* HanXinVersion.VERSION08
+* HanXinVersion.VERSION09
+* HanXinVersion.VERSION10
+* HanXinVersion.VERSION11
+* HanXinVersion.VERSION12
+* HanXinVersion.VERSION13
+* HanXinVersion.VERSION14
+* HanXinVersion.VERSION15
+* HanXinVersion.VERSION16
+* HanXinVersion.VERSION17
+* HanXinVersion.VERSION18
+* HanXinVersion.VERSION19
+* HanXinVersion.VERSION20
+* HanXinVersion.VERSION21
+* HanXinVersion.VERSION22
+* HanXinVersion.VERSION23
+* HanXinVersion.VERSION24
+* HanXinVersion.VERSION25
+* HanXinVersion.VERSION26
+* HanXinVersion.VERSION27
+* HanXinVersion.VERSION28
+* HanXinVersion.VERSION29
+* HanXinVersion.VERSION30
+* HanXinVersion.VERSION31
+* HanXinVersion.VERSION32
+* HanXinVersion.VERSION33
+* HanXinVersion.VERSION34
+* HanXinVersion.VERSION35
+* HanXinVersion.VERSION36
+* HanXinVersion.VERSION37
+* HanXinVersion.VERSION38
+* HanXinVersion.VERSION39
+* HanXinVersion.VERSION40
+* HanXinVersion.VERSION41
+* HanXinVersion.VERSION42
+* HanXinVersion.VERSION43
+* HanXinVersion.VERSION44
+* HanXinVersion.VERSION45
+* HanXinVersion.VERSION46
+* HanXinVersion.VERSION47
+* HanXinVersion.VERSION48
+* HanXinVersion.VERSION49
+* HanXinVersion.VERSION50
+* HanXinVersion.VERSION51
+* HanXinVersion.VERSION52
+* HanXinVersion.VERSION53
+* HanXinVersion.VERSION54
+* HanXinVersion.VERSION55
+* HanXinVersion.VERSION56
+* HanXinVersion.VERSION57
+* HanXinVersion.VERSION58
+* HanXinVersion.VERSION59
+* HanXinVersion.VERSION60
+* HanXinVersion.VERSION61
+* HanXinVersion.VERSION62
+* HanXinVersion.VERSION63
+* HanXinVersion.VERSION64
+* HanXinVersion.VERSION65
+* HanXinVersion.VERSION66
+* HanXinVersion.VERSION67
+* HanXinVersion.VERSION68
+* HanXinVersion.VERSION69
+* HanXinVersion.VERSION70
+* HanXinVersion.VERSION71
+* HanXinVersion.VERSION72
+* HanXinVersion.VERSION73
+* HanXinVersion.VERSION74
+* HanXinVersion.VERSION75
+* HanXinVersion.VERSION76
+* HanXinVersion.VERSION77
+* HanXinVersion.VERSION78
+* HanXinVersion.VERSION79
+* HanXinVersion.VERSION80
+* HanXinVersion.VERSION81
+* HanXinVersion.VERSION82
+* HanXinVersion.VERSION83
+* HanXinVersion.VERSION84
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

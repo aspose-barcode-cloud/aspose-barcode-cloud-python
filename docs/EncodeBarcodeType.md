@@ -1,9 +1,77 @@
 # EncodeBarcodeType
 
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+See EncodeTypes
+## Allowable values
+
+* **EncodeBarcodeType.CODABAR**
+* EncodeBarcodeType.CODE11
+* EncodeBarcodeType.CODE39STANDARD
+* EncodeBarcodeType.CODE39EXTENDED
+* EncodeBarcodeType.CODE93STANDARD
+* EncodeBarcodeType.CODE93EXTENDED
+* EncodeBarcodeType.CODE128
+* EncodeBarcodeType.GS1CODE128
+* EncodeBarcodeType.EAN8
+* EncodeBarcodeType.EAN13
+* EncodeBarcodeType.EAN14
+* EncodeBarcodeType.SCC14
+* EncodeBarcodeType.SSCC18
+* EncodeBarcodeType.UPCA
+* EncodeBarcodeType.UPCE
+* EncodeBarcodeType.ISBN
+* EncodeBarcodeType.ISSN
+* EncodeBarcodeType.ISMN
+* EncodeBarcodeType.STANDARD2OF5
+* EncodeBarcodeType.INTERLEAVED2OF5
+* EncodeBarcodeType.MATRIX2OF5
+* EncodeBarcodeType.ITALIANPOST25
+* EncodeBarcodeType.IATA2OF5
+* EncodeBarcodeType.ITF14
+* EncodeBarcodeType.ITF6
+* EncodeBarcodeType.MSI
+* EncodeBarcodeType.VIN
+* EncodeBarcodeType.DEUTSCHEPOSTIDENTCODE
+* EncodeBarcodeType.DEUTSCHEPOSTLEITCODE
+* EncodeBarcodeType.OPC
+* EncodeBarcodeType.PZN
+* EncodeBarcodeType.CODE16K
+* EncodeBarcodeType.PHARMACODE
+* EncodeBarcodeType.DATAMATRIX
+* EncodeBarcodeType.QR
+* EncodeBarcodeType.AZTEC
+* EncodeBarcodeType.PDF417
+* EncodeBarcodeType.MACROPDF417
+* EncodeBarcodeType.AUSTRALIAPOST
+* EncodeBarcodeType.POSTNET
+* EncodeBarcodeType.PLANET
+* EncodeBarcodeType.ONECODE
+* EncodeBarcodeType.RM4SCC
+* EncodeBarcodeType.DATABAROMNIDIRECTIONAL
+* EncodeBarcodeType.DATABARTRUNCATED
+* EncodeBarcodeType.DATABARLIMITED
+* EncodeBarcodeType.DATABAREXPANDED
+* EncodeBarcodeType.SINGAPOREPOST
+* EncodeBarcodeType.GS1DATAMATRIX
+* EncodeBarcodeType.AUSTRALIANPOSTEPARCEL
+* EncodeBarcodeType.SWISSPOSTPARCEL
+* EncodeBarcodeType.PATCHCODE
+* EncodeBarcodeType.DATABAREXPANDEDSTACKED
+* EncodeBarcodeType.DATABARSTACKED
+* EncodeBarcodeType.DATABARSTACKEDOMNIDIRECTIONAL
+* EncodeBarcodeType.MICROPDF417
+* EncodeBarcodeType.GS1QR
+* EncodeBarcodeType.MAXICODE
+* EncodeBarcodeType.CODE32
+* EncodeBarcodeType.DATALOGIC2OF5
+* EncodeBarcodeType.DOTCODE
+* EncodeBarcodeType.DUTCHKIX
+* EncodeBarcodeType.UPCAGS1CODE128COUPON
+* EncodeBarcodeType.UPCAGS1DATABARCOUPON
+* EncodeBarcodeType.CODABLOCKF
+* EncodeBarcodeType.GS1CODABLOCKF
+* EncodeBarcodeType.MAILMARK
+* EncodeBarcodeType.GS1DOTCODE
+* EncodeBarcodeType.HANXIN
+* EncodeBarcodeType.GS1HANXIN
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

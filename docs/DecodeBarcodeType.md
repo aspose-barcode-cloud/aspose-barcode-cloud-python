@@ -1,9 +1,88 @@
 # DecodeBarcodeType
 
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+See DecodeType
+## Allowable values
+
+* **DecodeBarcodeType.ALL**
+* DecodeBarcodeType.AUSTRALIAPOST
+* DecodeBarcodeType.AZTEC
+* DecodeBarcodeType.ISBN
+* DecodeBarcodeType.CODABAR
+* DecodeBarcodeType.CODE11
+* DecodeBarcodeType.CODE128
+* DecodeBarcodeType.GS1CODE128
+* DecodeBarcodeType.CODE39EXTENDED
+* DecodeBarcodeType.CODE39STANDARD
+* DecodeBarcodeType.CODE93EXTENDED
+* DecodeBarcodeType.CODE93STANDARD
+* DecodeBarcodeType.DATAMATRIX
+* DecodeBarcodeType.DEUTSCHEPOSTIDENTCODE
+* DecodeBarcodeType.DEUTSCHEPOSTLEITCODE
+* DecodeBarcodeType.EAN13
+* DecodeBarcodeType.EAN14
+* DecodeBarcodeType.EAN8
+* DecodeBarcodeType.IATA2OF5
+* DecodeBarcodeType.INTERLEAVED2OF5
+* DecodeBarcodeType.ISSN
+* DecodeBarcodeType.ISMN
+* DecodeBarcodeType.ITALIANPOST25
+* DecodeBarcodeType.ITF14
+* DecodeBarcodeType.ITF6
+* DecodeBarcodeType.MACROPDF417
+* DecodeBarcodeType.MATRIX2OF5
+* DecodeBarcodeType.MSI
+* DecodeBarcodeType.ONECODE
+* DecodeBarcodeType.OPC
+* DecodeBarcodeType.PATCHCODE
+* DecodeBarcodeType.PDF417
+* DecodeBarcodeType.MICROPDF417
+* DecodeBarcodeType.PLANET
+* DecodeBarcodeType.POSTNET
+* DecodeBarcodeType.PZN
+* DecodeBarcodeType.QR
+* DecodeBarcodeType.MICROQR
+* DecodeBarcodeType.RM4SCC
+* DecodeBarcodeType.SCC14
+* DecodeBarcodeType.SSCC18
+* DecodeBarcodeType.STANDARD2OF5
+* DecodeBarcodeType.SUPPLEMENT
+* DecodeBarcodeType.UPCA
+* DecodeBarcodeType.UPCE
+* DecodeBarcodeType.VIN
+* DecodeBarcodeType.PHARMACODE
+* DecodeBarcodeType.GS1DATAMATRIX
+* DecodeBarcodeType.DATABAROMNIDIRECTIONAL
+* DecodeBarcodeType.DATABARTRUNCATED
+* DecodeBarcodeType.DATABARLIMITED
+* DecodeBarcodeType.DATABAREXPANDED
+* DecodeBarcodeType.SWISSPOSTPARCEL
+* DecodeBarcodeType.AUSTRALIANPOSTEPARCEL
+* DecodeBarcodeType.CODE16K
+* DecodeBarcodeType.DATABARSTACKEDOMNIDIRECTIONAL
+* DecodeBarcodeType.DATABARSTACKED
+* DecodeBarcodeType.DATABAREXPANDEDSTACKED
+* DecodeBarcodeType.COMPACTPDF417
+* DecodeBarcodeType.GS1QR
+* DecodeBarcodeType.MAXICODE
+* DecodeBarcodeType.MICRE13B
+* DecodeBarcodeType.CODE32
+* DecodeBarcodeType.DATALOGIC2OF5
+* DecodeBarcodeType.DOTCODE
+* DecodeBarcodeType.DUTCHKIX
+* DecodeBarcodeType.CODABLOCKF
+* DecodeBarcodeType.MAILMARK
+* DecodeBarcodeType.GS1DOTCODE
+* DecodeBarcodeType.HIBCCODE39LIC
+* DecodeBarcodeType.HIBCCODE128LIC
+* DecodeBarcodeType.HIBCAZTECLIC
+* DecodeBarcodeType.HIBCDATAMATRIXLIC
+* DecodeBarcodeType.HIBCQRLIC
+* DecodeBarcodeType.HIBCCODE39PAS
+* DecodeBarcodeType.HIBCCODE128PAS
+* DecodeBarcodeType.HIBCAZTECPAS
+* DecodeBarcodeType.HIBCDATAMATRIXPAS
+* DecodeBarcodeType.HIBCQRPAS
+* DecodeBarcodeType.HANXIN
+* DecodeBarcodeType.GS1HANXIN
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

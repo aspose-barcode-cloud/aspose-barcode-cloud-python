@@ -1,8 +1,11 @@
 # DotCodeParams
 
+DotCode parameters.
+
 ## Properties
+
 Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+---- | ---- | ----------- | -----
 **aspect_ratio** | **float** | Height/Width ratio of 2D BarCode module. | [optional] 
 **columns** | **int** | Identifies columns count. Sum of the number of rows plus the number of columns of a DotCode symbol must be odd. Number of columns must be at least 5. | [optional] 
 **encode_mode** | [**DotCodeEncodeMode**](DotCodeEncodeMode.md) | Identifies DotCode encode mode. Default value: Auto. | [optional] 
@@ -11,5 +14,3 @@ Name | Type | Description | Notes
 **rows** | **int** | Identifies rows count. Sum of the number of rows plus the number of columns of a DotCode symbol must be odd. Number of rows must be at least 5. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
