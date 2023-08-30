@@ -1,8 +1,11 @@
 # QrParams
 
+QR parameters.
+
 ## Properties
+
 Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+---- | ---- | ----------- | -----
 **aspect_ratio** | **float** | Height/Width ratio of 2D BarCode module. | [optional] 
 **text_encoding** | **str** | Encoding of codetext. | [optional] 
 **encode_type** | [**QREncodeType**](QREncodeType.md) | QR / MicroQR selector mode. Select ForceQR for standard QR symbols, Auto for MicroQR. | [optional] 
@@ -13,5 +16,3 @@ Name | Type | Description | Notes
 **structured_append** | [**StructuredAppend**](StructuredAppend.md) | QR structured append parameters. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

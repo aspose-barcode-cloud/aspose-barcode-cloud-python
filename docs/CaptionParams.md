@@ -1,8 +1,11 @@
 # CaptionParams
 
+Caption
+
 ## Properties
+
 Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+---- | ---- | ----------- | -----
 **text** | **str** | Caption text. | [optional] 
 **alignment** | [**TextAlignment**](TextAlignment.md) | Text alignment. | [optional] 
 **color** | **str** | Text color. | [optional] 
@@ -12,5 +15,3 @@ Name | Type | Description | Notes
 **no_wrap** | **bool** | Specify word wraps (line breaks) within text. Default value: False. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
