@@ -73,5 +73,6 @@ See EncodeTypes
 * EncodeBarcodeType.GS1DOTCODE
 * EncodeBarcodeType.HANXIN
 * EncodeBarcodeType.GS1HANXIN
+* EncodeBarcodeType.GS1AZTEC
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

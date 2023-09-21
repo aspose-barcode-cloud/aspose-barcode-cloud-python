@@ -212,7 +212,7 @@ class Pdf417Params(object):
     def text_encoding(self):
         """Gets the text_encoding of this Pdf417Params.  # noqa: E501
 
-        Encoding of codetext.  # noqa: E501
+        DEPRECATED: This property is obsolete and will be removed in future releases. Unicode symbols detection and encoding will be processed in Auto mode with Extended Channel Interpretation charset designator. Using of own encodings requires manual CodeText encoding into byte[] array.  Sets the encoding of codetext.  # noqa: E501
 
         :return: The text_encoding of this Pdf417Params.  # noqa: E501
         :rtype: str
@@ -223,11 +223,15 @@ class Pdf417Params(object):
     def text_encoding(self, text_encoding):
         """Sets the text_encoding of this Pdf417Params.
 
-        Encoding of codetext.  # noqa: E501
+        DEPRECATED: This property is obsolete and will be removed in future releases. Unicode symbols detection and encoding will be processed in Auto mode with Extended Channel Interpretation charset designator. Using of own encodings requires manual CodeText encoding into byte[] array.  Sets the encoding of codetext.  # noqa: E501
 
         :param text_encoding: The text_encoding of this Pdf417Params.  # noqa: E501
         :type: str
         """
+        warnings.warn(
+            "Property 'text_encoding' is deprecated. This property is obsolete and will be removed in future releases. Unicode symbols detection and encoding will be processed in Auto mode with Extended Channel Interpretation charset designator. Using of own encodings requires manual CodeText encoding into byte[] array.  Sets the encoding of codetext.",  # noqa: E501
+            category=DeprecationWarning,
+        )
 
         self._text_encoding = text_encoding
 

@@ -50,6 +50,10 @@ class AztecParams(object):
         "error_level": "int",
         "symbol_mode": "AztecSymbolMode",
         "text_encoding": "str",
+        "encode_mode": "AztecEncodeMode",
+        "eci_encoding": "ECIEncodings",
+        "is_reader_initialization": "bool",
+        "layers_count": "int",
     }
 
     attribute_map = {
@@ -57,15 +61,33 @@ class AztecParams(object):
         "error_level": "ErrorLevel",
         "symbol_mode": "SymbolMode",
         "text_encoding": "TextEncoding",
+        "encode_mode": "EncodeMode",
+        "eci_encoding": "ECIEncoding",
+        "is_reader_initialization": "IsReaderInitialization",
+        "layers_count": "LayersCount",
     }
 
-    def __init__(self, aspect_ratio=None, error_level=None, symbol_mode=None, text_encoding=None):  # noqa: E501
+    def __init__(
+        self,
+        aspect_ratio=None,
+        error_level=None,
+        symbol_mode=None,
+        text_encoding=None,
+        encode_mode=None,
+        eci_encoding=None,
+        is_reader_initialization=None,
+        layers_count=None,
+    ):  # noqa: E501
         """AztecParams - a model defined in Swagger"""  # noqa: E501
 
         self._aspect_ratio = None
         self._error_level = None
         self._symbol_mode = None
         self._text_encoding = None
+        self._encode_mode = None
+        self._eci_encoding = None
+        self._is_reader_initialization = None
+        self._layers_count = None
         self.discriminator = None
 
         if aspect_ratio is not None:
@@ -76,6 +98,14 @@ class AztecParams(object):
             self.symbol_mode = symbol_mode
         if text_encoding is not None:
             self.text_encoding = text_encoding
+        if encode_mode is not None:
+            self.encode_mode = encode_mode
+        if eci_encoding is not None:
+            self.eci_encoding = eci_encoding
+        if is_reader_initialization is not None:
+            self.is_reader_initialization = is_reader_initialization
+        if layers_count is not None:
+            self.layers_count = layers_count
 
     @property
     def aspect_ratio(self):
@@ -150,7 +180,7 @@ class AztecParams(object):
     def text_encoding(self):
         """Gets the text_encoding of this AztecParams.  # noqa: E501
 
-        Sets the encoding of codetext.  # noqa: E501
+        DEPRECATED: This property is obsolete and will be removed in future releases. Unicode symbols detection and encoding will be processed in Auto mode with Extended Channel Interpretation charset designator. Using of own encodings requires manual CodeText encoding into byte[] array.  Sets the encoding of codetext.  # noqa: E501
 
         :return: The text_encoding of this AztecParams.  # noqa: E501
         :rtype: str
@@ -161,13 +191,109 @@ class AztecParams(object):
     def text_encoding(self, text_encoding):
         """Sets the text_encoding of this AztecParams.
 
-        Sets the encoding of codetext.  # noqa: E501
+        DEPRECATED: This property is obsolete and will be removed in future releases. Unicode symbols detection and encoding will be processed in Auto mode with Extended Channel Interpretation charset designator. Using of own encodings requires manual CodeText encoding into byte[] array.  Sets the encoding of codetext.  # noqa: E501
 
         :param text_encoding: The text_encoding of this AztecParams.  # noqa: E501
         :type: str
         """
+        warnings.warn(
+            "Property 'text_encoding' is deprecated. This property is obsolete and will be removed in future releases. Unicode symbols detection and encoding will be processed in Auto mode with Extended Channel Interpretation charset designator. Using of own encodings requires manual CodeText encoding into byte[] array.  Sets the encoding of codetext.",  # noqa: E501
+            category=DeprecationWarning,
+        )
 
         self._text_encoding = text_encoding
+
+    @property
+    def encode_mode(self):
+        """Gets the encode_mode of this AztecParams.  # noqa: E501
+
+        Encoding mode for Aztec barcodes. Default value: Auto  # noqa: E501
+
+        :return: The encode_mode of this AztecParams.  # noqa: E501
+        :rtype: AztecEncodeMode
+        """
+        return self._encode_mode
+
+    @encode_mode.setter
+    def encode_mode(self, encode_mode):
+        """Sets the encode_mode of this AztecParams.
+
+        Encoding mode for Aztec barcodes. Default value: Auto  # noqa: E501
+
+        :param encode_mode: The encode_mode of this AztecParams.  # noqa: E501
+        :type: AztecEncodeMode
+        """
+
+        self._encode_mode = encode_mode
+
+    @property
+    def eci_encoding(self):
+        """Gets the eci_encoding of this AztecParams.  # noqa: E501
+
+        Identifies ECI encoding. Used when AztecEncodeMode is Auto. Default value: ISO-8859-1.  # noqa: E501
+
+        :return: The eci_encoding of this AztecParams.  # noqa: E501
+        :rtype: ECIEncodings
+        """
+        return self._eci_encoding
+
+    @eci_encoding.setter
+    def eci_encoding(self, eci_encoding):
+        """Sets the eci_encoding of this AztecParams.
+
+        Identifies ECI encoding. Used when AztecEncodeMode is Auto. Default value: ISO-8859-1.  # noqa: E501
+
+        :param eci_encoding: The eci_encoding of this AztecParams.  # noqa: E501
+        :type: ECIEncodings
+        """
+
+        self._eci_encoding = eci_encoding
+
+    @property
+    def is_reader_initialization(self):
+        """Gets the is_reader_initialization of this AztecParams.  # noqa: E501
+
+        Used to instruct the reader to interpret the data contained within the symbol as programming for reader initialization.  # noqa: E501
+
+        :return: The is_reader_initialization of this AztecParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_reader_initialization
+
+    @is_reader_initialization.setter
+    def is_reader_initialization(self, is_reader_initialization):
+        """Sets the is_reader_initialization of this AztecParams.
+
+        Used to instruct the reader to interpret the data contained within the symbol as programming for reader initialization.  # noqa: E501
+
+        :param is_reader_initialization: The is_reader_initialization of this AztecParams.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_reader_initialization = is_reader_initialization
+
+    @property
+    def layers_count(self):
+        """Gets the layers_count of this AztecParams.  # noqa: E501
+
+        Gets or sets layers count of Aztec symbol. Layers count should be in range from 1 to 3 for Compact mode and in range from 1 to 32 for Full Range mode. Default value: 0 (auto).  # noqa: E501
+
+        :return: The layers_count of this AztecParams.  # noqa: E501
+        :rtype: int
+        """
+        return self._layers_count
+
+    @layers_count.setter
+    def layers_count(self, layers_count):
+        """Sets the layers_count of this AztecParams.
+
+        Gets or sets layers count of Aztec symbol. Layers count should be in range from 1 to 3 for Compact mode and in range from 1 to 32 for Full Range mode. Default value: 0 (auto).  # noqa: E501
+
+        :param layers_count: The layers_count of this AztecParams.  # noqa: E501
+        :type: int
+        """
+
+        self._layers_count = layers_count
 
     def to_dict(self):
         """Returns the model properties as a dict"""
