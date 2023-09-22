@@ -5,7 +5,7 @@
 [![PyPI](https://img.shields.io/pypi/v/aspose-barcode-cloud)](https://pypi.org/project/aspose-barcode-cloud/)
 
 - API version: 3.0
-- Package version: 23.8.0
+- Package version: 23.9.0
 
 ## Demo applications
 
@@ -141,6 +141,7 @@ Class | Method | HTTP request | Description
 - [AustralianPostParams](docs/AustralianPostParams.md)
 - [AutoSizeMode](docs/AutoSizeMode.md)
 - [AvailableGraphicsUnit](docs/AvailableGraphicsUnit.md)
+- [AztecEncodeMode](docs/AztecEncodeMode.md)
 - [AztecParams](docs/AztecParams.md)
 - [AztecSymbolMode](docs/AztecSymbolMode.md)
 - [BarcodeResponse](docs/BarcodeResponse.md)

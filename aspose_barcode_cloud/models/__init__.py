@@ -34,6 +34,7 @@ from aspose_barcode_cloud.models.api_error_response import ApiErrorResponse
 from aspose_barcode_cloud.models.australian_post_params import AustralianPostParams
 from aspose_barcode_cloud.models.auto_size_mode import AutoSizeMode
 from aspose_barcode_cloud.models.available_graphics_unit import AvailableGraphicsUnit
+from aspose_barcode_cloud.models.aztec_encode_mode import AztecEncodeMode
 from aspose_barcode_cloud.models.aztec_params import AztecParams
 from aspose_barcode_cloud.models.aztec_symbol_mode import AztecSymbolMode
 from aspose_barcode_cloud.models.barcode_response import BarcodeResponse

@@ -1,5 +1,6 @@
 from __future__ import absolute_import, division
 
+import sys
 import unittest
 
 from six.moves import mock
@@ -12,6 +13,9 @@ class TestHeaders(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.local_config = Configuration(access_token="fake token", host="localhost")
+        if sys.version_info.major == 2:
+            # For compatibility with Python 2
+            cls.assertRegex = cls.assertRegexpMatches
 
     def setUp(self):
         self.rest_client_mock = mock.Mock(spec_set=RESTClientObject)
@@ -24,9 +28,9 @@ class TestHeaders(unittest.TestCase):
 
         self.assertEqual(1, self.rest_client_mock.GET.call_count)
         headers = self.rest_client_mock.GET.call_args[1]["headers"]
-        self.assertEqual("Aspose-Barcode-SDK/23.8.0/python", headers["User-Agent"])
         self.assertEqual("python sdk", headers["x-aspose-client"])
-        self.assertEqual("23.8.0", headers["x-aspose-client-version"])
+        self.assertRegex(headers["x-aspose-client-version"], r"\d{2}\.\d+\.\d+")
+        self.assertRegex(headers["User-Agent"], r"Aspose-Barcode-SDK\/\d{2}.\d+.\d+\/python")
 
     def test_header_override(self):
         api_client = ApiClient(
