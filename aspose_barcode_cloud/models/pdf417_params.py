@@ -66,7 +66,10 @@ class Pdf417Params(object):
         "macro_addressee": "str",
         "macro_eci_encoding": "ECIEncodings",
         "code128_emulation": "Code128Emulation",
+        "is_code128_emulation": "bool",
         "pdf417_macro_terminator": "Pdf417MacroTerminator",
+        "is_linked": "bool",
+        "macro_characters": "MacroCharacter",
     }
 
     attribute_map = {
@@ -90,7 +93,10 @@ class Pdf417Params(object):
         "macro_addressee": "MacroAddressee",
         "macro_eci_encoding": "MacroECIEncoding",
         "code128_emulation": "Code128Emulation",
+        "is_code128_emulation": "IsCode128Emulation",
         "pdf417_macro_terminator": "Pdf417MacroTerminator",
+        "is_linked": "IsLinked",
+        "macro_characters": "MacroCharacters",
     }
 
     def __init__(
@@ -115,7 +121,10 @@ class Pdf417Params(object):
         macro_addressee=None,
         macro_eci_encoding=None,
         code128_emulation=None,
+        is_code128_emulation=None,
         pdf417_macro_terminator=None,
+        is_linked=None,
+        macro_characters=None,
     ):  # noqa: E501
         """Pdf417Params - a model defined in Swagger"""  # noqa: E501
 
@@ -139,7 +148,10 @@ class Pdf417Params(object):
         self._macro_addressee = None
         self._macro_eci_encoding = None
         self._code128_emulation = None
+        self._is_code128_emulation = None
         self._pdf417_macro_terminator = None
+        self._is_linked = None
+        self._macro_characters = None
         self.discriminator = None
 
         if aspect_ratio is not None:
@@ -182,8 +194,14 @@ class Pdf417Params(object):
             self.macro_eci_encoding = macro_eci_encoding
         if code128_emulation is not None:
             self.code128_emulation = code128_emulation
+        if is_code128_emulation is not None:
+            self.is_code128_emulation = is_code128_emulation
         if pdf417_macro_terminator is not None:
             self.pdf417_macro_terminator = pdf417_macro_terminator
+        if is_linked is not None:
+            self.is_linked = is_linked
+        if macro_characters is not None:
+            self.macro_characters = macro_characters
 
     @property
     def aspect_ratio(self):
@@ -630,7 +648,7 @@ class Pdf417Params(object):
     def code128_emulation(self):
         """Gets the code128_emulation of this Pdf417Params.  # noqa: E501
 
-        Function codeword for Code 128 emulation. Applied for MicroPDF417 only. Ignored for PDF417 and MacroPDF417 barcodes.  # noqa: E501
+        DEPRECATED: This property is obsolete and will be removed in future releases. See samples of using new parameters on https://releases.aspose.com/barcode/net/release-notes/2023/aspose-barcode-for-net-23-10-release-notes/ Function codeword for Code 128 emulation. Applied for MicroPDF417 only. Ignored for PDF417 and MacroPDF417 barcodes.  # noqa: E501
 
         :return: The code128_emulation of this Pdf417Params.  # noqa: E501
         :rtype: Code128Emulation
@@ -641,13 +659,40 @@ class Pdf417Params(object):
     def code128_emulation(self, code128_emulation):
         """Sets the code128_emulation of this Pdf417Params.
 
-        Function codeword for Code 128 emulation. Applied for MicroPDF417 only. Ignored for PDF417 and MacroPDF417 barcodes.  # noqa: E501
+        DEPRECATED: This property is obsolete and will be removed in future releases. See samples of using new parameters on https://releases.aspose.com/barcode/net/release-notes/2023/aspose-barcode-for-net-23-10-release-notes/ Function codeword for Code 128 emulation. Applied for MicroPDF417 only. Ignored for PDF417 and MacroPDF417 barcodes.  # noqa: E501
 
         :param code128_emulation: The code128_emulation of this Pdf417Params.  # noqa: E501
         :type: Code128Emulation
         """
+        warnings.warn(
+            "Property 'code128_emulation' is deprecated. This property is obsolete and will be removed in future releases. See samples of using new parameters on https://releases.aspose.com/barcode/net/release-notes/2023/aspose-barcode-for-net-23-10-release-notes/ Function codeword for Code 128 emulation. Applied for MicroPDF417 only. Ignored for PDF417 and MacroPDF417 barcodes.",  # noqa: E501
+            category=DeprecationWarning,
+        )
 
         self._code128_emulation = code128_emulation
+
+    @property
+    def is_code128_emulation(self):
+        """Gets the is_code128_emulation of this Pdf417Params.  # noqa: E501
+
+        Can be used only with MicroPdf417 and encodes Code 128 emulation modes. Can encode FNC1 in second position modes 908 and 909, also can encode 910 and 911 which just indicate that recognized MicroPdf417 can be interpret as Code 128.  # noqa: E501
+
+        :return: The is_code128_emulation of this Pdf417Params.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_code128_emulation
+
+    @is_code128_emulation.setter
+    def is_code128_emulation(self, is_code128_emulation):
+        """Sets the is_code128_emulation of this Pdf417Params.
+
+        Can be used only with MicroPdf417 and encodes Code 128 emulation modes. Can encode FNC1 in second position modes 908 and 909, also can encode 910 and 911 which just indicate that recognized MicroPdf417 can be interpret as Code 128.  # noqa: E501
+
+        :param is_code128_emulation: The is_code128_emulation of this Pdf417Params.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_code128_emulation = is_code128_emulation
 
     @property
     def pdf417_macro_terminator(self):
@@ -671,6 +716,52 @@ class Pdf417Params(object):
         """
 
         self._pdf417_macro_terminator = pdf417_macro_terminator
+
+    @property
+    def is_linked(self):
+        """Gets the is_linked of this Pdf417Params.  # noqa: E501
+
+        Defines linked modes with GS1MicroPdf417, MicroPdf417 and Pdf417 barcodes. With GS1MicroPdf417 symbology encodes 906, 907, 912, 913, 914, 915 “Linked” UCC/EAN-128 modes. With MicroPdf417 and Pdf417 symbologies encodes 918 linkage flag to associated linear component other than an EAN.UCC.  # noqa: E501
+
+        :return: The is_linked of this Pdf417Params.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_linked
+
+    @is_linked.setter
+    def is_linked(self, is_linked):
+        """Sets the is_linked of this Pdf417Params.
+
+        Defines linked modes with GS1MicroPdf417, MicroPdf417 and Pdf417 barcodes. With GS1MicroPdf417 symbology encodes 906, 907, 912, 913, 914, 915 “Linked” UCC/EAN-128 modes. With MicroPdf417 and Pdf417 symbologies encodes 918 linkage flag to associated linear component other than an EAN.UCC.  # noqa: E501
+
+        :param is_linked: The is_linked of this Pdf417Params.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_linked = is_linked
+
+    @property
+    def macro_characters(self):
+        """Gets the macro_characters of this Pdf417Params.  # noqa: E501
+
+        Macro Characters 05 and 06 values are used to obtain more compact encoding in special modes. Can be used only with MicroPdf417 and encodes 916 and 917 MicroPdf417 modes. Default value: MacroCharacters.None.  # noqa: E501
+
+        :return: The macro_characters of this Pdf417Params.  # noqa: E501
+        :rtype: MacroCharacter
+        """
+        return self._macro_characters
+
+    @macro_characters.setter
+    def macro_characters(self, macro_characters):
+        """Sets the macro_characters of this Pdf417Params.
+
+        Macro Characters 05 and 06 values are used to obtain more compact encoding in special modes. Can be used only with MicroPdf417 and encodes 916 and 917 MicroPdf417 modes. Default value: MacroCharacters.None.  # noqa: E501
+
+        :param macro_characters: The macro_characters of this Pdf417Params.  # noqa: E501
+        :type: MacroCharacter
+        """
+
+        self._macro_characters = macro_characters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

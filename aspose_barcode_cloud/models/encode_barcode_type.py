@@ -112,6 +112,7 @@ class EncodeBarcodeType(object):
     HANXIN = "HanXin"
     GS1HANXIN = "GS1HanXin"
     GS1AZTEC = "GS1Aztec"
+    GS1MICROPDF417 = "GS1MicroPdf417"
 
     """
     Attributes:

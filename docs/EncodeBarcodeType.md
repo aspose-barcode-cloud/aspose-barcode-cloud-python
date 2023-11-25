@@ -74,5 +74,6 @@ See EncodeTypes
 * EncodeBarcodeType.HANXIN
 * EncodeBarcodeType.GS1HANXIN
 * EncodeBarcodeType.GS1AZTEC
+* EncodeBarcodeType.GS1MICROPDF417
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
