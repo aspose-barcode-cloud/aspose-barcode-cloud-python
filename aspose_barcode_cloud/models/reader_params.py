@@ -480,7 +480,7 @@ class ReaderParams(object):
     def timeout(self):
         """Gets the timeout of this ReaderParams.  # noqa: E501
 
-        Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). Maximum value is 60_000 (1 minute). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout.  # noqa: E501
+        Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). Maximum value is 30_000 (1/2 minute). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout.  # noqa: E501
 
         :return: The timeout of this ReaderParams.  # noqa: E501
         :rtype: int
@@ -491,7 +491,7 @@ class ReaderParams(object):
     def timeout(self, timeout):
         """Sets the timeout of this ReaderParams.
 
-        Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). Maximum value is 60_000 (1 minute). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout.  # noqa: E501
+        Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). Maximum value is 30_000 (1/2 minute). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout.  # noqa: E501
 
         :param timeout: The timeout of this ReaderParams.  # noqa: E501
         :type: int
