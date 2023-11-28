@@ -29,7 +29,7 @@ import os
 from setuptools import setup, find_packages
 
 NAME = "aspose-barcode-cloud"
-VERSION = "23.10.0"
+VERSION = "23.11.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -37,9 +37,10 @@ VERSION = "23.10.0"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["certifi>=2017.4.17", "python-dateutil>=2.1", "six>=1.10", "urllib3 >= 1.21.1, <2.0"]
-
 here = os.path.abspath(os.path.dirname(__file__))
+
+with open(os.path.join(here, "requirements.txt"), "rt") as f:
+    REQUIRES = list(map(str.strip, f.readlines()))
 
 with open(os.path.join(here, "README.md"), "rt") as f:
     long_description = f.read()
