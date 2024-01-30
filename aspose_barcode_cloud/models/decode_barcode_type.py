@@ -2,7 +2,7 @@
 
 """
 
-    Copyright (c) 2023 Aspose.BarCode for Cloud
+    Copyright (c) 2024 Aspose.BarCode for Cloud
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -125,6 +125,7 @@ class DecodeBarcodeType(object):
     GS1AZTEC = "GS1Aztec"
     GS1COMPOSITEBAR = "GS1CompositeBar"
     GS1MICROPDF417 = "GS1MicroPdf417"
+    MOSTCOMMONLYUSED = "mostCommonlyUsed"
 
     """
     Attributes:

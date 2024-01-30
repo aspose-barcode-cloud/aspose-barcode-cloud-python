@@ -2,7 +2,7 @@
 
 """
 
-    Copyright (c) 2023 Aspose.BarCode for Cloud
+    Copyright (c) 2024 Aspose.BarCode for Cloud
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -410,6 +410,7 @@ class BarcodeApi(object):
         self,
         name,
         type=None,
+        types=None,
         checksum_validation=None,
         detect_encoding=None,
         preset=None,
@@ -458,6 +459,7 @@ class BarcodeApi(object):
 
         :param str name: The image file name. # noqa: E501
         :param str type: The type of barcode to read. # noqa: E501
+        :param list[DecodeBarcodeType] types: Multiple barcode types to read. # noqa: E501
         :param str checksum_validation: Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies # noqa: E501
         :param bool detect_encoding: A flag which force engine to detect codetext encoding for Unicode. # noqa: E501
         :param str preset: Preset allows to configure recognition quality and speed manually. You can quickly set up Preset by embedded presets: HighPerformance, NormalQuality, HighQuality, MaxBarCodes or you can manually configure separate options. Default value of Preset is NormalQuality. # noqa: E501
@@ -504,6 +506,7 @@ class BarcodeApi(object):
             return self.get_barcode_recognize_with_http_info(
                 name,
                 type=type,
+                types=types,
                 checksum_validation=checksum_validation,
                 detect_encoding=detect_encoding,
                 preset=preset,
@@ -546,6 +549,7 @@ class BarcodeApi(object):
             (data) = self.get_barcode_recognize_with_http_info(
                 name,
                 type=type,
+                types=types,
                 checksum_validation=checksum_validation,
                 detect_encoding=detect_encoding,
                 preset=preset,
@@ -603,6 +607,7 @@ class BarcodeApi(object):
         all_params = {
             "name",
             "type",
+            "types",
             "checksum_validation",
             "detect_encoding",
             "preset",
@@ -667,6 +672,9 @@ class BarcodeApi(object):
         query_params = []
         if "type" in params:
             query_params.append(("Type", params["type"]))
+        if "types" in params:
+            query_params.append(("Types", params["types"]))
+            collection_formats["Types"] = "multi"
         if "checksum_validation" in params:
             query_params.append(("ChecksumValidation", params["checksum_validation"]))
         if "detect_encoding" in params:
@@ -779,6 +787,7 @@ class BarcodeApi(object):
     def post_barcode_recognize_from_url_or_content(
         self,
         type=None,
+        types=None,
         checksum_validation=None,
         detect_encoding=None,
         preset=None,
@@ -826,6 +835,7 @@ class BarcodeApi(object):
         >>> result = thread.get()
 
         :param str type: The type of barcode to read. # noqa: E501
+        :param list[DecodeBarcodeType] types: Multiple barcode types to read. # noqa: E501
         :param str checksum_validation: Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies # noqa: E501
         :param bool detect_encoding: A flag which force engine to detect codetext encoding for Unicode. # noqa: E501
         :param str preset: Preset allows to configure recognition quality and speed manually. You can quickly set up Preset by embedded presets: HighPerformance, NormalQuality, HighQuality, MaxBarCodes or you can manually configure separate options. Default value of Preset is NormalQuality. # noqa: E501
@@ -871,6 +881,7 @@ class BarcodeApi(object):
         if async_req:
             return self.post_barcode_recognize_from_url_or_content_with_http_info(
                 type=type,
+                types=types,
                 checksum_validation=checksum_validation,
                 detect_encoding=detect_encoding,
                 preset=preset,
@@ -912,6 +923,7 @@ class BarcodeApi(object):
         else:
             (data) = self.post_barcode_recognize_from_url_or_content_with_http_info(
                 type=type,
+                types=types,
                 checksum_validation=checksum_validation,
                 detect_encoding=detect_encoding,
                 preset=preset,
@@ -967,6 +979,7 @@ class BarcodeApi(object):
 
         all_params = {
             "type",
+            "types",
             "checksum_validation",
             "detect_encoding",
             "preset",
@@ -1029,6 +1042,9 @@ class BarcodeApi(object):
         query_params = []
         if "type" in params:
             query_params.append(("Type", params["type"]))
+        if "types" in params:
+            query_params.append(("Types", params["types"]))
+            collection_formats["Types"] = "multi"
         if "checksum_validation" in params:
             query_params.append(("ChecksumValidation", params["checksum_validation"]))
         if "detect_encoding" in params:

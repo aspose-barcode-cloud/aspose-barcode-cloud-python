@@ -2,7 +2,7 @@
 
 """
 
-    Copyright (c) 2023 Aspose.BarCode for Cloud
+    Copyright (c) 2024 Aspose.BarCode for Cloud
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -47,6 +47,7 @@ class ReaderParams(object):
     """
     swagger_types = {
         "type": "DecodeBarcodeType",
+        "types": "list[DecodeBarcodeType]",
         "checksum_validation": "ChecksumValidation",
         "detect_encoding": "bool",
         "preset": "PresetType",
@@ -85,6 +86,7 @@ class ReaderParams(object):
 
     attribute_map = {
         "type": "Type",
+        "types": "Types",
         "checksum_validation": "ChecksumValidation",
         "detect_encoding": "DetectEncoding",
         "preset": "Preset",
@@ -124,6 +126,7 @@ class ReaderParams(object):
     def __init__(
         self,
         type=None,
+        types=None,
         checksum_validation=None,
         detect_encoding=None,
         preset=None,
@@ -162,6 +165,7 @@ class ReaderParams(object):
         """ReaderParams - a model defined in Swagger"""  # noqa: E501
 
         self._type = None
+        self._types = None
         self._checksum_validation = None
         self._detect_encoding = None
         self._preset = None
@@ -200,6 +204,8 @@ class ReaderParams(object):
 
         if type is not None:
             self.type = type
+        if types is not None:
+            self.types = types
         if checksum_validation is not None:
             self.checksum_validation = checksum_validation
         if detect_encoding is not None:
@@ -291,6 +297,29 @@ class ReaderParams(object):
         """
 
         self._type = type
+
+    @property
+    def types(self):
+        """Gets the types of this ReaderParams.  # noqa: E501
+
+        Multiple barcode types to read.  # noqa: E501
+
+        :return: The types of this ReaderParams.  # noqa: E501
+        :rtype: list[DecodeBarcodeType]
+        """
+        return self._types
+
+    @types.setter
+    def types(self, types):
+        """Sets the types of this ReaderParams.
+
+        Multiple barcode types to read.  # noqa: E501
+
+        :param types: The types of this ReaderParams.  # noqa: E501
+        :type: list[DecodeBarcodeType]
+        """
+
+        self._types = types
 
     @property
     def checksum_validation(self):
