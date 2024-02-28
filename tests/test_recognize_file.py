@@ -31,8 +31,7 @@ class TestRecognizeFile(unittest.TestCase):
         """
 
         response = self.api.post_barcode_recognize_from_url_or_content(
-            preset=PresetType.HIGHPERFORMANCE,
-            image=self.test_filename,
+            preset=PresetType.HIGHPERFORMANCE, image=self.test_filename, types=[DecodeBarcodeType.PDF417]
         )
 
         self.assertEqual(1, len(response.barcodes))
@@ -48,8 +47,7 @@ class TestRecognizeFile(unittest.TestCase):
         """
 
         response = self.api.post_barcode_recognize_from_url_or_content(
-            preset=PresetType.HIGHPERFORMANCE,
-            image=pathlib.Path(self.test_filename),
+            preset=PresetType.HIGHPERFORMANCE, image=pathlib.Path(self.test_filename), types=[DecodeBarcodeType.PDF417]
         )
 
         self.assertEqual(1, len(response.barcodes))
@@ -64,8 +62,7 @@ class TestRecognizeFile(unittest.TestCase):
         """
         with open(self.test_filename, "rb") as file_obj:
             response = self.api.post_barcode_recognize_from_url_or_content(
-                preset=PresetType.HIGHPERFORMANCE,
-                image=file_obj,
+                preset=PresetType.HIGHPERFORMANCE, image=file_obj, types=[DecodeBarcodeType.PDF417]
             )
 
         self.assertEqual(1, len(response.barcodes))

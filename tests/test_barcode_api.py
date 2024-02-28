@@ -74,7 +74,7 @@ class TestBarcodeApi(unittest.TestCase):
         """
 
         response = self.api.post_barcode_recognize_from_url_or_content(
-            type=DecodeBarcodeType.PDF417,
+            types=[DecodeBarcodeType.PDF417],
             preset=PresetType.HIGHPERFORMANCE,
             image=self.test_filename,
         )

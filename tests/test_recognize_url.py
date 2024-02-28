@@ -20,8 +20,7 @@ class TestRecognizeUrl(unittest.TestCase):
         """
 
         response = self.api.post_barcode_recognize_from_url_or_content(
-            preset=PresetType.HIGHPERFORMANCE,
-            url=self.test_url,
+            preset=PresetType.HIGHPERFORMANCE, url=self.test_url, types=[DecodeBarcodeType.QR]
         )
 
         self.assertEqual(1, len(response.barcodes))

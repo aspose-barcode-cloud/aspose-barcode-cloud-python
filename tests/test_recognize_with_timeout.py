@@ -5,7 +5,7 @@ import os
 import re
 import unittest
 
-from aspose_barcode_cloud import PresetType, ApiClient, BarcodeApi, ApiException
+from aspose_barcode_cloud import ApiClient, BarcodeApi, ApiException
 from .load_configuration import TEST_CONFIGURATION
 
 
@@ -30,7 +30,6 @@ class TestRecognizeWithTimeout(unittest.TestCase):
 
         with self.assertRaises(ApiException) as context:
             self.api.post_barcode_recognize_from_url_or_content(
-                preset=PresetType.HIGHPERFORMANCE,
                 image=self.test_filename,
                 timeout=1,
             )
