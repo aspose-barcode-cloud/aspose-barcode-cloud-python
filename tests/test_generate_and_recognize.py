@@ -15,6 +15,9 @@ from .load_configuration import TEST_CONFIGURATION
 
 
 class TestGenerateAndRecognize(unittest.TestCase):
+    api_client = None
+    api = None
+
     @classmethod
     def setUpClass(cls):
         cls.api_client = ApiClient(TEST_CONFIGURATION)
@@ -31,7 +34,7 @@ class TestGenerateAndRecognize(unittest.TestCase):
                 f.write(generated.data)
 
             recognized = self.api.post_barcode_recognize_from_url_or_content(
-                image=temp_filename, preset=PresetType.HIGHPERFORMANCE
+                image=temp_filename, preset=PresetType.HIGHPERFORMANCE, types=[DecodeBarcodeType.QR]
             )
         finally:
             os.remove(temp_filename)

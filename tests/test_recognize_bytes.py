@@ -29,8 +29,7 @@ class TestRecognizeBytes(unittest.TestCase):
             image_bytes = f.read()
 
         response = self.api.post_barcode_recognize_from_url_or_content(
-            preset=PresetType.HIGHPERFORMANCE,
-            image=image_bytes,
+            preset=PresetType.HIGHPERFORMANCE, image=image_bytes, types=[DecodeBarcodeType.PDF417]
         )
 
         self.assertEqual(1, len(response.barcodes))
@@ -47,8 +46,7 @@ class TestRecognizeBytes(unittest.TestCase):
             image_bytes = bytearray(f.read())
 
         response = self.api.post_barcode_recognize_from_url_or_content(
-            preset=PresetType.HIGHPERFORMANCE,
-            image=image_bytes,
+            preset=PresetType.HIGHPERFORMANCE, image=image_bytes, types=[DecodeBarcodeType.PDF417]
         )
 
         self.assertEqual(1, len(response.barcodes))
@@ -65,8 +63,7 @@ class TestRecognizeBytes(unittest.TestCase):
             bytes_io = io.BytesIO(f.read())
 
         response = self.api.post_barcode_recognize_from_url_or_content(
-            preset=PresetType.HIGHPERFORMANCE,
-            image=bytes_io,
+            preset=PresetType.HIGHPERFORMANCE, image=bytes_io, types=[DecodeBarcodeType.PDF417]
         )
 
         self.assertEqual(1, len(response.barcodes))
