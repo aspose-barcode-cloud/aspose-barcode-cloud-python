@@ -20,7 +20,7 @@ config = Configuration(
 api = BarcodeApi(ApiClient(config))
 
 # Generate barcode
-response = api.get_barcode_generate(EncodeBarcodeType.QR, "Example")
+response = api.get_barcode_generate(EncodeBarcodeType.QR, "Example", text_location="None")
 with open("example.png", "wb") as f:
     f.write(response.data)
 print("Barcode saved to file 'example.png'")
