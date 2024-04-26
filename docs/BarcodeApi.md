@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**put_barcode_generate_file**](BarcodeApi.md#put_barcode_generate_file) | **PUT** /barcode/{name}/generate | Generate barcode and save on server (from query params or from file with json or xml content)
 [**put_barcode_recognize_from_body**](BarcodeApi.md#put_barcode_recognize_from_body) | **PUT** /barcode/{name}/recognize | Recognition of a barcode from file on server with parameters in body.
 [**put_generate_multiple**](BarcodeApi.md#put_generate_multiple) | **PUT** /barcode/{name}/generateMultiple | Generate image with multiple barcodes and put new file on server
+[**scan_barcode**](BarcodeApi.md#scan_barcode) | **POST** /barcode/scan | Quickly scan a barcode from an image.
 
 
 # **get_barcode_generate**
@@ -666,6 +667,59 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **scan_barcode**
+> BarcodeResponseList scan_barcode(image_file, decode_types=decode_types, timeout=timeout)
+
+Quickly scan a barcode from an image.
+
+### Example
+```python
+from __future__ import division, print_function
+import time
+import aspose_barcode_cloud
+from aspose_barcode_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: JWT
+configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOKEN")
+
+# create an instance of the API class
+api_instance = aspose_barcode_cloud.BarcodeApi(aspose_barcode_cloud.ApiClient(configuration))
+image_file = '/path/to/file.txt' # file | Image as file
+decode_types = [aspose_barcode_cloud.DecodeBarcodeType()] # list[DecodeBarcodeType] | Types of barcode to recognize (optional)
+timeout = 56 # int | Timeout of recognition process in milliseconds.  Default value is 15_000 (15 seconds).  Maximum value is 30_000 (1/2 minute).  In case of a timeout RequestTimeout (408) status will be returned.  Try reducing the image size to avoid timeout. (optional)
+
+try:
+    # Quickly scan a barcode from an image.
+    api_response = api_instance.scan_barcode(image_file, decode_types=decode_types, timeout=timeout)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling BarcodeApi->scan_barcode: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+---- | ---- | ------------ | -----
+ **image_file** | **file**| Image as file | 
+ **decode_types** | [**list[DecodeBarcodeType]**](DecodeBarcodeType.md)| Types of barcode to recognize | [optional] 
+ **timeout** | **int**| Timeout of recognition process in milliseconds.  Default value is 15_000 (15 seconds).  Maximum value is 30_000 (1/2 minute).  In case of a timeout RequestTimeout (408) status will be returned.  Try reducing the image size to avoid timeout. | [optional] 
+
+### Return type
+
+[**BarcodeResponseList**](BarcodeResponseList.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

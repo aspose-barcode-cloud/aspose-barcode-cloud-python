@@ -1861,3 +1861,105 @@ class BarcodeApi(object):
             _request_timeout=params.get("_request_timeout"),
             collection_formats=collection_formats,
         )
+
+    def scan_barcode(self, image_file, decode_types=None, timeout=None, async_req=False, **kwargs):
+        """Quickly scan a barcode from an image.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = BarcodeApi().scan_barcode(image_file, async_req=True)
+        >>> result = thread.get()
+
+        :param file image_file: Image as file # noqa: E501
+        :param list[DecodeBarcodeType] decode_types: Types of barcode to recognize # noqa: E501
+        :param int timeout: Timeout of recognition process in milliseconds.  Default value is 15_000 (15 seconds).  Maximum value is 30_000 (1/2 minute).  In case of a timeout RequestTimeout (408) status will be returned.  Try reducing the image size to avoid timeout. # noqa: E501
+        :param async_req bool
+        :return: BarcodeResponseList
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if async_req:
+            return self.scan_barcode_with_http_info(image_file, decode_types=decode_types, timeout=timeout, **kwargs)
+        else:
+            (data) = self.scan_barcode_with_http_info(image_file, decode_types=decode_types, timeout=timeout, **kwargs)
+            return data
+
+    def scan_barcode_with_http_info(self, image_file, **kwargs):
+        """Quickly scan a barcode from an image.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = BarcodeApi().scan_barcode_with_http_info(image_file, async_req=True)
+        >>> result = thread.get()
+
+        :param file image_file: Image as file # noqa: E501
+        :return: BarcodeResponseList
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = {"image_file", "decode_types", "timeout"}
+        all_params.add("async_req")
+        all_params.add("_return_http_data_only")
+        all_params.add("_preload_content")
+        all_params.add("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError("Got an unexpected keyword argument '%s'" " to method scan_barcode" % key)
+            if val is None:
+                continue
+
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter "image_file" is set
+        if "image_file" not in params or params["image_file"] is None:
+            raise ValueError("Missing the required parameter 'image_file' when calling 'scan_barcode'")
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if "image_file" in params:
+            local_var_files["imageFile"] = params["image_file"]
+        if "decode_types" in params:
+            form_params.append(("decodeTypes", params["decode_types"]))
+            collection_formats["decodeTypes"] = "multi"
+        if "timeout" in params:
+            form_params.append(("timeout", params["timeout"]))
+
+        body_params = None
+        # HTTP header "Accept"
+        header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
+
+        # HTTP header "Content-Type"
+        header_params["Content-Type"] = self.api_client.select_header_content_type(["multipart/form-data"])
+
+        # Authentication setting
+        auth_settings = ["JWT"]
+
+        return self.api_client.call_api(
+            "/barcode/scan",
+            "POST",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="BarcodeResponseList",
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
