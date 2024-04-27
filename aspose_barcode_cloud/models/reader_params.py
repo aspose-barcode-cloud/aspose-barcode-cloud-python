@@ -967,7 +967,7 @@ class ReaderParams(object):
     def similarity(self):
         """Gets the similarity of this ReaderParams.  # noqa: E501
 
-        Similarity coefficient depends on how homogeneous barcodes are. Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9]  # noqa: E501
+        Similarity coefficient depends on how homogeneous barcodes are. Use high value for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9]  # noqa: E501
 
         :return: The similarity of this ReaderParams.  # noqa: E501
         :rtype: float
@@ -978,7 +978,7 @@ class ReaderParams(object):
     def similarity(self, similarity):
         """Sets the similarity of this ReaderParams.
 
-        Similarity coefficient depends on how homogeneous barcodes are. Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9]  # noqa: E501
+        Similarity coefficient depends on how homogeneous barcodes are. Use high value for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9]  # noqa: E501
 
         :param similarity: The similarity of this ReaderParams.  # noqa: E501
         :type: float

@@ -40,7 +40,7 @@ class AustralianPostParams(object):
     def encoding_table(self):
         """Gets the encoding_table of this AustralianPostParams.  # noqa: E501
 
-        Interpreting type for the Customer Information of AustralianPost, default to CustomerInformationInterpretingType.Other\"  # noqa: E501
+        Interpreting type for the Customer Information of AustralianPost, default to CustomerInformationInterpretingType.Other  # noqa: E501
 
         :return: The encoding_table of this AustralianPostParams.  # noqa: E501
         :rtype: CustomerInformationInterpretingType
@@ -51,7 +51,7 @@ class AustralianPostParams(object):
     def encoding_table(self, encoding_table):
         """Sets the encoding_table of this AustralianPostParams.
 
-        Interpreting type for the Customer Information of AustralianPost, default to CustomerInformationInterpretingType.Other\"  # noqa: E501
+        Interpreting type for the Customer Information of AustralianPost, default to CustomerInformationInterpretingType.Other  # noqa: E501
 
         :param encoding_table: The encoding_table of this AustralianPostParams.  # noqa: E501
         :type: CustomerInformationInterpretingType
