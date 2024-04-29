@@ -8,7 +8,8 @@ from aspose_barcode_cloud import (
     ApiClient,
     Configuration,
     EncodeBarcodeType,
-    PresetType,
+    CodeLocation,
+    DecodeBarcodeType,
 )
 
 config = Configuration(
@@ -20,11 +21,11 @@ config = Configuration(
 api = BarcodeApi(ApiClient(config))
 
 # Generate barcode
-response = api.get_barcode_generate(EncodeBarcodeType.QR, "Example", text_location="None")
+response = api.get_barcode_generate(EncodeBarcodeType.QR, "Example", text_location=CodeLocation.NONE)
 with open("example.png", "wb") as f:
     f.write(response.data)
 print("Barcode saved to file 'example.png'")
 
 # Recognize barcode
-response = api.post_barcode_recognize_from_url_or_content(image="example.png", preset=PresetType.HIGHPERFORMANCE)
+response = api.scan_barcode("example.png", decode_types=[DecodeBarcodeType.QR])
 pprint(response)
