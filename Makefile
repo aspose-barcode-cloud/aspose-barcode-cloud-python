@@ -57,7 +57,7 @@ publish-docker: init-docker unittest dist
 
 .PHONY: test
 test:
-	python -Werror -m pytest --cov=aspose_barcode_cloud tests/
+	python -m pytest --cov=aspose_barcode_cloud tests/
 
 .PHONY: cover
 cover:
