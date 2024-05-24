@@ -41,7 +41,6 @@ class RESTResponse(io.IOBase):
 
 
 class RESTClientObject(object):
-
     def __init__(self, configuration, pools_size=4, maxsize=None):
         # urllib3.PoolManager will pass all kw parameters to connectionpool
         # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/poolmanager.py#L75  # noqa: E501
@@ -361,7 +360,6 @@ class RESTClientObject(object):
 
 
 class ApiException(Exception):
-
     def __init__(self, status=0, reason=None, http_resp=None):
         # type: (int, str, RESTResponse) -> None
         if http_resp:
