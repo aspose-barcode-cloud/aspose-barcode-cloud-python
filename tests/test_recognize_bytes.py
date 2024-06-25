@@ -4,8 +4,6 @@ import io
 import os
 import unittest
 
-import six
-
 from aspose_barcode_cloud import PresetType, ApiClient, BarcodeApi, DecodeBarcodeType
 from .load_configuration import TEST_CONFIGURATION
 
@@ -19,7 +17,6 @@ class TestRecognizeBytes(unittest.TestCase):
 
         cls.api = BarcodeApi(api_client=ApiClient(configuration=TEST_CONFIGURATION))
 
-    @unittest.skipIf(six.PY2, "Python 2 has no difference between bytes and str")
     def test_post_barcode_recognize_from_url_or_content_bytes(self):
         """Test case for post_barcode_recognize_from_url_or_content
 

@@ -6,18 +6,13 @@ import datetime
 import io
 import json
 import mimetypes
+import pathlib
 from collections import namedtuple
 from multiprocessing.pool import ThreadPool
 import os
 import re
 import tempfile
-
-# python 2 and python 3 compatibility library
-import six
-from six.moves.urllib.parse import quote
-
-if not six.PY2:
-    import pathlib
+import urllib.parse
 
 from aspose_barcode_cloud.configuration import Configuration
 import aspose_barcode_cloud.models
@@ -45,10 +40,10 @@ class ApiClient(object):
         to the API
     """
 
-    PRIMITIVE_TYPES = (float, bool, bytes, bytearray, six.text_type) + six.integer_types
+    PRIMITIVE_TYPES = (int, float, str, bool, bytes, bytearray)
     NATIVE_TYPES_MAPPING = {
         "int": int,
-        "long": int if six.PY3 else long,  # noqa: F821
+        "long": int,
         "float": float,
         "str": str,
         "bool": bool,
@@ -134,7 +129,9 @@ class ApiClient(object):
             path_params = self.parameters_to_tuples(path_params, collection_formats)
             for k, v in path_params:
                 # specified safe chars, encode everything
-                resource_path = resource_path.replace("{%s}" % k, quote(str(v), safe=config.safe_chars_for_path_param))
+                resource_path = resource_path.replace(
+                    "{%s}" % k, urllib.parse.quote(str(v), safe=config.safe_chars_for_path_param)
+                )
 
         # query parameters
         if query_params:
@@ -219,11 +216,11 @@ class ApiClient(object):
             # model definition for request.
             obj_dict = {
                 obj.attribute_map[attr]: getattr(obj, attr)
-                for attr, _ in six.iteritems(obj.swagger_types)
+                for attr in obj.swagger_types
                 if getattr(obj, attr) is not None
             }
 
-        return {key: self.sanitize_for_serialization(val) for key, val in six.iteritems(obj_dict)}
+        return {key: self.sanitize_for_serialization(val) for key, val in obj_dict.items()}
 
     def deserialize(self, response, response_type):
         """Deserializes response into an object.
@@ -265,7 +262,7 @@ class ApiClient(object):
 
             if klass.startswith("dict("):
                 sub_kls = re.match(r"dict\(([^,]*), (.*)\)", klass).group(2)
-                return {k: self.__deserialize(v, sub_kls) for k, v in six.iteritems(data)}
+                return {k: self.__deserialize(v, sub_kls) for k, v in data.items()}
 
             # convert str to class
             if klass in self.NATIVE_TYPES_MAPPING:
@@ -467,7 +464,7 @@ class ApiClient(object):
         new_params = []
         if collection_formats is None:
             collection_formats = {}
-        for k, v in six.iteritems(params) if isinstance(params, dict) else params:
+        for k, v in params.items() if isinstance(params, dict) else params:
             if k in collection_formats:
                 collection_format = collection_formats[k]
                 if collection_format == "multi":
@@ -489,22 +486,20 @@ class ApiClient(object):
     def prepare_one_file(self, file_data):
         # type: (Union[bytes, str, file, pathlib.Path, io.BytesIO]) -> FileFieldData # noqa: F821
 
-        if isinstance(file_data, str) or (not six.PY2 and isinstance(file_data, pathlib.PurePath)):
+        if isinstance(file_data, str) or isinstance(file_data, pathlib.PurePath):
             with open(file_data, "rb") as f:
                 fname = os.path.basename(f.name)
                 file_bytes = f.read()
             mime_type = mimetypes.guess_type(fname)[0] or "application/octet-stream"
             return FileFieldData(fname, file_bytes, mime_type)
 
-        # Python 2 has no difference between bytes and str
-        # Use bytearray in Python 2 to make a difference with str
         if isinstance(file_data, bytes) or isinstance(file_data, bytearray):
             return FileFieldData("data.bin", file_data, "application/octet-stream")
 
         if isinstance(file_data, io.BytesIO):
             return FileFieldData("data.bin", file_data.read(), "application/octet-stream")
 
-        if isinstance(file_data, io.BufferedReader) or (six.PY2 and isinstance(file_data, file)):  # noqa: F821
+        if isinstance(file_data, io.BufferedReader):
             return FileFieldData(os.path.basename(file_data.name), file_data.read(), "application/octet-stream")
 
         raise ApiException(reason="Unknown type {type_name} for file parameter".format(type_name=type(file_data)))
@@ -519,7 +514,7 @@ class ApiClient(object):
         params = post_params or []
 
         if files:
-            for field_name, data in six.iteritems(files):
+            for field_name, data in files.items():
                 if not data:
                     continue
                 file_names = data if type(data) is list else [data]
@@ -616,7 +611,7 @@ class ApiClient(object):
         try:
             return klass(data)
         except UnicodeEncodeError:
-            return six.text_type(data)
+            return str(data)
         except TypeError:
             return data
 
@@ -675,7 +670,7 @@ class ApiClient(object):
 
         kwargs = {}
         if klass.swagger_types is not None:
-            for attr, attr_type in six.iteritems(klass.swagger_types):
+            for attr, attr_type in klass.swagger_types.items():
                 key = klass.attribute_map[attr]
                 # Convert from PascalCase to camelCase
                 # Because server uses camelCase JSON

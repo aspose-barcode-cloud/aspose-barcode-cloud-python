@@ -3,14 +3,11 @@ from __future__ import absolute_import, division
 import os
 import sys
 import unittest
-
-import six
+import pathlib
 
 from aspose_barcode_cloud import PresetType, ApiClient, BarcodeApi, DecodeBarcodeType
 from .load_configuration import TEST_CONFIGURATION
 
-if not six.PY2:
-    import pathlib
 
 PY35orLess = sys.version_info[0:2] <= (3, 5)
 

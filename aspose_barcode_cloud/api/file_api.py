@@ -5,9 +5,6 @@ from __future__ import absolute_import, division
 import re  # noqa: F401
 import warnings  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
 from aspose_barcode_cloud.api_client import ApiClient
 
 
@@ -93,7 +90,7 @@ class FileApi(object):
         all_params.add("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params["kwargs"]):
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError("Got an unexpected keyword argument '%s'" " to method copy_file" % key)
             if val is None:
@@ -201,7 +198,7 @@ class FileApi(object):
         all_params.add("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params["kwargs"]):
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError("Got an unexpected keyword argument '%s'" " to method delete_file" % key)
             if val is None:
@@ -302,7 +299,7 @@ class FileApi(object):
         all_params.add("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params["kwargs"]):
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError("Got an unexpected keyword argument '%s'" " to method download_file" % key)
             if val is None:
@@ -429,7 +426,7 @@ class FileApi(object):
         all_params.add("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params["kwargs"]):
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError("Got an unexpected keyword argument '%s'" " to method move_file" % key)
             if val is None:
@@ -538,7 +535,7 @@ class FileApi(object):
         all_params.add("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params["kwargs"]):
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError("Got an unexpected keyword argument '%s'" " to method upload_file" % key)
             if val is None:
