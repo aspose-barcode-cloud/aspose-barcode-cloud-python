@@ -9,9 +9,7 @@ import logging
 import multiprocessing
 import sys
 import urllib3
-
-import six
-from six.moves import http_client as httplib
+import http.client
 
 from aspose_barcode_cloud.rest import RESTClientObject
 
@@ -35,7 +33,7 @@ class Configuration(object):
     ):
         """Constructor"""
         if self._default:
-            for key in self._default.__dict__.keys():
+            for key in self._default.__dict__:
                 self.__dict__[key] = copy.copy(self._default.__dict__[key])
             return
 
@@ -150,7 +148,7 @@ class Configuration(object):
             # then add file handler and remove stream handler.
             self.logger_file_handler = logging.FileHandler(self.__logger_file)
             self.logger_file_handler.setFormatter(self.logger_formatter)
-            for _, logger in six.iteritems(self.logger):
+            for logger in self.logger.values():
                 logger.addHandler(self.logger_file_handler)
                 if self.logger_stream_handler:
                     logger.removeHandler(self.logger_stream_handler)
@@ -159,7 +157,7 @@ class Configuration(object):
             # then add stream handler and remove file handler.
             self.logger_stream_handler = logging.StreamHandler()
             self.logger_stream_handler.setFormatter(self.logger_formatter)
-            for _, logger in six.iteritems(self.logger):
+            for logger in self.logger.values():
                 logger.addHandler(self.logger_stream_handler)
                 if self.logger_file_handler:
                     logger.removeHandler(self.logger_file_handler)
@@ -183,17 +181,17 @@ class Configuration(object):
         self.__debug = value
         if self.__debug:
             # if debug status is True, turn on debug logging
-            for _, logger in six.iteritems(self.logger):
+            for logger in self.logger.values():
                 logger.setLevel(logging.DEBUG)
-            # turn on httplib debug
-            httplib.HTTPConnection.debuglevel = 1
+            # turn on http.client debug
+            http.client.HTTPConnection.debuglevel = 1
         else:
             # if debug status is False, turn off debug logging,
             # setting log level to default `logging.WARNING`
-            for _, logger in six.iteritems(self.logger):
+            for logger in self.logger.values():
                 logger.setLevel(logging.WARNING)
-            # turn off httplib debug
-            httplib.HTTPConnection.debuglevel = 0
+            # turn off http.client debug
+            http.client.HTTPConnection.debuglevel = 0
 
     @property
     def logger_format(self):
@@ -262,7 +260,7 @@ class Configuration(object):
             "OS: {env}\n"
             "Python Version: {pyversion}\n"
             "Version of the API: 3.0\n"
-            "SDK Package Version: 24.5.0".format(env=sys.platform, pyversion=sys.version)
+            "SDK Package Version: 24.6.0".format(env=sys.platform, pyversion=sys.version)
         )
 
     @staticmethod

@@ -4,7 +4,6 @@ import inspect
 import json
 import logging
 import os
-import six
 
 from aspose_barcode_cloud import Configuration
 
@@ -30,9 +29,7 @@ def from_env(prefix):
     @rtype: Configuration
     """
     logger.debug("Loading test configuration from env with prefix '%s'..." % prefix)
-    constructor_param_names = (
-        inspect.getargspec(Configuration.__init__) if six.PY2 else inspect.getfullargspec(Configuration.__init__)
-    ).args[1:]
+    constructor_param_names = inspect.getfullargspec(Configuration.__init__).args[1:]
     kwargs = {}
     for name in constructor_param_names:
         env_name = "%s_%s" % (prefix, name.upper())

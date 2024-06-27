@@ -7,12 +7,10 @@ import json
 import logging
 import re
 import ssl
+import urllib.parse
 
 import certifi
 
-# python 2 and python 3 compatibility library
-import six
-from six.moves.urllib.parse import urlencode
 
 try:
     import urllib3
@@ -41,6 +39,7 @@ class RESTResponse(io.IOBase):
 
 
 class RESTClientObject(object):
+
     def __init__(self, configuration, pools_size=4, maxsize=None):
         # urllib3.PoolManager will pass all kw parameters to connectionpool
         # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/poolmanager.py#L75  # noqa: E501
@@ -134,7 +133,7 @@ class RESTClientObject(object):
 
         timeout = None
         if _request_timeout:
-            if isinstance(_request_timeout, (int,) if six.PY3 else (int, long)):  # noqa: E501,F821
+            if isinstance(_request_timeout, (int,)):
                 timeout = urllib3.Timeout(total=_request_timeout)
             elif isinstance(_request_timeout, tuple) and len(_request_timeout) == 2:
                 timeout = urllib3.Timeout(connect=_request_timeout[0], read=_request_timeout[1])
@@ -146,7 +145,7 @@ class RESTClientObject(object):
             # For 'POST', 'PUT', 'PATCH', 'OPTIONS', 'DELETE'
             if method in ["POST", "PUT", "PATCH", "OPTIONS", "DELETE"]:
                 if query_params:
-                    url += "?" + urlencode(query_params)
+                    url += "?" + urllib.parse.urlencode(query_params)
                 if re.search("json", headers["Content-Type"], re.IGNORECASE):
                     request_body = "{}"
                     if body is not None:
@@ -220,10 +219,7 @@ class RESTClientObject(object):
         if _preload_content:
             r = RESTResponse(r)
 
-            # In the python 3, the response.data is bytes.
-            # we need to decode it to string.
-            if six.PY3:
-                r.data = r.data.decode("utf8")
+            r.data = r.data.decode("utf8")
 
             # log response body
             logger.debug("response body: %s", r.data)
@@ -360,6 +356,7 @@ class RESTClientObject(object):
 
 
 class ApiException(Exception):
+
     def __init__(self, status=0, reason=None, http_resp=None):
         # type: (int, str, RESTResponse) -> None
         if http_resp:

@@ -5,7 +5,7 @@ import os
 from setuptools import setup, find_packages
 
 NAME = "aspose-barcode-cloud"
-VERSION = "24.5.0"
+VERSION = "24.6.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -34,9 +34,7 @@ setup(
         "Topic :: Software Development",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-        "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",

@@ -5,9 +5,6 @@ from __future__ import absolute_import, division
 import re  # noqa: F401
 import warnings  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
 from aspose_barcode_cloud.api_client import ApiClient
 
 
@@ -254,7 +251,7 @@ class BarcodeApi(object):
         all_params.add("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params["kwargs"]):
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError("Got an unexpected keyword argument '%s'" " to method get_barcode_generate" % key)
             if val is None:
@@ -627,7 +624,7 @@ class BarcodeApi(object):
         all_params.add("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params["kwargs"]):
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError("Got an unexpected keyword argument '%s'" " to method get_barcode_recognize" % key)
             if val is None:
@@ -999,7 +996,7 @@ class BarcodeApi(object):
         all_params.add("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params["kwargs"]):
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
@@ -1175,7 +1172,7 @@ class BarcodeApi(object):
         all_params.add("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params["kwargs"]):
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError("Got an unexpected keyword argument '%s'" " to method post_generate_multiple" % key)
             if val is None:
@@ -1483,7 +1480,7 @@ class BarcodeApi(object):
         all_params.add("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params["kwargs"]):
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError("Got an unexpected keyword argument '%s'" " to method put_barcode_generate_file" % key)
             if val is None:
@@ -1673,7 +1670,7 @@ class BarcodeApi(object):
         all_params.add("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params["kwargs"]):
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'" " to method put_barcode_recognize_from_body" % key
@@ -1794,7 +1791,7 @@ class BarcodeApi(object):
         all_params.add("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params["kwargs"]):
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError("Got an unexpected keyword argument '%s'" " to method put_generate_multiple" % key)
             if val is None:
@@ -1906,7 +1903,7 @@ class BarcodeApi(object):
         all_params.add("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params["kwargs"]):
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError("Got an unexpected keyword argument '%s'" " to method scan_barcode" % key)
             if val is None:

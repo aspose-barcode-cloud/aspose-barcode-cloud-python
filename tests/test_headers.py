@@ -2,8 +2,7 @@ from __future__ import absolute_import, division
 
 import sys
 import unittest
-
-from six.moves import mock
+from unittest import mock
 
 from aspose_barcode_cloud import Configuration, ApiClient, BarcodeApi, EncodeBarcodeType
 from aspose_barcode_cloud.rest import RESTClientObject
