@@ -3,7 +3,7 @@ import os
 import re
 import typing
 
-REPLACE_RE = re.compile(r'^%insert (?P<file_name>[^%]+)%$', re.MULTILINE)
+REPLACE_RE = re.compile(r"^%insert (?P<file_name>[^%]+)%$", re.MULTILINE)
 
 
 def read_text(filename: str) -> str:
@@ -16,7 +16,7 @@ def main(template: typing.TextIO) -> None:
     content: str = template.read()
 
     def sub_match(match):
-        file_name = match.group('file_name')
+        file_name = match.group("file_name")
         return read_text(file_name)
 
     text = REPLACE_RE.sub(sub_match, content)
