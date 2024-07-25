@@ -18,7 +18,6 @@ Copy file
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
@@ -74,7 +73,6 @@ Delete file
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
@@ -126,7 +124,6 @@ Download file
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
@@ -179,7 +176,6 @@ Move file
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
@@ -235,7 +231,6 @@ Upload file
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException

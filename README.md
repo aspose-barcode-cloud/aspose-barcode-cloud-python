@@ -54,38 +54,36 @@ import aspose_barcode_cloud
 The examples below show how you can generate and recognize Code128 barcode and save it into local file using aspose-barcode-cloud:
 
 ```python
-from __future__ import division, print_function
-
+import os
 from pprint import pprint
 
-import aspose_barcode_cloud
-from aspose_barcode_cloud.rest import ApiException
-
-# Configure OAuth2 access token for authorization: JWT
-configuration = aspose_barcode_cloud.Configuration(
-    client_id="Client Id from https://dashboard.aspose.cloud/applications",
-    client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
+from aspose_barcode_cloud import (
+    BarcodeApi,
+    ApiClient,
+    Configuration,
+    EncodeBarcodeType,
+    CodeLocation,
+    DecodeBarcodeType,
 )
 
-# create an instance of the API class
-api = aspose_barcode_cloud.BarcodeApi(aspose_barcode_cloud.ApiClient(configuration))
-type = aspose_barcode_cloud.EncodeBarcodeType.CODE128  # str | Type of barcode to generate.
-text = 'text_example'  # str | Text to encode.
+config = Configuration(
+    client_id="Client Id from https://dashboard.aspose.cloud/applications",
+    client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
+    access_token=os.environ.get("TEST_CONFIGURATION_ACCESS_TOKEN"),  # Only for testing in CI, remove this line
+)
 
-try:
-    # Generate barcode.
-    response = api.get_barcode_generate(type, text)
-    with open("example.png", "wb") as f:
-        f.write(response.data)
-    print("Barcode saved to file 'example.png'")
-except ApiException as e:
-    print("Exception when calling BarcodeApi->get_barcode_generate: %s\n" % e)
+api = BarcodeApi(ApiClient(config))
 
+# Generate barcode
+response = api.get_barcode_generate(EncodeBarcodeType.QR, "Example", text_location=CodeLocation.NONE)
+with open("example.png", "wb") as f:
+    f.write(response.data)
+print("Barcode saved to file 'example.png'")
 
 # Recognize barcode
-response = api.post_barcode_recognize_from_url_or_content(image="example.png",
-                                                          preset=aspose_barcode_cloud.PresetType.HIGHPERFORMANCE)
+response = api.scan_barcode("example.png", decode_types=[DecodeBarcodeType.QR])
 pprint(response)
+
 ```
 
 ## Requirements
@@ -215,4 +213,5 @@ Class | Method | HTTP request | Description
 - [StructuredAppend](docs/StructuredAppend.md)
 - [TextAlignment](docs/TextAlignment.md)
 - [FileVersion](docs/FileVersion.md)
+
 

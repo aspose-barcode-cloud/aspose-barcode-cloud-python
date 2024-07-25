@@ -21,7 +21,6 @@ Generate barcode.
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
@@ -140,7 +139,6 @@ Recognize barcode from a file on server.
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
@@ -265,7 +263,6 @@ Recognize barcode from an url or from request body. Request body can contain raw
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
@@ -388,7 +385,6 @@ Generate multiple barcodes and return in response stream
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
@@ -439,7 +435,6 @@ Generate barcode and save on server (from query params or from file with json or
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
@@ -564,7 +559,6 @@ Recognition of a barcode from file on server with parameters in body.
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
@@ -621,7 +615,6 @@ Generate image with multiple barcodes and put new file on server
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
@@ -678,7 +671,6 @@ Quickly scan a barcode from an image.
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException

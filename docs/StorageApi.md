@@ -17,7 +17,6 @@ Get disc usage
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
@@ -66,7 +65,6 @@ Get file versions
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
@@ -117,7 +115,6 @@ Check if file or folder exists
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
@@ -170,7 +167,6 @@ Check if storage exists
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
