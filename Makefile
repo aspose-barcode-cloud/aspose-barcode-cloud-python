@@ -22,7 +22,7 @@ dist:
 
 .PHONY: format
 format:
-	black --line-length=120 -v $(SRC) tests example.py
+	black --line-length=120 -v $(SRC) tests/ example.py scripts/
 
 .PHONY: format_doc
 format_doc:
@@ -75,12 +75,16 @@ test-example:
 test-tox:
 	python -m tox $(SRC)
 
+.PHONY: insert-examples
+insert-examples:
+	./scripts/insert-example.bash
+
 .PHONY: add-warnings
 add-warnings:
 	./scripts/add-deprecation-warnings.bash
 
 .PHONY: after-gen
-after-gen: format add-warnings format_doc
+after-gen: format insert-examples add-warnings format_doc
 
 .PHONY: update
 update:

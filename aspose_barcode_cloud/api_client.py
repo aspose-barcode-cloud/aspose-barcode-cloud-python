@@ -1,7 +1,5 @@
 # coding: utf-8
 
-from __future__ import absolute_import, division
-
 import datetime
 import io
 import json
@@ -62,13 +60,13 @@ class ApiClient(object):
         self.rest_client = RESTClientObject(configuration)
         self.default_headers = {
             "x-aspose-client": "python sdk",
-            "x-aspose-client-version": "24.6.0",
+            "x-aspose-client-version": "24.7.0",
         }
         if header_name is not None:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = "Aspose-Barcode-SDK/24.6.0/python"
+        self.user_agent = "Aspose-Barcode-SDK/24.7.0/python"
 
     def __del__(self):
         self.rest_client.close()

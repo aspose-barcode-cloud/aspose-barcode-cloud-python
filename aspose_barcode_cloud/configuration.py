@@ -1,7 +1,5 @@
 # coding: utf-8
 
-from __future__ import absolute_import, division
-
 import contextlib
 import copy
 import json
@@ -260,7 +258,7 @@ class Configuration(object):
             "OS: {env}\n"
             "Python Version: {pyversion}\n"
             "Version of the API: 3.0\n"
-            "SDK Package Version: 24.6.0".format(env=sys.platform, pyversion=sys.version)
+            "SDK Package Version: 24.7.0".format(env=sys.platform, pyversion=sys.version)
         )
 
     @staticmethod

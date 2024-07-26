@@ -18,7 +18,6 @@ Copy folder
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
@@ -72,7 +71,6 @@ Create the folder
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
@@ -122,7 +120,6 @@ Delete folder
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
@@ -174,7 +171,6 @@ Get all files and folders within a folder
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
@@ -225,7 +221,6 @@ Move folder
 
 ### Example
 ```python
-from __future__ import division, print_function
 import time
 import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException

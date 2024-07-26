@@ -1,5 +1,3 @@
-from __future__ import absolute_import, division
-
 import unittest
 
 from aspose_barcode_cloud import (
