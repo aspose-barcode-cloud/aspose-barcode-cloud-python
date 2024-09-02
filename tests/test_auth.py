@@ -3,8 +3,9 @@ import unittest
 from aspose_barcode_cloud import (
     Configuration,
     ApiClient,
-    BarcodeApi,
+    GenerateApi,
     EncodeBarcodeType,
+    EncodeDataType,
     ApiException,
 )
 from .load_configuration import TEST_CONFIGURATION
@@ -18,7 +19,7 @@ class TestAuth(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.api_client = ApiClient(TEST_CONFIGURATION)
-        cls.api = BarcodeApi(cls.api_client)
+        cls.api = GenerateApi(cls.api_client)
 
     def test_access_token(self):
         self.assertIsNone(TEST_CONFIGURATION._access_token)
@@ -36,7 +37,7 @@ class TestAuth(unittest.TestCase):
         )
 
     def test_works_with_access_token(self):
-        api = BarcodeApi(
+        api = GenerateApi(
             ApiClient(
                 Configuration(
                     access_token=TEST_CONFIGURATION.access_token,
@@ -44,13 +45,14 @@ class TestAuth(unittest.TestCase):
                 )
             )
         )
-        response = api.get_barcode_generate(EncodeBarcodeType.QR, "Testing")
+
+        response = api.generate(EncodeBarcodeType.QR, "Testing", EncodeDataType.STRINGDATA)
         self.assertEqual(200, response.status)
 
     def test_unauthorized_raises(self):
-        api = BarcodeApi(ApiClient(Configuration(access_token="incorrect token", host=TEST_CONFIGURATION.host)))
+        api = GenerateApi(ApiClient(Configuration(access_token="incorrect token", host=TEST_CONFIGURATION.host)))
 
         with self.assertRaises(ApiException) as context:
-            api.get_barcode_generate(EncodeBarcodeType.QR, "Testing")
+            api.generate(EncodeBarcodeType.QR, "Testing", EncodeDataType.STRINGDATA)
 
         self.assertEqual(401, context.exception.status)

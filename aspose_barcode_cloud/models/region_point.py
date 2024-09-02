@@ -20,7 +20,7 @@ class RegionPoint(object):
     """
     swagger_types = {"x": "int", "y": "int"}
 
-    attribute_map = {"x": "X", "y": "Y"}
+    attribute_map = {"x": "x", "y": "y"}
 
     def __init__(self, x=None, y=None):  # noqa: E501
         """RegionPoint - a model defined in Swagger"""  # noqa: E501
@@ -29,8 +29,10 @@ class RegionPoint(object):
         self._y = None
         self.discriminator = None
 
-        self.x = x
-        self.y = y
+        if x is not None:
+            self.x = x
+        if y is not None:
+            self.y = y
 
     @property
     def x(self):
@@ -52,8 +54,6 @@ class RegionPoint(object):
         :param x: The x of this RegionPoint.  # noqa: E501
         :type: int
         """
-        if x is None:
-            raise ValueError("Invalid value for `x`, must not be `None`")  # noqa: E501
 
         self._x = x
 
@@ -77,8 +77,6 @@ class RegionPoint(object):
         :param y: The y of this RegionPoint.  # noqa: E501
         :type: int
         """
-        if y is None:
-            raise ValueError("Invalid value for `y`, must not be `None`")  # noqa: E501
 
         self._y = y
 

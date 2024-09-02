@@ -20,7 +20,7 @@ class ApiErrorResponse(object):
     """
     swagger_types = {"request_id": "str", "error": "ApiError"}
 
-    attribute_map = {"request_id": "RequestId", "error": "Error"}
+    attribute_map = {"request_id": "requestId", "error": "error"}
 
     def __init__(self, request_id=None, error=None):  # noqa: E501
         """ApiErrorResponse - a model defined in Swagger"""  # noqa: E501
@@ -29,15 +29,14 @@ class ApiErrorResponse(object):
         self._error = None
         self.discriminator = None
 
-        if request_id is not None:
-            self.request_id = request_id
-        if error is not None:
-            self.error = error
+        self.request_id = request_id
+        self.error = error
 
     @property
     def request_id(self):
         """Gets the request_id of this ApiErrorResponse.  # noqa: E501
 
+        Gets or sets request Id.  # noqa: E501
 
         :return: The request_id of this ApiErrorResponse.  # noqa: E501
         :rtype: str
@@ -48,10 +47,13 @@ class ApiErrorResponse(object):
     def request_id(self, request_id):
         """Sets the request_id of this ApiErrorResponse.
 
+        Gets or sets request Id.  # noqa: E501
 
         :param request_id: The request_id of this ApiErrorResponse.  # noqa: E501
         :type: str
         """
+        if request_id is None:
+            raise ValueError("Invalid value for `request_id`, must not be `None`")  # noqa: E501
 
         self._request_id = request_id
 
@@ -73,6 +75,8 @@ class ApiErrorResponse(object):
         :param error: The error of this ApiErrorResponse.  # noqa: E501
         :type: ApiError
         """
+        if error is None:
+            raise ValueError("Invalid value for `error`, must not be `None`")  # noqa: E501
 
         self._error = error
 

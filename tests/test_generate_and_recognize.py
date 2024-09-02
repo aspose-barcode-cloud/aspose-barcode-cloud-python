@@ -3,37 +3,40 @@ import tempfile
 import unittest
 
 from aspose_barcode_cloud import (
-    BarcodeApi,
+    GenerateApi,
+    RecognizeApi,
     ApiClient,
     EncodeBarcodeType,
-    PresetType,
     DecodeBarcodeType,
+    EncodeDataType,
 )
 from .load_configuration import TEST_CONFIGURATION
 
 
 class TestGenerateAndRecognize(unittest.TestCase):
     api_client = None
-    api = None
+    generateApi = None
+    recognizeApi = None
 
     @classmethod
     def setUpClass(cls):
         cls.api_client = ApiClient(TEST_CONFIGURATION)
-        cls.api = BarcodeApi(cls.api_client)
+        cls.generateApi = GenerateApi(cls.api_client)
+        cls.recognizeApi = RecognizeApi(cls.api_client)
 
     def test_generate_and_recognize(self):
-        generated = self.api.get_barcode_generate(EncodeBarcodeType.QR, "Should recognize this")
+        generated = self.generateApi.generate(EncodeBarcodeType.QR, "Should recognize this")
         self.assertGreater(len(generated.data), 0)
 
         fd, temp_filename = tempfile.mkstemp()
         os.close(fd)
         try:
-            with open(temp_filename, "wb") as f:
-                f.write(generated.data)
+            with open(temp_filename, "wb") as fw:
+                fw.write(generated.data)
 
-            recognized = self.api.post_barcode_recognize_from_url_or_content(
-                image=temp_filename, preset=PresetType.HIGHPERFORMANCE, types=[DecodeBarcodeType.QR]
-            )
+            with open(temp_filename, "rb") as fr:
+                recognized = self.recognizeApi.recognize_multipart(DecodeBarcodeType.QR, fr)
+
         finally:
             os.remove(temp_filename)
 
