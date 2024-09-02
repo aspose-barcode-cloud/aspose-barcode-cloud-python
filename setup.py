@@ -24,7 +24,7 @@ with open(os.path.join(here, "README.md"), "rt") as f:
 setup(
     name=NAME,
     version=VERSION,
-    description="Aspose.Barcode Cloud API Reference",
+    description="Aspose.BarCode.Cloud v4.0 specification",
     author="Aspose Barcode Cloud",
     url="https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-python",
     license="MIT",

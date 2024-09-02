@@ -1,9 +1,9 @@
 # DecodeBarcodeType
 
-See DecodeType
+See Aspose.BarCode.Aspose.BarCode.BarCodeRecognition.DecodeType
 ## Allowable values
 
-* **DecodeBarcodeType.ALL**
+* **DecodeBarcodeType.MOSTCOMMONLYUSED**
 * DecodeBarcodeType.AUSTRALIAPOST
 * DecodeBarcodeType.AZTEC
 * DecodeBarcodeType.ISBN
@@ -11,10 +11,10 @@ See DecodeType
 * DecodeBarcodeType.CODE11
 * DecodeBarcodeType.CODE128
 * DecodeBarcodeType.GS1CODE128
-* DecodeBarcodeType.CODE39EXTENDED
-* DecodeBarcodeType.CODE39STANDARD
-* DecodeBarcodeType.CODE93EXTENDED
-* DecodeBarcodeType.CODE93STANDARD
+* DecodeBarcodeType.CODE39
+* DecodeBarcodeType.CODE39FULLASCII
+* DecodeBarcodeType.CODE93
+* DecodeBarcodeType.CODE93FULLASCII
 * DecodeBarcodeType.DATAMATRIX
 * DecodeBarcodeType.DEUTSCHEPOSTIDENTCODE
 * DecodeBarcodeType.DEUTSCHEPOSTLEITCODE
@@ -41,6 +41,7 @@ See DecodeType
 * DecodeBarcodeType.PZN
 * DecodeBarcodeType.QR
 * DecodeBarcodeType.MICROQR
+* DecodeBarcodeType.RECTMICROQR
 * DecodeBarcodeType.RM4SCC
 * DecodeBarcodeType.SCC14
 * DecodeBarcodeType.SSCC18
@@ -87,6 +88,5 @@ See DecodeType
 * DecodeBarcodeType.GS1AZTEC
 * DecodeBarcodeType.GS1COMPOSITEBAR
 * DecodeBarcodeType.GS1MICROPDF417
-* DecodeBarcodeType.MOSTCOMMONLYUSED
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

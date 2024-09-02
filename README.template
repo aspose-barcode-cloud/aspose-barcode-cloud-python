@@ -1,0 +1,114 @@
+# Aspose.BarCode Cloud SDK for Python
+
+[![License](https://img.shields.io/github/license/aspose-barcode-cloud/aspose-barcode-cloud-python)](LICENSE)
+[![Python package](https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-python/actions/workflows/python-package.yml/badge.svg?branch=main)](https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-python/actions/workflows/python-package.yml)
+[![PyPI](https://img.shields.io/pypi/v/aspose-barcode-cloud)](https://pypi.org/project/aspose-barcode-cloud/)
+
+- API version: 4.0
+- Package version: 24.7.0
+
+## Demo applications
+
+[Scan QR](https://products.aspose.app/barcode/scanqr) | [Generate Barcode](https://products.aspose.app/barcode/generate) | [Recognize Barcode](https://products.aspose.app/barcode/recognize)
+:---: | :---: | :---:
+[![ScanQR](https://products.aspose.app/barcode/scanqr/img/aspose_scanqr-app-48.png)](https://products.aspose.app/barcode/scanqr) | [![Generate](https://products.aspose.app/barcode/generate/img/aspose_generate-app-48.png)](https://products.aspose.app/barcode/generate) | [![Recognize](https://products.aspose.app/barcode/recognize/img/aspose_recognize-app-48.png)](https://products.aspose.app/barcode/recognize)
+[**Generate Wi-Fi QR**](https://products.aspose.app/barcode/wifi-qr) | [**Embed Barcode**](https://products.aspose.app/barcode/embed) | [**Scan Barcode**](https://products.aspose.app/barcode/scan)
+[![Wi-FiQR](https://products.aspose.app/barcode/embed/img/aspose_wifi-qr-app-48.png)](https://products.aspose.app/barcode/wifi-qr) | [![Embed](https://products.aspose.app/barcode/embed/img/aspose_embed-app-48.png)](https://products.aspose.app/barcode/embed) | [![Scan](https://products.aspose.app/barcode/embed/img/aspose_scan-app-48.png)](https://products.aspose.app/barcode/scan)
+
+[Aspose.BarCode for Cloud](https://products.aspose.cloud/barcode/) is a REST API for Linear, 2D and postal barcode generation and recognition in the cloud. API recognizes and generates barcode images in a variety of formats. Barcode REST API allows to specify barcode image attributes like image width, height, border style and output image format in order to customize the generation process. Developers can also specify the barcode type and text attributes such as text location and font styles in order to suit the application requirements.
+
+This repository contains Aspose.BarCode Cloud SDK for Python source code. This SDK allows you to work with Aspose.BarCode for Cloud REST APIs in your Python 3 applications quickly and easily.
+
+Supported Python versions:
+
+- Python 3.6+
+
+To use these SDKs, you will need Client Id and Client Secret which can be looked up at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/applications) (free registration in Aspose Cloud is required for this).
+
+## How to use the SDK
+
+The complete source code is available in this repository folder. You can either directly use it in your project via source code or get [from PyPi](https://pypi.org/project/aspose-barcode-cloud/) (recommended).
+
+## Prerequisites
+
+To use Aspose.BarCode Cloud SDK for Python you need to register an account with [Aspose Cloud](https://www.aspose.cloud) and lookup/create Client Secret and Client Id at [Cloud Dashboard](https://dashboard.aspose.cloud/applications). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/).
+
+## Installation
+
+### Install aspose-barcode-cloud via pip
+
+From the command line:
+
+```sh
+pip install aspose-barcode-cloud
+```
+
+Then import the package:
+
+```python
+import aspose_barcode_cloud
+```
+
+## Sample usage
+
+The examples below show how you can generate and recognize Code128 barcode and save it into local file using aspose-barcode-cloud:
+
+```python
+%insert example.py%
+```
+
+## Requirements
+
+- urllib3 >= 1.21.1, <2.0
+
+## Licensing
+
+All Aspose.BarCode for Cloud SDKs, helper scripts and templates are licensed under [MIT License](LICENSE).
+
+## Resources
+
+- [**Website**](https://www.aspose.cloud)
+- [**Product Home**](https://products.aspose.cloud/barcode/)
+- [**Documentation**](https://docs.aspose.cloud/barcode/)
+- [**Free Support Forum**](https://forum.aspose.cloud/c/barcode)
+- [**Paid Support Helpdesk**](https://helpdesk.aspose.cloud/)
+- [**Blog**](https://blog.aspose.cloud/categories/aspose.barcode-cloud-product-family/)
+
+## Documentation for API Endpoints
+
+All URIs are relative to *<https://barcode.qa.aspose.cloud/v4.0>*
+
+Class | Method | HTTP request | Description
+----- | ------ | ------------ | -----------
+*GenerateApi* | [**barcode_generate_barcode_type_get**](docs/GenerateApi.md#barcode_generate_barcode_type_get) | **GET** /barcode/generate/{barcodeType} | Generate barcode using GET request with parameters in route and query string.
+*GenerateApi* | [**barcode_generate_body_post**](docs/GenerateApi.md#barcode_generate_body_post) | **POST** /barcode/generate-body | Generate barcode using POST request with parameters in body in json or xml format.
+*GenerateApi* | [**barcode_generate_form_post**](docs/GenerateApi.md#barcode_generate_form_post) | **POST** /barcode/generate-form | Generate barcode using POST request with parameters in url ecncoded form.
+*RecognizeApi* | [**barcode_recognize_barcode_type_get**](docs/RecognizeApi.md#barcode_recognize_barcode_type_get) | **GET** /barcode/recognize/{barcodeType} | Recognize barcode from file on server using GET requests with parameters in route and query string.
+*RecognizeApi* | [**barcode_recognize_body_post**](docs/RecognizeApi.md#barcode_recognize_body_post) | **POST** /barcode/recognize-body | Recognize barcode from file in request body using POST requests with parameters in body in json or xml format.
+*RecognizeApi* | [**barcode_recognize_form_post**](docs/RecognizeApi.md#barcode_recognize_form_post) | **POST** /barcode/recognize-form | Recognize barcode from file in request body using POST requests with parameters in multipart form.
+*ScanApi* | [**barcode_scan_body_post**](docs/ScanApi.md#barcode_scan_body_post) | **POST** /barcode/scan-body | Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
+*ScanApi* | [**barcode_scan_form_post**](docs/ScanApi.md#barcode_scan_form_post) | **POST** /barcode/scan-form | Scan barcode from file in request body using POST requests with parameter in multipart form.
+*ScanApi* | [**barcode_scan_get**](docs/ScanApi.md#barcode_scan_get) | **GET** /barcode/scan | Scan barcode from file on server using GET requests with parameter in query string.
+
+## Documentation For Models
+
+- [ApiError](docs/ApiError.md)
+- [ApiErrorResponse](docs/ApiErrorResponse.md)
+- [AvailableBarCodeImageFormat](docs/AvailableBarCodeImageFormat.md)
+- [AvailableGraphicsUnit](docs/AvailableGraphicsUnit.md)
+- [BarcodeImageParams](docs/BarcodeImageParams.md)
+- [BarcodeResponse](docs/BarcodeResponse.md)
+- [BarcodeResponseList](docs/BarcodeResponseList.md)
+- [CodeLocation](docs/CodeLocation.md)
+- [DecodeBarcodeType](docs/DecodeBarcodeType.md)
+- [EncodeBarcodeType](docs/EncodeBarcodeType.md)
+- [EncodeData](docs/EncodeData.md)
+- [EncodeDataType](docs/EncodeDataType.md)
+- [GenerateParams](docs/GenerateParams.md)
+- [RecognitionImageKind](docs/RecognitionImageKind.md)
+- [RecognitionMode](docs/RecognitionMode.md)
+- [RecognizeBase64Request](docs/RecognizeBase64Request.md)
+- [RegionPoint](docs/RegionPoint.md)
+- [ScanBase64Request](docs/ScanBase64Request.md)
+- [TextAlignment](docs/TextAlignment.md)
+

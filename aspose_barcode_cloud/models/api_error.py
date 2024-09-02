@@ -27,11 +27,11 @@ class ApiError(object):
     }
 
     attribute_map = {
-        "code": "Code",
-        "message": "Message",
-        "description": "Description",
-        "date_time": "DateTime",
-        "inner_error": "InnerError",
+        "code": "code",
+        "message": "message",
+        "description": "description",
+        "date_time": "dateTime",
+        "inner_error": "innerError",
     }
 
     def __init__(self, code=None, message=None, description=None, date_time=None, inner_error=None):  # noqa: E501
@@ -44,10 +44,8 @@ class ApiError(object):
         self._inner_error = None
         self.discriminator = None
 
-        if code is not None:
-            self.code = code
-        if message is not None:
-            self.message = message
+        self.code = code
+        self.message = message
         if description is not None:
             self.description = description
         if date_time is not None:
@@ -59,6 +57,7 @@ class ApiError(object):
     def code(self):
         """Gets the code of this ApiError.  # noqa: E501
 
+        Gets or sets api error code.  # noqa: E501
 
         :return: The code of this ApiError.  # noqa: E501
         :rtype: str
@@ -69,10 +68,13 @@ class ApiError(object):
     def code(self, code):
         """Sets the code of this ApiError.
 
+        Gets or sets api error code.  # noqa: E501
 
         :param code: The code of this ApiError.  # noqa: E501
         :type: str
         """
+        if code is None:
+            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
 
         self._code = code
 
@@ -80,6 +82,7 @@ class ApiError(object):
     def message(self):
         """Gets the message of this ApiError.  # noqa: E501
 
+        Gets or sets error message.  # noqa: E501
 
         :return: The message of this ApiError.  # noqa: E501
         :rtype: str
@@ -90,10 +93,13 @@ class ApiError(object):
     def message(self, message):
         """Sets the message of this ApiError.
 
+        Gets or sets error message.  # noqa: E501
 
         :param message: The message of this ApiError.  # noqa: E501
         :type: str
         """
+        if message is None:
+            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
 
         self._message = message
 
@@ -101,6 +107,7 @@ class ApiError(object):
     def description(self):
         """Gets the description of this ApiError.  # noqa: E501
 
+        Gets or sets error description.  # noqa: E501
 
         :return: The description of this ApiError.  # noqa: E501
         :rtype: str
@@ -111,6 +118,7 @@ class ApiError(object):
     def description(self, description):
         """Sets the description of this ApiError.
 
+        Gets or sets error description.  # noqa: E501
 
         :param description: The description of this ApiError.  # noqa: E501
         :type: str
@@ -122,6 +130,7 @@ class ApiError(object):
     def date_time(self):
         """Gets the date_time of this ApiError.  # noqa: E501
 
+        Gets or sets server datetime.  # noqa: E501
 
         :return: The date_time of this ApiError.  # noqa: E501
         :rtype: datetime
@@ -132,6 +141,7 @@ class ApiError(object):
     def date_time(self, date_time):
         """Sets the date_time of this ApiError.
 
+        Gets or sets server datetime.  # noqa: E501
 
         :param date_time: The date_time of this ApiError.  # noqa: E501
         :type: datetime

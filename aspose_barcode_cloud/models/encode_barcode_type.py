@@ -16,10 +16,9 @@ class EncodeBarcodeType(object):
     """
     CODABAR = "Codabar"
     CODE11 = "Code11"
-    CODE39STANDARD = "Code39Standard"
-    CODE39EXTENDED = "Code39Extended"
-    CODE93STANDARD = "Code93Standard"
-    CODE93EXTENDED = "Code93Extended"
+    CODE39 = "Code39"
+    CODE39FULLASCII = "Code39FullASCII"
+    CODE93 = "Code93"
     CODE128 = "Code128"
     GS1CODE128 = "GS1Code128"
     EAN8 = "EAN8"
@@ -86,6 +85,8 @@ class EncodeBarcodeType(object):
     GS1HANXIN = "GS1HanXin"
     GS1AZTEC = "GS1Aztec"
     GS1MICROPDF417 = "GS1MicroPdf417"
+    RECTMICROQR = "RectMicroQR"
+    MICROQR = "MicroQR"
 
     """
     Attributes:
