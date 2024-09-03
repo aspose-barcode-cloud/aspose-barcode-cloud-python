@@ -21,7 +21,14 @@ class Configuration(object):
 
     _default = None
 
-    def __init__(self, client_id=None, client_secret=None, access_token=None, host=None, token_url="/connect/token"):
+    def __init__(
+        self,
+        client_id=None,
+        client_secret=None,
+        access_token=None,
+        host=None,
+        token_url="https://id-qa.aspose.cloud/connect/token",
+    ):
         """Constructor"""
         if self._default:
             for key in self._default.__dict__:

@@ -1,0 +1,71 @@
+import os
+import unittest
+import uuid
+
+from aspose_barcode_cloud import (
+    ApiClient,
+    EncodeBarcodeType,
+    EncodeDataType,
+    EncodeData,
+    GenerateParams,
+    BarcodeImageParams,
+    AvailableBarCodeImageFormat,
+)
+from aspose_barcode_cloud.api.generate_api import GenerateApi
+from .load_configuration import TEST_CONFIGURATION
+
+
+class TestBarcodeApi(unittest.TestCase):
+    """GenerateApi unit tests"""
+
+    @classmethod
+    def setUpClass(cls):
+
+        cls.api_client = ApiClient(configuration=TEST_CONFIGURATION)
+
+        # noinspection PyUnresolvedReferences
+        cls.api = GenerateApi(api_client=cls.api_client)
+
+    def test_barcode_generate_barcode_type_get(self):
+        """Test case for barcode_generate_barcode_type_get
+
+        Generate barcode.
+        """
+        response = self.api.barcode_generate_barcode_type_get(
+            EncodeBarcodeType.CODE128, EncodeDataType.STRINGDATA, "Hello!"
+        )
+
+        content_length = int(response.headers["content-length"])
+        self.assertGreater(content_length, 0, "content_length=%s" % content_length)
+        self.assertEqual("image/png", response.headers["content-type"])
+
+    def test_barcode_generate_body_post(self):
+        """Test case for barcode_generate_body_post
+
+        Generate barcode from params in body
+        """
+        generator_params = GenerateParams(
+            EncodeBarcodeType.QR,
+            EncodeData(EncodeDataType.BASE64BYTES, "VGVzdA=="),
+            BarcodeImageParams(AvailableBarCodeImageFormat.JPEG),
+        )
+
+        response = self.api.barcode_generate_body_post(generator_params)
+
+        content_length = int(response.headers["content-length"])
+        self.assertGreater(content_length, 0, "content_length=%s" % content_length)
+        self.assertEqual("image/jpeg", response.headers["content-type"])
+
+    def test_barcode_generate_form_post(self):
+        """Test case for barcode_generate_form_post
+
+        Generate barcode from params in form
+        """
+
+        response = self.api.barcode_generate_form_post(
+            EncodeBarcodeType.QR, EncodeDataType.HEXBYTES, "54657374", background_color="0xffe"
+        )
+
+        content_length = int(response.headers["content-length"])
+        self.assertGreater(content_length, 0, "content_length=%s" % content_length)
+        self.assertEqual("image/png", response.headers["content-type"])

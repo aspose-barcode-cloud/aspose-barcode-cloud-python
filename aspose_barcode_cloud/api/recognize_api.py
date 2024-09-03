@@ -17,6 +17,8 @@ class RecognizeApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        # Authentication setting
+        self.auth_settings = ["JWT"]
 
     def barcode_recognize_barcode_type_get(
         self, barcode_type, url, recognition_mode=None, image_kind=None, async_req=False, **kwargs
@@ -112,9 +114,6 @@ class RecognizeApi(object):
         # HTTP header "Accept"
         header_params["Accept"] = self.api_client.select_header_accept(["application/json", "application/xml"])
 
-        # Authentication setting
-        auth_settings = []
-
         return self.api_client.call_api(
             "/barcode/recognize/{barcodeType}",
             "GET",
@@ -125,7 +124,7 @@ class RecognizeApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type="BarcodeResponseList",
-            auth_settings=auth_settings,
+            auth_settings=self.auth_settings,
             async_req=params.get("async_req"),
             _return_http_data_only=params.get("_return_http_data_only"),
             _preload_content=params.get("_preload_content", True),
@@ -213,9 +212,6 @@ class RecognizeApi(object):
             ["application/json", "application/xml"]
         )
 
-        # Authentication setting
-        auth_settings = []
-
         return self.api_client.call_api(
             "/barcode/recognize-body",
             "POST",
@@ -226,7 +222,7 @@ class RecognizeApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type="BarcodeResponseList",
-            auth_settings=auth_settings,
+            auth_settings=self.auth_settings,
             async_req=params.get("async_req"),
             _return_http_data_only=params.get("_return_http_data_only"),
             _preload_content=params.get("_preload_content", True),
@@ -329,9 +325,6 @@ class RecognizeApi(object):
         # HTTP header "Content-Type"
         header_params["Content-Type"] = self.api_client.select_header_content_type(["multipart/form-data"])
 
-        # Authentication setting
-        auth_settings = []
-
         return self.api_client.call_api(
             "/barcode/recognize-form",
             "POST",
@@ -342,7 +335,7 @@ class RecognizeApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type="BarcodeResponseList",
-            auth_settings=auth_settings,
+            auth_settings=self.auth_settings,
             async_req=params.get("async_req"),
             _return_http_data_only=params.get("_return_http_data_only"),
             _preload_content=params.get("_preload_content", True),

@@ -58,10 +58,12 @@ import os
 from pprint import pprint
 
 from aspose_barcode_cloud import (
-    BarcodeApi,
+    GenerateApi,
+    RecognizeApi,
     ApiClient,
     Configuration,
     EncodeBarcodeType,
+    EncodeDataType,
     CodeLocation,
     DecodeBarcodeType,
 )
@@ -72,16 +74,18 @@ config = Configuration(
     access_token=os.environ.get("TEST_CONFIGURATION_ACCESS_TOKEN"),  # Only for testing in CI, remove this line
 )
 
-api = BarcodeApi(ApiClient(config))
-
 # Generate barcode
-response = api.get_barcode_generate(EncodeBarcodeType.QR, "Example", text_location=CodeLocation.NONE)
+generateApi = GenerateApi(ApiClient(config))
+response = generateApi.barcode_generate_barcode_type_get(
+    EncodeBarcodeType.QR, EncodeDataType.STRINGDATA, "Example", text_location=CodeLocation.NONE
+)
 with open("example.png", "wb") as f:
     f.write(response.data)
 print("Barcode saved to file 'example.png'")
 
 # Recognize barcode
-response = api.scan_barcode("example.png", decode_types=[DecodeBarcodeType.QR])
+recognizeApi = RecognizeApi(ApiClient(config))
+response = recognizeApi.barcode_recognize_form_post(DecodeBarcodeType.QR, open("example.png", "rb"))
 pprint(response)
 
 ```
