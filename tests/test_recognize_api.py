@@ -81,8 +81,8 @@ class TestBarcodeApi(unittest.TestCase):
 
         Recognition of a barcode from file on server with parameters in body.
         """
-
-        response = self.api.barcode_recognize_form_post(DecodeBarcodeType.PDF417, open(self.test_filename, "rb"))
+        with open(self.test_filename, "rb") as f:
+            response = self.api.barcode_recognize_form_post(DecodeBarcodeType.PDF417, f)
 
         self.assertEqual(1, len(response.barcodes))
         barcode = response.barcodes[0]

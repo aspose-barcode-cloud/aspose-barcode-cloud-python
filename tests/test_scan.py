@@ -55,8 +55,8 @@ class TestScanBarcode(unittest.TestCase):
 
         Recognition of a barcode from file with parameters in form.
         """
-
-        response = self.api.barcode_scan_form_post(open(self.test_filename, "rb"))
+        with open(self.test_filename, "rb") as f:
+            response = self.api.barcode_scan_form_post(f)
 
         self.assertIsNotNone(response and response.barcodes)
         self.assertEqual(2, len(response.barcodes))
