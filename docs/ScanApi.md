@@ -100,7 +100,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **barcode_scan_get**
-> BarcodeResponseList barcode_scan_get(url)
+> BarcodeResponseList barcode_scan_get(file_url)
 
 Scan barcode from file on server using GET requests with parameter in query string.
 
@@ -113,11 +113,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.ScanApi()
-url = 'url_example' # str | Url to barcode image
+file_url = 'file_url_example' # str | Url to barcode image
 
 try:
     # Scan barcode from file on server using GET requests with parameter in query string.
-    api_response = api_instance.barcode_scan_get(url)
+    api_response = api_instance.barcode_scan_get(file_url)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ScanApi->barcode_scan_get: %s\n" % e)
@@ -127,7 +127,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
- **url** | **str**| Url to barcode image | 
+ **file_url** | **str**| Url to barcode image | 
 
 ### Return type
 

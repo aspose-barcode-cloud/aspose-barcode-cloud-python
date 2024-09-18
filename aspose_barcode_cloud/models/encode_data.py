@@ -29,7 +29,8 @@ class EncodeData(object):
         self._data = None
         self.discriminator = None
 
-        self.data_type = data_type
+        if data_type is not None:
+            self.data_type = data_type
         self.data = data
 
     @property
@@ -50,8 +51,6 @@ class EncodeData(object):
         :param data_type: The data_type of this EncodeData.  # noqa: E501
         :type: EncodeDataType
         """
-        if data_type is None:
-            raise ValueError("Invalid value for `data_type`, must not be `None`")  # noqa: E501
 
         self._data_type = data_type
 

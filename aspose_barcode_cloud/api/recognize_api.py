@@ -21,17 +21,17 @@ class RecognizeApi(object):
         self.auth_settings = ["JWT"]
 
     def barcode_recognize_barcode_type_get(
-        self, barcode_type, url, recognition_mode=None, image_kind=None, async_req=False, **kwargs
+        self, barcode_type, file_url, recognition_mode=None, image_kind=None, async_req=False, **kwargs
     ):
         """Recognize barcode from file on server using GET requests with parameters in route and query string.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = RecognizeApi().barcode_recognize_barcode_type_get(barcode_type, url, async_req=True)
+        >>> thread = RecognizeApi().barcode_recognize_barcode_type_get(barcode_type, file_url, async_req=True)
         >>> result = thread.get()
 
         :param DecodeBarcodeType barcode_type: Type of barcode to recognize # noqa: E501
-        :param str url: Url to barcode image # noqa: E501
+        :param str file_url: Url to barcode image # noqa: E501
         :param RecognitionMode recognition_mode: Recognition mode # noqa: E501
         :param RecognitionImageKind image_kind: Image kind # noqa: E501
         :param async_req bool
@@ -42,30 +42,30 @@ class RecognizeApi(object):
         kwargs["_return_http_data_only"] = True
         if async_req:
             return self.barcode_recognize_barcode_type_get_with_http_info(
-                barcode_type, url, recognition_mode=recognition_mode, image_kind=image_kind, **kwargs
+                barcode_type, file_url, recognition_mode=recognition_mode, image_kind=image_kind, **kwargs
             )
         else:
             (data) = self.barcode_recognize_barcode_type_get_with_http_info(
-                barcode_type, url, recognition_mode=recognition_mode, image_kind=image_kind, **kwargs
+                barcode_type, file_url, recognition_mode=recognition_mode, image_kind=image_kind, **kwargs
             )
             return data
 
-    def barcode_recognize_barcode_type_get_with_http_info(self, barcode_type, url, **kwargs):
+    def barcode_recognize_barcode_type_get_with_http_info(self, barcode_type, file_url, **kwargs):
         """Recognize barcode from file on server using GET requests with parameters in route and query string.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = RecognizeApi().barcode_recognize_barcode_type_get_with_http_info(barcode_type, url, async_req=True)
+        >>> thread = RecognizeApi().barcode_recognize_barcode_type_get_with_http_info(barcode_type, file_url, async_req=True)
         >>> result = thread.get()
 
         :param DecodeBarcodeType barcode_type: Type of barcode to recognize # noqa: E501
-        :param str url: Url to barcode image # noqa: E501
+        :param str file_url: Url to barcode image # noqa: E501
         :return: BarcodeResponseList
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = {"barcode_type", "url", "recognition_mode", "image_kind"}
+        all_params = {"barcode_type", "file_url", "recognition_mode", "image_kind"}
         all_params.add("async_req")
         all_params.add("_return_http_data_only")
         all_params.add("_preload_content")
@@ -87,9 +87,11 @@ class RecognizeApi(object):
             raise ValueError(
                 "Missing the required parameter 'barcode_type' when calling 'barcode_recognize_barcode_type_get'"
             )
-        # verify the required parameter "url" is set
-        if "url" not in params or params["url"] is None:
-            raise ValueError("Missing the required parameter 'url' when calling 'barcode_recognize_barcode_type_get'")
+        # verify the required parameter "file_url" is set
+        if "file_url" not in params or params["file_url"] is None:
+            raise ValueError(
+                "Missing the required parameter 'file_url' when calling 'barcode_recognize_barcode_type_get'"
+            )
 
         collection_formats = {}
 
@@ -98,8 +100,8 @@ class RecognizeApi(object):
             path_params["barcodeType"] = params["barcode_type"]
 
         query_params = []
-        if "url" in params:
-            query_params.append(("url", params["url"]))
+        if "file_url" in params:
+            query_params.append(("fileUrl", params["file_url"]))
         if "recognition_mode" in params:
             query_params.append(("recognitionMode", params["recognition_mode"]))
         if "image_kind" in params:

@@ -25,9 +25,7 @@ class TestGenerateAndRecognize(unittest.TestCase):
         cls.recognizeApi = RecognizeApi(cls.api_client)
 
     def test_generate_and_recognize(self):
-        generated = self.generateApi.barcode_generate_barcode_type_get(
-            EncodeBarcodeType.QR, EncodeDataType.STRINGDATA, "Should recognize this"
-        )
+        generated = self.generateApi.barcode_generate_barcode_type_get(EncodeBarcodeType.QR, "Should recognize this")
         self.assertGreater(len(generated.data), 0)
 
         fd, temp_filename = tempfile.mkstemp()

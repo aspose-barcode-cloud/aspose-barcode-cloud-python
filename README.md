@@ -77,7 +77,7 @@ config = Configuration(
 # Generate barcode
 generateApi = GenerateApi(ApiClient(config))
 response = generateApi.barcode_generate_barcode_type_get(
-    EncodeBarcodeType.QR, EncodeDataType.STRINGDATA, "Example", text_location=CodeLocation.NONE
+    EncodeBarcodeType.QR, "Example", text_location=CodeLocation.NONE
 )
 with open("example.png", "wb") as f:
     f.write(response.data)

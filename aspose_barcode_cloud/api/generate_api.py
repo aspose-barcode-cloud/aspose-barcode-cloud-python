@@ -23,8 +23,8 @@ class GenerateApi(object):
     def barcode_generate_barcode_type_get(
         self,
         barcode_type,
-        data_type,
         data,
+        data_type=None,
         image_format=None,
         two_d_display_text=None,
         text_location=None,
@@ -43,12 +43,12 @@ class GenerateApi(object):
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = GenerateApi().barcode_generate_barcode_type_get(barcode_type, data_type, data, async_req=True)
+        >>> thread = GenerateApi().barcode_generate_barcode_type_get(barcode_type, data, async_req=True)
         >>> result = thread.get()
 
         :param EncodeBarcodeType barcode_type: Type of barcode to generate. # noqa: E501
-        :param EncodeDataType data_type: Type of data to encode. # noqa: E501
         :param str data: String represents data to encode # noqa: E501
+        :param EncodeDataType data_type: Type of data to encode.  Default value:  EncodeDataType.StringData. # noqa: E501
         :param AvailableBarCodeImageFormat image_format: Barcode output image format.  Default value: png # noqa: E501
         :param str two_d_display_text: Text that will be displayed instead of codetext in 2D barcodes.  Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode # noqa: E501
         :param CodeLocation text_location: Specify the displaying Text Location, set to CodeLocation.None to hide CodeText.  Default value: CodeLocation.Below. # noqa: E501
@@ -69,8 +69,8 @@ class GenerateApi(object):
         if async_req:
             return self.barcode_generate_barcode_type_get_with_http_info(
                 barcode_type,
-                data_type,
                 data,
+                data_type=data_type,
                 image_format=image_format,
                 two_d_display_text=two_d_display_text,
                 text_location=text_location,
@@ -87,8 +87,8 @@ class GenerateApi(object):
         else:
             (data) = self.barcode_generate_barcode_type_get_with_http_info(
                 barcode_type,
-                data_type,
                 data,
+                data_type=data_type,
                 image_format=image_format,
                 two_d_display_text=two_d_display_text,
                 text_location=text_location,
@@ -104,16 +104,15 @@ class GenerateApi(object):
             )
             return data
 
-    def barcode_generate_barcode_type_get_with_http_info(self, barcode_type, data_type, data, **kwargs):
+    def barcode_generate_barcode_type_get_with_http_info(self, barcode_type, data, **kwargs):
         """Generate barcode using GET request with parameters in route and query string.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = GenerateApi().barcode_generate_barcode_type_get_with_http_info(barcode_type, data_type, data, async_req=True)
+        >>> thread = GenerateApi().barcode_generate_barcode_type_get_with_http_info(barcode_type, data, async_req=True)
         >>> result = thread.get()
 
         :param EncodeBarcodeType barcode_type: Type of barcode to generate. # noqa: E501
-        :param EncodeDataType data_type: Type of data to encode. # noqa: E501
         :param str data: String represents data to encode # noqa: E501
         :return: bytearray
                  If the method is called asynchronously,
@@ -122,8 +121,8 @@ class GenerateApi(object):
 
         all_params = {
             "barcode_type",
-            "data_type",
             "data",
+            "data_type",
             "image_format",
             "two_d_display_text",
             "text_location",
@@ -156,11 +155,6 @@ class GenerateApi(object):
         if "barcode_type" not in params or params["barcode_type"] is None:
             raise ValueError(
                 "Missing the required parameter 'barcode_type' when calling 'barcode_generate_barcode_type_get'"
-            )
-        # verify the required parameter "data_type" is set
-        if "data_type" not in params or params["data_type"] is None:
-            raise ValueError(
-                "Missing the required parameter 'data_type' when calling 'barcode_generate_barcode_type_get'"
             )
         # verify the required parameter "data" is set
         if "data" not in params or params["data"] is None:
@@ -348,8 +342,8 @@ class GenerateApi(object):
     def barcode_generate_form_post(
         self,
         barcode_type,
-        data_type,
         data,
+        data_type=None,
         image_format=None,
         two_d_display_text=None,
         text_location=None,
@@ -368,12 +362,12 @@ class GenerateApi(object):
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = GenerateApi().barcode_generate_form_post(barcode_type, data_type, data, async_req=True)
+        >>> thread = GenerateApi().barcode_generate_form_post(barcode_type, data, async_req=True)
         >>> result = thread.get()
 
         :param EncodeBarcodeType barcode_type: # noqa: E501
-        :param EncodeDataType data_type: # noqa: E501
         :param str data: String represents data to encode # noqa: E501
+        :param EncodeDataType data_type: # noqa: E501
         :param AvailableBarCodeImageFormat image_format: # noqa: E501
         :param str two_d_display_text: Text that will be displayed instead of codetext in 2D barcodes.  Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode # noqa: E501
         :param CodeLocation text_location: # noqa: E501
@@ -394,8 +388,8 @@ class GenerateApi(object):
         if async_req:
             return self.barcode_generate_form_post_with_http_info(
                 barcode_type,
-                data_type,
                 data,
+                data_type=data_type,
                 image_format=image_format,
                 two_d_display_text=two_d_display_text,
                 text_location=text_location,
@@ -412,8 +406,8 @@ class GenerateApi(object):
         else:
             (data) = self.barcode_generate_form_post_with_http_info(
                 barcode_type,
-                data_type,
                 data,
+                data_type=data_type,
                 image_format=image_format,
                 two_d_display_text=two_d_display_text,
                 text_location=text_location,
@@ -429,16 +423,15 @@ class GenerateApi(object):
             )
             return data
 
-    def barcode_generate_form_post_with_http_info(self, barcode_type, data_type, data, **kwargs):
+    def barcode_generate_form_post_with_http_info(self, barcode_type, data, **kwargs):
         """Generate barcode using POST request with parameters in url ecncoded form.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = GenerateApi().barcode_generate_form_post_with_http_info(barcode_type, data_type, data, async_req=True)
+        >>> thread = GenerateApi().barcode_generate_form_post_with_http_info(barcode_type, data, async_req=True)
         >>> result = thread.get()
 
         :param EncodeBarcodeType barcode_type: # noqa: E501
-        :param EncodeDataType data_type: # noqa: E501
         :param str data: String represents data to encode # noqa: E501
         :return: bytearray
                  If the method is called asynchronously,
@@ -447,8 +440,8 @@ class GenerateApi(object):
 
         all_params = {
             "barcode_type",
-            "data_type",
             "data",
+            "data_type",
             "image_format",
             "two_d_display_text",
             "text_location",
@@ -478,9 +471,6 @@ class GenerateApi(object):
         # verify the required parameter "barcode_type" is set
         if "barcode_type" not in params or params["barcode_type"] is None:
             raise ValueError("Missing the required parameter 'barcode_type' when calling 'barcode_generate_form_post'")
-        # verify the required parameter "data_type" is set
-        if "data_type" not in params or params["data_type"] is None:
-            raise ValueError("Missing the required parameter 'data_type' when calling 'barcode_generate_form_post'")
         # verify the required parameter "data" is set
         if "data" not in params or params["data"] is None:
             raise ValueError("Missing the required parameter 'data' when calling 'barcode_generate_form_post'")

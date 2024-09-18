@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **barcode_recognize_barcode_type_get**
-> BarcodeResponseList barcode_recognize_barcode_type_get(barcode_type, url, recognition_mode=recognition_mode, image_kind=image_kind)
+> BarcodeResponseList barcode_recognize_barcode_type_get(barcode_type, file_url, recognition_mode=recognition_mode, image_kind=image_kind)
 
 Recognize barcode from file on server using GET requests with parameters in route and query string.
 
@@ -24,13 +24,13 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.RecognizeApi()
 barcode_type = aspose_barcode_cloud.DecodeBarcodeType() # DecodeBarcodeType | Type of barcode to recognize
-url = 'url_example' # str | Url to barcode image
+file_url = 'file_url_example' # str | Url to barcode image
 recognition_mode = aspose_barcode_cloud.RecognitionMode() # RecognitionMode | Recognition mode (optional)
 image_kind = aspose_barcode_cloud.RecognitionImageKind() # RecognitionImageKind | Image kind (optional)
 
 try:
     # Recognize barcode from file on server using GET requests with parameters in route and query string.
-    api_response = api_instance.barcode_recognize_barcode_type_get(barcode_type, url, recognition_mode=recognition_mode, image_kind=image_kind)
+    api_response = api_instance.barcode_recognize_barcode_type_get(barcode_type, file_url, recognition_mode=recognition_mode, image_kind=image_kind)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RecognizeApi->barcode_recognize_barcode_type_get: %s\n" % e)
@@ -41,7 +41,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
  **barcode_type** | [**DecodeBarcodeType**](.md)| Type of barcode to recognize | 
- **url** | **str**| Url to barcode image | 
+ **file_url** | **str**| Url to barcode image | 
  **recognition_mode** | [**RecognitionMode**](.md)| Recognition mode | [optional] 
  **image_kind** | [**RecognitionImageKind**](.md)| Image kind | [optional] 
 

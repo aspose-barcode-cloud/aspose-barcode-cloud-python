@@ -208,15 +208,15 @@ class ScanApi(object):
             collection_formats=collection_formats,
         )
 
-    def barcode_scan_get(self, url, async_req=False, **kwargs):
+    def barcode_scan_get(self, file_url, async_req=False, **kwargs):
         """Scan barcode from file on server using GET requests with parameter in query string.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = ScanApi().barcode_scan_get(url, async_req=True)
+        >>> thread = ScanApi().barcode_scan_get(file_url, async_req=True)
         >>> result = thread.get()
 
-        :param str url: Url to barcode image # noqa: E501
+        :param str file_url: Url to barcode image # noqa: E501
         :param async_req bool
         :return: BarcodeResponseList
                  If the method is called asynchronously,
@@ -224,26 +224,26 @@ class ScanApi(object):
         """
         kwargs["_return_http_data_only"] = True
         if async_req:
-            return self.barcode_scan_get_with_http_info(url, **kwargs)
+            return self.barcode_scan_get_with_http_info(file_url, **kwargs)
         else:
-            (data) = self.barcode_scan_get_with_http_info(url, **kwargs)
+            (data) = self.barcode_scan_get_with_http_info(file_url, **kwargs)
             return data
 
-    def barcode_scan_get_with_http_info(self, url, **kwargs):
+    def barcode_scan_get_with_http_info(self, file_url, **kwargs):
         """Scan barcode from file on server using GET requests with parameter in query string.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = ScanApi().barcode_scan_get_with_http_info(url, async_req=True)
+        >>> thread = ScanApi().barcode_scan_get_with_http_info(file_url, async_req=True)
         >>> result = thread.get()
 
-        :param str url: Url to barcode image # noqa: E501
+        :param str file_url: Url to barcode image # noqa: E501
         :return: BarcodeResponseList
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = {"url"}
+        all_params = {"file_url"}
         all_params.add("async_req")
         all_params.add("_return_http_data_only")
         all_params.add("_preload_content")
@@ -258,17 +258,17 @@ class ScanApi(object):
 
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter "url" is set
-        if "url" not in params or params["url"] is None:
-            raise ValueError("Missing the required parameter 'url' when calling 'barcode_scan_get'")
+        # verify the required parameter "file_url" is set
+        if "file_url" not in params or params["file_url"] is None:
+            raise ValueError("Missing the required parameter 'file_url' when calling 'barcode_scan_get'")
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if "url" in params:
-            query_params.append(("url", params["url"]))
+        if "file_url" in params:
+            query_params.append(("fileUrl", params["file_url"]))
 
         header_params = {}
 

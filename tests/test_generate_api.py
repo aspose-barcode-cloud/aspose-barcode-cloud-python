@@ -31,9 +31,7 @@ class TestBarcodeApi(unittest.TestCase):
 
         Generate barcode.
         """
-        response = self.api.barcode_generate_barcode_type_get(
-            EncodeBarcodeType.CODE128, EncodeDataType.STRINGDATA, "Hello!"
-        )
+        response = self.api.barcode_generate_barcode_type_get(EncodeBarcodeType.CODE128, "Hello!")
 
         content_length = int(response.headers["content-length"])
         self.assertGreater(content_length, 0, "content_length=%s" % content_length)
@@ -63,7 +61,7 @@ class TestBarcodeApi(unittest.TestCase):
         """
 
         response = self.api.barcode_generate_form_post(
-            EncodeBarcodeType.QR, EncodeDataType.HEXBYTES, "54657374", background_color="0xffe"
+            EncodeBarcodeType.QR, "54657374", EncodeDataType.HEXBYTES, background_color="0xffe"
         )
 
         content_length = int(response.headers["content-length"])

@@ -20,33 +20,33 @@ class RecognizeBase64Request(object):
     """
     swagger_types = {
         "barcode_types": "List[DecodeBarcodeType]",
+        "file_base64": "str",
         "recognition_mode": "RecognitionMode",
         "image_kind": "RecognitionImageKind",
-        "file_base64": "str",
     }
 
     attribute_map = {
         "barcode_types": "barcodeTypes",
+        "file_base64": "fileBase64",
         "recognition_mode": "recognitionMode",
         "image_kind": "imageKind",
-        "file_base64": "fileBase64",
     }
 
-    def __init__(self, barcode_types=None, recognition_mode=None, image_kind=None, file_base64=None):  # noqa: E501
+    def __init__(self, barcode_types=None, file_base64=None, recognition_mode=None, image_kind=None):  # noqa: E501
         """RecognizeBase64Request - a model defined in Swagger"""  # noqa: E501
 
         self._barcode_types = None
+        self._file_base64 = None
         self._recognition_mode = None
         self._image_kind = None
-        self._file_base64 = None
         self.discriminator = None
 
         self.barcode_types = barcode_types
+        self.file_base64 = file_base64
         if recognition_mode is not None:
             self.recognition_mode = recognition_mode
         if image_kind is not None:
             self.image_kind = image_kind
-        self.file_base64 = file_base64
 
     @property
     def barcode_types(self):
@@ -72,6 +72,39 @@ class RecognizeBase64Request(object):
             raise ValueError("Invalid value for `barcode_types`, must not be `None`")  # noqa: E501
 
         self._barcode_types = barcode_types
+
+    @property
+    def file_base64(self):
+        """Gets the file_base64 of this RecognizeBase64Request.  # noqa: E501
+
+        Barcode image bytes encoded as base-64.  # noqa: E501
+
+        :return: The file_base64 of this RecognizeBase64Request.  # noqa: E501
+        :rtype: str
+        """
+        return self._file_base64
+
+    @file_base64.setter
+    def file_base64(self, file_base64):
+        """Sets the file_base64 of this RecognizeBase64Request.
+
+        Barcode image bytes encoded as base-64.  # noqa: E501
+
+        :param file_base64: The file_base64 of this RecognizeBase64Request.  # noqa: E501
+        :type: str
+        """
+        if file_base64 is None:
+            raise ValueError("Invalid value for `file_base64`, must not be `None`")  # noqa: E501
+        if file_base64 is not None and len(file_base64) > 28730982:
+            raise ValueError(
+                "Invalid value for `file_base64`, length must be less than or equal to `28730982`"
+            )  # noqa: E501
+        if file_base64 is not None and len(file_base64) < 1:
+            raise ValueError(
+                "Invalid value for `file_base64`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+
+        self._file_base64 = file_base64
 
     @property
     def recognition_mode(self):
@@ -114,39 +147,6 @@ class RecognizeBase64Request(object):
         """
 
         self._image_kind = image_kind
-
-    @property
-    def file_base64(self):
-        """Gets the file_base64 of this RecognizeBase64Request.  # noqa: E501
-
-        Barcode image bytes encoded as base-64.  # noqa: E501
-
-        :return: The file_base64 of this RecognizeBase64Request.  # noqa: E501
-        :rtype: str
-        """
-        return self._file_base64
-
-    @file_base64.setter
-    def file_base64(self, file_base64):
-        """Sets the file_base64 of this RecognizeBase64Request.
-
-        Barcode image bytes encoded as base-64.  # noqa: E501
-
-        :param file_base64: The file_base64 of this RecognizeBase64Request.  # noqa: E501
-        :type: str
-        """
-        if file_base64 is None:
-            raise ValueError("Invalid value for `file_base64`, must not be `None`")  # noqa: E501
-        if file_base64 is not None and len(file_base64) > 28730982:
-            raise ValueError(
-                "Invalid value for `file_base64`, length must be less than or equal to `28730982`"
-            )  # noqa: E501
-        if file_base64 is not None and len(file_base64) < 1:
-            raise ValueError(
-                "Invalid value for `file_base64`, length must be greater than or equal to `1`"
-            )  # noqa: E501
-
-        self._file_base64 = file_base64
 
     def to_dict(self):
         """Returns the model properties as a dict"""

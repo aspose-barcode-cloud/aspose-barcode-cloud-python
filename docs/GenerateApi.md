@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **barcode_generate_barcode_type_get**
-> bytearray barcode_generate_barcode_type_get(barcode_type, data_type, data, image_format=image_format, two_d_display_text=two_d_display_text, text_location=text_location, text_alignment=text_alignment, foreground_color=foreground_color, background_color=background_color, units=units, resolution=resolution, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle)
+> bytearray barcode_generate_barcode_type_get(barcode_type, data, data_type=data_type, image_format=image_format, two_d_display_text=two_d_display_text, text_location=text_location, text_alignment=text_alignment, foreground_color=foreground_color, background_color=background_color, units=units, resolution=resolution, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle)
 
 Generate barcode using GET request with parameters in route and query string.
 
@@ -24,8 +24,8 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.GenerateApi()
 barcode_type = aspose_barcode_cloud.EncodeBarcodeType() # EncodeBarcodeType | Type of barcode to generate.
-data_type = aspose_barcode_cloud.EncodeDataType() # EncodeDataType | Type of data to encode.
 data = 'data_example' # str | String represents data to encode
+data_type = aspose_barcode_cloud.EncodeDataType() # EncodeDataType | Type of data to encode.  Default value:  EncodeDataType.StringData. (optional)
 image_format = aspose_barcode_cloud.AvailableBarCodeImageFormat() # AvailableBarCodeImageFormat | Barcode output image format.  Default value: png (optional)
 two_d_display_text = 'two_d_display_text_example' # str | Text that will be displayed instead of codetext in 2D barcodes.  Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode (optional)
 text_location = aspose_barcode_cloud.CodeLocation() # CodeLocation | Specify the displaying Text Location, set to CodeLocation.None to hide CodeText.  Default value: CodeLocation.Below. (optional)
@@ -40,7 +40,7 @@ rotation_angle = 56 # int | BarCode image rotation angle, measured in degree, e.
 
 try:
     # Generate barcode using GET request with parameters in route and query string.
-    api_response = api_instance.barcode_generate_barcode_type_get(barcode_type, data_type, data, image_format=image_format, two_d_display_text=two_d_display_text, text_location=text_location, text_alignment=text_alignment, foreground_color=foreground_color, background_color=background_color, units=units, resolution=resolution, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle)
+    api_response = api_instance.barcode_generate_barcode_type_get(barcode_type, data, data_type=data_type, image_format=image_format, two_d_display_text=two_d_display_text, text_location=text_location, text_alignment=text_alignment, foreground_color=foreground_color, background_color=background_color, units=units, resolution=resolution, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling GenerateApi->barcode_generate_barcode_type_get: %s\n" % e)
@@ -51,8 +51,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
  **barcode_type** | [**EncodeBarcodeType**](.md)| Type of barcode to generate. | 
- **data_type** | [**EncodeDataType**](.md)| Type of data to encode. | 
  **data** | **str**| String represents data to encode | 
+ **data_type** | [**EncodeDataType**](.md)| Type of data to encode.  Default value:  EncodeDataType.StringData. | [optional] 
  **image_format** | [**AvailableBarCodeImageFormat**](.md)| Barcode output image format.  Default value: png | [optional] 
  **two_d_display_text** | **str**| Text that will be displayed instead of codetext in 2D barcodes.  Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode | [optional] 
  **text_location** | [**CodeLocation**](.md)| Specify the displaying Text Location, set to CodeLocation.None to hide CodeText.  Default value: CodeLocation.Below. | [optional] 
@@ -126,7 +126,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **barcode_generate_form_post**
-> bytearray barcode_generate_form_post(barcode_type, data_type, data, image_format=image_format, two_d_display_text=two_d_display_text, text_location=text_location, text_alignment=text_alignment, foreground_color=foreground_color, background_color=background_color, units=units, resolution=resolution, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle)
+> bytearray barcode_generate_form_post(barcode_type, data, data_type=data_type, image_format=image_format, two_d_display_text=two_d_display_text, text_location=text_location, text_alignment=text_alignment, foreground_color=foreground_color, background_color=background_color, units=units, resolution=resolution, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle)
 
 Generate barcode using POST request with parameters in url ecncoded form.
 
@@ -140,8 +140,8 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.GenerateApi()
 barcode_type = aspose_barcode_cloud.EncodeBarcodeType() # EncodeBarcodeType | 
-data_type = aspose_barcode_cloud.EncodeDataType() # EncodeDataType | 
 data = 'data_example' # str | String represents data to encode
+data_type = aspose_barcode_cloud.EncodeDataType() # EncodeDataType |  (optional)
 image_format = aspose_barcode_cloud.AvailableBarCodeImageFormat() # AvailableBarCodeImageFormat |  (optional)
 two_d_display_text = 'two_d_display_text_example' # str | Text that will be displayed instead of codetext in 2D barcodes.  Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode (optional)
 text_location = aspose_barcode_cloud.CodeLocation() # CodeLocation |  (optional)
@@ -156,7 +156,7 @@ rotation_angle = 56 # int | BarCode image rotation angle, measured in degree, e.
 
 try:
     # Generate barcode using POST request with parameters in url ecncoded form.
-    api_response = api_instance.barcode_generate_form_post(barcode_type, data_type, data, image_format=image_format, two_d_display_text=two_d_display_text, text_location=text_location, text_alignment=text_alignment, foreground_color=foreground_color, background_color=background_color, units=units, resolution=resolution, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle)
+    api_response = api_instance.barcode_generate_form_post(barcode_type, data, data_type=data_type, image_format=image_format, two_d_display_text=two_d_display_text, text_location=text_location, text_alignment=text_alignment, foreground_color=foreground_color, background_color=background_color, units=units, resolution=resolution, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling GenerateApi->barcode_generate_form_post: %s\n" % e)
@@ -167,8 +167,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
  **barcode_type** | [**EncodeBarcodeType**](EncodeBarcodeType.md)|  | 
- **data_type** | [**EncodeDataType**](EncodeDataType.md)|  | 
  **data** | **str**| String represents data to encode | 
+ **data_type** | [**EncodeDataType**](EncodeDataType.md)|  | [optional] 
  **image_format** | [**AvailableBarCodeImageFormat**](AvailableBarCodeImageFormat.md)|  | [optional] 
  **two_d_display_text** | **str**| Text that will be displayed instead of codetext in 2D barcodes.  Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode | [optional] 
  **text_location** | [**CodeLocation**](CodeLocation.md)|  | [optional] 
