@@ -15,7 +15,7 @@ from aspose_barcode_cloud.api.generate_api import GenerateApi
 from .load_configuration import TEST_CONFIGURATION
 
 
-class TestBarcodeApi(unittest.TestCase):
+class TestGenerateApi(unittest.TestCase):
     """GenerateApi unit tests"""
 
     @classmethod

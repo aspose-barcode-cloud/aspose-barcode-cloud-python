@@ -16,7 +16,7 @@ from aspose_barcode_cloud.api.recognize_api import RecognizeApi
 from .load_configuration import TEST_CONFIGURATION
 
 
-class TestBarcodeApi(unittest.TestCase):
+class TestRecognizeApi(unittest.TestCase):
     """RecognizeApi unit tests"""
 
     @classmethod
