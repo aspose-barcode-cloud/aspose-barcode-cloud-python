@@ -12,9 +12,8 @@ from aspose_barcode_cloud import (
 from aspose_barcode_cloud.api.generate_api import GenerateApi
 from .load_configuration import TEST_CONFIGURATION
 
-class TestException(unittest.TestCase):
 
- 
+class TestException(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
 
@@ -37,5 +36,6 @@ class TestException(unittest.TestCase):
 
         self.assertTrue(thrown)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
