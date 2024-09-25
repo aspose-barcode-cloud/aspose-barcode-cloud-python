@@ -1843,7 +1843,9 @@ class BarcodeApi(object):
             collection_formats=collection_formats,
         )
 
-    def scan_barcode(self, image_file, decode_types=None, timeout=None, async_req=False, **kwargs):
+    def scan_barcode(
+        self, image_file, decode_types=None, timeout=None, checksum_validation=None, async_req=False, **kwargs
+    ):
         """Quickly scan a barcode from an image.
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1854,6 +1856,7 @@ class BarcodeApi(object):
         :param file image_file: Image as file # noqa: E501
         :param list[DecodeBarcodeType] decode_types: Types of barcode to recognize # noqa: E501
         :param int timeout: Timeout of recognition process in milliseconds.  Default value is 15_000 (15 seconds).  Maximum value is 30_000 (1/2 minute).  In case of a timeout RequestTimeout (408) status will be returned.  Try reducing the image size to avoid timeout. # noqa: E501
+        :param str checksum_validation: Checksum validation setting. Default is ON. # noqa: E501
         :param async_req bool
         :return: BarcodeResponseList
                  If the method is called asynchronously,
@@ -1861,9 +1864,21 @@ class BarcodeApi(object):
         """
         kwargs["_return_http_data_only"] = True
         if async_req:
-            return self.scan_barcode_with_http_info(image_file, decode_types=decode_types, timeout=timeout, **kwargs)
+            return self.scan_barcode_with_http_info(
+                image_file,
+                decode_types=decode_types,
+                timeout=timeout,
+                checksum_validation=checksum_validation,
+                **kwargs
+            )
         else:
-            (data) = self.scan_barcode_with_http_info(image_file, decode_types=decode_types, timeout=timeout, **kwargs)
+            (data) = self.scan_barcode_with_http_info(
+                image_file,
+                decode_types=decode_types,
+                timeout=timeout,
+                checksum_validation=checksum_validation,
+                **kwargs
+            )
             return data
 
     def scan_barcode_with_http_info(self, image_file, **kwargs):
@@ -1880,7 +1895,7 @@ class BarcodeApi(object):
                  returns the request thread.
         """
 
-        all_params = {"image_file", "decode_types", "timeout"}
+        all_params = {"image_file", "decode_types", "timeout", "checksum_validation"}
         all_params.add("async_req")
         all_params.add("_return_http_data_only")
         all_params.add("_preload_content")
@@ -1916,6 +1931,8 @@ class BarcodeApi(object):
             collection_formats["decodeTypes"] = "multi"
         if "timeout" in params:
             form_params.append(("timeout", params["timeout"]))
+        if "checksum_validation" in params:
+            form_params.append(("checksumValidation", params["checksum_validation"]))
 
         body_params = None
         # HTTP header "Accept"

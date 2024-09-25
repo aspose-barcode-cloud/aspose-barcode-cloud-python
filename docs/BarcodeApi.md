@@ -661,7 +661,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **scan_barcode**
-> BarcodeResponseList scan_barcode(image_file, decode_types=decode_types, timeout=timeout)
+> BarcodeResponseList scan_barcode(image_file, decode_types=decode_types, timeout=timeout, checksum_validation=checksum_validation)
 
 Quickly scan a barcode from an image.
 
@@ -680,10 +680,11 @@ api_instance = aspose_barcode_cloud.BarcodeApi(aspose_barcode_cloud.ApiClient(co
 image_file = '/path/to/file.txt' # file | Image as file
 decode_types = [aspose_barcode_cloud.DecodeBarcodeType()] # list[DecodeBarcodeType] | Types of barcode to recognize (optional)
 timeout = 56 # int | Timeout of recognition process in milliseconds.  Default value is 15_000 (15 seconds).  Maximum value is 30_000 (1/2 minute).  In case of a timeout RequestTimeout (408) status will be returned.  Try reducing the image size to avoid timeout. (optional)
+checksum_validation = 'checksum_validation_example' # str | Checksum validation setting. Default is ON. (optional)
 
 try:
     # Quickly scan a barcode from an image.
-    api_response = api_instance.scan_barcode(image_file, decode_types=decode_types, timeout=timeout)
+    api_response = api_instance.scan_barcode(image_file, decode_types=decode_types, timeout=timeout, checksum_validation=checksum_validation)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling BarcodeApi->scan_barcode: %s\n" % e)
@@ -696,6 +697,7 @@ Name | Type | Description  | Notes
  **image_file** | **file**| Image as file | 
  **decode_types** | [**list[DecodeBarcodeType]**](DecodeBarcodeType.md)| Types of barcode to recognize | [optional] 
  **timeout** | **int**| Timeout of recognition process in milliseconds.  Default value is 15_000 (15 seconds).  Maximum value is 30_000 (1/2 minute).  In case of a timeout RequestTimeout (408) status will be returned.  Try reducing the image size to avoid timeout. | [optional] 
+ **checksum_validation** | **str**| Checksum validation setting. Default is ON. | [optional] 
 
 ### Return type
 
