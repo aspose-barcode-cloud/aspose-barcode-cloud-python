@@ -489,7 +489,7 @@ class GeneratorParams(object):
     def text_color(self):
         """Gets the text_color of this GeneratorParams.  # noqa: E501
 
-        Specify the displaying CodeText's Color. Default value: Color.Black.  # noqa: E501
+        Specify the displaying CodeText's Color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF  # noqa: E501
 
         :return: The text_color of this GeneratorParams.  # noqa: E501
         :rtype: str
@@ -500,7 +500,7 @@ class GeneratorParams(object):
     def text_color(self, text_color):
         """Sets the text_color of this GeneratorParams.
 
-        Specify the displaying CodeText's Color. Default value: Color.Black.  # noqa: E501
+        Specify the displaying CodeText's Color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF  # noqa: E501
 
         :param text_color: The text_color of this GeneratorParams.  # noqa: E501
         :type: str
@@ -911,7 +911,7 @@ class GeneratorParams(object):
     def back_color(self):
         """Gets the back_color of this GeneratorParams.  # noqa: E501
 
-        Background color of the barcode image. Default value: Color.White.  # noqa: E501
+        Background color of the barcode image. Default value: white. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF  # noqa: E501
 
         :return: The back_color of this GeneratorParams.  # noqa: E501
         :rtype: str
@@ -922,7 +922,7 @@ class GeneratorParams(object):
     def back_color(self, back_color):
         """Sets the back_color of this GeneratorParams.
 
-        Background color of the barcode image. Default value: Color.White.  # noqa: E501
+        Background color of the barcode image. Default value: white. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF  # noqa: E501
 
         :param back_color: The back_color of this GeneratorParams.  # noqa: E501
         :type: str
@@ -934,7 +934,7 @@ class GeneratorParams(object):
     def bar_color(self):
         """Gets the bar_color of this GeneratorParams.  # noqa: E501
 
-        Bars color. Default value: Color.Black.  # noqa: E501
+        Bars color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF  # noqa: E501
 
         :return: The bar_color of this GeneratorParams.  # noqa: E501
         :rtype: str
@@ -945,7 +945,7 @@ class GeneratorParams(object):
     def bar_color(self, bar_color):
         """Sets the bar_color of this GeneratorParams.
 
-        Bars color. Default value: Color.Black.  # noqa: E501
+        Bars color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF  # noqa: E501
 
         :param bar_color: The bar_color of this GeneratorParams.  # noqa: E501
         :type: str
@@ -957,7 +957,7 @@ class GeneratorParams(object):
     def border_color(self):
         """Gets the border_color of this GeneratorParams.  # noqa: E501
 
-        Border color. Default value: Color.Black.  # noqa: E501
+        Border color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF  # noqa: E501
 
         :return: The border_color of this GeneratorParams.  # noqa: E501
         :rtype: str
@@ -968,7 +968,7 @@ class GeneratorParams(object):
     def border_color(self, border_color):
         """Sets the border_color of this GeneratorParams.
 
-        Border color. Default value: Color.Black.  # noqa: E501
+        Border color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF  # noqa: E501
 
         :param border_color: The border_color of this GeneratorParams.  # noqa: E501
         :type: str
@@ -1624,7 +1624,7 @@ class GeneratorParams(object):
     def code128(self):
         """Gets the code128 of this GeneratorParams.  # noqa: E501
 
-        Code128 params.  # noqa: E501
+        Code128 parameters  # noqa: E501
 
         :return: The code128 of this GeneratorParams.  # noqa: E501
         :rtype: Code128Params
@@ -1635,7 +1635,7 @@ class GeneratorParams(object):
     def code128(self, code128):
         """Sets the code128 of this GeneratorParams.
 
-        Code128 params.  # noqa: E501
+        Code128 parameters  # noqa: E501
 
         :param code128: The code128 of this GeneratorParams.  # noqa: E501
         :type: Code128Params

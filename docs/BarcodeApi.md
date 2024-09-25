@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **get_barcode_generate**
-> file get_barcode_generate(type, text, two_d_display_text=two_d_display_text, text_location=text_location, text_alignment=text_alignment, text_color=text_color, font_size_mode=font_size_mode, no_wrap=no_wrap, resolution=resolution, resolution_x=resolution_x, resolution_y=resolution_y, dimension_x=dimension_x, text_space=text_space, units=units, size_mode=size_mode, bar_height=bar_height, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle, back_color=back_color, bar_color=bar_color, border_color=border_color, border_width=border_width, border_dash_style=border_dash_style, border_visible=border_visible, enable_checksum=enable_checksum, enable_escape=enable_escape, filled_bars=filled_bars, always_show_checksum=always_show_checksum, wide_narrow_ratio=wide_narrow_ratio, validate_text=validate_text, supplement_data=supplement_data, supplement_space=supplement_space, bar_width_reduction=bar_width_reduction, use_anti_alias=use_anti_alias, format=format)
+> file get_barcode_generate(type, text, two_d_display_text=two_d_display_text, text_location=text_location, text_alignment=text_alignment, text_color=text_color, no_wrap=no_wrap, resolution=resolution, resolution_x=resolution_x, resolution_y=resolution_y, dimension_x=dimension_x, text_space=text_space, units=units, size_mode=size_mode, bar_height=bar_height, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle, back_color=back_color, bar_color=bar_color, border_color=border_color, border_width=border_width, border_dash_style=border_dash_style, border_visible=border_visible, enable_checksum=enable_checksum, enable_escape=enable_escape, filled_bars=filled_bars, always_show_checksum=always_show_checksum, wide_narrow_ratio=wide_narrow_ratio, validate_text=validate_text, supplement_data=supplement_data, supplement_space=supplement_space, bar_width_reduction=bar_width_reduction, use_anti_alias=use_anti_alias, format=format)
 
 Generate barcode.
 
@@ -36,8 +36,7 @@ text = 'text_example' # str | Text to encode.
 two_d_display_text = 'two_d_display_text_example' # str | Text that will be displayed instead of codetext in 2D barcodes. Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode (optional)
 text_location = 'text_location_example' # str | Specify the displaying Text Location, set to CodeLocation.None to hide CodeText. Default value: CodeLocation.Below. (optional)
 text_alignment = 'text_alignment_example' # str | Text alignment. (optional)
-text_color = 'text_color_example' # str | Specify the displaying CodeText's Color. Default value: Color.Black. (optional)
-font_size_mode = 'font_size_mode_example' # str | Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto. (optional)
+text_color = 'text_color_example' # str | Specify the displaying CodeText's Color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF (optional)
 no_wrap = True # bool | Specify word wraps (line breaks) within text. Default value: False. (optional)
 resolution = 1.2 # float | Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. (optional)
 resolution_x = 1.2 # float | DEPRECATED: Use 'Resolution' instead. (optional)
@@ -50,9 +49,9 @@ bar_height = 1.2 # float | Height of the barcode in given units. Default units: 
 image_height = 1.2 # float | Height of the barcode image in given units. Default units: pixel. (optional)
 image_width = 1.2 # float | Width of the barcode image in given units. Default units: pixel. (optional)
 rotation_angle = 1.2 # float | BarCode image rotation angle, measured in degree, e.g. RotationAngle = 0 or RotationAngle = 360 means no rotation. If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image. Default value: 0. (optional)
-back_color = 'back_color_example' # str | Background color of the barcode image. Default value: Color.White. (optional)
-bar_color = 'bar_color_example' # str | Bars color. Default value: Color.Black. (optional)
-border_color = 'border_color_example' # str | Border color. Default value: Color.Black. (optional)
+back_color = 'back_color_example' # str | Background color of the barcode image. Default value: white. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF (optional)
+bar_color = 'bar_color_example' # str | Bars color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF (optional)
+border_color = 'border_color_example' # str | Border color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF (optional)
 border_width = 1.2 # float | Border width. Default value: 0. Ignored if Visible is set to False. (optional)
 border_dash_style = 'border_dash_style_example' # str | Border dash style. Default value: BorderDashStyle.Solid. (optional)
 border_visible = True # bool | Border visibility. If False than parameter Width is always ignored (0). Default value: False. (optional)
@@ -70,7 +69,7 @@ format = 'format_example' # str | Result image format. (optional)
 
 try:
     # Generate barcode.
-    api_response = api_instance.get_barcode_generate(type, text, two_d_display_text=two_d_display_text, text_location=text_location, text_alignment=text_alignment, text_color=text_color, font_size_mode=font_size_mode, no_wrap=no_wrap, resolution=resolution, resolution_x=resolution_x, resolution_y=resolution_y, dimension_x=dimension_x, text_space=text_space, units=units, size_mode=size_mode, bar_height=bar_height, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle, back_color=back_color, bar_color=bar_color, border_color=border_color, border_width=border_width, border_dash_style=border_dash_style, border_visible=border_visible, enable_checksum=enable_checksum, enable_escape=enable_escape, filled_bars=filled_bars, always_show_checksum=always_show_checksum, wide_narrow_ratio=wide_narrow_ratio, validate_text=validate_text, supplement_data=supplement_data, supplement_space=supplement_space, bar_width_reduction=bar_width_reduction, use_anti_alias=use_anti_alias, format=format)
+    api_response = api_instance.get_barcode_generate(type, text, two_d_display_text=two_d_display_text, text_location=text_location, text_alignment=text_alignment, text_color=text_color, no_wrap=no_wrap, resolution=resolution, resolution_x=resolution_x, resolution_y=resolution_y, dimension_x=dimension_x, text_space=text_space, units=units, size_mode=size_mode, bar_height=bar_height, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle, back_color=back_color, bar_color=bar_color, border_color=border_color, border_width=border_width, border_dash_style=border_dash_style, border_visible=border_visible, enable_checksum=enable_checksum, enable_escape=enable_escape, filled_bars=filled_bars, always_show_checksum=always_show_checksum, wide_narrow_ratio=wide_narrow_ratio, validate_text=validate_text, supplement_data=supplement_data, supplement_space=supplement_space, bar_width_reduction=bar_width_reduction, use_anti_alias=use_anti_alias, format=format)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling BarcodeApi->get_barcode_generate: %s\n" % e)
@@ -85,8 +84,7 @@ Name | Type | Description  | Notes
  **two_d_display_text** | **str**| Text that will be displayed instead of codetext in 2D barcodes. Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode | [optional] 
  **text_location** | **str**| Specify the displaying Text Location, set to CodeLocation.None to hide CodeText. Default value: CodeLocation.Below. | [optional] 
  **text_alignment** | **str**| Text alignment. | [optional] 
- **text_color** | **str**| Specify the displaying CodeText&#39;s Color. Default value: Color.Black. | [optional] 
- **font_size_mode** | **str**| Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto. | [optional] 
+ **text_color** | **str**| Specify the displaying CodeText&#39;s Color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF | [optional] 
  **no_wrap** | **bool**| Specify word wraps (line breaks) within text. Default value: False. | [optional] 
  **resolution** | **float**| Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. | [optional] 
  **resolution_x** | **float**| DEPRECATED: Use &#39;Resolution&#39; instead. | [optional] 
@@ -99,9 +97,9 @@ Name | Type | Description  | Notes
  **image_height** | **float**| Height of the barcode image in given units. Default units: pixel. | [optional] 
  **image_width** | **float**| Width of the barcode image in given units. Default units: pixel. | [optional] 
  **rotation_angle** | **float**| BarCode image rotation angle, measured in degree, e.g. RotationAngle &#x3D; 0 or RotationAngle &#x3D; 360 means no rotation. If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image. Default value: 0. | [optional] 
- **back_color** | **str**| Background color of the barcode image. Default value: Color.White. | [optional] 
- **bar_color** | **str**| Bars color. Default value: Color.Black. | [optional] 
- **border_color** | **str**| Border color. Default value: Color.Black. | [optional] 
+ **back_color** | **str**| Background color of the barcode image. Default value: white. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF | [optional] 
+ **bar_color** | **str**| Bars color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF | [optional] 
+ **border_color** | **str**| Border color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF | [optional] 
  **border_width** | **float**| Border width. Default value: 0. Ignored if Visible is set to False. | [optional] 
  **border_dash_style** | **str**| Border dash style. Default value: BorderDashStyle.Solid. | [optional] 
  **border_visible** | **bool**| Border visibility. If False than parameter Width is always ignored (0). Default value: False. | [optional] 
@@ -429,7 +427,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_barcode_generate_file**
-> ResultImageInfo put_barcode_generate_file(name, type, text, two_d_display_text=two_d_display_text, text_location=text_location, text_alignment=text_alignment, text_color=text_color, font_size_mode=font_size_mode, no_wrap=no_wrap, resolution=resolution, resolution_x=resolution_x, resolution_y=resolution_y, dimension_x=dimension_x, text_space=text_space, units=units, size_mode=size_mode, bar_height=bar_height, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle, back_color=back_color, bar_color=bar_color, border_color=border_color, border_width=border_width, border_dash_style=border_dash_style, border_visible=border_visible, enable_checksum=enable_checksum, enable_escape=enable_escape, filled_bars=filled_bars, always_show_checksum=always_show_checksum, wide_narrow_ratio=wide_narrow_ratio, validate_text=validate_text, supplement_data=supplement_data, supplement_space=supplement_space, bar_width_reduction=bar_width_reduction, use_anti_alias=use_anti_alias, storage=storage, folder=folder, format=format)
+> ResultImageInfo put_barcode_generate_file(name, type, text, two_d_display_text=two_d_display_text, text_location=text_location, text_alignment=text_alignment, text_color=text_color, no_wrap=no_wrap, resolution=resolution, resolution_x=resolution_x, resolution_y=resolution_y, dimension_x=dimension_x, text_space=text_space, units=units, size_mode=size_mode, bar_height=bar_height, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle, back_color=back_color, bar_color=bar_color, border_color=border_color, border_width=border_width, border_dash_style=border_dash_style, border_visible=border_visible, enable_checksum=enable_checksum, enable_escape=enable_escape, filled_bars=filled_bars, always_show_checksum=always_show_checksum, wide_narrow_ratio=wide_narrow_ratio, validate_text=validate_text, supplement_data=supplement_data, supplement_space=supplement_space, bar_width_reduction=bar_width_reduction, use_anti_alias=use_anti_alias, storage=storage, folder=folder, format=format)
 
 Generate barcode and save on server (from query params or from file with json or xml content)
 
@@ -451,8 +449,7 @@ text = 'text_example' # str | Text to encode.
 two_d_display_text = 'two_d_display_text_example' # str | Text that will be displayed instead of codetext in 2D barcodes. Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode (optional)
 text_location = 'text_location_example' # str | Specify the displaying Text Location, set to CodeLocation.None to hide CodeText. Default value: CodeLocation.Below. (optional)
 text_alignment = 'text_alignment_example' # str | Text alignment. (optional)
-text_color = 'text_color_example' # str | Specify the displaying CodeText's Color. Default value: Color.Black. (optional)
-font_size_mode = 'font_size_mode_example' # str | Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto. (optional)
+text_color = 'text_color_example' # str | Specify the displaying CodeText's Color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF (optional)
 no_wrap = True # bool | Specify word wraps (line breaks) within text. Default value: False. (optional)
 resolution = 1.2 # float | Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. (optional)
 resolution_x = 1.2 # float | DEPRECATED: Use 'Resolution' instead. (optional)
@@ -465,9 +462,9 @@ bar_height = 1.2 # float | Height of the barcode in given units. Default units: 
 image_height = 1.2 # float | Height of the barcode image in given units. Default units: pixel. (optional)
 image_width = 1.2 # float | Width of the barcode image in given units. Default units: pixel. (optional)
 rotation_angle = 1.2 # float | BarCode image rotation angle, measured in degree, e.g. RotationAngle = 0 or RotationAngle = 360 means no rotation. If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image. Default value: 0. (optional)
-back_color = 'back_color_example' # str | Background color of the barcode image. Default value: Color.White. (optional)
-bar_color = 'bar_color_example' # str | Bars color. Default value: Color.Black. (optional)
-border_color = 'border_color_example' # str | Border color. Default value: Color.Black. (optional)
+back_color = 'back_color_example' # str | Background color of the barcode image. Default value: white. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF (optional)
+bar_color = 'bar_color_example' # str | Bars color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF (optional)
+border_color = 'border_color_example' # str | Border color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF (optional)
 border_width = 1.2 # float | Border width. Default value: 0. Ignored if Visible is set to False. (optional)
 border_dash_style = 'border_dash_style_example' # str | Border dash style. Default value: BorderDashStyle.Solid. (optional)
 border_visible = True # bool | Border visibility. If False than parameter Width is always ignored (0). Default value: False. (optional)
@@ -487,7 +484,7 @@ format = 'format_example' # str | The image format. (optional)
 
 try:
     # Generate barcode and save on server (from query params or from file with json or xml content)
-    api_response = api_instance.put_barcode_generate_file(name, type, text, two_d_display_text=two_d_display_text, text_location=text_location, text_alignment=text_alignment, text_color=text_color, font_size_mode=font_size_mode, no_wrap=no_wrap, resolution=resolution, resolution_x=resolution_x, resolution_y=resolution_y, dimension_x=dimension_x, text_space=text_space, units=units, size_mode=size_mode, bar_height=bar_height, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle, back_color=back_color, bar_color=bar_color, border_color=border_color, border_width=border_width, border_dash_style=border_dash_style, border_visible=border_visible, enable_checksum=enable_checksum, enable_escape=enable_escape, filled_bars=filled_bars, always_show_checksum=always_show_checksum, wide_narrow_ratio=wide_narrow_ratio, validate_text=validate_text, supplement_data=supplement_data, supplement_space=supplement_space, bar_width_reduction=bar_width_reduction, use_anti_alias=use_anti_alias, storage=storage, folder=folder, format=format)
+    api_response = api_instance.put_barcode_generate_file(name, type, text, two_d_display_text=two_d_display_text, text_location=text_location, text_alignment=text_alignment, text_color=text_color, no_wrap=no_wrap, resolution=resolution, resolution_x=resolution_x, resolution_y=resolution_y, dimension_x=dimension_x, text_space=text_space, units=units, size_mode=size_mode, bar_height=bar_height, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle, back_color=back_color, bar_color=bar_color, border_color=border_color, border_width=border_width, border_dash_style=border_dash_style, border_visible=border_visible, enable_checksum=enable_checksum, enable_escape=enable_escape, filled_bars=filled_bars, always_show_checksum=always_show_checksum, wide_narrow_ratio=wide_narrow_ratio, validate_text=validate_text, supplement_data=supplement_data, supplement_space=supplement_space, bar_width_reduction=bar_width_reduction, use_anti_alias=use_anti_alias, storage=storage, folder=folder, format=format)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling BarcodeApi->put_barcode_generate_file: %s\n" % e)
@@ -503,8 +500,7 @@ Name | Type | Description  | Notes
  **two_d_display_text** | **str**| Text that will be displayed instead of codetext in 2D barcodes. Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode | [optional] 
  **text_location** | **str**| Specify the displaying Text Location, set to CodeLocation.None to hide CodeText. Default value: CodeLocation.Below. | [optional] 
  **text_alignment** | **str**| Text alignment. | [optional] 
- **text_color** | **str**| Specify the displaying CodeText&#39;s Color. Default value: Color.Black. | [optional] 
- **font_size_mode** | **str**| Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto. | [optional] 
+ **text_color** | **str**| Specify the displaying CodeText&#39;s Color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF | [optional] 
  **no_wrap** | **bool**| Specify word wraps (line breaks) within text. Default value: False. | [optional] 
  **resolution** | **float**| Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. | [optional] 
  **resolution_x** | **float**| DEPRECATED: Use &#39;Resolution&#39; instead. | [optional] 
@@ -517,9 +513,9 @@ Name | Type | Description  | Notes
  **image_height** | **float**| Height of the barcode image in given units. Default units: pixel. | [optional] 
  **image_width** | **float**| Width of the barcode image in given units. Default units: pixel. | [optional] 
  **rotation_angle** | **float**| BarCode image rotation angle, measured in degree, e.g. RotationAngle &#x3D; 0 or RotationAngle &#x3D; 360 means no rotation. If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image. Default value: 0. | [optional] 
- **back_color** | **str**| Background color of the barcode image. Default value: Color.White. | [optional] 
- **bar_color** | **str**| Bars color. Default value: Color.Black. | [optional] 
- **border_color** | **str**| Border color. Default value: Color.Black. | [optional] 
+ **back_color** | **str**| Background color of the barcode image. Default value: white. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF | [optional] 
+ **bar_color** | **str**| Bars color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF | [optional] 
+ **border_color** | **str**| Border color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF | [optional] 
  **border_width** | **float**| Border width. Default value: 0. Ignored if Visible is set to False. | [optional] 
  **border_dash_style** | **str**| Border dash style. Default value: BorderDashStyle.Solid. | [optional] 
  **border_visible** | **bool**| Border visibility. If False than parameter Width is always ignored (0). Default value: False. | [optional] 
