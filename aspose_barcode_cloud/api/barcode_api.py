@@ -26,7 +26,6 @@ class BarcodeApi(object):
         text_location=None,
         text_alignment=None,
         text_color=None,
-        font_size_mode=None,
         no_wrap=None,
         resolution=None,
         resolution_x=None,
@@ -71,8 +70,7 @@ class BarcodeApi(object):
         :param str two_d_display_text: Text that will be displayed instead of codetext in 2D barcodes. Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode # noqa: E501
         :param str text_location: Specify the displaying Text Location, set to CodeLocation.None to hide CodeText. Default value: CodeLocation.Below. # noqa: E501
         :param str text_alignment: Text alignment. # noqa: E501
-        :param str text_color: Specify the displaying CodeText's Color. Default value: Color.Black. # noqa: E501
-        :param str font_size_mode: Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto. # noqa: E501
+        :param str text_color: Specify the displaying CodeText's Color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF # noqa: E501
         :param bool no_wrap: Specify word wraps (line breaks) within text. Default value: false. # noqa: E501
         :param float resolution: Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. # noqa: E501
         :param float resolution_x: DEPRECATED: Use 'Resolution' instead. # noqa: E501
@@ -85,9 +83,9 @@ class BarcodeApi(object):
         :param float image_height: Height of the barcode image in given units. Default units: pixel. # noqa: E501
         :param float image_width: Width of the barcode image in given units. Default units: pixel. # noqa: E501
         :param float rotation_angle: BarCode image rotation angle, measured in degree, e.g. RotationAngle = 0 or RotationAngle = 360 means no rotation. If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image. Default value: 0. # noqa: E501
-        :param str back_color: Background color of the barcode image. Default value: Color.White. # noqa: E501
-        :param str bar_color: Bars color. Default value: Color.Black. # noqa: E501
-        :param str border_color: Border color. Default value: Color.Black. # noqa: E501
+        :param str back_color: Background color of the barcode image. Default value: white. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF # noqa: E501
+        :param str bar_color: Bars color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF # noqa: E501
+        :param str border_color: Border color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF # noqa: E501
         :param float border_width: Border width. Default value: 0. Ignored if Visible is set to false. # noqa: E501
         :param str border_dash_style: Border dash style. Default value: BorderDashStyle.Solid. # noqa: E501
         :param bool border_visible: Border visibility. If false than parameter Width is always ignored (0). Default value: false. # noqa: E501
@@ -116,7 +114,6 @@ class BarcodeApi(object):
                 text_location=text_location,
                 text_alignment=text_alignment,
                 text_color=text_color,
-                font_size_mode=font_size_mode,
                 no_wrap=no_wrap,
                 resolution=resolution,
                 resolution_x=resolution_x,
@@ -156,7 +153,6 @@ class BarcodeApi(object):
                 text_location=text_location,
                 text_alignment=text_alignment,
                 text_color=text_color,
-                font_size_mode=font_size_mode,
                 no_wrap=no_wrap,
                 resolution=resolution,
                 resolution_x=resolution_x,
@@ -212,7 +208,6 @@ class BarcodeApi(object):
             "text_location",
             "text_alignment",
             "text_color",
-            "font_size_mode",
             "no_wrap",
             "resolution",
             "resolution_x",
@@ -281,8 +276,6 @@ class BarcodeApi(object):
             query_params.append(("TextAlignment", params["text_alignment"]))
         if "text_color" in params:
             query_params.append(("TextColor", params["text_color"]))
-        if "font_size_mode" in params:
-            query_params.append(("FontSizeMode", params["font_size_mode"]))
         if "no_wrap" in params:
             query_params.append(("NoWrap", params["no_wrap"]))
         if "resolution" in params:
@@ -1240,7 +1233,6 @@ class BarcodeApi(object):
         text_location=None,
         text_alignment=None,
         text_color=None,
-        font_size_mode=None,
         no_wrap=None,
         resolution=None,
         resolution_x=None,
@@ -1288,8 +1280,7 @@ class BarcodeApi(object):
         :param str two_d_display_text: Text that will be displayed instead of codetext in 2D barcodes. Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode # noqa: E501
         :param str text_location: Specify the displaying Text Location, set to CodeLocation.None to hide CodeText. Default value: CodeLocation.Below. # noqa: E501
         :param str text_alignment: Text alignment. # noqa: E501
-        :param str text_color: Specify the displaying CodeText's Color. Default value: Color.Black. # noqa: E501
-        :param str font_size_mode: Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto. # noqa: E501
+        :param str text_color: Specify the displaying CodeText's Color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF # noqa: E501
         :param bool no_wrap: Specify word wraps (line breaks) within text. Default value: false. # noqa: E501
         :param float resolution: Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. # noqa: E501
         :param float resolution_x: DEPRECATED: Use 'Resolution' instead. # noqa: E501
@@ -1302,9 +1293,9 @@ class BarcodeApi(object):
         :param float image_height: Height of the barcode image in given units. Default units: pixel. # noqa: E501
         :param float image_width: Width of the barcode image in given units. Default units: pixel. # noqa: E501
         :param float rotation_angle: BarCode image rotation angle, measured in degree, e.g. RotationAngle = 0 or RotationAngle = 360 means no rotation. If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image. Default value: 0. # noqa: E501
-        :param str back_color: Background color of the barcode image. Default value: Color.White. # noqa: E501
-        :param str bar_color: Bars color. Default value: Color.Black. # noqa: E501
-        :param str border_color: Border color. Default value: Color.Black. # noqa: E501
+        :param str back_color: Background color of the barcode image. Default value: white. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF # noqa: E501
+        :param str bar_color: Bars color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF # noqa: E501
+        :param str border_color: Border color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF # noqa: E501
         :param float border_width: Border width. Default value: 0. Ignored if Visible is set to false. # noqa: E501
         :param str border_dash_style: Border dash style. Default value: BorderDashStyle.Solid. # noqa: E501
         :param bool border_visible: Border visibility. If false than parameter Width is always ignored (0). Default value: false. # noqa: E501
@@ -1336,7 +1327,6 @@ class BarcodeApi(object):
                 text_location=text_location,
                 text_alignment=text_alignment,
                 text_color=text_color,
-                font_size_mode=font_size_mode,
                 no_wrap=no_wrap,
                 resolution=resolution,
                 resolution_x=resolution_x,
@@ -1379,7 +1369,6 @@ class BarcodeApi(object):
                 text_location=text_location,
                 text_alignment=text_alignment,
                 text_color=text_color,
-                font_size_mode=font_size_mode,
                 no_wrap=no_wrap,
                 resolution=resolution,
                 resolution_x=resolution_x,
@@ -1439,7 +1428,6 @@ class BarcodeApi(object):
             "text_location",
             "text_alignment",
             "text_color",
-            "font_size_mode",
             "no_wrap",
             "resolution",
             "resolution_x",
@@ -1515,8 +1503,6 @@ class BarcodeApi(object):
             query_params.append(("TextAlignment", params["text_alignment"]))
         if "text_color" in params:
             query_params.append(("TextColor", params["text_color"]))
-        if "font_size_mode" in params:
-            query_params.append(("FontSizeMode", params["font_size_mode"]))
         if "no_wrap" in params:
             query_params.append(("NoWrap", params["no_wrap"]))
         if "resolution" in params:
@@ -1857,7 +1843,9 @@ class BarcodeApi(object):
             collection_formats=collection_formats,
         )
 
-    def scan_barcode(self, image_file, decode_types=None, timeout=None, async_req=False, **kwargs):
+    def scan_barcode(
+        self, image_file, decode_types=None, timeout=None, checksum_validation=None, async_req=False, **kwargs
+    ):
         """Quickly scan a barcode from an image.
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1868,6 +1856,7 @@ class BarcodeApi(object):
         :param file image_file: Image as file # noqa: E501
         :param list[DecodeBarcodeType] decode_types: Types of barcode to recognize # noqa: E501
         :param int timeout: Timeout of recognition process in milliseconds.  Default value is 15_000 (15 seconds).  Maximum value is 30_000 (1/2 minute).  In case of a timeout RequestTimeout (408) status will be returned.  Try reducing the image size to avoid timeout. # noqa: E501
+        :param str checksum_validation: Checksum validation setting. Default is ON. # noqa: E501
         :param async_req bool
         :return: BarcodeResponseList
                  If the method is called asynchronously,
@@ -1875,9 +1864,21 @@ class BarcodeApi(object):
         """
         kwargs["_return_http_data_only"] = True
         if async_req:
-            return self.scan_barcode_with_http_info(image_file, decode_types=decode_types, timeout=timeout, **kwargs)
+            return self.scan_barcode_with_http_info(
+                image_file,
+                decode_types=decode_types,
+                timeout=timeout,
+                checksum_validation=checksum_validation,
+                **kwargs
+            )
         else:
-            (data) = self.scan_barcode_with_http_info(image_file, decode_types=decode_types, timeout=timeout, **kwargs)
+            (data) = self.scan_barcode_with_http_info(
+                image_file,
+                decode_types=decode_types,
+                timeout=timeout,
+                checksum_validation=checksum_validation,
+                **kwargs
+            )
             return data
 
     def scan_barcode_with_http_info(self, image_file, **kwargs):
@@ -1894,7 +1895,7 @@ class BarcodeApi(object):
                  returns the request thread.
         """
 
-        all_params = {"image_file", "decode_types", "timeout"}
+        all_params = {"image_file", "decode_types", "timeout", "checksum_validation"}
         all_params.add("async_req")
         all_params.add("_return_http_data_only")
         all_params.add("_preload_content")
@@ -1930,6 +1931,8 @@ class BarcodeApi(object):
             collection_formats["decodeTypes"] = "multi"
         if "timeout" in params:
             form_params.append(("timeout", params["timeout"]))
+        if "checksum_validation" in params:
+            form_params.append(("checksumValidation", params["checksum_validation"]))
 
         body_params = None
         # HTTP header "Accept"

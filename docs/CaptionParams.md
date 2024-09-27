@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ---- | ---- | ----------- | -----
 **text** | **str** | Caption text. | [optional] 
 **alignment** | [**TextAlignment**](TextAlignment.md) | Text alignment. | [optional] 
-**color** | **str** | Text color. | [optional] 
+**color** | **str** | Text color.   Default value: black   Use named colors like: red, green, blue   Or HTML colors like: #FF0000, #00FF00, #0000FF | [optional] 
 **visible** | **bool** | Is caption visible. | [optional] 
 **font** | [**FontParams**](FontParams.md) | Font. | [optional] 
 **padding** | [**Padding**](Padding.md) | Padding. | [optional] 

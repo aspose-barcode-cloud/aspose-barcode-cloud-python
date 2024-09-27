@@ -117,7 +117,7 @@ class CaptionParams(object):
     def color(self):
         """Gets the color of this CaptionParams.  # noqa: E501
 
-        Text color.  # noqa: E501
+        Text color.   Default value: black   Use named colors like: red, green, blue   Or HTML colors like: #FF0000, #00FF00, #0000FF  # noqa: E501
 
         :return: The color of this CaptionParams.  # noqa: E501
         :rtype: str
@@ -128,7 +128,7 @@ class CaptionParams(object):
     def color(self, color):
         """Sets the color of this CaptionParams.
 
-        Text color.  # noqa: E501
+        Text color.   Default value: black   Use named colors like: red, green, blue   Or HTML colors like: #FF0000, #00FF00, #0000FF  # noqa: E501
 
         :param color: The color of this CaptionParams.  # noqa: E501
         :type: str
