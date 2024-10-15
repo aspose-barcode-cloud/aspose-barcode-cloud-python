@@ -120,7 +120,7 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.RecognizeApi()
 barcode_type = aspose_barcode_cloud.DecodeBarcodeType() # DecodeBarcodeType | 
-file = None # bytearray | 
+file = None # bytearray | Barcode image file
 recognition_mode = aspose_barcode_cloud.RecognitionMode() # RecognitionMode |  (optional)
 image_kind = aspose_barcode_cloud.RecognitionImageKind() # RecognitionImageKind |  (optional)
 
@@ -137,7 +137,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
  **barcode_type** | [**DecodeBarcodeType**](DecodeBarcodeType.md)|  | 
- **file** | **bytearray**|  | 
+ **file** | **bytearray**| Barcode image file | 
  **recognition_mode** | [**RecognitionMode**](RecognitionMode.md)|  | [optional] 
  **image_kind** | [**RecognitionImageKind**](RecognitionImageKind.md)|  | [optional] 
 

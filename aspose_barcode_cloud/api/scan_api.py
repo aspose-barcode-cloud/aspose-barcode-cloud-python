@@ -124,7 +124,7 @@ class ScanApi(object):
         >>> thread = ScanApi().barcode_scan_form_post(file, async_req=True)
         >>> result = thread.get()
 
-        :param bytearray file: # noqa: E501
+        :param bytearray file: Barcode image file # noqa: E501
         :param async_req bool
         :return: BarcodeResponseList
                  If the method is called asynchronously,
@@ -145,7 +145,7 @@ class ScanApi(object):
         >>> thread = ScanApi().barcode_scan_form_post_with_http_info(file, async_req=True)
         >>> result = thread.get()
 
-        :param bytearray file: # noqa: E501
+        :param bytearray file: Barcode image file # noqa: E501
         :return: BarcodeResponseList
                  If the method is called asynchronously,
                  returns the request thread.

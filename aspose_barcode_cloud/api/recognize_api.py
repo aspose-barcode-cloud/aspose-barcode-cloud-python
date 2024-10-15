@@ -243,7 +243,7 @@ class RecognizeApi(object):
         >>> result = thread.get()
 
         :param DecodeBarcodeType barcode_type: # noqa: E501
-        :param bytearray file: # noqa: E501
+        :param bytearray file: Barcode image file # noqa: E501
         :param RecognitionMode recognition_mode: # noqa: E501
         :param RecognitionImageKind image_kind: # noqa: E501
         :param async_req bool
@@ -271,7 +271,7 @@ class RecognizeApi(object):
         >>> result = thread.get()
 
         :param DecodeBarcodeType barcode_type: # noqa: E501
-        :param bytearray file: # noqa: E501
+        :param bytearray file: Barcode image file # noqa: E501
         :return: BarcodeResponseList
                  If the method is called asynchronously,
                  returns the request thread.

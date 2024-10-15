@@ -53,8 +53,8 @@ class GenerateApi(object):
         :param str two_d_display_text: Text that will be displayed instead of codetext in 2D barcodes.  Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode # noqa: E501
         :param CodeLocation text_location: Specify the displaying Text Location, set to CodeLocation.None to hide CodeText.  Default value: CodeLocation.Below. # noqa: E501
         :param TextAlignment text_alignment: Text alignment.  Default value: TextAligment.Left # noqa: E501
-        :param str foreground_color: Specify the displaying bars and content Color.   Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: Color.AliceBlue or #FF000000  Default value: Color.Black. # noqa: E501
-        :param str background_color: Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: Color.AliceBlue or #FF000000  Default value: Color.White. # noqa: E501
+        :param str foreground_color: Specify the displaying bars and content Color.   Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: AliceBlue or #FF000000  Default value: Black. # noqa: E501
+        :param str background_color: Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: AliceBlue or #FF000000  Default value: White. # noqa: E501
         :param AvailableGraphicsUnit units: Common Units for all measuring in query. Default units: pixel. # noqa: E501
         :param float resolution: Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi. # noqa: E501
         :param float image_height: Height of the barcode image in given units. Default units: pixel. # noqa: E501
@@ -372,8 +372,8 @@ class GenerateApi(object):
         :param str two_d_display_text: Text that will be displayed instead of codetext in 2D barcodes.  Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode # noqa: E501
         :param CodeLocation text_location: # noqa: E501
         :param TextAlignment text_alignment: # noqa: E501
-        :param str foreground_color: Specify the displaying bars and content Color.   Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: Color.AliceBlue or #FF000000  Default value: Color.Black. # noqa: E501
-        :param str background_color: Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: Color.AliceBlue or #FF000000  Default value: Color.White. # noqa: E501
+        :param str foreground_color: Specify the displaying bars and content Color.   Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: AliceBlue or #FF000000  Default value: Black. # noqa: E501
+        :param str background_color: Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: AliceBlue or #FF000000  Default value: White. # noqa: E501
         :param AvailableGraphicsUnit units: # noqa: E501
         :param float resolution: Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi. # noqa: E501
         :param float image_height: Height of the barcode image in given units. Default units: pixel. # noqa: E501
@@ -530,9 +530,7 @@ class GenerateApi(object):
         )
 
         # HTTP header "Content-Type"
-        header_params["Content-Type"] = self.api_client.select_header_content_type(
-            ["application/x-www-form-urlencoded"]
-        )
+        header_params["Content-Type"] = self.api_client.select_header_content_type(["multipart/form-data"])
 
         return self.api_client.call_api(
             "/barcode/generate-form",

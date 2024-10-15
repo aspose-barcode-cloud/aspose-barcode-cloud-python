@@ -68,7 +68,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = aspose_barcode_cloud.ScanApi()
-file = None # bytearray | 
+file = None # bytearray | Barcode image file
 
 try:
     # Scan barcode from file in request body using POST requests with parameter in multipart form.
@@ -82,7 +82,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
- **file** | **bytearray**|  | 
+ **file** | **bytearray**| Barcode image file | 
 
 ### Return type
 

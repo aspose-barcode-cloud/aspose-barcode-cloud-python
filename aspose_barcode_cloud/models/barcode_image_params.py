@@ -188,7 +188,7 @@ class BarcodeImageParams(object):
     def foreground_color(self):
         """Gets the foreground_color of this BarcodeImageParams.  # noqa: E501
 
-        Specify the displaying bars and content Color.   Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: Color.AliceBlue or #FF000000  Default value: Color.Black.  # noqa: E501
+        Specify the displaying bars and content Color.   Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: AliceBlue or #FF000000  Default value: Black.  # noqa: E501
 
         :return: The foreground_color of this BarcodeImageParams.  # noqa: E501
         :rtype: str
@@ -199,7 +199,7 @@ class BarcodeImageParams(object):
     def foreground_color(self, foreground_color):
         """Sets the foreground_color of this BarcodeImageParams.
 
-        Specify the displaying bars and content Color.   Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: Color.AliceBlue or #FF000000  Default value: Color.Black.  # noqa: E501
+        Specify the displaying bars and content Color.   Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: AliceBlue or #FF000000  Default value: Black.  # noqa: E501
 
         :param foreground_color: The foreground_color of this BarcodeImageParams.  # noqa: E501
         :type: str
@@ -211,7 +211,7 @@ class BarcodeImageParams(object):
     def background_color(self):
         """Gets the background_color of this BarcodeImageParams.  # noqa: E501
 
-        Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: Color.AliceBlue or #FF000000  Default value: Color.White.  # noqa: E501
+        Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: AliceBlue or #FF000000  Default value: White.  # noqa: E501
 
         :return: The background_color of this BarcodeImageParams.  # noqa: E501
         :rtype: str
@@ -222,7 +222,7 @@ class BarcodeImageParams(object):
     def background_color(self, background_color):
         """Sets the background_color of this BarcodeImageParams.
 
-        Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: Color.AliceBlue or #FF000000  Default value: Color.White.  # noqa: E501
+        Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: AliceBlue or #FF000000  Default value: White.  # noqa: E501
 
         :param background_color: The background_color of this BarcodeImageParams.  # noqa: E501
         :type: str
