@@ -32,13 +32,13 @@ class TestRecognizeApi(unittest.TestCase):
         cls.temp_folder_path = "BarcodeTests/%s" % uuid.uuid4()
         cls.test_put_barcode_generate_filename = "test_put_barcode_generate_file.png"
 
-    def test_barcode_recognize_barcode_type_get(self):
-        """Test case for barcode_recognize_barcode_type_get
+    def test_barcode_recognize_get(self):
+        """Test case for barcode_recognize_get
 
         Recognize barcode from an url.
         """
 
-        response = self.api.barcode_recognize_barcode_type_get(
+        response = self.api.barcode_recognize_get(
             DecodeBarcodeType.QR,
             "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png",
             RecognitionMode.FAST,
@@ -76,13 +76,13 @@ class TestRecognizeApi(unittest.TestCase):
         self.assertGreater(barcode.region[0].x, 0)
         self.assertGreater(barcode.region[0].y, 0)
 
-    def test_barcode_recognize_form_post(self):
-        """Test case for barcode_recognize_form_post
+    def test_barcode_recognize_multipart_post(self):
+        """Test case for barcode_recognize_multipart_post
 
         Recognition of a barcode from file on server with parameters in body.
         """
         with open(self.test_filename, "rb") as f:
-            response = self.api.barcode_recognize_form_post(DecodeBarcodeType.PDF417, f)
+            response = self.api.barcode_recognize_multipart_post(DecodeBarcodeType.PDF417, f)
 
         self.assertEqual(1, len(response.barcodes))
         barcode = response.barcodes[0]

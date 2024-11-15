@@ -9,7 +9,7 @@ from aspose_barcode_cloud import (
     EncodeData,
     GenerateParams,
     BarcodeImageParams,
-    AvailableBarCodeImageFormat,
+    BarcodeImageFormat,
 )
 from aspose_barcode_cloud.api.generate_api import GenerateApi
 from .load_configuration import TEST_CONFIGURATION
@@ -45,7 +45,7 @@ class TestGenerateApi(unittest.TestCase):
         generator_params = GenerateParams(
             EncodeBarcodeType.QR,
             EncodeData(EncodeDataType.BASE64BYTES, "VGVzdA=="),
-            BarcodeImageParams(AvailableBarCodeImageFormat.JPEG),
+            BarcodeImageParams(BarcodeImageFormat.JPEG),
         )
 
         response = self.api.barcode_generate_body_post(generator_params)
@@ -54,13 +54,13 @@ class TestGenerateApi(unittest.TestCase):
         self.assertGreater(content_length, 0, "content_length=%s" % content_length)
         self.assertEqual("image/jpeg", response.headers["content-type"])
 
-    def test_barcode_generate_form_post(self):
-        """Test case for barcode_generate_form_post
+    def test_barcode_generate_multipart_post(self):
+        """Test case for barcode_generate_multipart_post
 
         Generate barcode from params in form
         """
 
-        response = self.api.barcode_generate_form_post(
+        response = self.api.barcode_generate_multipart_post(
             EncodeBarcodeType.QR, "54657374", EncodeDataType.HEXBYTES, background_color="0xffe"
         )
 

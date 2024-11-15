@@ -26,9 +26,7 @@ class GenerateApi(object):
         data,
         data_type=None,
         image_format=None,
-        two_d_display_text=None,
         text_location=None,
-        text_alignment=None,
         foreground_color=None,
         background_color=None,
         units=None,
@@ -49,16 +47,14 @@ class GenerateApi(object):
         :param EncodeBarcodeType barcode_type: Type of barcode to generate. # noqa: E501
         :param str data: String represents data to encode # noqa: E501
         :param EncodeDataType data_type: Type of data to encode.  Default value:  EncodeDataType.StringData. # noqa: E501
-        :param AvailableBarCodeImageFormat image_format: Barcode output image format.  Default value: png # noqa: E501
-        :param str two_d_display_text: Text that will be displayed instead of codetext in 2D barcodes.  Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode # noqa: E501
+        :param BarcodeImageFormat image_format: Barcode output image format.  Default value: png # noqa: E501
         :param CodeLocation text_location: Specify the displaying Text Location, set to CodeLocation.None to hide CodeText.  Default value: CodeLocation.Below. # noqa: E501
-        :param TextAlignment text_alignment: Text alignment.  Default value: TextAligment.Left # noqa: E501
-        :param str foreground_color: Specify the displaying bars and content Color.   Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: AliceBlue or #FF000000  Default value: Black. # noqa: E501
-        :param str background_color: Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: AliceBlue or #FF000000  Default value: White. # noqa: E501
-        :param AvailableGraphicsUnit units: Common Units for all measuring in query. Default units: pixel. # noqa: E501
-        :param float resolution: Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi. # noqa: E501
-        :param float image_height: Height of the barcode image in given units. Default units: pixel. # noqa: E501
-        :param float image_width: Width of the barcode image in given units. Default units: pixel. # noqa: E501
+        :param str foreground_color: Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black. # noqa: E501
+        :param str background_color: Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White. # noqa: E501
+        :param GraphicsUnit units: Common Units for all measuring in query. Default units: pixel. # noqa: E501
+        :param float resolution: Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi.  Decimal separator is dot. # noqa: E501
+        :param float image_height: Height of the barcode image in given units. Default units: pixel.  Decimal separator is dot. # noqa: E501
+        :param float image_width: Width of the barcode image in given units. Default units: pixel.  Decimal separator is dot. # noqa: E501
         :param int rotation_angle: BarCode image rotation angle, measured in degree, e.g. RotationAngle = 0 or RotationAngle = 360 means no rotation.  If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image.  Default value: 0. # noqa: E501
         :param async_req bool
         :return: bytearray
@@ -72,9 +68,7 @@ class GenerateApi(object):
                 data,
                 data_type=data_type,
                 image_format=image_format,
-                two_d_display_text=two_d_display_text,
                 text_location=text_location,
-                text_alignment=text_alignment,
                 foreground_color=foreground_color,
                 background_color=background_color,
                 units=units,
@@ -90,9 +84,7 @@ class GenerateApi(object):
                 data,
                 data_type=data_type,
                 image_format=image_format,
-                two_d_display_text=two_d_display_text,
                 text_location=text_location,
-                text_alignment=text_alignment,
                 foreground_color=foreground_color,
                 background_color=background_color,
                 units=units,
@@ -124,9 +116,7 @@ class GenerateApi(object):
             "data",
             "data_type",
             "image_format",
-            "two_d_display_text",
             "text_location",
-            "text_alignment",
             "foreground_color",
             "background_color",
             "units",
@@ -168,31 +158,27 @@ class GenerateApi(object):
 
         query_params = []
         if "data_type" in params:
-            query_params.append(("DataType", params["data_type"]))
+            query_params.append(("dataType", params["data_type"]))
         if "data" in params:
-            query_params.append(("Data", params["data"]))
+            query_params.append(("data", params["data"]))
         if "image_format" in params:
-            query_params.append(("ImageFormat", params["image_format"]))
-        if "two_d_display_text" in params:
-            query_params.append(("TwoDDisplayText", params["two_d_display_text"]))
+            query_params.append(("imageFormat", params["image_format"]))
         if "text_location" in params:
-            query_params.append(("TextLocation", params["text_location"]))
-        if "text_alignment" in params:
-            query_params.append(("TextAlignment", params["text_alignment"]))
+            query_params.append(("textLocation", params["text_location"]))
         if "foreground_color" in params:
-            query_params.append(("ForegroundColor", params["foreground_color"]))
+            query_params.append(("foregroundColor", params["foreground_color"]))
         if "background_color" in params:
-            query_params.append(("BackgroundColor", params["background_color"]))
+            query_params.append(("backgroundColor", params["background_color"]))
         if "units" in params:
-            query_params.append(("Units", params["units"]))
+            query_params.append(("units", params["units"]))
         if "resolution" in params:
-            query_params.append(("Resolution", params["resolution"]))
+            query_params.append(("resolution", params["resolution"]))
         if "image_height" in params:
-            query_params.append(("ImageHeight", params["image_height"]))
+            query_params.append(("imageHeight", params["image_height"]))
         if "image_width" in params:
-            query_params.append(("ImageWidth", params["image_width"]))
+            query_params.append(("imageWidth", params["image_width"]))
         if "rotation_angle" in params:
-            query_params.append(("RotationAngle", params["rotation_angle"]))
+            query_params.append(("rotationAngle", params["rotation_angle"]))
 
         header_params = {}
 
@@ -339,15 +325,13 @@ class GenerateApi(object):
             collection_formats=collection_formats,
         )
 
-    def barcode_generate_form_post(
+    def barcode_generate_multipart_post(
         self,
         barcode_type,
         data,
         data_type=None,
         image_format=None,
-        two_d_display_text=None,
         text_location=None,
-        text_alignment=None,
         foreground_color=None,
         background_color=None,
         units=None,
@@ -358,26 +342,24 @@ class GenerateApi(object):
         async_req=False,
         **kwargs
     ):
-        """Generate barcode using POST request with parameters in url ecncoded form.
+        """Generate barcode using POST request with parameters in multipart form.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = GenerateApi().barcode_generate_form_post(barcode_type, data, async_req=True)
+        >>> thread = GenerateApi().barcode_generate_multipart_post(barcode_type, data, async_req=True)
         >>> result = thread.get()
 
         :param EncodeBarcodeType barcode_type: # noqa: E501
         :param str data: String represents data to encode # noqa: E501
         :param EncodeDataType data_type: # noqa: E501
-        :param AvailableBarCodeImageFormat image_format: # noqa: E501
-        :param str two_d_display_text: Text that will be displayed instead of codetext in 2D barcodes.  Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode # noqa: E501
+        :param BarcodeImageFormat image_format: # noqa: E501
         :param CodeLocation text_location: # noqa: E501
-        :param TextAlignment text_alignment: # noqa: E501
-        :param str foreground_color: Specify the displaying bars and content Color.   Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: AliceBlue or #FF000000  Default value: Black. # noqa: E501
-        :param str background_color: Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: AliceBlue or #FF000000  Default value: White. # noqa: E501
-        :param AvailableGraphicsUnit units: # noqa: E501
-        :param float resolution: Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi. # noqa: E501
-        :param float image_height: Height of the barcode image in given units. Default units: pixel. # noqa: E501
-        :param float image_width: Width of the barcode image in given units. Default units: pixel. # noqa: E501
+        :param str foreground_color: Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black. # noqa: E501
+        :param str background_color: Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White. # noqa: E501
+        :param GraphicsUnit units: # noqa: E501
+        :param float resolution: Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi.  Decimal separator is dot. # noqa: E501
+        :param float image_height: Height of the barcode image in given units. Default units: pixel.  Decimal separator is dot. # noqa: E501
+        :param float image_width: Width of the barcode image in given units. Default units: pixel.  Decimal separator is dot. # noqa: E501
         :param int rotation_angle: BarCode image rotation angle, measured in degree, e.g. RotationAngle = 0 or RotationAngle = 360 means no rotation.  If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image.  Default value: 0. # noqa: E501
         :param async_req bool
         :return: bytearray
@@ -386,14 +368,12 @@ class GenerateApi(object):
         """
         kwargs["_return_http_data_only"] = True
         if async_req:
-            return self.barcode_generate_form_post_with_http_info(
+            return self.barcode_generate_multipart_post_with_http_info(
                 barcode_type,
                 data,
                 data_type=data_type,
                 image_format=image_format,
-                two_d_display_text=two_d_display_text,
                 text_location=text_location,
-                text_alignment=text_alignment,
                 foreground_color=foreground_color,
                 background_color=background_color,
                 units=units,
@@ -404,14 +384,12 @@ class GenerateApi(object):
                 **kwargs
             )
         else:
-            (data) = self.barcode_generate_form_post_with_http_info(
+            (data) = self.barcode_generate_multipart_post_with_http_info(
                 barcode_type,
                 data,
                 data_type=data_type,
                 image_format=image_format,
-                two_d_display_text=two_d_display_text,
                 text_location=text_location,
-                text_alignment=text_alignment,
                 foreground_color=foreground_color,
                 background_color=background_color,
                 units=units,
@@ -423,12 +401,12 @@ class GenerateApi(object):
             )
             return data
 
-    def barcode_generate_form_post_with_http_info(self, barcode_type, data, **kwargs):
-        """Generate barcode using POST request with parameters in url ecncoded form.
+    def barcode_generate_multipart_post_with_http_info(self, barcode_type, data, **kwargs):
+        """Generate barcode using POST request with parameters in multipart form.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = GenerateApi().barcode_generate_form_post_with_http_info(barcode_type, data, async_req=True)
+        >>> thread = GenerateApi().barcode_generate_multipart_post_with_http_info(barcode_type, data, async_req=True)
         >>> result = thread.get()
 
         :param EncodeBarcodeType barcode_type: # noqa: E501
@@ -443,9 +421,7 @@ class GenerateApi(object):
             "data",
             "data_type",
             "image_format",
-            "two_d_display_text",
             "text_location",
-            "text_alignment",
             "foreground_color",
             "background_color",
             "units",
@@ -462,7 +438,9 @@ class GenerateApi(object):
         params = locals()
         for key, val in params["kwargs"].items():
             if key not in all_params:
-                raise TypeError("Got an unexpected keyword argument '%s'" " to method barcode_generate_form_post" % key)
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'" " to method barcode_generate_multipart_post" % key
+                )
             if val is None:
                 continue
 
@@ -470,10 +448,12 @@ class GenerateApi(object):
         del params["kwargs"]
         # verify the required parameter "barcode_type" is set
         if "barcode_type" not in params or params["barcode_type"] is None:
-            raise ValueError("Missing the required parameter 'barcode_type' when calling 'barcode_generate_form_post'")
+            raise ValueError(
+                "Missing the required parameter 'barcode_type' when calling 'barcode_generate_multipart_post'"
+            )
         # verify the required parameter "data" is set
         if "data" not in params or params["data"] is None:
-            raise ValueError("Missing the required parameter 'data' when calling 'barcode_generate_form_post'")
+            raise ValueError("Missing the required parameter 'data' when calling 'barcode_generate_multipart_post'")
 
         collection_formats = {}
 
@@ -488,31 +468,27 @@ class GenerateApi(object):
         if "barcode_type" in params:
             form_params.append(("barcodeType", params["barcode_type"]))
         if "data_type" in params:
-            form_params.append(("DataType", params["data_type"]))
+            form_params.append(("dataType", params["data_type"]))
         if "data" in params:
-            form_params.append(("Data", params["data"]))
+            form_params.append(("data", params["data"]))
         if "image_format" in params:
-            form_params.append(("ImageFormat", params["image_format"]))
-        if "two_d_display_text" in params:
-            form_params.append(("TwoDDisplayText", params["two_d_display_text"]))
+            form_params.append(("imageFormat", params["image_format"]))
         if "text_location" in params:
-            form_params.append(("TextLocation", params["text_location"]))
-        if "text_alignment" in params:
-            form_params.append(("TextAlignment", params["text_alignment"]))
+            form_params.append(("textLocation", params["text_location"]))
         if "foreground_color" in params:
-            form_params.append(("ForegroundColor", params["foreground_color"]))
+            form_params.append(("foregroundColor", params["foreground_color"]))
         if "background_color" in params:
-            form_params.append(("BackgroundColor", params["background_color"]))
+            form_params.append(("backgroundColor", params["background_color"]))
         if "units" in params:
-            form_params.append(("Units", params["units"]))
+            form_params.append(("units", params["units"]))
         if "resolution" in params:
-            form_params.append(("Resolution", params["resolution"]))
+            form_params.append(("resolution", params["resolution"]))
         if "image_height" in params:
-            form_params.append(("ImageHeight", params["image_height"]))
+            form_params.append(("imageHeight", params["image_height"]))
         if "image_width" in params:
-            form_params.append(("ImageWidth", params["image_width"]))
+            form_params.append(("imageWidth", params["image_width"]))
         if "rotation_angle" in params:
-            form_params.append(("RotationAngle", params["rotation_angle"]))
+            form_params.append(("rotationAngle", params["rotation_angle"]))
 
         body_params = None
         # HTTP header "Accept"
@@ -533,7 +509,7 @@ class GenerateApi(object):
         header_params["Content-Type"] = self.api_client.select_header_content_type(["multipart/form-data"])
 
         return self.api_client.call_api(
-            "/barcode/generate-form",
+            "/barcode/generate-multipart",
             "POST",
             path_params,
             query_params,

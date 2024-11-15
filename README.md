@@ -85,7 +85,7 @@ print("Barcode saved to file 'example.png'")
 
 # Recognize barcode
 recognizeApi = RecognizeApi(ApiClient(config))
-response = recognizeApi.barcode_recognize_form_post(DecodeBarcodeType.QR, open("example.png", "rb"))
+response = recognizeApi.barcode_recognize_multipart_post(DecodeBarcodeType.QR, open("example.png", "rb"))
 pprint(response)
 
 ```
@@ -115,20 +115,19 @@ Class | Method | HTTP request | Description
 ----- | ------ | ------------ | -----------
 *GenerateApi* | [**barcode_generate_barcode_type_get**](docs/GenerateApi.md#barcode_generate_barcode_type_get) | **GET** /barcode/generate/{barcodeType} | Generate barcode using GET request with parameters in route and query string.
 *GenerateApi* | [**barcode_generate_body_post**](docs/GenerateApi.md#barcode_generate_body_post) | **POST** /barcode/generate-body | Generate barcode using POST request with parameters in body in json or xml format.
-*GenerateApi* | [**barcode_generate_form_post**](docs/GenerateApi.md#barcode_generate_form_post) | **POST** /barcode/generate-form | Generate barcode using POST request with parameters in url ecncoded form.
-*RecognizeApi* | [**barcode_recognize_barcode_type_get**](docs/RecognizeApi.md#barcode_recognize_barcode_type_get) | **GET** /barcode/recognize/{barcodeType} | Recognize barcode from file on server using GET requests with parameters in route and query string.
+*GenerateApi* | [**barcode_generate_multipart_post**](docs/GenerateApi.md#barcode_generate_multipart_post) | **POST** /barcode/generate-multipart | Generate barcode using POST request with parameters in multipart form.
 *RecognizeApi* | [**barcode_recognize_body_post**](docs/RecognizeApi.md#barcode_recognize_body_post) | **POST** /barcode/recognize-body | Recognize barcode from file in request body using POST requests with parameters in body in json or xml format.
-*RecognizeApi* | [**barcode_recognize_form_post**](docs/RecognizeApi.md#barcode_recognize_form_post) | **POST** /barcode/recognize-form | Recognize barcode from file in request body using POST requests with parameters in multipart form.
+*RecognizeApi* | [**barcode_recognize_get**](docs/RecognizeApi.md#barcode_recognize_get) | **GET** /barcode/recognize | Recognize barcode from file on server using GET requests with parameters in route and query string.
+*RecognizeApi* | [**barcode_recognize_multipart_post**](docs/RecognizeApi.md#barcode_recognize_multipart_post) | **POST** /barcode/recognize-multipart | Recognize barcode from file in request body using POST requests with parameters in multipart form.
 *ScanApi* | [**barcode_scan_body_post**](docs/ScanApi.md#barcode_scan_body_post) | **POST** /barcode/scan-body | Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
-*ScanApi* | [**barcode_scan_form_post**](docs/ScanApi.md#barcode_scan_form_post) | **POST** /barcode/scan-form | Scan barcode from file in request body using POST requests with parameter in multipart form.
 *ScanApi* | [**barcode_scan_get**](docs/ScanApi.md#barcode_scan_get) | **GET** /barcode/scan | Scan barcode from file on server using GET requests with parameter in query string.
+*ScanApi* | [**barcode_scan_multipart_post**](docs/ScanApi.md#barcode_scan_multipart_post) | **POST** /barcode/scan-multipart | Scan barcode from file in request body using POST requests with parameter in multipart form.
 
 ## Documentation For Models
 
 - [ApiError](docs/ApiError.md)
 - [ApiErrorResponse](docs/ApiErrorResponse.md)
-- [AvailableBarCodeImageFormat](docs/AvailableBarCodeImageFormat.md)
-- [AvailableGraphicsUnit](docs/AvailableGraphicsUnit.md)
+- [BarcodeImageFormat](docs/BarcodeImageFormat.md)
 - [BarcodeImageParams](docs/BarcodeImageParams.md)
 - [BarcodeResponse](docs/BarcodeResponse.md)
 - [BarcodeResponseList](docs/BarcodeResponseList.md)
@@ -138,11 +137,11 @@ Class | Method | HTTP request | Description
 - [EncodeData](docs/EncodeData.md)
 - [EncodeDataType](docs/EncodeDataType.md)
 - [GenerateParams](docs/GenerateParams.md)
+- [GraphicsUnit](docs/GraphicsUnit.md)
 - [RecognitionImageKind](docs/RecognitionImageKind.md)
 - [RecognitionMode](docs/RecognitionMode.md)
 - [RecognizeBase64Request](docs/RecognizeBase64Request.md)
 - [RegionPoint](docs/RegionPoint.md)
 - [ScanBase64Request](docs/ScanBase64Request.md)
-- [TextAlignment](docs/TextAlignment.md)
 
 

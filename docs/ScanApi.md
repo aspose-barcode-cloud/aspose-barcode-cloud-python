@@ -5,8 +5,8 @@ All URIs are relative to *https://barcode.qa.aspose.cloud/v4.0*
 Method | HTTP request | Description
 ------ | ------------ | -----------
 [**barcode_scan_body_post**](ScanApi.md#barcode_scan_body_post) | **POST** /barcode/scan-body | Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
-[**barcode_scan_form_post**](ScanApi.md#barcode_scan_form_post) | **POST** /barcode/scan-form | Scan barcode from file in request body using POST requests with parameter in multipart form.
 [**barcode_scan_get**](ScanApi.md#barcode_scan_get) | **GET** /barcode/scan | Scan barcode from file on server using GET requests with parameter in query string.
+[**barcode_scan_multipart_post**](ScanApi.md#barcode_scan_multipart_post) | **POST** /barcode/scan-multipart | Scan barcode from file in request body using POST requests with parameter in multipart form.
 
 
 # **barcode_scan_body_post**
@@ -21,8 +21,11 @@ import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: JWT
+configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOKEN")
+
 # create an instance of the API class
-api_instance = aspose_barcode_cloud.ScanApi()
+api_instance = aspose_barcode_cloud.ScanApi(aspose_barcode_cloud.ApiClient(configuration))
 scan_base64_request = aspose_barcode_cloud.ScanBase64Request() # ScanBase64Request | Barcode scan request
 
 try:
@@ -45,56 +48,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[JWT](../README.md#JWT)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **barcode_scan_form_post**
-> BarcodeResponseList barcode_scan_form_post(file)
-
-Scan barcode from file in request body using POST requests with parameter in multipart form.
-
-### Example
-```python
-import time
-import aspose_barcode_cloud
-from aspose_barcode_cloud.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = aspose_barcode_cloud.ScanApi()
-file = None # bytearray | Barcode image file
-
-try:
-    # Scan barcode from file in request body using POST requests with parameter in multipart form.
-    api_response = api_instance.barcode_scan_form_post(file)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ScanApi->barcode_scan_form_post: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
----- | ---- | ------------ | -----
- **file** | **bytearray**| Barcode image file | 
-
-### Return type
-
-[**BarcodeResponseList**](BarcodeResponseList.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -111,8 +69,11 @@ import aspose_barcode_cloud
 from aspose_barcode_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: JWT
+configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOKEN")
+
 # create an instance of the API class
-api_instance = aspose_barcode_cloud.ScanApi()
+api_instance = aspose_barcode_cloud.ScanApi(aspose_barcode_cloud.ApiClient(configuration))
 file_url = 'file_url_example' # str | Url to barcode image
 
 try:
@@ -135,11 +96,59 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[JWT](../README.md#JWT)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **barcode_scan_multipart_post**
+> BarcodeResponseList barcode_scan_multipart_post(file)
+
+Scan barcode from file in request body using POST requests with parameter in multipart form.
+
+### Example
+```python
+import time
+import aspose_barcode_cloud
+from aspose_barcode_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: JWT
+configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOKEN")
+
+# create an instance of the API class
+api_instance = aspose_barcode_cloud.ScanApi(aspose_barcode_cloud.ApiClient(configuration))
+file = None # bytearray | Barcode image file
+
+try:
+    # Scan barcode from file in request body using POST requests with parameter in multipart form.
+    api_response = api_instance.barcode_scan_multipart_post(file)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ScanApi->barcode_scan_multipart_post: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+---- | ---- | ------------ | -----
+ **file** | **bytearray**| Barcode image file | 
+
+### Return type
+
+[**BarcodeResponseList**](BarcodeResponseList.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

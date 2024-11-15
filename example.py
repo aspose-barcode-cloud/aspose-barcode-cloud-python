@@ -29,5 +29,5 @@ print("Barcode saved to file 'example.png'")
 
 # Recognize barcode
 recognizeApi = RecognizeApi(ApiClient(config))
-response = recognizeApi.barcode_recognize_form_post(DecodeBarcodeType.QR, open("example.png", "rb"))
+response = recognizeApi.barcode_recognize_multipart_post(DecodeBarcodeType.QR, open("example.png", "rb"))
 pprint(response)

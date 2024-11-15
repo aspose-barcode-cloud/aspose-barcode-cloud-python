@@ -19,13 +19,11 @@ class BarcodeImageParams(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "image_format": "AvailableBarCodeImageFormat",
-        "two_d_display_text": "str",
+        "image_format": "BarcodeImageFormat",
         "text_location": "CodeLocation",
-        "text_alignment": "TextAlignment",
         "foreground_color": "str",
         "background_color": "str",
-        "units": "AvailableGraphicsUnit",
+        "units": "GraphicsUnit",
         "resolution": "float",
         "image_height": "float",
         "image_width": "float",
@@ -34,9 +32,7 @@ class BarcodeImageParams(object):
 
     attribute_map = {
         "image_format": "imageFormat",
-        "two_d_display_text": "twoDDisplayText",
         "text_location": "textLocation",
-        "text_alignment": "textAlignment",
         "foreground_color": "foregroundColor",
         "background_color": "backgroundColor",
         "units": "units",
@@ -49,9 +45,7 @@ class BarcodeImageParams(object):
     def __init__(
         self,
         image_format=None,
-        two_d_display_text=None,
         text_location=None,
-        text_alignment=None,
         foreground_color=None,
         background_color=None,
         units=None,
@@ -63,9 +57,7 @@ class BarcodeImageParams(object):
         """BarcodeImageParams - a model defined in Swagger"""  # noqa: E501
 
         self._image_format = None
-        self._two_d_display_text = None
         self._text_location = None
-        self._text_alignment = None
         self._foreground_color = None
         self._background_color = None
         self._units = None
@@ -77,12 +69,8 @@ class BarcodeImageParams(object):
 
         if image_format is not None:
             self.image_format = image_format
-        if two_d_display_text is not None:
-            self.two_d_display_text = two_d_display_text
         if text_location is not None:
             self.text_location = text_location
-        if text_alignment is not None:
-            self.text_alignment = text_alignment
         if foreground_color is not None:
             self.foreground_color = foreground_color
         if background_color is not None:
@@ -104,7 +92,7 @@ class BarcodeImageParams(object):
 
 
         :return: The image_format of this BarcodeImageParams.  # noqa: E501
-        :rtype: AvailableBarCodeImageFormat
+        :rtype: BarcodeImageFormat
         """
         return self._image_format
 
@@ -114,33 +102,10 @@ class BarcodeImageParams(object):
 
 
         :param image_format: The image_format of this BarcodeImageParams.  # noqa: E501
-        :type: AvailableBarCodeImageFormat
+        :type: BarcodeImageFormat
         """
 
         self._image_format = image_format
-
-    @property
-    def two_d_display_text(self):
-        """Gets the two_d_display_text of this BarcodeImageParams.  # noqa: E501
-
-        Text that will be displayed instead of codetext in 2D barcodes.  Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode  # noqa: E501
-
-        :return: The two_d_display_text of this BarcodeImageParams.  # noqa: E501
-        :rtype: str
-        """
-        return self._two_d_display_text
-
-    @two_d_display_text.setter
-    def two_d_display_text(self, two_d_display_text):
-        """Sets the two_d_display_text of this BarcodeImageParams.
-
-        Text that will be displayed instead of codetext in 2D barcodes.  Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode  # noqa: E501
-
-        :param two_d_display_text: The two_d_display_text of this BarcodeImageParams.  # noqa: E501
-        :type: str
-        """
-
-        self._two_d_display_text = two_d_display_text
 
     @property
     def text_location(self):
@@ -164,31 +129,10 @@ class BarcodeImageParams(object):
         self._text_location = text_location
 
     @property
-    def text_alignment(self):
-        """Gets the text_alignment of this BarcodeImageParams.  # noqa: E501
-
-
-        :return: The text_alignment of this BarcodeImageParams.  # noqa: E501
-        :rtype: TextAlignment
-        """
-        return self._text_alignment
-
-    @text_alignment.setter
-    def text_alignment(self, text_alignment):
-        """Sets the text_alignment of this BarcodeImageParams.
-
-
-        :param text_alignment: The text_alignment of this BarcodeImageParams.  # noqa: E501
-        :type: TextAlignment
-        """
-
-        self._text_alignment = text_alignment
-
-    @property
     def foreground_color(self):
         """Gets the foreground_color of this BarcodeImageParams.  # noqa: E501
 
-        Specify the displaying bars and content Color.   Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: AliceBlue or #FF000000  Default value: Black.  # noqa: E501
+        Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black.  # noqa: E501
 
         :return: The foreground_color of this BarcodeImageParams.  # noqa: E501
         :rtype: str
@@ -199,7 +143,7 @@ class BarcodeImageParams(object):
     def foreground_color(self, foreground_color):
         """Sets the foreground_color of this BarcodeImageParams.
 
-        Specify the displaying bars and content Color.   Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: AliceBlue or #FF000000  Default value: Black.  # noqa: E501
+        Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black.  # noqa: E501
 
         :param foreground_color: The foreground_color of this BarcodeImageParams.  # noqa: E501
         :type: str
@@ -211,7 +155,7 @@ class BarcodeImageParams(object):
     def background_color(self):
         """Gets the background_color of this BarcodeImageParams.  # noqa: E501
 
-        Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: AliceBlue or #FF000000  Default value: White.  # noqa: E501
+        Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White.  # noqa: E501
 
         :return: The background_color of this BarcodeImageParams.  # noqa: E501
         :rtype: str
@@ -222,7 +166,7 @@ class BarcodeImageParams(object):
     def background_color(self, background_color):
         """Sets the background_color of this BarcodeImageParams.
 
-        Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: AliceBlue or #FF000000  Default value: White.  # noqa: E501
+        Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White.  # noqa: E501
 
         :param background_color: The background_color of this BarcodeImageParams.  # noqa: E501
         :type: str
@@ -236,7 +180,7 @@ class BarcodeImageParams(object):
 
 
         :return: The units of this BarcodeImageParams.  # noqa: E501
-        :rtype: AvailableGraphicsUnit
+        :rtype: GraphicsUnit
         """
         return self._units
 
@@ -246,7 +190,7 @@ class BarcodeImageParams(object):
 
 
         :param units: The units of this BarcodeImageParams.  # noqa: E501
-        :type: AvailableGraphicsUnit
+        :type: GraphicsUnit
         """
 
         self._units = units
@@ -255,7 +199,7 @@ class BarcodeImageParams(object):
     def resolution(self):
         """Gets the resolution of this BarcodeImageParams.  # noqa: E501
 
-        Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi.  # noqa: E501
+        Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi.  Decimal separator is dot.  # noqa: E501
 
         :return: The resolution of this BarcodeImageParams.  # noqa: E501
         :rtype: float
@@ -266,7 +210,7 @@ class BarcodeImageParams(object):
     def resolution(self, resolution):
         """Sets the resolution of this BarcodeImageParams.
 
-        Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi.  # noqa: E501
+        Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi.  Decimal separator is dot.  # noqa: E501
 
         :param resolution: The resolution of this BarcodeImageParams.  # noqa: E501
         :type: float
@@ -278,7 +222,7 @@ class BarcodeImageParams(object):
     def image_height(self):
         """Gets the image_height of this BarcodeImageParams.  # noqa: E501
 
-        Height of the barcode image in given units. Default units: pixel.  # noqa: E501
+        Height of the barcode image in given units. Default units: pixel.  Decimal separator is dot.  # noqa: E501
 
         :return: The image_height of this BarcodeImageParams.  # noqa: E501
         :rtype: float
@@ -289,7 +233,7 @@ class BarcodeImageParams(object):
     def image_height(self, image_height):
         """Sets the image_height of this BarcodeImageParams.
 
-        Height of the barcode image in given units. Default units: pixel.  # noqa: E501
+        Height of the barcode image in given units. Default units: pixel.  Decimal separator is dot.  # noqa: E501
 
         :param image_height: The image_height of this BarcodeImageParams.  # noqa: E501
         :type: float
@@ -301,7 +245,7 @@ class BarcodeImageParams(object):
     def image_width(self):
         """Gets the image_width of this BarcodeImageParams.  # noqa: E501
 
-        Width of the barcode image in given units. Default units: pixel.  # noqa: E501
+        Width of the barcode image in given units. Default units: pixel.  Decimal separator is dot.  # noqa: E501
 
         :return: The image_width of this BarcodeImageParams.  # noqa: E501
         :rtype: float
@@ -312,7 +256,7 @@ class BarcodeImageParams(object):
     def image_width(self, image_width):
         """Sets the image_width of this BarcodeImageParams.
 
-        Width of the barcode image in given units. Default units: pixel.  # noqa: E501
+        Width of the barcode image in given units. Default units: pixel.  Decimal separator is dot.  # noqa: E501
 
         :param image_width: The image_width of this BarcodeImageParams.  # noqa: E501
         :type: float

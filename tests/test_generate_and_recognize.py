@@ -35,7 +35,7 @@ class TestGenerateAndRecognize(unittest.TestCase):
                 fw.write(generated.data)
 
             with open(temp_filename, "rb") as fr:
-                recognized = self.recognizeApi.barcode_recognize_form_post(DecodeBarcodeType.QR, fr)
+                recognized = self.recognizeApi.barcode_recognize_multipart_post(DecodeBarcodeType.QR, fr)
 
         finally:
             os.remove(temp_filename)

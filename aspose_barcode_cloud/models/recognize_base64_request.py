@@ -22,31 +22,33 @@ class RecognizeBase64Request(object):
         "barcode_types": "List[DecodeBarcodeType]",
         "file_base64": "str",
         "recognition_mode": "RecognitionMode",
-        "image_kind": "RecognitionImageKind",
+        "recognition_image_kind": "RecognitionImageKind",
     }
 
     attribute_map = {
         "barcode_types": "barcodeTypes",
         "file_base64": "fileBase64",
         "recognition_mode": "recognitionMode",
-        "image_kind": "imageKind",
+        "recognition_image_kind": "recognitionImageKind",
     }
 
-    def __init__(self, barcode_types=None, file_base64=None, recognition_mode=None, image_kind=None):  # noqa: E501
+    def __init__(
+        self, barcode_types=None, file_base64=None, recognition_mode=None, recognition_image_kind=None
+    ):  # noqa: E501
         """RecognizeBase64Request - a model defined in Swagger"""  # noqa: E501
 
         self._barcode_types = None
         self._file_base64 = None
         self._recognition_mode = None
-        self._image_kind = None
+        self._recognition_image_kind = None
         self.discriminator = None
 
         self.barcode_types = barcode_types
         self.file_base64 = file_base64
         if recognition_mode is not None:
             self.recognition_mode = recognition_mode
-        if image_kind is not None:
-            self.image_kind = image_kind
+        if recognition_image_kind is not None:
+            self.recognition_image_kind = recognition_image_kind
 
     @property
     def barcode_types(self):
@@ -128,25 +130,25 @@ class RecognizeBase64Request(object):
         self._recognition_mode = recognition_mode
 
     @property
-    def image_kind(self):
-        """Gets the image_kind of this RecognizeBase64Request.  # noqa: E501
+    def recognition_image_kind(self):
+        """Gets the recognition_image_kind of this RecognizeBase64Request.  # noqa: E501
 
 
-        :return: The image_kind of this RecognizeBase64Request.  # noqa: E501
+        :return: The recognition_image_kind of this RecognizeBase64Request.  # noqa: E501
         :rtype: RecognitionImageKind
         """
-        return self._image_kind
+        return self._recognition_image_kind
 
-    @image_kind.setter
-    def image_kind(self, image_kind):
-        """Sets the image_kind of this RecognizeBase64Request.
+    @recognition_image_kind.setter
+    def recognition_image_kind(self, recognition_image_kind):
+        """Sets the recognition_image_kind of this RecognizeBase64Request.
 
 
-        :param image_kind: The image_kind of this RecognizeBase64Request.  # noqa: E501
+        :param recognition_image_kind: The recognition_image_kind of this RecognizeBase64Request.  # noqa: E501
         :type: RecognitionImageKind
         """
 
-        self._image_kind = image_kind
+        self._recognition_image_kind = recognition_image_kind
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -50,13 +50,13 @@ class TestScanBarcode(unittest.TestCase):
         self.assertEqual(DecodeBarcodeType.CODE128, response.barcodes[1].type)
         self.assertEqual("Code128 text", response.barcodes[1].barcode_value)
 
-    def test_barcode_scan_form_post(self):
-        """Test case for barcode_scan_form_post
+    def test_barcode_scan_multipart_post(self):
+        """Test case for barcode_scan_multipart_post
 
         Recognition of a barcode from file with parameters in form.
         """
         with open(self.test_filename, "rb") as f:
-            response = self.api.barcode_scan_form_post(f)
+            response = self.api.barcode_scan_multipart_post(f)
 
         self.assertIsNotNone(response and response.barcodes)
         self.assertEqual(2, len(response.barcodes))
