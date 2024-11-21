@@ -1,52 +1,38 @@
-using Aspose.BarCode.Cloud.Sdk.Api;
-using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
+import os
+from aspose_barcode_cloud import (
+    RecognizeApi,
+    ApiClient,
+    Configuration,
+    DecodeBarcodeType,
+)
 
-namespace RecognizeSnippets;
+# Function to create configuration
+def make_configuration():
+    env_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
+    if env_token:
+        config = Configuration(jwt_token=env_token)
+    else:
+        config = Configuration(
+            client_id="Client Id from https://dashboard.aspose.cloud/applications",
+            client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
+        )
+    return config
 
-internal static class Program
-{
-    private static Configuration MakeConfiguration()
-    {
-        var config = new Configuration();
+def main():
 
-        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
-        if (string.IsNullOrEmpty(envToken))
-        {
-            config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
-            config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-        }
-        else
-        {
-            config.JwtToken = envToken;
-        }
+    recognize_api = RecognizeApi(ApiClient(make_configuration()))
 
-        return config;
-    }
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.abspath(os.path.join(current_dir, "..", "..", "..", "qr.png"))
 
-    public static async Task Main(string[] args)
-    {
-        var recognizeApi = new RecognizeApi(MakeConfiguration());
 
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..", ".."
-            "qr.png"
-        ));
+    with open(file_path, "rb") as file_stream:
+        result = recognize_api.barcode_recognize_multipart_post(barcode_type=DecodeBarcodeType.QR, file=file_stream)
 
-        using var fileStream = new FileStream(fileName, FileMode.Open);
-        var request = new BarcodeRecognizeMultipartPostRequest(
-            DecodeBarcodeType.QR,
-            fileStream
-        );
-        var result = await recognizeApi.BarcodeRecognizeMultipartPostAsync(request);
+    if result.barcodes:
+        print(f"File '{file_path}' recognized, result: '{result.barcodes[0].barcode_value}'")
+    else:
+        print(f"No barcodes found in '{file_path}'.")
 
-        Console.WriteLine($"File '{fileName}' recognized, result: '{result.Barcodes[0].BarcodeValue}'");
-    }
-}
+if __name__ == "__main__":
+    main()

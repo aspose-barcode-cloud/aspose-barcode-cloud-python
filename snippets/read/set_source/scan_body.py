@@ -1,54 +1,29 @@
-using Aspose.BarCode.Cloud.Sdk.Api;
-using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
+import os
+import base64
+from aspose_barcode_cloud import ScanApi, ApiClient, Configuration, ScanBase64Request
 
-namespace ScanSnippets;
+def make_configuration():
+    env_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
+    if not env_token:
+        return Configuration(
+            client_id="Client Id from https://dashboard.aspose.cloud/applications",
+            client_secret="Client Secret from https://dashboard.aspose.cloud/applications"
+        )
+    else:
+        return Configuration(jwt_token=env_token)
 
-internal static class Program
-{
-    private static Configuration MakeConfiguration()
-    {
-        var config = new Configuration();
+async def main():
+    scan_api = ScanApi(ApiClient(make_configuration()))
+    
+    file_name = os.path.abspath(os.path.join(
+        os.path.dirname(__file__), "..", "..", "..", "..", "..", "qr.png"
+    ))
 
-        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
-        if (string.IsNullOrEmpty(envToken))
-        {
-            config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
-            config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-        }
-        else
-        {
-            config.JwtToken = envToken;
-        }
+    with open(file_name, "rb") as file:
+        image_bytes = file.read()
+    image_base64 = base64.b64encode(image_bytes).decode('utf-8')
 
-        return config;
-    }
+    request = ScanBase64Request(file_base64=image_base64)
+    result = await scan_api.barcode_scan_body_post(request)
 
-    public static async Task Main(string[] args)
-    {
-        var scanApi = new ScanApi(MakeConfiguration());
-        
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..", ".."
-            "qr.png"
-        ));
-        
-        byte[] imageBytes = await File.ReadAllBytesAsync(fileName);
-        string imageBase64 = Convert.ToBase64String(imageBytes);
-
-        var base64Request = new ScanBase64Request {
-            FileBase64 = imageBase64
-        };
-        var request = new BarcodeScanBodyPostRequest(base64Request);
-        var result = await scanApi.BarcodeScanBodyPostAsync(request);
-
-        Console.WriteLine($"File '{fileName}' recognized, result: '{result.Barcodes[0].BarcodeValue}'");
-    }
-}
+    print(f"File '{file_name}' recognized, result: '{result.barcodes[0].barcode_value}'")

@@ -1,45 +1,26 @@
-using Aspose.BarCode.Cloud.Sdk.Api;
-using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
+from aspose_barcode_cloud import (
+    ApiClient,
+    Configuration,
+    RecognizeApi,
+    DecodeBarcodeType    
+)
 
-namespace RecgonizeSnippets;
+def main():
+    config = Configuration(
+            client_id="Client Id from https://dashboard.aspose.cloud/applications",
+            client_secret="Client Secret from https://dashboard.aspose.cloud/applications"
+        )
+    recognize_api = RecognizeApi(ApiClient(config))
+    
+    # Call the API to recognize the barcode
+    result = recognize_api.barcode_recognize_get(barcode_type=DecodeBarcodeType.QR,
+        file_url="https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png")
+    
+    # Output the result
+    if result.barcodes:
+        print(f"File recognized, result: '{result.barcodes[0].barcode_value}'")
+    else:
+        print("No barcodes were recognized.")
 
-internal static class Program
-{
-    private static Configuration MakeConfiguration()
-    {
-        var config = new Configuration();
-
-        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
-        if (string.IsNullOrEmpty(envToken))
-        {
-            config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
-            config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-        }
-        else
-        {
-            config.JwtToken = envToken;
-        }
-
-        return config;
-    }
-
-    public static async Task Main(string[] args)
-    {
-        var recognizeApi = new RecognizeApi(MakeConfiguration());
-        
-        var request = new BarcodeRecognizeGetRequest(
-            DecodeBarcodeType.QR, 
-            "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png"
-        );
-        var result = await recognizeApi.BarcodeRecognizeGetAsync(request);
-
-        Console.WriteLine($"File '{fileName}' recognized, result: '{result.Barcodes[0].BarcodeValue}'");
-    }
-}
+if __name__ == "__main__":
+    main()

@@ -7,7 +7,6 @@ from aspose_barcode_cloud import (
     ApiClient,
     Configuration,
     EncodeBarcodeType,
-    EncodeDataType,
     CodeLocation,
     DecodeBarcodeType,
 )

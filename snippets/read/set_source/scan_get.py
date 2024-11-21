@@ -1,42 +1,34 @@
-using Aspose.BarCode.Cloud.Sdk.Api;
-using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
+import os
+from aspose_barcode_cloud import ScanApi, ApiClient, Configuration
 
-namespace ScanSnippets;
+def make_configuration():
+    """
+    Creates and returns the configuration for the Aspose Barcode API.
+    """
+    env_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
+    if env_token:
+        config = Configuration(jwt_token=env_token)
+    else:
+        config = Configuration(
+            client_id="Client Id from https://dashboard.aspose.cloud/applications",
+            client_secret="Client Secret from https://dashboard.aspose.cloud/applications"
+        )
+    return config
 
-internal static class Program
-{
-    private static Configuration MakeConfiguration()
-    {
-        var config = new Configuration();
+async def main():
 
-        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
-        if (string.IsNullOrEmpty(envToken))
-        {
-            config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
-            config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-        }
-        else
-        {
-            config.JwtToken = envToken;
-        }
+    config = make_configuration()
+    scan_api = ScanApi(ApiClient(config))
 
-        return config;
-    }
+    barcode_image_url = "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png"
+    
+    result = await scan_api.barcode_scan_get(file_url=barcode_image_url)
+    
+    if result.barcodes and len(result.barcodes) > 0:
+        print(f"Recognized barcode value: '{result.barcodes[0].barcode_value}'")
+    else:
+        print("No barcodes recognized.")
 
-    public static async Task Main(string[] args)
-    {
-        var scanApi = new ScanApi(MakeConfiguration());
-        
-        var request = new BarcodeScanGetRequest("https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png");
-        var result = await scanApi.BarcodeScanGetAsync(request);
-
-        Console.WriteLine($"File '{fileName}' recognized, result: '{result.Barcodes[0].BarcodeValue}'");
-    }
-}
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())
