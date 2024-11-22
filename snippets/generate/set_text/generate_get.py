@@ -1,55 +1,41 @@
-using Aspose.BarCode.Cloud.Sdk.Api;
-using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
-using System;
-using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
 
-namespace GenerateSnippets;
+import os
+from aspose_barcode_cloud import ApiClient, Configuration, EncodeBarcodeType, EncodeData, EncodeDataType, GenerateParams, BarcodeImageParams, BarcodeImageFormat
+from aspose_barcode_cloud.api.generate_api import GenerateApi
 
-internal static class Program
-{
-    private static Configuration MakeConfiguration()
-    {
-        var config = new Configuration();
+def make_configuration():
+    env_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
+    if env_token:
+        config = Configuration(jwt_token=env_token)
+    else:
+        config = Configuration(
+            client_id="Client Id from https://dashboard.aspose.cloud/applications",
+            client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
+        )
+    return config
 
-        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
-        if (string.IsNullOrEmpty(envToken))
-        {
-            config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
-            config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-        }
-        else
-        {
-            config.JwtToken = envToken;
-        }
+def main():
+    """Main function to generate a QR code."""
+    file_name = os.path.abspath(os.path.join(
+        os.path.dirname(__file__), "..", "..", "..", "..", "qr.png"
+    ))
 
-        return config;
-    }
+    configuration = make_configuration()
+    api_client = ApiClient(configuration=configuration)
+    generate_api = GenerateApi(api_client=api_client)
 
-    public static async Task Main(string[] args)
-    {
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..",
-            "qr.png"
-        ));
+    # Create the request to generate QR code
+    generate_params = GenerateParams(EncodeBarcodeType.QR, EncodeData(EncodeDataType.STRINGDATA, "Aspose.BarCode.Cloud"))
 
-        GenerateApi generateApi = new GenerateApi(MakeConfiguration());
-        
-        var getRequest = new BarcodeGenerateBarcodeTypeGetRequest
-                                                        (EncodeBarcodeType.QR, "Aspose.BarCode.Cloud")
-        {
-            DataType = EncodeDataType.StringData
-        };
+    # Call the API to generate the barcode
+    response = generate_api.barcode_generate_body_post(generate_params)
 
-        Stream generated = await generateApi.BarcodeGenerateBarcodeTypeGetAsync(getRequest);
-        
-        await using FileStream stream = File.Create(fileName);
-        await generated.CopyToAsync(stream);
+    # Save generated QR code to a file
+    with open(file_name, 'wb') as file_stream:
+        file_stream.write(response.data)
 
-        Console.WriteLine($"File '{fileName}' generated.");
-    }
-}
+    print(f"File '{file_name}' generated.")
+
+# Entry point for the script
+if __name__ == "__main__":
+    main()

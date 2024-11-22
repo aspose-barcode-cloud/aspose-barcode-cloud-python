@@ -1,60 +1,53 @@
-using Aspose.BarCode.Cloud.Sdk.Api;
-using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
+import os
+import base64
+from aspose_barcode_cloud import (
+    RecognizeApi,
+    ApiClient,
+    Configuration,
+    DecodeBarcodeType,
+    RecognizeBase64Request,
+    RecognitionImageKind,
+)
 
-namespace RecognizeSnippets;
+def make_configuration():
+    jwt_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
+    if jwt_token:
+        config = Configuration(jwt_token=jwt_token)
+    else:
+        config = Configuration(
+            client_id="Client Id from https://dashboard.aspose.cloud/applications",
+            client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
+        )
+    return config
 
-internal static class Program
-{
-    private static Configuration MakeConfiguration()
-    {
-        var config = new Configuration();
+async def main():
+    config = make_configuration()
+    recognize_api = RecognizeApi(ApiClient(config))
 
-        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
-        if (string.IsNullOrEmpty(envToken))
-        {
-            config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
-            config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-        }
-        else
-        {
-            config.JwtToken = envToken;
-        }
+    file_name = os.path.abspath(os.path.join(
+        os.path.dirname(__file__), "..", "..", "..", "..", "aztec.png"
+    ))
 
-        return config;
-    }
+    with open(file_name, "rb") as file:
+        image_bytes = file.read()
+        image_base64 = base64.b64encode(image_bytes).decode("utf-8")
 
-    public static async Task Main(string[] args)
-    {
-        var recognizeApi = new RecognizeApi(MakeConfiguration());
+    # Create the request with the appropriate Barcode types
+    base64_request = RecognizeBase64Request(
+        barcode_types=[DecodeBarcodeType.Aztec, DecodeBarcodeType.QR],
+        file_base64=image_base64,
+        image_kind=RecognitionImageKind.ScannedDocument
+    )
 
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..", ".."
-            "aztec.png"
-        ));
+    # Make the API call
+    result = await recognize_api.barcode_recognize_body_post(base64_request)
 
-        byte[] imageBytes = await File.ReadAllBytesAsync(fileName);
-        string imageBase64 = Convert.ToBase64String(imageBytes);
+    # Print the outcome
+    if result.barcodes:
+        print(f"File '{file_name}' recognized, results: value: '{result.barcodes[0].barcode_value}', type: {result.barcodes[0].type}")
+    else:
+        print(f"File '{file_name}' recognized, but no barcodes found.")
 
-
-        var base64Request = new RecognizeBase64Request {
-        BarcodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.Aztec, DecodeBarcodeType.QR },
-        FileBase64 = imageBase64,
-        ImageKind = RecognitionImageKind.ScannedDocument
-      };
-
-        var request = new BarcodeRecognizeBodyPostRequest(base64Request);
-
-        BarcodeResponseList result = await recognizeApi.BarcodeRecognizeBodyPostAsync(request);
-
-        Console.WriteLine($"File '{fileName}' recognized, results: value: '{result.Barcodes[0].BarcodeValue}', type: {result.Barcodes[0].Type}");
-
-    }
-}
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())

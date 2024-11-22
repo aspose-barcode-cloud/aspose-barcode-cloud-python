@@ -1,61 +1,52 @@
-using Aspose.BarCode.Cloud.Sdk.Api;
-using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
-using System;
-using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
 
-namespace GenerateSnippets;
+import os
+import asyncio
+from aspose_barcode_cloud import (
+    ApiClient,
+    EncodeBarcodeType,
+    EncodeDataType,
+    EncodeData,
+    GenerateParams,
+    Configuration,
+)
+from aspose_barcode_cloud.api.generate_api import GenerateApi
 
-internal static class Program
-{
-    private static Configuration MakeConfiguration()
-    {
-        var config = new Configuration();
+def make_configuration():
+    env_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
+    if env_token:
+        config = Configuration(jwt_token=env_token)
+    else:
+        config = Configuration(
+            client_id="Client Id from https://dashboard.aspose.cloud/applications",
+            client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
+        )
+    return config
 
-        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
-        if (string.IsNullOrEmpty(envToken))
-        {
-            config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
-            config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-        }
-        else
-        {
-            config.JwtToken = envToken;
-        }
 
-        return config;
-    }
+def main():
+    file_name = os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", "Pdf417.png")
 
-    public static async Task Main(string[] args)
-    {
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..",
-            "Pdf417.png"
-        ));
+    config = make_configuration()
+    api_client = ApiClient(configuration=config)
+    generate_api = GenerateApi(api_client=api_client)
 
-        GenerateApi generateApi = new GenerateApi(MakeConfiguration());
-        
-        var postParams = new GenerateParams
-{
-    BarcodeType = EncodeBarcodeType.Pdf417,
-    EncodeData = new EncodeData
-    {
-        DataType = EncodeDataType.Base64Bytes,
-        Data = "QXNwb3NlLkJhckNvZGUuQ2xvdWQ="
-    }
-};
+    post_params = GenerateParams(
+        BarcodeType=EncodeBarcodeType.PDF417,
+        EncodeData=EncodeData(
+            DataType=EncodeDataType.BASE64BYTES,
+            Data="QXNwb3NlLkJhckNvZGUuQ2xvdWQ="
+        )
+    )
 
-var postRequest = new BarcodeGenerateBodyPostRequest(postParams);
+    # Generate barcode
+    response = generate_api.barcode_generate_body_post(post_params)
 
-Stream generated = await generateApi.BarcodeGenerateBodyPostAsync(postRequest);
+    # Save image to file
+    with open(file_name, 'wb') as file:
+        file.write(response.data)
 
-        await using FileStream stream = File.Create(fileName);
-        await generated.CopyToAsync(stream);
+    print(f"File '{file_name}' generated.")
 
-        Console.WriteLine($"File '{fileName}' generated.");
-    }
-}
+
+if __name__ == "__main__":
+    asyncio.run(main())

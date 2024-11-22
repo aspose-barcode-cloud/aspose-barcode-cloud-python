@@ -1,58 +1,60 @@
-using Aspose.BarCode.Cloud.Sdk.Api;
-using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
-using System;
-using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
 
-namespace GenerateSnippets;
+import os
+from aspose_barcode_cloud import (
+    ApiClient,
+    EncodeBarcodeType,
+    GenerateParams,
+    BarcodeImageParams,
+    BarcodeImageFormat,
+    EncodeData,
+    Configuration
+)
+from aspose_barcode_cloud.api.generate_api import GenerateApi
 
-internal static class Program
-{
-    private static Configuration MakeConfiguration()
-    {
-        var config = new Configuration();
+def make_configuration():
+    env_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
+    if env_token:
+        config = Configuration(jwt_token=env_token)
+    else:
+        config = Configuration(
+            client_id="Client Id from https://dashboard.aspose.cloud/applications",
+            client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
+        )
+    return config
 
-        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
-        if (string.IsNullOrEmpty(envToken))
-        {
-            config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
-            config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-        }
-        else
-        {
-            config.JwtToken = envToken;
-        }
+# Main function for async execution
+async def main():
+    # Path for saving the generated barcode image
+    file_name = os.path.abspath(os.path.join(
+        os.path.dirname(__file__),
+        "..", "..", "..", "..",
+        "qr.png"
+    ))
 
-        return config;
-    }
+    # Create API client and instance
+    configuration = make_configuration()
+    api_client = ApiClient(configuration=configuration)
+    generate_api = GenerateApi(api_client=api_client)
 
-    public static async Task Main(string[] args)
-    {
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..",
-            "qr.png"
-        ));
+    # Create the request for barcode generation
+    generator_params = GenerateParams(
+        EncodeBarcodeType.QR,
+        EncodeData("Aspose.BarCode.Cloud"),
+        BarcodeImageParams(BarcodeImageFormat.PNG,
+        image_height=200,
+        image_width=200,
+        resolution=300,)
+    )
 
-        GenerateApi generateApi = new GenerateApi(MakeConfiguration());
-        
-var request =
-            new BarcodeGenerateBarcodeTypeGetRequest(EncodeBarcodeType.QR, "Aspose.BarCode.Cloud")
-{
-    ImageHeight = 200,
-    ImageWidth = 200,
-    Resolution = 300,
-    Units = GraphicsUnit.Pixel
-};
+    # Generate the barcode
+    response = await generate_api.barcode_generate_body_post(generator_params)
 
-Stream generated = await generateApi.BarcodeGenerateBarcodeTypeGetAsync(request);
-        
-        await using FileStream stream = File.Create(fileName);
-        await generated.CopyToAsync(stream);
+    # Save the generated barcode to a file
+    with open(file_name, 'wb') as file:
+        file.write(response.data)
 
-        Console.WriteLine($"File '{fileName}' generated.");
-    }
-}
+    print(f"File '{file_name}' generated.")
+
+# Run the main function
+if __name__ == "__main__":
+    main()

@@ -1,56 +1,49 @@
-using Aspose.BarCode.Cloud.Sdk.Api;
-using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
-using System;
-using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
 
-namespace GenerateSnippets;
+import os
+from aspose_barcode_cloud import (
+    ApiClient,
+    EncodeBarcodeType,
+    Configuration,
+    GraphicsUnit
+)
+from aspose_barcode_cloud.api.generate_api import GenerateApi
 
-internal static class Program
-{
-    private static Configuration MakeConfiguration()
-    {
-        var config = new Configuration();
+def make_configuration():
+    env_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
+    if env_token:
+        config = Configuration(jwt_token=env_token)
+    else:
+        config = Configuration(
+            client_id="Client Id from https://dashboard.aspose.cloud/applications",
+            client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
+        )
+    return config
 
-        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
-        if (string.IsNullOrEmpty(envToken))
-        {
-            config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
-            config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-        }
-        else
-        {
-            config.JwtToken = envToken;
-        }
+def main():
+    # Set up configuration and API client
+    config = make_configuration()
+    api_client = ApiClient(configuration=config)
+    api = GenerateApi(api_client=api_client)
 
-        return config;
-    }
+    # Specify the output file path
+    file_name = os.path.abspath(os.path.join(
+        os.path.dirname(__file__),
+        "..", "..", "..", "..",
+        "aztec.png"
+    ))
 
-    public static async Task Main(string[] args)
-    {
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..",
-            "aztec.png"
-        ));
+    response = api.barcode_generate_multipart_post(encode_barcode_type=EncodeBarcodeType.AZTEC, 
+                                                    text="Aspose.BarCode.Cloud", 
+                                                    image_height=200, 
+                                                    image_width=200,
+                                                    resolution=150,
+                                                    units=GraphicsUnit.POINT)
+    
+    # Write response to file
+    with open(file_name, 'wb') as file_stream:
+        file_stream.write(response.data)
 
-var request =
-         new BarcodeGenerateMultipartPostRequest(EncodeBarcodeType.Aztec, "Aspose.BarCode.Cloud")
-{
-    ImageHeight = 200,
-    ImageWidth = 200,
-    Resolution = 150,
-    Units = GraphicsUnit.Point
-};
+    print(f"File '{file_name}' generated.")
 
-Stream generated = await generateApi.BarcodeGenerateMultipartPostAsync(request);
-
-        await using FileStream stream = File.Create(fileName);
-        await generated.CopyToAsync(stream);
-
-        Console.WriteLine($"File '{fileName}' generated.");
-    }
-}
+if __name__ == "__main__":
+    main()

@@ -1,48 +1,36 @@
-using Aspose.BarCode.Cloud.Sdk.Api;
-using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
+import os
+from aspose_barcode_cloud import (
+    RecognizeApi,
+    ApiClient,
+    Configuration,
+    DecodeBarcodeType,
+    RecognitionImageKind,
+    RecognitionMode
+)
 
-namespace RecgonizeSnippets;
+def make_configuration():
+    jwt_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
+    if jwt_token:
+        config = Configuration(jwt_token=jwt_token)
+    else:
+        config = Configuration(
+            client_id="Client Id from https://dashboard.aspose.cloud/applications",
+            client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
+        )
+    return config
 
-internal static class Program
-{
-    private static Configuration MakeConfiguration()
-    {
-        var config = new Configuration();
+async def main():
+    config = make_configuration()
+    recognize_api = RecognizeApi(ApiClient(config))
 
-        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
-        if (string.IsNullOrEmpty(envToken))
-        {
-            config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
-            config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-        }
-        else
-        {
-            config.JwtToken = envToken;
-        }
 
-        return config;
-    }
+    result = await recognize_api.barcode_recognize_get( barcode_type=DecodeBarcodeType.QR,
+        file_url="https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png",
+        recognition_mode=RecognitionMode.FAST,
+        image_kind=RecognitionImageKind.PHOTO)
 
-    public static async Task Main(string[] args)
-    {
-        var recognizeApi = new RecognizeApi(MakeConfiguration());
-        
+    print(f"File recognized, result: '{result.barcodes[0].barcode_value}'")
 
-        var request = new BarcodeRecognizeGetRequest(DecodeBarcodeType.QR, "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png")
-                            {
-                                RecognitionMode = RecognitionMode.Fast,
-                                ImageKind = RecognitionImageKind.Photo
-                            };
-
-        BarcodeResponseList result = await recognizeApi.BarcodeRecognizeGetAsync(request);
-
-        Console.WriteLine($"File '{fileName}' recognized, result: '{result.Barcodes[0].BarcodeValue}'");
-    }
-}
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())

@@ -1,63 +1,48 @@
-using Aspose.BarCode.Cloud.Sdk.Api;
-using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
+import os
+import base64
+from aspose_barcode_cloud import (
+    RecognizeApi,
+    ApiClient,
+    Configuration,
+    DecodeBarcodeType,
+    RecognizeBase64Request,
+    BarcodeResponseList,
+)
 
-namespace RecognizeSnippets;
+def make_configuration():
+    jwt_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
+    if jwt_token:
+        config = Configuration(jwt_token=jwt_token)
+    else:
+        config = Configuration(
+            client_id="Client Id from https://dashboard.aspose.cloud/applications",
+            client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
+        )
+    return config
 
-internal static class Program
-{
-    private static Configuration MakeConfiguration()
-    {
-        var config = new Configuration();
+async def main():
+    config = make_configuration()
+    recognize_api = RecognizeApi(ApiClient(config))
 
-        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
-        if (string.IsNullOrEmpty(envToken))
-        {
-            config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
-            config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-        }
-        else
-        {
-            config.JwtToken = envToken;
-        }
+    file_name = os.path.abspath(os.path.join(
+        os.path.dirname(__file__), "..", "..", "..", "..", "..", "multi-types.png"
+    ))
 
-        return config;
-    }
+    with open(file_name, "rb") as file:
+        image_bytes = file.read()
+        image_base64 = base64.b64encode(image_bytes).decode("utf-8")
 
-    public static async Task Main(string[] args)
-    {
-        var recognizeApi = new RecognizeApi(MakeConfiguration());
+    recognize_base64_request = RecognizeBase64Request(
+        barcode_types=[DecodeBarcodeType.QR, DecodeBarcodeType.PDF417],
+        file_base64=image_base64
+    )
 
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..", ".."
-            "multi-types.png"
-        ));
+    result: BarcodeResponseList = await recognize_api.barcode_recognize_body_post(recognize_base64_request)
 
-        byte[] imageBytes = await File.ReadAllBytesAsync(fileName);
-        string imageBase64 = Convert.ToBase64String(imageBytes);
+    print(f"File '{file_name}' recognized, results: ")
+    for barcode in result.barcodes:
+        print(f"Value: '{barcode.barcode_value}', type: {barcode.type}")
 
-
-        var recognizeBase64Request = new RecognizeBase64Request
-        {
-            BarcodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.QR, DecodeBarcodeType.Pdf417 },
-            FileBase64 = imageBase64
-        };
-
-        var request = new BarcodeRecognizeBodyPostRequest(recognizeBase64Request);
-        BarcodeResponseList response = await recognizeApi.BarcodeRecognizeBodyPostAsync(request);
-
-        Console.WriteLine($"File '{fileName}' recognized, results: ");
-        foreach(var result in response.Barcodes)
-        {
-             Console.WriteLine($"Value: '{result.BarcodeValue}', type: {result.Type}");
-        }
-
-    }
-}
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())

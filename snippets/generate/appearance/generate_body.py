@@ -1,63 +1,58 @@
-using Aspose.BarCode.Cloud.Sdk.Api;
-using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
-using System;
-using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
+import os
+from aspose_barcode_cloud import (
+    ApiClient,
+    Configuration,
+    EncodeBarcodeType,
+    EncodeDataType,
+    EncodeData,
+    GenerateParams,
+    BarcodeImageParams,
+    BarcodeImageFormat,
+)
+from aspose_barcode_cloud.api.generate_api import GenerateApi
 
-namespace GenerateSnippets;
+def make_configuration():
+    env_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
+    if env_token:
+        config = Configuration(jwt_token=env_token)
+    else:
+        config = Configuration(
+            client_id="Client Id from https://dashboard.aspose.cloud/applications",
+            client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
+        )
+    return config
 
-internal static class Program
-{
-    private static Configuration MakeConfiguration()
-    {
-        var config = new Configuration();
+# Main function to generate barcode
+async def main():
+    # Set up the configuration and API client
+    configuration = make_configuration()
+    api_client = ApiClient(configuration)
+    generate_api = GenerateApi(api_client=api_client)
 
-        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
-        if (string.IsNullOrEmpty(envToken))
-        {
-            config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
-            config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-        }
-        else
-        {
-            config.JwtToken = envToken;
-        }
+    # Define the file path for the generated barcode
+    file_name = os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", "Code39.jpeg")
 
-        return config;
-    }
+    # Set up the generation parameters
+    generate_params = GenerateParams(
+        encode_barcode_type=EncodeBarcodeType.CODE39,
+        encode_data=EncodeData(data="Aspose", data_type=EncodeDataType.STRING_DATA),
+        barcode_image_params=BarcodeImageParams(
+            foreground_color="#FF0000",
+            background_color="#FFFF00",
+            image_format=BarcodeImageFormat.JPEG,
+            rotation_angle=90
+        )
+    )
 
-    public static async Task Main(string[] args)
-    {
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..",
-            "Code39.jpeg"
-        ));
+    # Generate barcode
+    response = generate_api.barcode_generate_body_post(generate_params)
 
-        GenerateApi generateApi = new GenerateApi(MakeConfiguration());
-        
-var generateParams = new GenerateParams
-{
-    BarcodeType = EncodeBarcodeType.Code39,
-    EncodeData = new EncodeData { Data = "Aspose", DataType = EncodeDataType.StringData },
-    BarcodeImageParams = new BarcodeImageParams
-    {
-        ForegroundColor = "#FF0000",
-        BackgroundColor = "#FFFF00",
-        ImageFormat = BarcodeImageFormat.Jpeg,
-        RotationAngle = 90
-    }
-};
+    # Save the generated image to a file
+    with open(file_name, 'wb') as stream:
+        stream.write(response)
 
-var request = new BarcodeGenerateBodyPostRequest(generateParams);
-var generated = await generateApi.BarcodeGenerateBodyPostAsync(request);
+    print(f"File '{file_name}' generated.")
 
-        await using FileStream stream = File.Create(fileName);
-        await generated.CopyToAsync(stream);
-
-        Console.WriteLine($"File '{fileName}' generated.");
-    }
-}
+# To run the main function if this script is executed
+if __name__ == "__main__":
+    main()

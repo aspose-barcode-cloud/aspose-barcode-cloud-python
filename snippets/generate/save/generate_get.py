@@ -1,52 +1,39 @@
-using Aspose.BarCode.Cloud.Sdk.Api;
-using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
-using System;
-using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
+import os
+from aspose_barcode_cloud import (
+    ApiClient,
+    GenerateApi,
+    EncodeBarcodeType,
+    Configuration
+)
 
-namespace GenerateSnippets;
+def make_configuration():
+    env_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
+    if env_token:
+        config = Configuration(jwt_token=env_token)
+    else:
+        config = Configuration(
+            client_id="Client Id from https://dashboard.aspose.cloud/applications",
+            client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
+        )
+    return config
 
-internal static class Program
-{
-    private static Configuration MakeConfiguration()
-    {
-        var config = new Configuration();
+def main():
+    configuration = make_configuration()
+    api_client = ApiClient(configuration=configuration)
+    api = GenerateApi(api_client=api_client)
 
-        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
-        if (string.IsNullOrEmpty(envToken))
-        {
-            config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
-            config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-        }
-        else
-        {
-            config.JwtToken = envToken;
-        }
+    file_name = os.path.join(
+        os.path.dirname(__file__),
+        '..', '..', '..', '..',
+        'Code128.jpeg'
+    )
 
-        return config;
-    }
+    response = api.barcode_generate_barcode_type_get(EncodeBarcodeType.CODE128, "Aspose.BarCode.Cloud")
+    
+    with open(file_name, 'wb') as f:
+        f.write(response.data)
+    
+    print(f"File '{file_name}' generated.")
 
-    public static async Task Main(string[] args)
-    {
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..",
-            "Code128.jpeg"
-        ));
-
-        GenerateApi generateApi = new GenerateApi(MakeConfiguration());
-
-var request = new BarcodeGenerateBarcodeTypeGetRequest(EncodeBarcodeType.Code128, "Aspose.BarCode.Cloud");
-request.ImageFormat = BarcodeImageFormat.Png;
-
-using var stream = await generateApi.BarcodeGenerateBarcodeTypeGetAsync(request);
-
-        await using FileStream stream = File.Create(fileName);
-        await generated.CopyToAsync(stream);
-
-        Console.WriteLine($"File '{fileName}' generated.");
-    }
-}
+if __name__ == "__main__":
+    main()

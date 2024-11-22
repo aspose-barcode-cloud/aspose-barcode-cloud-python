@@ -1,51 +1,47 @@
-using Aspose.BarCode.Cloud.Sdk.Api;
-using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
 
-namespace RecognizeSnippets;
+import os
+import base64
+from aspose_barcode_cloud import (
+    RecognizeApi,
+    ApiClient,
+    Configuration,
+    DecodeBarcodeType,
+    RecognizeBase64Request,
+)
 
-internal static class Program
-{
-    private static Configuration MakeConfiguration()
-    {
-        var config = new Configuration();
+def make_configuration():
+    jwt_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
+    if jwt_token:
+        config = Configuration(jwt_token=jwt_token)
+    else:
+        config = Configuration(
+            client_id="Client Id from https://dashboard.aspose.cloud/applications",
+            client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
+        )
+    return config
 
-        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
-        if (string.IsNullOrEmpty(envToken))
-        {
-            config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
-            config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-        }
-        else
-        {
-            config.JwtToken = envToken;
-        }
+async def main():
+    config = make_configuration()
+    recognize_api = RecognizeApi(ApiClient(config))
 
-        return config;
-    }
+    # Adjust the file path as per your environment
+    file_name = os.path.abspath(os.path.join(
+        os.path.dirname(__file__), "..", "..", "..", "..", "Pdf417.png"
+    ))
 
-    public static async Task Main(string[] args)
-    {
-        var recognizeApi = new RecognizeApi(MakeConfiguration());
+    with open(file_name, "rb") as file:
+        image_bytes = file.read()
+        image_base64 = base64.b64encode(image_bytes).decode("utf-8")
 
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..", ".."
-            "Pdf417.png"
-        ));
+    request = RecognizeBase64Request(
+        barcode_types=[DecodeBarcodeType.MOST_COMMONLY_USED],
+        file_base64=image_base64
+    )
 
-        using var fileStream = new FileStream(fileName, FileMode.Open);
-        var request = new BarcodeRecognizeMultipartPostRequest(DecodeBarcodeType.MostCommonlyUsed, fileStream);
-        request.ImageKind = RecognitionImageKind.ClearImage;
+    result = await recognize_api.barcode_recognize_body_post(request)
 
-        BarcodeResponseList result = await recognizeApi.BarcodeRecognizeMultipartPostAsync(request);
+    print(f"File '{file_name}' recognized, result: '{result.barcodes[0].barcode_value}'")
 
-        Console.WriteLine($"File '{fileName}' recognized, result: '{result.Barcodes[0].BarcodeValue}'");
-    }
-}
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())

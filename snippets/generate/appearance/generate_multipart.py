@@ -1,58 +1,50 @@
-using Aspose.BarCode.Cloud.Sdk.Api;
-using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
-using System;
-using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
 
-namespace GenerateSnippets;
-
-internal static class Program
-{
-    private static Configuration MakeConfiguration()
-    {
-        var config = new Configuration();
-
-        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
-        if (string.IsNullOrEmpty(envToken))
-        {
-            config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
-            config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-        }
-        else
-        {
-            config.JwtToken = envToken;
-        }
-
-        return config;
-    }
-
-    public static async Task Main(string[] args)
-    {
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..",
-            "Pdf417.svg"
-        ));
-
-        GenerateApi generateApi = new GenerateApi(MakeConfiguration());
-        
-var request = new BarcodeGenerateMultipartPostRequest(
-    barcodeType: EncodeBarcodeType.Pdf417,
-    data: "Aspose.BarCode.Cloud"
+import os
+from aspose_barcode_cloud import (
+    ApiClient,
+    EncodeBarcodeType,
+    BarcodeImageFormat,
+    CodeLocation,
+    Configuration
 )
-{
-    TextLocation = CodeLocation.Above,
-    ImageFormat = BarcodeImageFormat.Svg,
-};
+from aspose_barcode_cloud.api.generate_api import GenerateApi
 
-var barcodeStream = await generateApi.BarcodeGenerateMultipartPostAsync(request);
 
-        await using FileStream stream = File.Create(fileName);
-        await generated.CopyToAsync(stream);
+def make_configuration():
+    env_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
+    if env_token:
+        config = Configuration(jwt_token=env_token)
+    else:
+        config = Configuration(
+            client_id="Client Id from https://dashboard.aspose.cloud/applications",
+            client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
+        )
+    return config
 
-        Console.WriteLine($"File '{fileName}' generated.");
-    }
-}
+
+def main():
+    file_name = os.path.abspath(os.path.join(
+        os.path.dirname(__file__),
+        "..", "..", "..", "..",
+        "Pdf417.svg"
+    ))
+
+    api_client = ApiClient(configuration=make_configuration())
+    generate_api = GenerateApi(api_client=api_client)
+
+    # Generate barcode
+    barcode_stream = generate_api.barcode_generate_multipart_post(
+        barcode_type = EncodeBarcodeType.PDF417, 
+        data="Aspose.BarCode.Cloud",
+        text_location=CodeLocation.ABOVE,
+        image_format=BarcodeImageFormat.SVG 
+        )
+
+    with open(file_name, 'wb') as stream:
+        stream.write(barcode_stream)
+
+    print(f"File '{file_name}' generated.")
+
+
+if __name__ == "__main__":
+    main()
