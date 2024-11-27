@@ -19,21 +19,24 @@ def make_configuration():
         )
     return config
 
-async def main():
+def main():
     config = make_configuration()
     recognize_api = RecognizeApi(ApiClient(config))
 
     file_name = os.path.abspath(os.path.join(
-        os.path.dirname(__file__), "..", "..", "..", "..", "aztec.png"  # changed the filename to match the original
+        os.path.dirname(__file__),
+        "..", "testdata", "aztec.png" 
     ))
 
     with open(file_name, "rb") as file:
         file_content = file.read()
-    result = await recognize_api.barcode_recognize_multipart_post
-    (DecodeBarcodeType.Aztec, file_content, RecognitionMode.NORMAL, RecognitionImageKind.SCANNEDDOCUMENT)
+    result = recognize_api.barcode_recognize_multipart_post(
+        DecodeBarcodeType.AZTEC, file_content, RecognitionMode.NORMAL, RecognitionImageKind.SCANNEDDOCUMENT)
 
-    print(f"File '{file_name}' recognized, result: '{result.barcodes[0].barcode_value}'")
+    if result.barcodes:
+        print(f"File '{file_name}' recognized, results: value: '{result.barcodes[0].barcode_value}', type: {result.barcodes[0].type}")
+    else:
+        print(f"File '{file_name}' recognized, but no barcodes found.")
 
 if __name__ == "__main__":
-    import asyncio
-    asyncio.run(main())
+    main()

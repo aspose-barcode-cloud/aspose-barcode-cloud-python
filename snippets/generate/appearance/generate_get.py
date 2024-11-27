@@ -1,6 +1,5 @@
 
 import os
-import asyncio
 from aspose_barcode_cloud import (
     ApiClient,
     EncodeBarcodeType,
@@ -39,7 +38,9 @@ def main():
         text_location=CodeLocation.BELOW
     )
 
-    file_name = os.path.join(os.path.dirname(__file__), '..', '..', '..', '..', 'qr.png')
+    file_name = os.path.abspath(os.path.join(
+        os.path.dirname(__file__),
+        "..", "testdata", 'qr.png'))
 
     with open(file_name, 'wb') as file:
         file.write(response.data) 

@@ -23,27 +23,27 @@ def make_configuration():
     return config
 
 def main():
-    file_name = os.path.join(
-        os.path.dirname(os.path.abspath(__file__)), 
-        "..", "..", "..", "..", 
-        "Pdf417.png"
-    )
+    file_name = os.path.abspath(os.path.join(
+        os.path.dirname(__file__),
+        "..", "testdata",
+        "pdf417.png"
+    ))
 
     configuration = make_configuration()
     api_client = ApiClient(configuration=configuration)
     generate_api = GenerateApi(api_client=api_client)
 
     generate_params = GenerateParams(
-        BarcodeType=EncodeBarcodeType.PDF417,
-        EncodeData=EncodeData(DataType=EncodeDataType.STRINGDATA, Data="Aspose.BarCode.Cloud"),
-        BarcodeImageParams=BarcodeImageParams(
-            ForegroundColor="#FF5733",
-            BackgroundColor="#FFFFFF",
-            ImageFormat=BarcodeImageFormat.JPEG,
+        barcode_type=EncodeBarcodeType.PDF417,
+        encode_data=EncodeData(data_type=EncodeDataType.STRINGDATA, data="Aspose.BarCode.Cloud"),
+        barcode_image_params=BarcodeImageParams(
+            foreground_color="#FF5733",
+            background_color="#FFFFFF",
+            image_format=BarcodeImageFormat.JPEG,
         )
     )
 
-    response = generate_api.barcode_generate_body_post_async(generate_params)
+    response = generate_api.barcode_generate_body_post(generate_params)
 
     with open(file_name, 'wb') as stream:
         stream.write(response.data)

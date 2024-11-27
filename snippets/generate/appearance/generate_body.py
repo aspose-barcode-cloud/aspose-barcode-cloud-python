@@ -23,19 +23,21 @@ def make_configuration():
     return config
 
 # Main function to generate barcode
-async def main():
+def main():
     # Set up the configuration and API client
     configuration = make_configuration()
     api_client = ApiClient(configuration)
     generate_api = GenerateApi(api_client=api_client)
 
     # Define the file path for the generated barcode
-    file_name = os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", "Code39.jpeg")
+    file_name = os.path.abspath(os.path.join(
+        os.path.dirname(__file__),
+        "..", "testdata", "code39.jpeg"))
 
     # Set up the generation parameters
     generate_params = GenerateParams(
-        encode_barcode_type=EncodeBarcodeType.CODE39,
-        encode_data=EncodeData(data="Aspose", data_type=EncodeDataType.STRING_DATA),
+        barcode_type=EncodeBarcodeType.CODE39,
+        encode_data=EncodeData(data="Aspose", data_type=EncodeDataType.STRINGDATA),
         barcode_image_params=BarcodeImageParams(
             foreground_color="#FF0000",
             background_color="#FFFF00",
@@ -49,7 +51,7 @@ async def main():
 
     # Save the generated image to a file
     with open(file_name, 'wb') as stream:
-        stream.write(response)
+        stream.write(response.data)
 
     print(f"File '{file_name}' generated.")
 

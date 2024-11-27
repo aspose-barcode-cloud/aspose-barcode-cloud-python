@@ -26,7 +26,7 @@ def main():
 
     file_name = os.path.abspath(os.path.join(
         os.path.dirname(__file__),
-        "..", "..", "..", "..",
+        "..", "testdata",
         "qr.png"
     ))
     

@@ -18,27 +18,21 @@ def make_configuration():
         )
     return config
 
-async def main():
-    file_name = os.path.join(
-        os.path.dirname(os.path.abspath(__file__)),  # Current file directory
-        "..", "..", "..", "..", "Code39.png"  # Going up 4 directories and adding Code39.png
-    )
+def main():
+    file_name = os.path.abspath(os.path.join(
+        os.path.dirname(__file__),
+        "..", "testdata", "Code39.png" 
+    ))
 
     api_client = ApiClient(configuration=make_configuration())
     generate_api = GenerateApi(api_client=api_client)
 
-    request_params = {
-        'encode_barcode_type': EncodeBarcodeType.CODE39,
-        'text': "Aspose",
-        'foreground_color': "Green",
-        'background_color': "Yellow",
-        'image_format': BarcodeImageFormat.GIF
-    }
+    response = generate_api.barcode_generate_multipart_post(barcode_type=EncodeBarcodeType.CODE39,
+                                                            data="Aspose",
+                                                            foreground_color="Green",
+                                                            background_color="Yellow",
+                                                            image_format=BarcodeImageFormat.GIF)
 
-    # Generate barcode
-    response = await generate_api.barcode_generate_multipart_post(request_params)
-
-    # Write to file
     with open(file_name, 'wb') as stream:
         stream.write(response.data)
 

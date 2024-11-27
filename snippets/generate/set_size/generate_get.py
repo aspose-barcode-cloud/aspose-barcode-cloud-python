@@ -7,6 +7,7 @@ from aspose_barcode_cloud import (
     BarcodeImageParams,
     BarcodeImageFormat,
     EncodeData,
+    EncodeDataType,
     Configuration
 )
 from aspose_barcode_cloud.api.generate_api import GenerateApi
@@ -22,34 +23,28 @@ def make_configuration():
         )
     return config
 
-# Main function for async execution
-async def main():
-    # Path for saving the generated barcode image
+def main():
     file_name = os.path.abspath(os.path.join(
         os.path.dirname(__file__),
-        "..", "..", "..", "..",
+        "..", "testdata",
         "qr.png"
     ))
 
-    # Create API client and instance
     configuration = make_configuration()
     api_client = ApiClient(configuration=configuration)
     generate_api = GenerateApi(api_client=api_client)
 
-    # Create the request for barcode generation
     generator_params = GenerateParams(
         EncodeBarcodeType.QR,
-        EncodeData("Aspose.BarCode.Cloud"),
+        EncodeData(EncodeDataType.STRINGDATA, "Aspose.BarCode.Cloud"),
         BarcodeImageParams(BarcodeImageFormat.PNG,
         image_height=200,
         image_width=200,
         resolution=300,)
     )
 
-    # Generate the barcode
-    response = await generate_api.barcode_generate_body_post(generator_params)
+    response = generate_api.barcode_generate_body_post(generator_params)
 
-    # Save the generated barcode to a file
     with open(file_name, 'wb') as file:
         file.write(response.data)
 

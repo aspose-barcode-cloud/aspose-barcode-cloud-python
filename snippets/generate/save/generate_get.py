@@ -22,11 +22,11 @@ def main():
     api_client = ApiClient(configuration=configuration)
     api = GenerateApi(api_client=api_client)
 
-    file_name = os.path.join(
+    file_name = os.path.abspath(os.path.join(
         os.path.dirname(__file__),
-        '..', '..', '..', '..',
-        'Code128.jpeg'
-    )
+        "..", "testdata",
+        'code128.jpeg'
+    ))
 
     response = api.barcode_generate_barcode_type_get(EncodeBarcodeType.CODE128, "Aspose.BarCode.Cloud")
     

@@ -17,25 +17,23 @@ def make_configuration():
 def main():
     """Main function to generate a QR code."""
     file_name = os.path.abspath(os.path.join(
-        os.path.dirname(__file__), "..", "..", "..", "..", "qr.png"
+        os.path.dirname(__file__),
+        "..", "testdata", "qr.png"
     ))
 
     configuration = make_configuration()
     api_client = ApiClient(configuration=configuration)
     generate_api = GenerateApi(api_client=api_client)
 
-    # Create the request to generate QR code
     generate_params = GenerateParams(EncodeBarcodeType.QR, EncodeData(EncodeDataType.STRINGDATA, "Aspose.BarCode.Cloud"))
 
-    # Call the API to generate the barcode
     response = generate_api.barcode_generate_body_post(generate_params)
 
-    # Save generated QR code to a file
     with open(file_name, 'wb') as file_stream:
         file_stream.write(response.data)
 
     print(f"File '{file_name}' generated.")
 
-# Entry point for the script
+
 if __name__ == "__main__":
     main()

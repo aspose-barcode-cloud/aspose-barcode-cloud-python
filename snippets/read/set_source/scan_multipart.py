@@ -13,10 +13,13 @@ def make_configuration():
             client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
         )
 
-async def main():
+def main():
     scan_api = ScanApi(ApiClient(make_configuration()))
     
-    file_name = Path(__file__).resolve().parent.parent.parent.parent / "qr.png"
+    file_name = os.path.abspath(os.path.join(
+        os.path.dirname(__file__),
+        "..", "testdata", "qr.png"
+    ))
 
     with open(file_name, "rb") as file_stream:
         result = scan_api.barcode_scan_multipart_post(file=file_stream)
@@ -24,5 +27,4 @@ async def main():
     print(f"File '{file_name}' recognized, result: '{result.barcodes[0].barcode_value}'")
 
 if __name__ == "__main__":
-    import asyncio
-    asyncio.run(main())
+    main()

@@ -1,6 +1,5 @@
 
 import os
-import asyncio
 from aspose_barcode_cloud import (
     ApiClient,
     EncodeBarcodeType,
@@ -24,24 +23,24 @@ def make_configuration():
 
 
 def main():
-    file_name = os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", "Pdf417.png")
+    file_name = os.path.abspath(os.path.join(
+        os.path.dirname(__file__),
+        "..", "testdata", "pdf417.png"))
 
     config = make_configuration()
     api_client = ApiClient(configuration=config)
     generate_api = GenerateApi(api_client=api_client)
 
     post_params = GenerateParams(
-        BarcodeType=EncodeBarcodeType.PDF417,
-        EncodeData=EncodeData(
-            DataType=EncodeDataType.BASE64BYTES,
-            Data="QXNwb3NlLkJhckNvZGUuQ2xvdWQ="
+        barcode_type=EncodeBarcodeType.PDF417,
+        encode_data=EncodeData(
+            data_type=EncodeDataType.BASE64BYTES,
+            data="QXNwb3NlLkJhckNvZGUuQ2xvdWQ="
         )
     )
 
-    # Generate barcode
     response = generate_api.barcode_generate_body_post(post_params)
 
-    # Save image to file
     with open(file_name, 'wb') as file:
         file.write(response.data)
 
@@ -49,4 +48,4 @@ def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+   main()

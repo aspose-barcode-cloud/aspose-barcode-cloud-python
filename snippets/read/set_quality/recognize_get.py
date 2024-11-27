@@ -19,18 +19,17 @@ def make_configuration():
         )
     return config
 
-async def main():
+def main():
     config = make_configuration()
     recognize_api = RecognizeApi(ApiClient(config))
 
 
-    result = await recognize_api.barcode_recognize_get( barcode_type=DecodeBarcodeType.QR,
+    result = recognize_api.barcode_recognize_get( barcode_type=DecodeBarcodeType.QR,
         file_url="https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png",
         recognition_mode=RecognitionMode.FAST,
-        image_kind=RecognitionImageKind.PHOTO)
+        recognition_image_kind=RecognitionImageKind.PHOTO)
 
     print(f"File recognized, result: '{result.barcodes[0].barcode_value}'")
 
 if __name__ == "__main__":
-    import asyncio
-    asyncio.run(main())
+    main()

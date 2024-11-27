@@ -25,10 +25,13 @@ def make_configuration():
 
 def main():
     # Define the output file path
-    file_name = os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", "Pdf417.png")
+    file_name = os.path.abspath(os.path.join(
+        os.path.dirname(__file__),
+        "..", "testdata", "Pdf417.png"))
 
     # Create API client and generate parameters
-    api_client = make_configuration()
+    configuration = make_configuration()
+    api_client = ApiClient(configuration=configuration)
     generate_api = GenerateApi(api_client=api_client)
 
     generate_params = GenerateParams(

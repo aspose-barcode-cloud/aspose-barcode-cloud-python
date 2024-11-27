@@ -1,11 +1,9 @@
 import os
-import base64
 from aspose_barcode_cloud import (
     RecognizeApi,
     ApiClient,
     Configuration,
     DecodeBarcodeType,
-    BarcodeRecognizeGetRequest,
 )
 
 def make_configuration():
@@ -19,20 +17,15 @@ def make_configuration():
         )
     return config
 
-async def main():
+def main():
     config = make_configuration()
     recognize_api = RecognizeApi(ApiClient(config))
 
-    image_url = "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png"
-    request = BarcodeRecognizeGetRequest(
-        barcode_type=DecodeBarcodeType.QR,
-        image_url=image_url,
-    )
+    file_url = "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png"
 
-    result = await recognize_api.barcode_recognize_get(request)
+    result = recognize_api.barcode_recognize_get(barcode_type=DecodeBarcodeType.QR, file_url=file_url)
 
-    print(f"File '{image_url}' recognized, result: '{result.barcodes[0].barcode_value}'")
+    print(f"File '{file_url}' recognized, result: '{result.barcodes[0].barcode_value}'")
 
 if __name__ == "__main__":
-    import asyncio
-    asyncio.run(main())
+    main()

@@ -15,14 +15,14 @@ def make_configuration():
         )
     return config
 
-async def main():
+def main():
 
     config = make_configuration()
     scan_api = ScanApi(ApiClient(config))
 
     barcode_image_url = "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png"
     
-    result = await scan_api.barcode_scan_get(file_url=barcode_image_url)
+    result = scan_api.barcode_scan_get(file_url=barcode_image_url)
     
     if result.barcodes and len(result.barcodes) > 0:
         print(f"Recognized barcode value: '{result.barcodes[0].barcode_value}'")
@@ -30,5 +30,4 @@ async def main():
         print("No barcodes recognized.")
 
 if __name__ == "__main__":
-    import asyncio
-    asyncio.run(main())
+    main()

@@ -22,8 +22,9 @@ def main():
 
     recognize_api = RecognizeApi(ApiClient(make_configuration()))
 
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.abspath(os.path.join(current_dir, "..", "..", "..", "qr.png"))
+    file_path = os.path.abspath(os.path.join(
+        os.path.dirname(__file__),
+        "..", "testdata", "qr.png"))
 
 
     with open(file_path, "rb") as file_stream:

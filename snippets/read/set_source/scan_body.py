@@ -12,11 +12,12 @@ def make_configuration():
     else:
         return Configuration(jwt_token=env_token)
 
-async def main():
+def main():
     scan_api = ScanApi(ApiClient(make_configuration()))
     
     file_name = os.path.abspath(os.path.join(
-        os.path.dirname(__file__), "..", "..", "..", "..", "..", "qr.png"
+        os.path.dirname(__file__),
+        "..", "testdata", "qr.png"
     ))
 
     with open(file_name, "rb") as file:
@@ -24,6 +25,6 @@ async def main():
     image_base64 = base64.b64encode(image_bytes).decode('utf-8')
 
     request = ScanBase64Request(file_base64=image_base64)
-    result = await scan_api.barcode_scan_body_post(request)
+    result = scan_api.barcode_scan_body_post(request)
 
     print(f"File '{file_name}' recognized, result: '{result.barcodes[0].barcode_value}'")

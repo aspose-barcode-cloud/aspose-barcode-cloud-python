@@ -20,12 +20,13 @@ def make_configuration():
         )
     return config
 
-async def main():
+def main():
     config = make_configuration()
     recognize_api = RecognizeApi(ApiClient(config))
 
     file_name = os.path.abspath(os.path.join(
-        os.path.dirname(__file__), "..", "..", "..", "..", "..", "multi-types.png"
+        os.path.dirname(__file__),
+        "..", "testdata", "qr_and_code128.png"
     ))
 
     with open(file_name, "rb") as file:
@@ -33,16 +34,15 @@ async def main():
         image_base64 = base64.b64encode(image_bytes).decode("utf-8")
 
     recognize_base64_request = RecognizeBase64Request(
-        barcode_types=[DecodeBarcodeType.QR, DecodeBarcodeType.PDF417],
+        barcode_types=[DecodeBarcodeType.QR, DecodeBarcodeType.CODE128],
         file_base64=image_base64
     )
 
-    result: BarcodeResponseList = await recognize_api.barcode_recognize_body_post(recognize_base64_request)
+    result: BarcodeResponseList = recognize_api.barcode_recognize_body_post(recognize_base64_request)
 
     print(f"File '{file_name}' recognized, results: ")
     for barcode in result.barcodes:
         print(f"Value: '{barcode.barcode_value}', type: {barcode.type}")
 
 if __name__ == "__main__":
-    import asyncio
-    asyncio.run(main())
+    main()

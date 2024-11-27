@@ -20,12 +20,13 @@ def make_configuration():
         )
     return config
 
-async def main():
+def main():
     config = make_configuration()
     recognize_api = RecognizeApi(ApiClient(config))
 
     file_name = os.path.abspath(os.path.join(
-        os.path.dirname(__file__), "..", "..", "..", "..", "qr.png"  # Adjust the path as necessary
+        os.path.dirname(__file__),
+        "..", "testdata", "pdf417.png"
     ))
 
     with open(file_name, "rb") as file:
@@ -37,10 +38,9 @@ async def main():
         file_base64=image_base64
     )
 
-    result = await recognize_api.barcode_recognize_body_post(request)
+    result = recognize_api.barcode_recognize_body_post(request)
 
     print(f"File '{file_name}' recognized, result: '{result.barcodes[0].barcode_value}'")
 
 if __name__ == "__main__":
-    import asyncio
-    asyncio.run(main())
+    main()

@@ -20,12 +20,13 @@ def make_configuration():
         )
     return config
 
-async def main():
+def main():
     config = make_configuration()
     recognize_api = RecognizeApi(ApiClient(config))
 
     file_name = os.path.abspath(os.path.join(
-        os.path.dirname(__file__), "..", "..", "..", "..", "aztec.png"
+        os.path.dirname(__file__),
+        "..", "testdata", "aztec.png"
     ))
 
     with open(file_name, "rb") as file:
@@ -34,13 +35,13 @@ async def main():
 
     # Create the request with the appropriate Barcode types
     base64_request = RecognizeBase64Request(
-        barcode_types=[DecodeBarcodeType.Aztec, DecodeBarcodeType.QR],
+        barcode_types=[DecodeBarcodeType.AZTEC, DecodeBarcodeType.QR],
         file_base64=image_base64,
-        image_kind=RecognitionImageKind.ScannedDocument
+        recognition_image_kind=RecognitionImageKind.SCANNEDDOCUMENT
     )
 
     # Make the API call
-    result = await recognize_api.barcode_recognize_body_post(base64_request)
+    result = recognize_api.barcode_recognize_body_post(base64_request)
 
     # Print the outcome
     if result.barcodes:
@@ -49,5 +50,4 @@ async def main():
         print(f"File '{file_name}' recognized, but no barcodes found.")
 
 if __name__ == "__main__":
-    import asyncio
-    asyncio.run(main())
+    main()

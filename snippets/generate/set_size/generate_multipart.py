@@ -20,26 +20,22 @@ def make_configuration():
     return config
 
 def main():
-    # Set up configuration and API client
     config = make_configuration()
     api_client = ApiClient(configuration=config)
     api = GenerateApi(api_client=api_client)
 
-    # Specify the output file path
     file_name = os.path.abspath(os.path.join(
         os.path.dirname(__file__),
-        "..", "..", "..", "..",
+        "..", "testdata",
         "aztec.png"
     ))
 
-    response = api.barcode_generate_multipart_post(encode_barcode_type=EncodeBarcodeType.AZTEC, 
-                                                    text="Aspose.BarCode.Cloud", 
+    response = api.barcode_generate_multipart_post(barcode_type=EncodeBarcodeType.AZTEC, 
+                                                    data="Aspose.BarCode.Cloud", 
                                                     image_height=200, 
                                                     image_width=200,
                                                     resolution=150,
                                                     units=GraphicsUnit.POINT)
-    
-    # Write response to file
     with open(file_name, 'wb') as file_stream:
         file_stream.write(response.data)
 

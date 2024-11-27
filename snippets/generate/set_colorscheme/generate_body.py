@@ -23,12 +23,14 @@ def make_configuration():
         )
     return config
 
-async def main():
+def main():
     file_name = os.path.abspath(os.path.join(
-        os.path.dirname(__file__), "..", "..", "..", "..", "Pdf417.png"
+        os.path.dirname(__file__),
+        "..", "testdata", "pdf417.png"
     ))
 
-    api_client = make_configuration()
+    configuration = make_configuration()
+    api_client = ApiClient(configuration=configuration)
     generate_api = GenerateApi(api_client=api_client)
 
     generate_params = GenerateParams(
