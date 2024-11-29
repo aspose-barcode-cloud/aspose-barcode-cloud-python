@@ -258,7 +258,7 @@ class Configuration(object):
             "OS: {env}\n"
             "Python Version: {pyversion}\n"
             "Version of the API: 3.0\n"
-            "SDK Package Version: 24.10.0".format(env=sys.platform, pyversion=sys.version)
+            "SDK Package Version: 24.11.0".format(env=sys.platform, pyversion=sys.version)
         )
 
     @staticmethod
