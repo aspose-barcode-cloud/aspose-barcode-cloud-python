@@ -1,16 +1,16 @@
 # aspose_barcode_cloud.GenerateApi
 
-All URIs are relative to *https://barcode.qa.aspose.cloud/v4.0*
+All URIs are relative to *https://api.aspose.cloud/v4.0*
 
 Method | HTTP request | Description
 ------ | ------------ | -----------
-[**barcode_generate_barcode_type_get**](GenerateApi.md#barcode_generate_barcode_type_get) | **GET** /barcode/generate/{barcodeType} | Generate barcode using GET request with parameters in route and query string.
-[**barcode_generate_body_post**](GenerateApi.md#barcode_generate_body_post) | **POST** /barcode/generate-body | Generate barcode using POST request with parameters in body in json or xml format.
-[**barcode_generate_multipart_post**](GenerateApi.md#barcode_generate_multipart_post) | **POST** /barcode/generate-multipart | Generate barcode using POST request with parameters in multipart form.
+[**generate**](GenerateApi.md#generate) | **GET** /barcode/generate/{barcodeType} | Generate barcode using GET request with parameters in route and query string.
+[**generate_body**](GenerateApi.md#generate_body) | **POST** /barcode/generate-body | Generate barcode using POST request with parameters in body in json or xml format.
+[**generate_multipart**](GenerateApi.md#generate_multipart) | **POST** /barcode/generate-multipart | Generate barcode using POST request with parameters in multipart form.
 
 
-# **barcode_generate_barcode_type_get**
-> bytearray barcode_generate_barcode_type_get(barcode_type, data, data_type=data_type, image_format=image_format, text_location=text_location, foreground_color=foreground_color, background_color=background_color, units=units, resolution=resolution, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle)
+# **generate**
+> bytearray generate(barcode_type, data, data_type=data_type, image_format=image_format, text_location=text_location, foreground_color=foreground_color, background_color=background_color, units=units, resolution=resolution, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle)
 
 Generate barcode using GET request with parameters in route and query string.
 
@@ -28,11 +28,11 @@ configuration = aspose_barcode_cloud.Configuration(access_token="YOUR_ACCESS_TOK
 api_instance = aspose_barcode_cloud.GenerateApi(aspose_barcode_cloud.ApiClient(configuration))
 barcode_type = aspose_barcode_cloud.EncodeBarcodeType() # EncodeBarcodeType | Type of barcode to generate.
 data = 'data_example' # str | String represents data to encode
-data_type = aspose_barcode_cloud.EncodeDataType() # EncodeDataType | Type of data to encode.  Default value:  EncodeDataType.StringData. (optional)
+data_type = aspose_barcode_cloud.EncodeDataType() # EncodeDataType | Type of data to encode.  Default value: StringData. (optional)
 image_format = aspose_barcode_cloud.BarcodeImageFormat() # BarcodeImageFormat | Barcode output image format.  Default value: png (optional)
 text_location = aspose_barcode_cloud.CodeLocation() # CodeLocation | Specify the displaying Text Location, set to CodeLocation.None to hide CodeText.  Default value: CodeLocation.Below. (optional)
-foreground_color = 'foreground_color_example' # str | Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black. (optional)
-background_color = 'background_color_example' # str | Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White. (optional)
+foreground_color = 'Black' # str | Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black. (optional) (default to 'Black')
+background_color = 'White' # str | Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White. (optional) (default to 'White')
 units = aspose_barcode_cloud.GraphicsUnit() # GraphicsUnit | Common Units for all measuring in query. Default units: pixel. (optional)
 resolution = 3.4 # float | Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi.  Decimal separator is dot. (optional)
 image_height = 3.4 # float | Height of the barcode image in given units. Default units: pixel.  Decimal separator is dot. (optional)
@@ -41,10 +41,10 @@ rotation_angle = 56 # int | BarCode image rotation angle, measured in degree, e.
 
 try:
     # Generate barcode using GET request with parameters in route and query string.
-    api_response = api_instance.barcode_generate_barcode_type_get(barcode_type, data, data_type=data_type, image_format=image_format, text_location=text_location, foreground_color=foreground_color, background_color=background_color, units=units, resolution=resolution, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle)
+    api_response = api_instance.generate(barcode_type, data, data_type=data_type, image_format=image_format, text_location=text_location, foreground_color=foreground_color, background_color=background_color, units=units, resolution=resolution, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling GenerateApi->barcode_generate_barcode_type_get: %s\n" % e)
+    print("Exception when calling GenerateApi->generate: %s\n" % e)
 ```
 
 ### Parameters
@@ -53,11 +53,11 @@ Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
  **barcode_type** | [**EncodeBarcodeType**](.md)| Type of barcode to generate. | 
  **data** | **str**| String represents data to encode | 
- **data_type** | [**EncodeDataType**](.md)| Type of data to encode.  Default value:  EncodeDataType.StringData. | [optional] 
+ **data_type** | [**EncodeDataType**](.md)| Type of data to encode.  Default value: StringData. | [optional] 
  **image_format** | [**BarcodeImageFormat**](.md)| Barcode output image format.  Default value: png | [optional] 
  **text_location** | [**CodeLocation**](.md)| Specify the displaying Text Location, set to CodeLocation.None to hide CodeText.  Default value: CodeLocation.Below. | [optional] 
- **foreground_color** | **str**| Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black. | [optional] 
- **background_color** | **str**| Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White. | [optional] 
+ **foreground_color** | **str**| Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black. | [optional] [default to &#39;Black&#39;]
+ **background_color** | **str**| Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White. | [optional] [default to &#39;White&#39;]
  **units** | [**GraphicsUnit**](.md)| Common Units for all measuring in query. Default units: pixel. | [optional] 
  **resolution** | **float**| Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi.  Decimal separator is dot. | [optional] 
  **image_height** | **float**| Height of the barcode image in given units. Default units: pixel.  Decimal separator is dot. | [optional] 
@@ -79,8 +79,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **barcode_generate_body_post**
-> bytearray barcode_generate_body_post(generate_params)
+# **generate_body**
+> bytearray generate_body(generate_params)
 
 Generate barcode using POST request with parameters in body in json or xml format.
 
@@ -100,10 +100,10 @@ generate_params = aspose_barcode_cloud.GenerateParams() # GenerateParams | Param
 
 try:
     # Generate barcode using POST request with parameters in body in json or xml format.
-    api_response = api_instance.barcode_generate_body_post(generate_params)
+    api_response = api_instance.generate_body(generate_params)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling GenerateApi->barcode_generate_body_post: %s\n" % e)
+    print("Exception when calling GenerateApi->generate_body: %s\n" % e)
 ```
 
 ### Parameters
@@ -127,8 +127,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **barcode_generate_multipart_post**
-> bytearray barcode_generate_multipart_post(barcode_type, data, data_type=data_type, image_format=image_format, text_location=text_location, foreground_color=foreground_color, background_color=background_color, units=units, resolution=resolution, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle)
+# **generate_multipart**
+> bytearray generate_multipart(barcode_type, data, data_type=data_type, image_format=image_format, text_location=text_location, foreground_color=foreground_color, background_color=background_color, units=units, resolution=resolution, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle)
 
 Generate barcode using POST request with parameters in multipart form.
 
@@ -149,8 +149,8 @@ data = 'data_example' # str | String represents data to encode
 data_type = aspose_barcode_cloud.EncodeDataType() # EncodeDataType |  (optional)
 image_format = aspose_barcode_cloud.BarcodeImageFormat() # BarcodeImageFormat |  (optional)
 text_location = aspose_barcode_cloud.CodeLocation() # CodeLocation |  (optional)
-foreground_color = 'foreground_color_example' # str | Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black. (optional)
-background_color = 'background_color_example' # str | Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White. (optional)
+foreground_color = 'Black' # str | Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black. (optional) (default to 'Black')
+background_color = 'White' # str | Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White. (optional) (default to 'White')
 units = aspose_barcode_cloud.GraphicsUnit() # GraphicsUnit |  (optional)
 resolution = 3.4 # float | Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi.  Decimal separator is dot. (optional)
 image_height = 3.4 # float | Height of the barcode image in given units. Default units: pixel.  Decimal separator is dot. (optional)
@@ -159,10 +159,10 @@ rotation_angle = 56 # int | BarCode image rotation angle, measured in degree, e.
 
 try:
     # Generate barcode using POST request with parameters in multipart form.
-    api_response = api_instance.barcode_generate_multipart_post(barcode_type, data, data_type=data_type, image_format=image_format, text_location=text_location, foreground_color=foreground_color, background_color=background_color, units=units, resolution=resolution, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle)
+    api_response = api_instance.generate_multipart(barcode_type, data, data_type=data_type, image_format=image_format, text_location=text_location, foreground_color=foreground_color, background_color=background_color, units=units, resolution=resolution, image_height=image_height, image_width=image_width, rotation_angle=rotation_angle)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling GenerateApi->barcode_generate_multipart_post: %s\n" % e)
+    print("Exception when calling GenerateApi->generate_multipart: %s\n" % e)
 ```
 
 ### Parameters
@@ -174,8 +174,8 @@ Name | Type | Description  | Notes
  **data_type** | [**EncodeDataType**](EncodeDataType.md)|  | [optional] 
  **image_format** | [**BarcodeImageFormat**](BarcodeImageFormat.md)|  | [optional] 
  **text_location** | [**CodeLocation**](CodeLocation.md)|  | [optional] 
- **foreground_color** | **str**| Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black. | [optional] 
- **background_color** | **str**| Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White. | [optional] 
+ **foreground_color** | **str**| Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black. | [optional] [default to &#39;Black&#39;]
+ **background_color** | **str**| Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White. | [optional] [default to &#39;White&#39;]
  **units** | [**GraphicsUnit**](GraphicsUnit.md)|  | [optional] 
  **resolution** | **float**| Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi.  Decimal separator is dot. | [optional] 
  **image_height** | **float**| Height of the barcode image in given units. Default units: pixel.  Decimal separator is dot. | [optional] 

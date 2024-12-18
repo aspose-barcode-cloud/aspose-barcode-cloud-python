@@ -23,7 +23,7 @@ def main():
 
     file_url = "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png"
 
-    result = recognize_api.barcode_recognize_get(barcode_type=DecodeBarcodeType.QR, file_url=file_url)
+    result = recognize_api.recognize(barcode_type=DecodeBarcodeType.QR, file_url=file_url)
 
     print(f"File '{file_url}' recognized, result: '{result.barcodes[0].barcode_value}'")
 

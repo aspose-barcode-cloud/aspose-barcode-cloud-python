@@ -27,7 +27,7 @@ def main():
 
     generate_params = GenerateParams(EncodeBarcodeType.QR, EncodeData(EncodeDataType.STRINGDATA, "Aspose.BarCode.Cloud"))
 
-    response = generate_api.barcode_generate_body_post(generate_params)
+    response = generate_api.generate_body(generate_params)
 
     with open(file_name, 'wb') as file_stream:
         file_stream.write(response.data)

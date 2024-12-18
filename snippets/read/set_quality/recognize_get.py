@@ -24,7 +24,7 @@ def main():
     recognize_api = RecognizeApi(ApiClient(config))
 
 
-    result = recognize_api.barcode_recognize_get( barcode_type=DecodeBarcodeType.QR,
+    result = recognize_api.recognize( barcode_type=DecodeBarcodeType.QR,
         file_url="https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png",
         recognition_mode=RecognitionMode.FAST,
         recognition_image_kind=RecognitionImageKind.PHOTO)

@@ -31,7 +31,7 @@ def main():
     with open(file_name, "rb") as file:
         image_bytes = file.read()
 
-    result = recognize_api.barcode_recognize_multipart_post(DecodeBarcodeType.MOSTCOMMONLYUSED, image_bytes)
+    result = recognize_api.recognize_multipart(DecodeBarcodeType.MOSTCOMMONLYUSED, image_bytes)
 
     print(f"File '{file_name}' recognized, result: '{result.barcodes[0].barcode_value}'")
 

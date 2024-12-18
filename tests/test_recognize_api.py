@@ -33,12 +33,12 @@ class TestRecognizeApi(unittest.TestCase):
         cls.test_put_barcode_generate_filename = "test_put_barcode_generate_file.png"
 
     def test_barcode_recognize_get(self):
-        """Test case for barcode_recognize_get
+        """Test case for recognize
 
         Recognize barcode from an url.
         """
 
-        response = self.api.barcode_recognize_get(
+        response = self.api.recognize(
             DecodeBarcodeType.QR,
             "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png",
             RecognitionMode.FAST,
@@ -51,7 +51,7 @@ class TestRecognizeApi(unittest.TestCase):
         self.assertEqual("http://en.m.wikipedia.org", barcode.barcode_value)
 
     def test_barcode_recognize_body_post(self):
-        """Test case for barcode_recognize_body_post
+        """Test case for recognize_base64
 
         Recognize barcode from an request body.
         Request body should contain string data encoded with base64.
@@ -61,7 +61,7 @@ class TestRecognizeApi(unittest.TestCase):
 
         f.close()
         encoded_string = base64.b64encode(image_bytes).decode()
-        response = self.api.barcode_recognize_body_post(
+        response = self.api.recognize_base64(
             RecognizeBase64Request(
                 barcode_types=[DecodeBarcodeType.PDF417],
                 file_base64=encoded_string,
@@ -77,12 +77,12 @@ class TestRecognizeApi(unittest.TestCase):
         self.assertGreater(barcode.region[0].y, 0)
 
     def test_barcode_recognize_multipart_post(self):
-        """Test case for barcode_recognize_multipart_post
+        """Test case for recognize_multipart
 
         Recognition of a barcode from file on server with parameters in body.
         """
         with open(self.test_filename, "rb") as f:
-            response = self.api.barcode_recognize_multipart_post(DecodeBarcodeType.PDF417, f)
+            response = self.api.recognize_multipart(DecodeBarcodeType.PDF417, f)
 
         self.assertEqual(1, len(response.barcodes))
         barcode = response.barcodes[0]

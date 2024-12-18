@@ -39,7 +39,7 @@ def main():
         )
     )
 
-    response = generate_api.barcode_generate_body_post(post_params)
+    response = generate_api.generate_body(post_params)
 
     with open(file_name, 'wb') as file:
         file.write(response.data)

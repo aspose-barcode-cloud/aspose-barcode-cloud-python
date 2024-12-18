@@ -25,7 +25,7 @@ def main():
     api_client = ApiClient(configuration=make_configuration())
     generate_api = GenerateApi(api_client=api_client)
 
-    response = generate_api.barcode_generate_multipart_post(
+    response = generate_api.generate_multipart(
         EncodeBarcodeType.CODE128,
         "4173706F73652E426172436F64652E436C6F7564",
         EncodeDataType.HEXBYTES

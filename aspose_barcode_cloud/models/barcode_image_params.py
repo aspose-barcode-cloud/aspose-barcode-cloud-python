@@ -46,8 +46,8 @@ class BarcodeImageParams(object):
         self,
         image_format=None,
         text_location=None,
-        foreground_color=None,
-        background_color=None,
+        foreground_color="Black",
+        background_color="White",
         units=None,
         resolution=None,
         image_height=None,
@@ -215,6 +215,14 @@ class BarcodeImageParams(object):
         :param resolution: The resolution of this BarcodeImageParams.  # noqa: E501
         :type: float
         """
+        if resolution is not None and resolution > 100000:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `resolution`, must be a value less than or equal to `100000`"
+            )  # noqa: E501
+        if resolution is not None and resolution < 1:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `resolution`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
 
         self._resolution = resolution
 

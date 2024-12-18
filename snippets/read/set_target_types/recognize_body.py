@@ -38,7 +38,7 @@ def main():
         file_base64=image_base64
     )
 
-    result: BarcodeResponseList = recognize_api.barcode_recognize_body_post(recognize_base64_request)
+    result: BarcodeResponseList = recognize_api.recognize_base64(recognize_base64_request)
 
     print(f"File '{file_name}' recognized, results: ")
     for barcode in result.barcodes:

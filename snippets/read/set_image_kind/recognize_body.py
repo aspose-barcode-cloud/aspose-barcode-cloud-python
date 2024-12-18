@@ -41,7 +41,7 @@ def main():
     )
 
     # Make the API call
-    result = recognize_api.barcode_recognize_body_post(base64_request)
+    result = recognize_api.recognize_base64(base64_request)
 
     # Print the outcome
     if result.barcodes:

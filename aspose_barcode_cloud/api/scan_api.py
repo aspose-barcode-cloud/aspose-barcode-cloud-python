@@ -20,12 +20,101 @@ class ScanApi(object):
         # Authentication setting
         self.auth_settings = ["JWT"]
 
-    def barcode_scan_body_post(self, scan_base64_request, async_req=False, **kwargs):
+    def scan(self, file_url, async_req=False, **kwargs):
+        """Scan barcode from file on server using GET requests with parameter in query string.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = ScanApi().scan(file_url, async_req=True)
+        >>> result = thread.get()
+
+        :param str file_url: Url to barcode image # noqa: E501
+        :param async_req bool
+        :return: BarcodeResponseList
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if async_req:
+            return self.scan_with_http_info(file_url, **kwargs)
+        else:
+            (data) = self.scan_with_http_info(file_url, **kwargs)
+            return data
+
+    def scan_with_http_info(self, file_url, **kwargs):
+        """Scan barcode from file on server using GET requests with parameter in query string.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = ScanApi().scan_with_http_info(file_url, async_req=True)
+        >>> result = thread.get()
+
+        :param str file_url: Url to barcode image # noqa: E501
+        :return: BarcodeResponseList
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = {"file_url"}
+        all_params.add("async_req")
+        all_params.add("_return_http_data_only")
+        all_params.add("_preload_content")
+        all_params.add("_request_timeout")
+
+        params = locals()
+        for key, val in params["kwargs"].items():
+            if key not in all_params:
+                raise TypeError("Got an unexpected keyword argument '%s'" " to method scan" % key)
+            if val is None:
+                continue
+
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter "file_url" is set
+        if "file_url" not in params or params["file_url"] is None:
+            raise ValueError("Missing the required parameter 'file_url' when calling 'scan'")
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if "file_url" in params:
+            query_params.append(("fileUrl", params["file_url"]))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header "Accept"
+        header_params["Accept"] = self.api_client.select_header_accept(["application/json", "application/xml"])
+
+        return self.api_client.call_api(
+            "/barcode/scan",
+            "GET",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="BarcodeResponseList",
+            auth_settings=self.auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def scan_base64(self, scan_base64_request, async_req=False, **kwargs):
         """Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = ScanApi().barcode_scan_body_post(scan_base64_request, async_req=True)
+        >>> thread = ScanApi().scan_base64(scan_base64_request, async_req=True)
         >>> result = thread.get()
 
         :param ScanBase64Request scan_base64_request: Barcode scan request # noqa: E501
@@ -36,17 +125,17 @@ class ScanApi(object):
         """
         kwargs["_return_http_data_only"] = True
         if async_req:
-            return self.barcode_scan_body_post_with_http_info(scan_base64_request, **kwargs)
+            return self.scan_base64_with_http_info(scan_base64_request, **kwargs)
         else:
-            (data) = self.barcode_scan_body_post_with_http_info(scan_base64_request, **kwargs)
+            (data) = self.scan_base64_with_http_info(scan_base64_request, **kwargs)
             return data
 
-    def barcode_scan_body_post_with_http_info(self, scan_base64_request, **kwargs):
+    def scan_base64_with_http_info(self, scan_base64_request, **kwargs):
         """Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = ScanApi().barcode_scan_body_post_with_http_info(scan_base64_request, async_req=True)
+        >>> thread = ScanApi().scan_base64_with_http_info(scan_base64_request, async_req=True)
         >>> result = thread.get()
 
         :param ScanBase64Request scan_base64_request: Barcode scan request # noqa: E501
@@ -64,7 +153,7 @@ class ScanApi(object):
         params = locals()
         for key, val in params["kwargs"].items():
             if key not in all_params:
-                raise TypeError("Got an unexpected keyword argument '%s'" " to method barcode_scan_body_post" % key)
+                raise TypeError("Got an unexpected keyword argument '%s'" " to method scan_base64" % key)
             if val is None:
                 continue
 
@@ -72,9 +161,7 @@ class ScanApi(object):
         del params["kwargs"]
         # verify the required parameter "scan_base64_request" is set
         if "scan_base64_request" not in params or params["scan_base64_request"] is None:
-            raise ValueError(
-                "Missing the required parameter 'scan_base64_request' when calling 'barcode_scan_body_post'"
-            )
+            raise ValueError("Missing the required parameter 'scan_base64_request' when calling 'scan_base64'")
 
         collection_formats = {}
 
@@ -116,101 +203,12 @@ class ScanApi(object):
             collection_formats=collection_formats,
         )
 
-    def barcode_scan_get(self, file_url, async_req=False, **kwargs):
-        """Scan barcode from file on server using GET requests with parameter in query string.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = ScanApi().barcode_scan_get(file_url, async_req=True)
-        >>> result = thread.get()
-
-        :param str file_url: Url to barcode image # noqa: E501
-        :param async_req bool
-        :return: BarcodeResponseList
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs["_return_http_data_only"] = True
-        if async_req:
-            return self.barcode_scan_get_with_http_info(file_url, **kwargs)
-        else:
-            (data) = self.barcode_scan_get_with_http_info(file_url, **kwargs)
-            return data
-
-    def barcode_scan_get_with_http_info(self, file_url, **kwargs):
-        """Scan barcode from file on server using GET requests with parameter in query string.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = ScanApi().barcode_scan_get_with_http_info(file_url, async_req=True)
-        >>> result = thread.get()
-
-        :param str file_url: Url to barcode image # noqa: E501
-        :return: BarcodeResponseList
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = {"file_url"}
-        all_params.add("async_req")
-        all_params.add("_return_http_data_only")
-        all_params.add("_preload_content")
-        all_params.add("_request_timeout")
-
-        params = locals()
-        for key, val in params["kwargs"].items():
-            if key not in all_params:
-                raise TypeError("Got an unexpected keyword argument '%s'" " to method barcode_scan_get" % key)
-            if val is None:
-                continue
-
-            params[key] = val
-        del params["kwargs"]
-        # verify the required parameter "file_url" is set
-        if "file_url" not in params or params["file_url"] is None:
-            raise ValueError("Missing the required parameter 'file_url' when calling 'barcode_scan_get'")
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-        if "file_url" in params:
-            query_params.append(("fileUrl", params["file_url"]))
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header "Accept"
-        header_params["Accept"] = self.api_client.select_header_accept(["application/json", "application/xml"])
-
-        return self.api_client.call_api(
-            "/barcode/scan",
-            "GET",
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type="BarcodeResponseList",
-            auth_settings=self.auth_settings,
-            async_req=params.get("async_req"),
-            _return_http_data_only=params.get("_return_http_data_only"),
-            _preload_content=params.get("_preload_content", True),
-            _request_timeout=params.get("_request_timeout"),
-            collection_formats=collection_formats,
-        )
-
-    def barcode_scan_multipart_post(self, file, async_req=False, **kwargs):
+    def scan_multipart(self, file, async_req=False, **kwargs):
         """Scan barcode from file in request body using POST requests with parameter in multipart form.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = ScanApi().barcode_scan_multipart_post(file, async_req=True)
+        >>> thread = ScanApi().scan_multipart(file, async_req=True)
         >>> result = thread.get()
 
         :param bytearray file: Barcode image file # noqa: E501
@@ -221,17 +219,17 @@ class ScanApi(object):
         """
         kwargs["_return_http_data_only"] = True
         if async_req:
-            return self.barcode_scan_multipart_post_with_http_info(file, **kwargs)
+            return self.scan_multipart_with_http_info(file, **kwargs)
         else:
-            (data) = self.barcode_scan_multipart_post_with_http_info(file, **kwargs)
+            (data) = self.scan_multipart_with_http_info(file, **kwargs)
             return data
 
-    def barcode_scan_multipart_post_with_http_info(self, file, **kwargs):
+    def scan_multipart_with_http_info(self, file, **kwargs):
         """Scan barcode from file in request body using POST requests with parameter in multipart form.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = ScanApi().barcode_scan_multipart_post_with_http_info(file, async_req=True)
+        >>> thread = ScanApi().scan_multipart_with_http_info(file, async_req=True)
         >>> result = thread.get()
 
         :param bytearray file: Barcode image file # noqa: E501
@@ -249,9 +247,7 @@ class ScanApi(object):
         params = locals()
         for key, val in params["kwargs"].items():
             if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'" " to method barcode_scan_multipart_post" % key
-                )
+                raise TypeError("Got an unexpected keyword argument '%s'" " to method scan_multipart" % key)
             if val is None:
                 continue
 
@@ -259,7 +255,7 @@ class ScanApi(object):
         del params["kwargs"]
         # verify the required parameter "file" is set
         if "file" not in params or params["file"] is None:
-            raise ValueError("Missing the required parameter 'file' when calling 'barcode_scan_multipart_post'")
+            raise ValueError("Missing the required parameter 'file' when calling 'scan_multipart'")
 
         collection_formats = {}
 

@@ -46,13 +46,13 @@ class TestAuth(unittest.TestCase):
             )
         )
 
-        response = api.barcode_generate_barcode_type_get(EncodeBarcodeType.QR, "Testing", EncodeDataType.STRINGDATA)
+        response = api.generate(EncodeBarcodeType.QR, "Testing", EncodeDataType.STRINGDATA)
         self.assertEqual(200, response.status)
 
     def test_unauthorized_raises(self):
         api = GenerateApi(ApiClient(Configuration(access_token="incorrect token", host=TEST_CONFIGURATION.host)))
 
         with self.assertRaises(ApiException) as context:
-            api.barcode_generate_barcode_type_get(EncodeBarcodeType.QR, "Testing", EncodeDataType.STRINGDATA)
+            api.generate(EncodeBarcodeType.QR, "Testing", EncodeDataType.STRINGDATA)
 
         self.assertEqual(401, context.exception.status)

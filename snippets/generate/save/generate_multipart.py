@@ -31,7 +31,7 @@ def main():
     api_client = ApiClient(configuration=configuration)
     generate_api = GenerateApi(api_client)
 
-    response = generate_api.barcode_generate_multipart_post(EncodeBarcodeType.PDF417, "Aspose.BarCode.Cloud")
+    response = generate_api.generate_multipart(EncodeBarcodeType.PDF417, "Aspose.BarCode.Cloud")
 
     # Save the generated barcode image
     with open(file_name, 'wb') as stream:

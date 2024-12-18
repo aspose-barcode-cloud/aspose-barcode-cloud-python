@@ -21,7 +21,7 @@ class TestHeaders(unittest.TestCase):
         api_client = ApiClient(self.local_config)
         api_client.rest_client = self.rest_client_mock
 
-        GenerateApi(api_client).barcode_generate_barcode_type_get(
+        GenerateApi(api_client).generate(
             EncodeBarcodeType.CODE128, EncodeDataType.STRINGDATA, "Test"
         )
 
@@ -39,7 +39,7 @@ class TestHeaders(unittest.TestCase):
         )
         api_client.rest_client = self.rest_client_mock
 
-        GenerateApi(api_client).barcode_generate_barcode_type_get(
+        GenerateApi(api_client).generate(
             EncodeBarcodeType.CODE128, EncodeDataType.STRINGDATA, "Test"
         )
 

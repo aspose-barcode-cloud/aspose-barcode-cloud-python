@@ -25,7 +25,7 @@ class TestGenerateAndRecognize(unittest.TestCase):
         cls.recognizeApi = RecognizeApi(cls.api_client)
 
     def test_generate_and_recognize(self):
-        generated = self.generateApi.barcode_generate_barcode_type_get(EncodeBarcodeType.QR, "Should recognize this")
+        generated = self.generateApi.generate(EncodeBarcodeType.QR, "Should recognize this")
         self.assertGreater(len(generated.data), 0)
 
         fd, temp_filename = tempfile.mkstemp()
@@ -35,7 +35,7 @@ class TestGenerateAndRecognize(unittest.TestCase):
                 fw.write(generated.data)
 
             with open(temp_filename, "rb") as fr:
-                recognized = self.recognizeApi.barcode_recognize_multipart_post(DecodeBarcodeType.QR, fr)
+                recognized = self.recognizeApi.recognize_multipart(DecodeBarcodeType.QR, fr)
 
         finally:
             os.remove(temp_filename)

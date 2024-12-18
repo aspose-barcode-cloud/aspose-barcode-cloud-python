@@ -16,12 +16,12 @@ class TestScanBarcode(unittest.TestCase):
         )
 
     def test_barcode_scan_get(self):
-        """Test case for barcode_scan_get
+        """Test case for scan
 
         Scan barcode from url.
         """
 
-        response = self.api.barcode_scan_get("https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png")
+        response = self.api.scan("https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png")
 
         self.assertEqual(1, len(response.barcodes))
 
@@ -29,7 +29,7 @@ class TestScanBarcode(unittest.TestCase):
         self.assertEqual("http://en.m.wikipedia.org", response.barcodes[0].barcode_value)
 
     def test_barcode_scan_body_post(self):
-        """Test case for barcode_scan_body_post
+        """Test case for scan_base64
         Scan barcode from an request body.
         Request body should contain data encoded with base64.
         """
@@ -39,7 +39,7 @@ class TestScanBarcode(unittest.TestCase):
 
         encoded_string = base64.b64encode(image_bytes).decode()
 
-        response = self.api.barcode_scan_body_post(ScanBase64Request(file_base64=encoded_string))
+        response = self.api.scan_base64(ScanBase64Request(file_base64=encoded_string))
 
         self.assertIsNotNone(response and response.barcodes)
         self.assertEqual(2, len(response.barcodes))
@@ -51,12 +51,12 @@ class TestScanBarcode(unittest.TestCase):
         self.assertEqual("Code128 text", response.barcodes[1].barcode_value)
 
     def test_barcode_scan_multipart_post(self):
-        """Test case for barcode_scan_multipart_post
+        """Test case for scan_multipart
 
         Recognition of a barcode from file with parameters in form.
         """
         with open(self.test_filename, "rb") as f:
-            response = self.api.barcode_scan_multipart_post(f)
+            response = self.api.scan_multipart(f)
 
         self.assertIsNotNone(response and response.barcodes)
         self.assertEqual(2, len(response.barcodes))

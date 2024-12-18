@@ -27,7 +27,7 @@ def main():
     api_client = ApiClient(configuration=make_configuration())
     generate_api = GenerateApi(api_client=api_client)
 
-    response = generate_api.barcode_generate_multipart_post(barcode_type=EncodeBarcodeType.CODE39,
+    response = generate_api.generate_multipart(barcode_type=EncodeBarcodeType.CODE39,
                                                             data="Aspose",
                                                             foreground_color="Green",
                                                             background_color="Yellow",

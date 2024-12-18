@@ -28,7 +28,7 @@ def main():
         'code128.jpeg'
     ))
 
-    response = api.barcode_generate_barcode_type_get(EncodeBarcodeType.CODE128, "Aspose.BarCode.Cloud")
+    response = api.generate(EncodeBarcodeType.CODE128, "Aspose.BarCode.Cloud")
     
     with open(file_name, 'wb') as f:
         f.write(response.data)

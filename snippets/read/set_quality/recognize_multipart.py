@@ -30,7 +30,7 @@ def main():
 
     with open(file_name, "rb") as file:
         file_content = file.read()
-    result = recognize_api.barcode_recognize_multipart_post(
+    result = recognize_api.recognize_multipart(
         DecodeBarcodeType.AZTEC, file_content, RecognitionMode.NORMAL, RecognitionImageKind.SCANNEDDOCUMENT)
 
     if result.barcodes:

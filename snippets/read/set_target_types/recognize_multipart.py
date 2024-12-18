@@ -27,7 +27,7 @@ def main():
     ))
 
     with open(file_name, "rb") as file_stream:
-        result = recognize_api.barcode_recognize_multipart_post(DecodeBarcodeType.PDF417, file=file_stream)
+        result = recognize_api.recognize_multipart(DecodeBarcodeType.PDF417, file=file_stream)
 
     print(f"File '{file_name}' recognized, result: '{result.barcodes[0].barcode_value}'")
 

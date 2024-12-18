@@ -19,7 +19,7 @@ config = Configuration(
 
 # Generate barcode
 generateApi = GenerateApi(ApiClient(config))
-response = generateApi.barcode_generate_barcode_type_get(
+response = generateApi.generate(
     EncodeBarcodeType.QR, "Example", text_location=CodeLocation.NONE
 )
 with open("example.png", "wb") as f:
@@ -28,5 +28,5 @@ print("Barcode saved to file 'example.png'")
 
 # Recognize barcode
 recognizeApi = RecognizeApi(ApiClient(config))
-response = recognizeApi.barcode_recognize_multipart_post(DecodeBarcodeType.QR, open("example.png", "rb"))
+response = recognizeApi.recognize_multipart(DecodeBarcodeType.QR, open("example.png", "rb"))
 pprint(response)

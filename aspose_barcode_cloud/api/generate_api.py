@@ -20,15 +20,15 @@ class GenerateApi(object):
         # Authentication setting
         self.auth_settings = ["JWT"]
 
-    def barcode_generate_barcode_type_get(
+    def generate(
         self,
         barcode_type,
         data,
         data_type=None,
         image_format=None,
         text_location=None,
-        foreground_color=None,
-        background_color=None,
+        foreground_color="Black",
+        background_color="White",
         units=None,
         resolution=None,
         image_height=None,
@@ -41,12 +41,12 @@ class GenerateApi(object):
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = GenerateApi().barcode_generate_barcode_type_get(barcode_type, data, async_req=True)
+        >>> thread = GenerateApi().generate(barcode_type, data, async_req=True)
         >>> result = thread.get()
 
         :param EncodeBarcodeType barcode_type: Type of barcode to generate. # noqa: E501
         :param str data: String represents data to encode # noqa: E501
-        :param EncodeDataType data_type: Type of data to encode.  Default value:  EncodeDataType.StringData. # noqa: E501
+        :param EncodeDataType data_type: Type of data to encode.  Default value: StringData. # noqa: E501
         :param BarcodeImageFormat image_format: Barcode output image format.  Default value: png # noqa: E501
         :param CodeLocation text_location: Specify the displaying Text Location, set to CodeLocation.None to hide CodeText.  Default value: CodeLocation.Below. # noqa: E501
         :param str foreground_color: Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black. # noqa: E501
@@ -63,7 +63,7 @@ class GenerateApi(object):
         """
         kwargs["_return_http_data_only"] = True
         if async_req:
-            return self.barcode_generate_barcode_type_get_with_http_info(
+            return self.generate_with_http_info(
                 barcode_type,
                 data,
                 data_type=data_type,
@@ -79,7 +79,7 @@ class GenerateApi(object):
                 **kwargs
             )
         else:
-            (data) = self.barcode_generate_barcode_type_get_with_http_info(
+            (data) = self.generate_with_http_info(
                 barcode_type,
                 data,
                 data_type=data_type,
@@ -96,12 +96,12 @@ class GenerateApi(object):
             )
             return data
 
-    def barcode_generate_barcode_type_get_with_http_info(self, barcode_type, data, **kwargs):
+    def generate_with_http_info(self, barcode_type, data, **kwargs):
         """Generate barcode using GET request with parameters in route and query string.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = GenerateApi().barcode_generate_barcode_type_get_with_http_info(barcode_type, data, async_req=True)
+        >>> thread = GenerateApi().generate_with_http_info(barcode_type, data, async_req=True)
         >>> result = thread.get()
 
         :param EncodeBarcodeType barcode_type: Type of barcode to generate. # noqa: E501
@@ -133,9 +133,7 @@ class GenerateApi(object):
         params = locals()
         for key, val in params["kwargs"].items():
             if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'" " to method barcode_generate_barcode_type_get" % key
-                )
+                raise TypeError("Got an unexpected keyword argument '%s'" " to method generate" % key)
             if val is None:
                 continue
 
@@ -143,13 +141,19 @@ class GenerateApi(object):
         del params["kwargs"]
         # verify the required parameter "barcode_type" is set
         if "barcode_type" not in params or params["barcode_type"] is None:
-            raise ValueError(
-                "Missing the required parameter 'barcode_type' when calling 'barcode_generate_barcode_type_get'"
-            )
+            raise ValueError("Missing the required parameter 'barcode_type' when calling 'generate'")
         # verify the required parameter "data" is set
         if "data" not in params or params["data"] is None:
-            raise ValueError("Missing the required parameter 'data' when calling 'barcode_generate_barcode_type_get'")
+            raise ValueError("Missing the required parameter 'data' when calling 'generate'")
 
+        if "resolution" in params and params["resolution"] > 100000:
+            raise ValueError(
+                "Invalid value for parameter 'resolution' when calling 'generate', must be a value less than or equal to '100000'"
+            )
+        if "resolution" in params and params["resolution"] < 1:
+            raise ValueError(
+                "Invalid value for parameter 'resolution' when calling 'generate', must be a value greater than or equal to '1'"
+            )
         collection_formats = {}
 
         path_params = {}
@@ -218,12 +222,12 @@ class GenerateApi(object):
             collection_formats=collection_formats,
         )
 
-    def barcode_generate_body_post(self, generate_params, async_req=False, **kwargs):
+    def generate_body(self, generate_params, async_req=False, **kwargs):
         """Generate barcode using POST request with parameters in body in json or xml format.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = GenerateApi().barcode_generate_body_post(generate_params, async_req=True)
+        >>> thread = GenerateApi().generate_body(generate_params, async_req=True)
         >>> result = thread.get()
 
         :param GenerateParams generate_params: Parameters of generation # noqa: E501
@@ -234,17 +238,17 @@ class GenerateApi(object):
         """
         kwargs["_return_http_data_only"] = True
         if async_req:
-            return self.barcode_generate_body_post_with_http_info(generate_params, **kwargs)
+            return self.generate_body_with_http_info(generate_params, **kwargs)
         else:
-            (data) = self.barcode_generate_body_post_with_http_info(generate_params, **kwargs)
+            (data) = self.generate_body_with_http_info(generate_params, **kwargs)
             return data
 
-    def barcode_generate_body_post_with_http_info(self, generate_params, **kwargs):
+    def generate_body_with_http_info(self, generate_params, **kwargs):
         """Generate barcode using POST request with parameters in body in json or xml format.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = GenerateApi().barcode_generate_body_post_with_http_info(generate_params, async_req=True)
+        >>> thread = GenerateApi().generate_body_with_http_info(generate_params, async_req=True)
         >>> result = thread.get()
 
         :param GenerateParams generate_params: Parameters of generation # noqa: E501
@@ -262,7 +266,7 @@ class GenerateApi(object):
         params = locals()
         for key, val in params["kwargs"].items():
             if key not in all_params:
-                raise TypeError("Got an unexpected keyword argument '%s'" " to method barcode_generate_body_post" % key)
+                raise TypeError("Got an unexpected keyword argument '%s'" " to method generate_body" % key)
             if val is None:
                 continue
 
@@ -270,9 +274,7 @@ class GenerateApi(object):
         del params["kwargs"]
         # verify the required parameter "generate_params" is set
         if "generate_params" not in params or params["generate_params"] is None:
-            raise ValueError(
-                "Missing the required parameter 'generate_params' when calling 'barcode_generate_body_post'"
-            )
+            raise ValueError("Missing the required parameter 'generate_params' when calling 'generate_body'")
 
         collection_formats = {}
 
@@ -325,15 +327,15 @@ class GenerateApi(object):
             collection_formats=collection_formats,
         )
 
-    def barcode_generate_multipart_post(
+    def generate_multipart(
         self,
         barcode_type,
         data,
         data_type=None,
         image_format=None,
         text_location=None,
-        foreground_color=None,
-        background_color=None,
+        foreground_color="Black",
+        background_color="White",
         units=None,
         resolution=None,
         image_height=None,
@@ -346,7 +348,7 @@ class GenerateApi(object):
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = GenerateApi().barcode_generate_multipart_post(barcode_type, data, async_req=True)
+        >>> thread = GenerateApi().generate_multipart(barcode_type, data, async_req=True)
         >>> result = thread.get()
 
         :param EncodeBarcodeType barcode_type: # noqa: E501
@@ -368,7 +370,7 @@ class GenerateApi(object):
         """
         kwargs["_return_http_data_only"] = True
         if async_req:
-            return self.barcode_generate_multipart_post_with_http_info(
+            return self.generate_multipart_with_http_info(
                 barcode_type,
                 data,
                 data_type=data_type,
@@ -384,7 +386,7 @@ class GenerateApi(object):
                 **kwargs
             )
         else:
-            (data) = self.barcode_generate_multipart_post_with_http_info(
+            (data) = self.generate_multipart_with_http_info(
                 barcode_type,
                 data,
                 data_type=data_type,
@@ -401,12 +403,12 @@ class GenerateApi(object):
             )
             return data
 
-    def barcode_generate_multipart_post_with_http_info(self, barcode_type, data, **kwargs):
+    def generate_multipart_with_http_info(self, barcode_type, data, **kwargs):
         """Generate barcode using POST request with parameters in multipart form.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = GenerateApi().barcode_generate_multipart_post_with_http_info(barcode_type, data, async_req=True)
+        >>> thread = GenerateApi().generate_multipart_with_http_info(barcode_type, data, async_req=True)
         >>> result = thread.get()
 
         :param EncodeBarcodeType barcode_type: # noqa: E501
@@ -438,9 +440,7 @@ class GenerateApi(object):
         params = locals()
         for key, val in params["kwargs"].items():
             if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'" " to method barcode_generate_multipart_post" % key
-                )
+                raise TypeError("Got an unexpected keyword argument '%s'" " to method generate_multipart" % key)
             if val is None:
                 continue
 
@@ -448,13 +448,19 @@ class GenerateApi(object):
         del params["kwargs"]
         # verify the required parameter "barcode_type" is set
         if "barcode_type" not in params or params["barcode_type"] is None:
-            raise ValueError(
-                "Missing the required parameter 'barcode_type' when calling 'barcode_generate_multipart_post'"
-            )
+            raise ValueError("Missing the required parameter 'barcode_type' when calling 'generate_multipart'")
         # verify the required parameter "data" is set
         if "data" not in params or params["data"] is None:
-            raise ValueError("Missing the required parameter 'data' when calling 'barcode_generate_multipart_post'")
+            raise ValueError("Missing the required parameter 'data' when calling 'generate_multipart'")
 
+        if "resolution" in params and params["resolution"] > 100000:
+            raise ValueError(
+                "Invalid value for parameter 'resolution' when calling 'generate_multipart', must be a value less than or equal to '100000'"
+            )
+        if "resolution" in params and params["resolution"] < 1:
+            raise ValueError(
+                "Invalid value for parameter 'resolution' when calling 'generate_multipart', must be a value greater than or equal to '1'"
+            )
         collection_formats = {}
 
         path_params = {}

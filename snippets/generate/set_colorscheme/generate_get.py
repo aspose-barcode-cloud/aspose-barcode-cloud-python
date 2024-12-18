@@ -30,7 +30,7 @@ def main():
         "qr.png"
     ))
     
-    response = generate_api.barcode_generate_barcode_type_get(
+    response = generate_api.generate(
         EncodeBarcodeType.QR,
         "https://products.aspose.cloud/barcode/family/",
         foreground_color="DarkBlue",

@@ -28,7 +28,7 @@ def main():
 
 
     with open(file_path, "rb") as file_stream:
-        result = recognize_api.barcode_recognize_multipart_post(barcode_type=DecodeBarcodeType.QR, file=file_stream)
+        result = recognize_api.recognize_multipart(barcode_type=DecodeBarcodeType.QR, file=file_stream)
 
     if result.barcodes:
         print(f"File '{file_path}' recognized, result: '{result.barcodes[0].barcode_value}'")

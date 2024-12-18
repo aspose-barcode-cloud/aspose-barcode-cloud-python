@@ -27,18 +27,18 @@ class TestGenerateApi(unittest.TestCase):
         cls.api = GenerateApi(api_client=cls.api_client)
 
     def test_barcode_generate_barcode_type_get(self):
-        """Test case for barcode_generate_barcode_type_get
+        """Test case for generate
 
         Generate barcode.
         """
-        response = self.api.barcode_generate_barcode_type_get(EncodeBarcodeType.CODE128, "Hello!")
+        response = self.api.generate(EncodeBarcodeType.CODE128, "Hello!")
 
         content_length = int(response.headers["content-length"])
         self.assertGreater(content_length, 0, "content_length=%s" % content_length)
         self.assertEqual("image/png", response.headers["content-type"])
 
     def test_barcode_generate_body_post(self):
-        """Test case for barcode_generate_body_post
+        """Test case for generate_body
 
         Generate barcode from params in body
         """
@@ -48,19 +48,19 @@ class TestGenerateApi(unittest.TestCase):
             BarcodeImageParams(BarcodeImageFormat.JPEG),
         )
 
-        response = self.api.barcode_generate_body_post(generator_params)
+        response = self.api.generate_body(generator_params)
 
         content_length = int(response.headers["content-length"])
         self.assertGreater(content_length, 0, "content_length=%s" % content_length)
         self.assertEqual("image/jpeg", response.headers["content-type"])
 
     def test_barcode_generate_multipart_post(self):
-        """Test case for barcode_generate_multipart_post
+        """Test case for generate_multipart
 
         Generate barcode from params in form
         """
 
-        response = self.api.barcode_generate_multipart_post(
+        response = self.api.generate_multipart(
             EncodeBarcodeType.QR, "54657374", EncodeDataType.HEXBYTES, background_color="0xffe"
         )
 

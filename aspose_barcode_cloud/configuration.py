@@ -27,7 +27,7 @@ class Configuration(object):
         client_secret=None,
         access_token=None,
         host=None,
-        token_url="https://id-qa.aspose.cloud/connect/token",
+        token_url="https://id.aspose.cloud/connect/token",
     ):
         """Constructor"""
         if self._default:
@@ -36,7 +36,7 @@ class Configuration(object):
             return
 
         # Default Base url
-        self.host = host or "https://barcode.qa.aspose.cloud/v4.0"
+        self.host = host or "https://api.aspose.cloud/v4.0"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 

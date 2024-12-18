@@ -33,7 +33,7 @@ def main():
     generate_api = GenerateApi(api_client=api_client)
 
     # Generate barcode
-    response = generate_api.barcode_generate_multipart_post(
+    response = generate_api.generate_multipart(
         barcode_type = EncodeBarcodeType.PDF417, 
         data="Aspose.BarCode.Cloud",
         text_location=CodeLocation.ABOVE,

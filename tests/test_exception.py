@@ -26,13 +26,13 @@ class TestException(unittest.TestCase):
 
         thrown = False
         try:
-            self.api.barcode_generate_barcode_type_get(EncodeBarcodeType.CODE128, "")
+            self.api.generate(EncodeBarcodeType.CODE128, "")
         except ApiException as e:
             thrown = True
             print(e)
             self.assertEqual(400, e.status)
             self.assertEqual("Bad Request", e.reason)
-            self.assertTrue(b"1. Field name: 'Data'. Errors: The Data field is required." in e.body)
+            self.assertTrue(b"Error: Field name: 'Data' errors: The Data field is required." in e.body)
 
         self.assertTrue(thrown)
 

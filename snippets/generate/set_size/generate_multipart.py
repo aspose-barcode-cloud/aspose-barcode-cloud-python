@@ -30,7 +30,7 @@ def main():
         "aztec.png"
     ))
 
-    response = api.barcode_generate_multipart_post(barcode_type=EncodeBarcodeType.AZTEC, 
+    response = api.generate_multipart(barcode_type=EncodeBarcodeType.AZTEC, 
                                                     data="Aspose.BarCode.Cloud", 
                                                     image_height=200, 
                                                     image_width=200,

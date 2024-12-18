@@ -14,11 +14,11 @@ class BarcodeImageFormat(object):
     """
     allowed enum values
     """
-    GIF = "Gif"
-    JPEG = "Jpeg"
     PNG = "Png"
-    TIFF = "Tiff"
+    JPEG = "Jpeg"
     SVG = "Svg"
+    TIFF = "Tiff"
+    GIF = "Gif"
 
     """
     Attributes:

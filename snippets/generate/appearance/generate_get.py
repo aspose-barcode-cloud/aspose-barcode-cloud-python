@@ -26,7 +26,7 @@ def main():
     api_client = ApiClient(configuration=configuration)
     generate_api = GenerateApi(api_client=api_client)
 
-    response = generate_api.barcode_generate_barcode_type_get(
+    response = generate_api.generate(
         EncodeBarcodeType.QR,
         "Aspose.BarCode.Cloud",
         image_format=BarcodeImageFormat.PNG,

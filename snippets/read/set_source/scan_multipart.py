@@ -22,7 +22,7 @@ def main():
     ))
 
     with open(file_name, "rb") as file_stream:
-        result = scan_api.barcode_scan_multipart_post(file=file_stream)
+        result = scan_api.scan_multipart(file=file_stream)
 
     print(f"File '{file_name}' recognized, result: '{result.barcodes[0].barcode_value}'")
 

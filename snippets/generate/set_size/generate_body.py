@@ -47,7 +47,7 @@ def main():
     )
 
     # Generate barcode and save to file
-    response = generate_api.barcode_generate_body_post(generate_params)
+    response = generate_api.generate_body(generate_params)
     with open(file_name, "wb") as file:
         file.write(response.data)
 
