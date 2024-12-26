@@ -248,19 +248,6 @@ class Configuration(object):
             "JWT": {"type": "oauth2", "in": "header", "key": "Authorization", "value": "Bearer " + self.access_token},
         }
 
-    def to_debug_report(self):
-        """Gets the essential information for debugging.
-
-        :return: The report for debugging.
-        """
-        return (
-            "Python SDK Debug Report:\n"
-            "OS: {env}\n"
-            "Python Version: {pyversion}\n"
-            "Version of the API: 3.0\n"
-            "SDK Package Version: 24.12.0".format(env=sys.platform, pyversion=sys.version)
-        )
-
     @staticmethod
     def fetch_token(client_id, client_secret, token_url):
         with contextlib.closing(
