@@ -23,7 +23,7 @@ def main():
     config = make_configuration()
     recognize_api = RecognizeApi(ApiClient(config))
 
-    file_name = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "testdata", "Pdf417.png"))
+    file_name = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "testdata", "pdf417.png"))
 
     with open(file_name, "rb") as file_stream:
         result = recognize_api.recognize_multipart(DecodeBarcodeType.PDF417, file=file_stream)

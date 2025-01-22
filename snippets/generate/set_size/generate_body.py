@@ -27,7 +27,7 @@ def make_configuration():
 
 def main():
     # Define the output file path
-    file_name = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "testdata", "Pdf417.png"))
+    file_name = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "testdata", "pdf417.png"))
 
     # Create API client and generate parameters
     configuration = make_configuration()

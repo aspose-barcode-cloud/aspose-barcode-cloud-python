@@ -1,11 +1,16 @@
 from aspose_barcode_cloud import ApiClient, Configuration, RecognizeApi, DecodeBarcodeType
+import os
 
 
 def main():
-    config = Configuration(
-        client_id="Client Id from https://dashboard.aspose.cloud/applications",
-        client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
-    )
+    access_token = os.getenv("TEST_CONFIGURATION_ACCESS_TOKEN")
+    if access_token:
+        config = Configuration(access_token=access_token)
+    else:
+        config = Configuration(
+            client_id="Client Id from https://dashboard.aspose.cloud/applications",
+            client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
+        )
     recognize_api = RecognizeApi(ApiClient(config))
 
     # Call the API to recognize the barcode
