@@ -8,9 +8,9 @@ from aspose_barcode_cloud import (
 
 
 def make_configuration():
-    jwt_token = os.getenv("TEST_CONFIGURATION_ACCESS_TOKEN")
-    if jwt_token:
-        config = Configuration(jwt_token=jwt_token)
+    access_token = os.getenv("TEST_CONFIGURATION_ACCESS_TOKEN")
+    if access_token:
+        config = Configuration(access_token=access_token)
     else:
         config = Configuration(
             client_id="Client Id from https://dashboard.aspose.cloud/applications",

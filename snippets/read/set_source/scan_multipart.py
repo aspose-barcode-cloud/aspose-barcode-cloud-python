@@ -7,7 +7,7 @@ from aspose_barcode_cloud import ApiClient, Configuration, ScanApi
 def make_configuration():
     env_token = os.getenv("TEST_CONFIGURATION_ACCESS_TOKEN")
     if env_token:
-        return Configuration(jwt_token=env_token)
+        return Configuration(access_token=env_token)
     else:
         return Configuration(
             client_id="Client Id from https://dashboard.aspose.cloud/applications",

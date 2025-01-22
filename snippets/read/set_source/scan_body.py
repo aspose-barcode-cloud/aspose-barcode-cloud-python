@@ -11,7 +11,7 @@ def make_configuration():
             client_secret="Client Secret from https://dashboard.aspose.cloud/applications",
         )
     else:
-        return Configuration(jwt_token=env_token)
+        return Configuration(access_token=env_token)
 
 
 def main():
