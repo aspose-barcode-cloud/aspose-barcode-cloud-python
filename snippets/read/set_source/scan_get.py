@@ -6,7 +6,7 @@ def make_configuration():
     """
     Creates and returns the configuration for the Aspose Barcode API.
     """
-    env_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
+    env_token = os.getenv("TEST_CONFIGURATION_ACCESS_TOKEN")
     if env_token:
         config = Configuration(jwt_token=env_token)
     else:

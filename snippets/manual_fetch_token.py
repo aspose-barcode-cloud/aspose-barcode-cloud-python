@@ -8,6 +8,11 @@ def main():
     base_url = "https://id.aspose.cloud/"
     endpoint = "connect/token"
 
+    #Check the client_id is changed to not break github ci pipeline
+    if client_id.startswith("Client Id"):
+        print("client_id not configured. Skip this snippet test")
+        return
+    
     payload = {"grant_type": "client_credentials", "client_id": client_id, "client_secret": client_secret}
 
     response = requests.post(f"{base_url}{endpoint}", data=payload)

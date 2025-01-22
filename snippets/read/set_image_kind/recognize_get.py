@@ -8,7 +8,7 @@ from aspose_barcode_cloud import (
 
 
 def make_configuration():
-    jwt_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
+    jwt_token = os.getenv("TEST_CONFIGURATION_ACCESS_TOKEN")
     if jwt_token:
         config = Configuration(jwt_token=jwt_token)
     else:

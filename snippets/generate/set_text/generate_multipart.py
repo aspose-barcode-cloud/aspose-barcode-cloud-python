@@ -5,7 +5,7 @@ from aspose_barcode_cloud.api.generate_api import GenerateApi
 
 
 def make_configuration():
-    env_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
+    env_token = os.getenv("TEST_CONFIGURATION_ACCESS_TOKEN")
     if env_token:
         config = Configuration(jwt_token=env_token)
     else:
