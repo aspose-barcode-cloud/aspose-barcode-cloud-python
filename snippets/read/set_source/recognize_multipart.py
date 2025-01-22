@@ -6,6 +6,7 @@ from aspose_barcode_cloud import (
     DecodeBarcodeType,
 )
 
+
 # Function to create configuration
 def make_configuration():
     env_token = os.getenv("TEST_CONFIGURATION_ACCESS_TOKEN")
