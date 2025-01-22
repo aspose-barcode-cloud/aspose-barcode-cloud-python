@@ -1,5 +1,6 @@
 pytest
 pytest-cov
+requests
 mock; python_version < "3"
 black; python_version > "3.7"
 check-python-versions; python_version > "3.7"
