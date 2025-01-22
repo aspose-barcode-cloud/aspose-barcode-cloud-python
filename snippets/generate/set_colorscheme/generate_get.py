@@ -1,11 +1,7 @@
 import os
-from aspose_barcode_cloud import (
-    ApiClient,
-    EncodeBarcodeType,
-    BarcodeImageFormat,
-    Configuration
-)
+from aspose_barcode_cloud import ApiClient, EncodeBarcodeType, BarcodeImageFormat, Configuration
 from aspose_barcode_cloud.api.generate_api import GenerateApi
+
 
 def make_configuration():
     env_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
@@ -18,18 +14,15 @@ def make_configuration():
         )
     return config
 
+
 def main():
     """Main function to generate QR code barcode."""
     configuration = make_configuration()
     api_client = ApiClient(configuration=configuration)
     generate_api = GenerateApi(api_client=api_client)
 
-    file_name = os.path.abspath(os.path.join(
-        os.path.dirname(__file__),
-        "..", "testdata",
-        "qr.png"
-    ))
-    
+    file_name = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "testdata", "qr.png"))
+
     response = generate_api.generate(
         EncodeBarcodeType.QR,
         "https://products.aspose.cloud/barcode/family/",
@@ -39,10 +32,11 @@ def main():
     )
 
     # Write the response to a file
-    with open(file_name, 'wb') as stream:
+    with open(file_name, "wb") as stream:
         stream.write(response.data)
 
     print(f"File '{file_name}' generated.")
+
 
 if __name__ == "__main__":
     main()

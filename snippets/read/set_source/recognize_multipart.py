@@ -18,14 +18,12 @@ def make_configuration():
         )
     return config
 
+
 def main():
 
     recognize_api = RecognizeApi(ApiClient(make_configuration()))
 
-    file_path = os.path.abspath(os.path.join(
-        os.path.dirname(__file__),
-        "..", "testdata", "qr.png"))
-
+    file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "testdata", "qr.png"))
 
     with open(file_path, "rb") as file_stream:
         result = recognize_api.recognize_multipart(barcode_type=DecodeBarcodeType.QR, file=file_stream)
@@ -34,6 +32,7 @@ def main():
         print(f"File '{file_path}' recognized, result: '{result.barcodes[0].barcode_value}'")
     else:
         print(f"No barcodes found in '{file_path}'.")
+
 
 if __name__ == "__main__":
     main()

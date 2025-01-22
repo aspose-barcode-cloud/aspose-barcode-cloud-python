@@ -1,11 +1,7 @@
-
 import os
-from aspose_barcode_cloud import (
-    ApiClient,
-    EncodeBarcodeType,
-    Configuration
-)
+from aspose_barcode_cloud import ApiClient, EncodeBarcodeType, Configuration
 from aspose_barcode_cloud.api.generate_api import GenerateApi
+
 
 def make_configuration():
     env_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
@@ -21,11 +17,7 @@ def make_configuration():
 
 def main():
     """Main function to generate a barcode and save it as a file."""
-    file_name = os.path.abspath(os.path.join(
-        os.path.dirname(__file__),
-        "..", "testdata",
-        "pdf417.png"
-    ))
+    file_name = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "testdata", "pdf417.png"))
 
     configuration = make_configuration()
     api_client = ApiClient(configuration=configuration)
@@ -34,7 +26,7 @@ def main():
     response = generate_api.generate_multipart(EncodeBarcodeType.PDF417, "Aspose.BarCode.Cloud")
 
     # Save the generated barcode image
-    with open(file_name, 'wb') as stream:
+    with open(file_name, "wb") as stream:
         stream.write(response.data)
 
     print(f"File '{file_name}' generated.")

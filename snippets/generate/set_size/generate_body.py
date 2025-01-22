@@ -8,9 +8,10 @@ from aspose_barcode_cloud import (
     BarcodeImageParams,
     BarcodeImageFormat,
     GraphicsUnit,
-    Configuration
+    Configuration,
 )
 from aspose_barcode_cloud.api.generate_api import GenerateApi
+
 
 def make_configuration():
     env_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
@@ -23,11 +24,10 @@ def make_configuration():
         )
     return config
 
+
 def main():
     # Define the output file path
-    file_name = os.path.abspath(os.path.join(
-        os.path.dirname(__file__),
-        "..", "testdata", "Pdf417.png"))
+    file_name = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "testdata", "Pdf417.png"))
 
     # Create API client and generate parameters
     configuration = make_configuration()
@@ -38,12 +38,8 @@ def main():
         EncodeBarcodeType.PDF417,
         EncodeData(data="Aspose.BarCode.Cloud"),
         BarcodeImageParams(
-            image_format=BarcodeImageFormat.PNG,
-            image_height=2,
-            image_width=3,
-            resolution=96,
-            units=GraphicsUnit.INCH
-        )
+            image_format=BarcodeImageFormat.PNG, image_height=2, image_width=3, resolution=96, units=GraphicsUnit.INCH
+        ),
     )
 
     # Generate barcode and save to file
@@ -52,6 +48,7 @@ def main():
         file.write(response.data)
 
     print(f"File '{file_name}' generated.")
+
 
 # Entry point for async execution
 if __name__ == "__main__":

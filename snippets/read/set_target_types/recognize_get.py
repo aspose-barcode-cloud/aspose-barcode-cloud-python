@@ -6,6 +6,7 @@ from aspose_barcode_cloud import (
     DecodeBarcodeType,
 )
 
+
 def make_configuration():
     jwt_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
     if jwt_token:
@@ -17,6 +18,7 @@ def make_configuration():
         )
     return config
 
+
 def main():
     config = make_configuration()
     recognize_api = RecognizeApi(ApiClient(config))
@@ -26,6 +28,7 @@ def main():
     result = recognize_api.recognize(DecodeBarcodeType.MOSTCOMMONLYUSED, file_url=file_url)
 
     print(f"File '{file_url}' recognized, result: '{result.barcodes[0].barcode_value}'")
+
 
 if __name__ == "__main__":
     main()

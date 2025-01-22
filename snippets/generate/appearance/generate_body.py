@@ -11,6 +11,7 @@ from aspose_barcode_cloud import (
 )
 from aspose_barcode_cloud.api.generate_api import GenerateApi
 
+
 def make_configuration():
     env_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
     if env_token:
@@ -22,6 +23,7 @@ def make_configuration():
         )
     return config
 
+
 # Main function to generate barcode
 def main():
     # Set up the configuration and API client
@@ -30,9 +32,7 @@ def main():
     generate_api = GenerateApi(api_client=api_client)
 
     # Define the file path for the generated barcode
-    file_name = os.path.abspath(os.path.join(
-        os.path.dirname(__file__),
-        "..", "testdata", "code39.jpeg"))
+    file_name = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "testdata", "code39.jpeg"))
 
     # Set up the generation parameters
     generate_params = GenerateParams(
@@ -42,18 +42,19 @@ def main():
             foreground_color="#FF0000",
             background_color="#FFFF00",
             image_format=BarcodeImageFormat.JPEG,
-            rotation_angle=90
-        )
+            rotation_angle=90,
+        ),
     )
 
     # Generate barcode
     response = generate_api.generate_body(generate_params)
 
     # Save the generated image to a file
-    with open(file_name, 'wb') as stream:
+    with open(file_name, "wb") as stream:
         stream.write(response.data)
 
     print(f"File '{file_name}' generated.")
+
 
 # To run the main function if this script is executed
 if __name__ == "__main__":

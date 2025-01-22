@@ -1,4 +1,3 @@
-
 import os
 from aspose_barcode_cloud import (
     ApiClient,
@@ -8,9 +7,10 @@ from aspose_barcode_cloud import (
     BarcodeImageFormat,
     EncodeData,
     EncodeDataType,
-    Configuration
+    Configuration,
 )
 from aspose_barcode_cloud.api.generate_api import GenerateApi
+
 
 def make_configuration():
     env_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
@@ -23,12 +23,9 @@ def make_configuration():
         )
     return config
 
+
 def main():
-    file_name = os.path.abspath(os.path.join(
-        os.path.dirname(__file__),
-        "..", "testdata",
-        "qr.png"
-    ))
+    file_name = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "testdata", "qr.png"))
 
     configuration = make_configuration()
     api_client = ApiClient(configuration=configuration)
@@ -37,18 +34,21 @@ def main():
     generator_params = GenerateParams(
         EncodeBarcodeType.QR,
         EncodeData(EncodeDataType.STRINGDATA, "Aspose.BarCode.Cloud"),
-        BarcodeImageParams(BarcodeImageFormat.PNG,
-        image_height=200,
-        image_width=200,
-        resolution=300,)
+        BarcodeImageParams(
+            BarcodeImageFormat.PNG,
+            image_height=200,
+            image_width=200,
+            resolution=300,
+        ),
     )
 
     response = generate_api.generate_body(generator_params)
 
-    with open(file_name, 'wb') as file:
+    with open(file_name, "wb") as file:
         file.write(response.data)
 
     print(f"File '{file_name}' generated.")
+
 
 # Run the main function
 if __name__ == "__main__":

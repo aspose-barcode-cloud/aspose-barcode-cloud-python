@@ -1,12 +1,5 @@
-
 import os
-from aspose_barcode_cloud import (
-    ApiClient,
-    EncodeBarcodeType,
-    BarcodeImageFormat,
-    CodeLocation,
-    Configuration
-)
+from aspose_barcode_cloud import ApiClient, EncodeBarcodeType, BarcodeImageFormat, CodeLocation, Configuration
 from aspose_barcode_cloud.api.generate_api import GenerateApi
 
 
@@ -23,24 +16,20 @@ def make_configuration():
 
 
 def main():
-    file_name = os.path.abspath(os.path.join(
-        os.path.dirname(__file__),
-        "..", "testdata",
-        "pdf417.svg"
-    ))
+    file_name = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "testdata", "pdf417.svg"))
 
     api_client = ApiClient(configuration=make_configuration())
     generate_api = GenerateApi(api_client=api_client)
 
     # Generate barcode
     response = generate_api.generate_multipart(
-        barcode_type = EncodeBarcodeType.PDF417, 
+        barcode_type=EncodeBarcodeType.PDF417,
         data="Aspose.BarCode.Cloud",
         text_location=CodeLocation.ABOVE,
-        image_format=BarcodeImageFormat.SVG 
-        )
+        image_format=BarcodeImageFormat.SVG,
+    )
 
-    with open(file_name, 'wb') as stream:
+    with open(file_name, "wb") as stream:
         stream.write(response.data)
 
     print(f"File '{file_name}' generated.")

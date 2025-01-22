@@ -9,6 +9,7 @@ from aspose_barcode_cloud import (
     RecognitionImageKind,
 )
 
+
 def make_configuration():
     jwt_token = os.getenv("TEST_CONFIGURATION_JWT_TOKEN")
     if jwt_token:
@@ -20,14 +21,12 @@ def make_configuration():
         )
     return config
 
+
 def main():
     config = make_configuration()
     recognize_api = RecognizeApi(ApiClient(config))
 
-    file_name = os.path.abspath(os.path.join(
-        os.path.dirname(__file__),
-        "..", "testdata", "aztec.png"
-    ))
+    file_name = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "testdata", "aztec.png"))
 
     with open(file_name, "rb") as file:
         image_bytes = file.read()
@@ -37,7 +36,7 @@ def main():
     base64_request = RecognizeBase64Request(
         barcode_types=[DecodeBarcodeType.AZTEC, DecodeBarcodeType.QR],
         file_base64=image_base64,
-        recognition_image_kind=RecognitionImageKind.SCANNEDDOCUMENT
+        recognition_image_kind=RecognitionImageKind.SCANNEDDOCUMENT,
     )
 
     # Make the API call
@@ -45,9 +44,12 @@ def main():
 
     # Print the outcome
     if result.barcodes:
-        print(f"File '{file_name}' recognized, results: value: '{result.barcodes[0].barcode_value}', type: {result.barcodes[0].type}")
+        print(
+            f"File '{file_name}' recognized, results: value: '{result.barcodes[0].barcode_value}', type: {result.barcodes[0].type}"
+        )
     else:
         print(f"File '{file_name}' recognized, but no barcodes found.")
+
 
 if __name__ == "__main__":
     main()

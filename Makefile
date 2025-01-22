@@ -22,7 +22,7 @@ dist:
 
 .PHONY: format
 format:
-	black --line-length=120 -v $(SRC) tests/ scripts/ *.py
+	black --line-length=120 -v $(SRC) tests/ scripts/ snippets/ *.py
 
 .PHONY: format_doc
 format_doc:
