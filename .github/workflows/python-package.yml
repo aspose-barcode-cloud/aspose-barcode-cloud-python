@@ -12,7 +12,7 @@ on:
 jobs:
   build:
     # See https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json
-    # for awailable Python versions on ubuntu
+    # for available Python versions on ubuntu
     runs-on: ubuntu-20.04
     strategy:
       matrix:
@@ -34,4 +34,6 @@ jobs:
     - name: Test
       env:
         TEST_CONFIGURATION_ACCESS_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}
-      run: make test test-example
+      run: |
+        chmod +x scripts/*
+        make test test-example

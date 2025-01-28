@@ -18,9 +18,9 @@ class BarcodeResponseList(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"barcodes": "list[BarcodeResponse]"}
+    swagger_types = {"barcodes": "List[BarcodeResponse]"}
 
-    attribute_map = {"barcodes": "Barcodes"}
+    attribute_map = {"barcodes": "barcodes"}
 
     def __init__(self, barcodes=None):  # noqa: E501
         """BarcodeResponseList - a model defined in Swagger"""  # noqa: E501
@@ -28,8 +28,7 @@ class BarcodeResponseList(object):
         self._barcodes = None
         self.discriminator = None
 
-        if barcodes is not None:
-            self.barcodes = barcodes
+        self.barcodes = barcodes
 
     @property
     def barcodes(self):
@@ -38,7 +37,7 @@ class BarcodeResponseList(object):
         List of barcodes which are present in image.  # noqa: E501
 
         :return: The barcodes of this BarcodeResponseList.  # noqa: E501
-        :rtype: list[BarcodeResponse]
+        :rtype: List[BarcodeResponse]
         """
         return self._barcodes
 
@@ -49,8 +48,10 @@ class BarcodeResponseList(object):
         List of barcodes which are present in image.  # noqa: E501
 
         :param barcodes: The barcodes of this BarcodeResponseList.  # noqa: E501
-        :type: list[BarcodeResponse]
+        :type: List[BarcodeResponse]
         """
+        if barcodes is None:
+            raise ValueError("Invalid value for `barcodes`, must not be `None`")  # noqa: E501
 
         self._barcodes = barcodes
 

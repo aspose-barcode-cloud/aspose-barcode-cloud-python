@@ -2,7 +2,7 @@ import sys
 import unittest
 from unittest import mock
 
-from aspose_barcode_cloud import Configuration, ApiClient, BarcodeApi, EncodeBarcodeType
+from aspose_barcode_cloud import Configuration, ApiClient, GenerateApi, EncodeBarcodeType, EncodeDataType
 from aspose_barcode_cloud.rest import RESTClientObject
 
 
@@ -21,7 +21,7 @@ class TestHeaders(unittest.TestCase):
         api_client = ApiClient(self.local_config)
         api_client.rest_client = self.rest_client_mock
 
-        BarcodeApi(api_client).get_barcode_generate(EncodeBarcodeType.CODE128, "Test")
+        GenerateApi(api_client).generate(EncodeBarcodeType.CODE128, EncodeDataType.STRINGDATA, "Test")
 
         self.assertEqual(1, self.rest_client_mock.GET.call_count)
         headers = self.rest_client_mock.GET.call_args[1]["headers"]
@@ -37,7 +37,7 @@ class TestHeaders(unittest.TestCase):
         )
         api_client.rest_client = self.rest_client_mock
 
-        BarcodeApi(api_client).get_barcode_generate(EncodeBarcodeType.CODE128, "Test")
+        GenerateApi(api_client).generate(EncodeBarcodeType.CODE128, EncodeDataType.STRINGDATA, "Test")
 
         self.assertEqual(1, self.rest_client_mock.GET.call_count)
         headers = self.rest_client_mock.GET.call_args[1]["headers"]

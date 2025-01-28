@@ -8,21 +8,13 @@ check_git:
 	git fetch origin
 	git diff origin/main --exit-code
 
-.PHONY: clean-git
-clean-git:
-	git clean -dfx --exclude='tests/configuration*.json'
-
-.PHONY: clean-pyc
-clean-pyc:
-	find . -type f -name '*.pyc' -delete
-
 .PHONY: dist
 dist:
 	python setup.py sdist bdist_wheel --universal
 
 .PHONY: format
 format:
-	black --line-length=120 -v $(SRC) tests/ scripts/ *.py
+	black --line-length=120 -v $(SRC) tests/ scripts/ snippets/ *.py
 
 .PHONY: format_doc
 format_doc:
@@ -58,6 +50,7 @@ publish-docker: init-docker unittest dist
 .PHONY: test
 test:
 	python -m pytest --cov=aspose_barcode_cloud tests/
+	./scripts/run_snippets.sh
 
 .PHONY: cover
 cover:
