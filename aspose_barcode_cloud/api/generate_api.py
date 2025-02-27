@@ -48,7 +48,7 @@ class GenerateApi(object):
         :param str data: String represents data to encode # noqa: E501
         :param EncodeDataType data_type: Type of data to encode.  Default value: StringData. # noqa: E501
         :param BarcodeImageFormat image_format: Barcode output image format.  Default value: png # noqa: E501
-        :param CodeLocation text_location: Specify the displaying Text Location, set to CodeLocation.None to hide CodeText.  Default value: CodeLocation.Below. # noqa: E501
+        :param CodeLocation text_location: Specify the displaying Text Location, set to CodeLocation.None to hide CodeText.  Default value: Depends on BarcodeType. CodeLocation.Below for 1D Barcodes. CodeLocation.None for 2D Barcodes. # noqa: E501
         :param str foreground_color: Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black. # noqa: E501
         :param str background_color: Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White. # noqa: E501
         :param GraphicsUnit units: Common Units for all measuring in query. Default units: pixel. # noqa: E501

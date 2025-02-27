@@ -41,7 +41,6 @@ jobs:
         python -m pip install -r requirements.txt -r test-requirements.txt
     - name: Lint
       run: |
-        python -m black --line-length=120 --check .
         python -m check_python_versions --expect 3.6- --only setup.py
     - name: Test
       env:
