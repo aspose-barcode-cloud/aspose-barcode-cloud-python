@@ -5,7 +5,7 @@
 [![PyPI](https://img.shields.io/pypi/v/aspose-barcode-cloud)](https://pypi.org/project/aspose-barcode-cloud/)
 
 - API version: 4.0
-- Package version: 25.3.0
+- Package version: 25.4.0
 
 ## SDK and API Version Compatibility:
 
@@ -26,7 +26,7 @@ This repository contains Aspose.BarCode Cloud SDK for Python source code. This S
 
 Supported Python versions:
 
-- Python 3.6+
+- Python 3.7+
 
 To use these SDKs, you will need Client Id and Client Secret which can be looked up at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/applications) (free registration in Aspose Cloud is required for this).
 
