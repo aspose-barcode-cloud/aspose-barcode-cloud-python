@@ -46,16 +46,16 @@ class GenerateApi(object):
 
         :param EncodeBarcodeType barcode_type: Type of barcode to generate. # noqa: E501
         :param str data: String represents data to encode # noqa: E501
-        :param EncodeDataType data_type: Type of data to encode.  Default value: StringData. # noqa: E501
-        :param BarcodeImageFormat image_format: Barcode output image format.  Default value: png # noqa: E501
-        :param CodeLocation text_location: Specify the displaying Text Location, set to CodeLocation.None to hide CodeText.  Default value: Depends on BarcodeType. CodeLocation.Below for 1D Barcodes. CodeLocation.None for 2D Barcodes. # noqa: E501
-        :param str foreground_color: Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black. # noqa: E501
-        :param str background_color: Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White. # noqa: E501
+        :param EncodeDataType data_type: Type of data to encode. Default value: StringData. # noqa: E501
+        :param BarcodeImageFormat image_format: Barcode output image format. Default value: png # noqa: E501
+        :param CodeLocation text_location: Specify the displaying Text Location, set to CodeLocation.None to hide CodeText. Default value: Depends on BarcodeType. CodeLocation.Below for 1D Barcodes. CodeLocation.None for 2D Barcodes. # noqa: E501
+        :param str foreground_color: Specify the displaying bars and content Color. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #. For example: AliceBlue or #FF000000 Default value: Black. # noqa: E501
+        :param str background_color: Background color of the barcode image. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #. For example: AliceBlue or #FF000000 Default value: White. # noqa: E501
         :param GraphicsUnit units: Common Units for all measuring in query. Default units: pixel. # noqa: E501
-        :param float resolution: Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi.  Decimal separator is dot. # noqa: E501
-        :param float image_height: Height of the barcode image in given units. Default units: pixel.  Decimal separator is dot. # noqa: E501
-        :param float image_width: Width of the barcode image in given units. Default units: pixel.  Decimal separator is dot. # noqa: E501
-        :param int rotation_angle: BarCode image rotation angle, measured in degree, e.g. RotationAngle = 0 or RotationAngle = 360 means no rotation.  If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image.  Default value: 0. # noqa: E501
+        :param float resolution: Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. Decimal separator is dot. # noqa: E501
+        :param float image_height: Height of the barcode image in given units. Default units: pixel. Decimal separator is dot. # noqa: E501
+        :param float image_width: Width of the barcode image in given units. Default units: pixel. Decimal separator is dot. # noqa: E501
+        :param int rotation_angle: BarCode image rotation angle, measured in degree, e.g. RotationAngle = 0 or RotationAngle = 360 means no rotation. If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image. Default value: 0. # noqa: E501
         :param async_req bool
         :return: bytearray
                  If the method is called asynchronously,
@@ -356,13 +356,13 @@ class GenerateApi(object):
         :param EncodeDataType data_type: # noqa: E501
         :param BarcodeImageFormat image_format: # noqa: E501
         :param CodeLocation text_location: # noqa: E501
-        :param str foreground_color: Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black. # noqa: E501
-        :param str background_color: Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White. # noqa: E501
+        :param str foreground_color: Specify the displaying bars and content Color. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #. For example: AliceBlue or #FF000000 Default value: Black. # noqa: E501
+        :param str background_color: Background color of the barcode image. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #. For example: AliceBlue or #FF000000 Default value: White. # noqa: E501
         :param GraphicsUnit units: # noqa: E501
-        :param float resolution: Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi.  Decimal separator is dot. # noqa: E501
-        :param float image_height: Height of the barcode image in given units. Default units: pixel.  Decimal separator is dot. # noqa: E501
-        :param float image_width: Width of the barcode image in given units. Default units: pixel.  Decimal separator is dot. # noqa: E501
-        :param int rotation_angle: BarCode image rotation angle, measured in degree, e.g. RotationAngle = 0 or RotationAngle = 360 means no rotation.  If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image.  Default value: 0. # noqa: E501
+        :param float resolution: Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. Decimal separator is dot. # noqa: E501
+        :param float image_height: Height of the barcode image in given units. Default units: pixel. Decimal separator is dot. # noqa: E501
+        :param float image_width: Width of the barcode image in given units. Default units: pixel. Decimal separator is dot. # noqa: E501
+        :param int rotation_angle: BarCode image rotation angle, measured in degree, e.g. RotationAngle = 0 or RotationAngle = 360 means no rotation. If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image. Default value: 0. # noqa: E501
         :param async_req bool
         :return: bytearray
                  If the method is called asynchronously,
