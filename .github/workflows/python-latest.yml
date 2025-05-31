@@ -2,9 +2,9 @@ name: Latest Python Support
 
 on:
   push:
-    branches: [ main ]
+    branches: [ v3 ]
   pull_request:
-    branches: [ main ]
+    branches: [ v3 ]
 
 jobs:
   # Define the job to run before your matrix job
@@ -16,7 +16,7 @@ jobs:
     - uses: snok/latest-python-versions@v1
       id: get-python-versions-action
       with:
-        min-version: '3.12'
+        min-version: '3.13'
 
   test:
     needs: [get-python-versions]
@@ -42,7 +42,7 @@ jobs:
     - name: Lint
       run: |
         python -m black --line-length=120 --check .
-        python -m check_python_versions --expect 3.6- --only setup.py
+        python -m check_python_versions --expect 3.8- --only setup.py
     - name: Test
       env:
         TEST_CONFIGURATION_ACCESS_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}

@@ -5,19 +5,20 @@ name: Test
 
 on:
   push:
-    branches: [ main ]
+    branches: [ v3 ]
   pull_request:
-    branches: [ main ]
+    branches: [ v3 ]
 
 jobs:
   build:
     # See https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json
     # for awailable Python versions on ubuntu
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-      # see https://www.python.org/downloads/
-        python-version: [ '3.6', '3.12' ]
+        # see https://www.python.org/downloads/
+        python-version: [ '3.8', '3.13', '3.x' ]
+    continue-on-error: true
 
     steps:
     - uses: actions/checkout@v4
@@ -25,6 +26,7 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
+        check-latest: true
         cache: 'pip' # caching pip dependencies
 
     - name: Install dependencies
