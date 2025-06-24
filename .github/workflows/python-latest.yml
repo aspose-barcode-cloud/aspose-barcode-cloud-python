@@ -7,17 +7,29 @@ on:
     branches: [ main ]
 
 jobs:
-  # Define the job to run before your matrix job
+  # Collect available Python versions
   get-python-versions:
     runs-on: ubuntu-latest
     outputs:
-      python-matrix: ${{ steps.get-python-versions-action.outputs.latest-python-versions }}
+      python-matrix: ${{ steps.trim.outputs.matrix }}
     steps:
     - uses: snok/latest-python-versions@v1
       id: get-python-versions-action
       with:
         min-version: '3.12'
 
+    # keep only major.minor and remove duplicates
+    - name: Keep only major.minor
+      id: trim
+      shell: bash
+      run: |
+        versions='${{ steps.get-python-versions-action.outputs.latest-python-versions }}'
+        # → ["3.13.5","3.12.11", ...]
+        matrix=$(echo "$versions" \
+                  | jq -c 'map(split(".")[:2] | join(".")) | unique')
+        echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
+
+  # Use the trimmed versions list in matrix
   test:
     needs: [get-python-versions]
     runs-on: ${{ matrix.operating-system }}
@@ -25,7 +37,6 @@ jobs:
       matrix:
         operating-system: [ ubuntu-latest, windows-latest, macOS-latest ]
         python-version: ${{ fromJson(needs.get-python-versions.outputs.python-matrix) }}
-
     continue-on-error: true
 
     steps:
