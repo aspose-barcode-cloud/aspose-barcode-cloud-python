@@ -24,7 +24,8 @@ jobs:
     strategy:
       matrix:
         operating-system: [ ubuntu-latest, windows-latest, macOS-latest ]
-        python-version: ${{ fromJson(needs.get-python-versions.outputs.python-matrix) }}
+        # python-version: ${{ fromJson(needs.get-python-versions.outputs.python-matrix) }}
+        python-version: [3.13.5, 3.12.10]
 
     continue-on-error: true
 
