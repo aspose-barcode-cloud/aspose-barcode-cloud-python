@@ -8,6 +8,6 @@ SCRIPT_DIR=$3
 CONFIG_FILE_PATH=$4
 echo "Run snippet file: $FILE_PATH"
 
-python ${SCRIPT_DIR}/insert-credentials.py $FILE_PATH $CONFIG_FILE_PATH $RUN_DIR
+python "${SCRIPT_DIR}/insert-credentials.py" "$FILE_PATH" "$CONFIG_FILE_PATH" "$RUN_DIR"
 
-python ./$RUN_DIR/"${FILE_PATH##*/}" || exit 1
+python "./$RUN_DIR/${FILE_PATH##*/}" || exit 1
