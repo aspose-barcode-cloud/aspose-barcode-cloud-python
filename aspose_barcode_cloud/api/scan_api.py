@@ -21,7 +21,7 @@ class ScanApi(object):
         self.auth_settings = ["JWT"]
 
     def scan(self, file_url, async_req=False, **kwargs):
-        """Scan barcode from file on server using GET requests with parameter in query string.
+        """Scan barcode from file on server in the Internet using GET requests with parameter in query string. For scaning files from your hard drive use `scan-body` or `scan-multipart` endpoints instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -42,7 +42,7 @@ class ScanApi(object):
             return data
 
     def scan_with_http_info(self, file_url, **kwargs):
-        """Scan barcode from file on server using GET requests with parameter in query string.
+        """Scan barcode from file on server in the Internet using GET requests with parameter in query string. For scaning files from your hard drive use `scan-body` or `scan-multipart` endpoints instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
