@@ -4,7 +4,7 @@ All URIs are relative to *https://api.aspose.cloud/v4.0*
 
 Method | HTTP request | Description
 ------ | ------------ | -----------
-[**recognize**](RecognizeApi.md#recognize) | **GET** /barcode/recognize | Recognize barcode from file on server using GET requests with parameters in route and query string.
+[**recognize**](RecognizeApi.md#recognize) | **GET** /barcode/recognize | Recognize barcode from file on server in the Internet using GET requests with parameter in query string. For recognizing files from your hard drive use &#x60;recognize-body&#x60; or &#x60;recognize-multipart&#x60; endpoints instead.
 [**recognize_base64**](RecognizeApi.md#recognize_base64) | **POST** /barcode/recognize-body | Recognize barcode from file in request body using POST requests with parameters in body in json or xml format.
 [**recognize_multipart**](RecognizeApi.md#recognize_multipart) | **POST** /barcode/recognize-multipart | Recognize barcode from file in request body using POST requests with parameters in multipart form.
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 # **recognize**
 > BarcodeResponseList recognize(barcode_type, file_url, recognition_mode=recognition_mode, recognition_image_kind=recognition_image_kind)
 
-Recognize barcode from file on server using GET requests with parameters in route and query string.
+Recognize barcode from file on server in the Internet using GET requests with parameter in query string. For recognizing files from your hard drive use `recognize-body` or `recognize-multipart` endpoints instead.
 
 ### Example
 ```python
@@ -32,7 +32,7 @@ recognition_mode = aspose_barcode_cloud.RecognitionMode() # RecognitionMode | Re
 recognition_image_kind = aspose_barcode_cloud.RecognitionImageKind() # RecognitionImageKind | Image kind for recognition (optional)
 
 try:
-    # Recognize barcode from file on server using GET requests with parameters in route and query string.
+    # Recognize barcode from file on server in the Internet using GET requests with parameter in query string. For recognizing files from your hard drive use `recognize-body` or `recognize-multipart` endpoints instead.
     api_response = api_instance.recognize(barcode_type, file_url, recognition_mode=recognition_mode, recognition_image_kind=recognition_image_kind)
     pprint(api_response)
 except ApiException as e:

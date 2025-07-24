@@ -23,7 +23,7 @@ class RecognizeApi(object):
     def recognize(
         self, barcode_type, file_url, recognition_mode=None, recognition_image_kind=None, async_req=False, **kwargs
     ):
-        """Recognize barcode from file on server using GET requests with parameters in route and query string.
+        """Recognize barcode from file on server in the Internet using GET requests with parameter in query string. For recognizing files from your hard drive use `recognize-body` or `recognize-multipart` endpoints instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -59,7 +59,7 @@ class RecognizeApi(object):
             return data
 
     def recognize_with_http_info(self, barcode_type, file_url, **kwargs):
-        """Recognize barcode from file on server using GET requests with parameters in route and query string.
+        """Recognize barcode from file on server in the Internet using GET requests with parameter in query string. For recognizing files from your hard drive use `recognize-body` or `recognize-multipart` endpoints instead.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

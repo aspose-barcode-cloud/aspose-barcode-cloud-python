@@ -4,7 +4,7 @@ All URIs are relative to *https://api.aspose.cloud/v4.0*
 
 Method | HTTP request | Description
 ------ | ------------ | -----------
-[**scan**](ScanApi.md#scan) | **GET** /barcode/scan | Scan barcode from file on server using GET requests with parameter in query string.
+[**scan**](ScanApi.md#scan) | **GET** /barcode/scan | Scan barcode from file on server in the Internet using GET requests with parameter in query string. For scaning files from your hard drive use &#x60;scan-body&#x60; or &#x60;scan-multipart&#x60; endpoints instead.
 [**scan_base64**](ScanApi.md#scan_base64) | **POST** /barcode/scan-body | Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
 [**scan_multipart**](ScanApi.md#scan_multipart) | **POST** /barcode/scan-multipart | Scan barcode from file in request body using POST requests with parameter in multipart form.
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 # **scan**
 > BarcodeResponseList scan(file_url)
 
-Scan barcode from file on server using GET requests with parameter in query string.
+Scan barcode from file on server in the Internet using GET requests with parameter in query string. For scaning files from your hard drive use `scan-body` or `scan-multipart` endpoints instead.
 
 ### Example
 ```python
@@ -29,7 +29,7 @@ api_instance = aspose_barcode_cloud.ScanApi(aspose_barcode_cloud.ApiClient(confi
 file_url = 'file_url_example' # str | Url to barcode image
 
 try:
-    # Scan barcode from file on server using GET requests with parameter in query string.
+    # Scan barcode from file on server in the Internet using GET requests with parameter in query string. For scaning files from your hard drive use `scan-body` or `scan-multipart` endpoints instead.
     api_response = api_instance.scan(file_url)
     pprint(api_response)
 except ApiException as e:
