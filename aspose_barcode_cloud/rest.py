@@ -9,7 +9,6 @@ import urllib.parse
 
 import certifi
 
-
 try:
     import urllib3
 except ImportError:
