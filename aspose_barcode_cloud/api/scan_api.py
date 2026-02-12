@@ -38,7 +38,7 @@ class ScanApi(object):
         if async_req:
             return self.scan_with_http_info(file_url, **kwargs)
         else:
-            (data) = self.scan_with_http_info(file_url, **kwargs)
+            data = self.scan_with_http_info(file_url, **kwargs)
             return data
 
     def scan_with_http_info(self, file_url, **kwargs):
@@ -127,7 +127,7 @@ class ScanApi(object):
         if async_req:
             return self.scan_base64_with_http_info(scan_base64_request, **kwargs)
         else:
-            (data) = self.scan_base64_with_http_info(scan_base64_request, **kwargs)
+            data = self.scan_base64_with_http_info(scan_base64_request, **kwargs)
             return data
 
     def scan_base64_with_http_info(self, scan_base64_request, **kwargs):
@@ -221,7 +221,7 @@ class ScanApi(object):
         if async_req:
             return self.scan_multipart_with_http_info(file, **kwargs)
         else:
-            (data) = self.scan_multipart_with_http_info(file, **kwargs)
+            data = self.scan_multipart_with_http_info(file, **kwargs)
             return data
 
     def scan_multipart_with_http_info(self, file, **kwargs):

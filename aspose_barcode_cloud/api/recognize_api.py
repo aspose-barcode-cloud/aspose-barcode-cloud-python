@@ -49,7 +49,7 @@ class RecognizeApi(object):
                 **kwargs
             )
         else:
-            (data) = self.recognize_with_http_info(
+            data = self.recognize_with_http_info(
                 barcode_type,
                 file_url,
                 recognition_mode=recognition_mode,
@@ -154,7 +154,7 @@ class RecognizeApi(object):
         if async_req:
             return self.recognize_base64_with_http_info(recognize_base64_request, **kwargs)
         else:
-            (data) = self.recognize_base64_with_http_info(recognize_base64_request, **kwargs)
+            data = self.recognize_base64_with_http_info(recognize_base64_request, **kwargs)
             return data
 
     def recognize_base64_with_http_info(self, recognize_base64_request, **kwargs):
@@ -261,7 +261,7 @@ class RecognizeApi(object):
                 **kwargs
             )
         else:
-            (data) = self.recognize_multipart_with_http_info(
+            data = self.recognize_multipart_with_http_info(
                 barcode_type,
                 file,
                 recognition_mode=recognition_mode,

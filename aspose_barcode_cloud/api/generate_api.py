@@ -79,7 +79,7 @@ class GenerateApi(object):
                 **kwargs
             )
         else:
-            (data) = self.generate_with_http_info(
+            data = self.generate_with_http_info(
                 barcode_type,
                 data,
                 data_type=data_type,
@@ -240,7 +240,7 @@ class GenerateApi(object):
         if async_req:
             return self.generate_body_with_http_info(generate_params, **kwargs)
         else:
-            (data) = self.generate_body_with_http_info(generate_params, **kwargs)
+            data = self.generate_body_with_http_info(generate_params, **kwargs)
             return data
 
     def generate_body_with_http_info(self, generate_params, **kwargs):
@@ -386,7 +386,7 @@ class GenerateApi(object):
                 **kwargs
             )
         else:
-            (data) = self.generate_multipart_with_http_info(
+            data = self.generate_multipart_with_http_info(
                 barcode_type,
                 data,
                 data_type=data_type,
