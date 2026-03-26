@@ -26,7 +26,7 @@ setup(
     version=VERSION,
     description="Aspose.BarCode.Cloud v4.0 Specification",
     author="Aspose Barcode Cloud",
-    url="https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-python",
+    url="https://github.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-Python",
     license="MIT",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
@@ -162,7 +162,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     project_urls={
-        "Source With Tests": "https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-python",
+        "Source With Tests": "https://github.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-Python",
         "Website": "https://www.aspose.cloud",
         "Product Home": "https://products.aspose.cloud/barcode/",
         "Documentation": "https://docs.aspose.cloud/barcode/",
