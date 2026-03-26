@@ -1,10 +1,11 @@
 *.pyc
-.tox/
 .coverage
-tests/configuration*.json
-!tests/configuration.example.json
-example.png
+.tox/
+/.venv/
 aspose_barcode_cloud.egg-info/
 build/
 dist/
+example.png
 snippets_test/
+tests/configuration*.json
+!tests/configuration.example.json
