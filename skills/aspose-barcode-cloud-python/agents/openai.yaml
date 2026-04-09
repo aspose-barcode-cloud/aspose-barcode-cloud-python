@@ -1,0 +1,4 @@
+interface:
+  display_name: "Aspose.BarCode Cloud Python"
+  short_description: "Write Python barcode code with Aspose Cloud"
+  default_prompt: "Use $aspose-barcode-cloud-python to write or update Python code that generates, recognizes, or scans barcodes with Aspose.BarCode Cloud."
