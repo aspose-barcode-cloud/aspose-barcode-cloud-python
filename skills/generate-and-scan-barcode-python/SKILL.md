@@ -1,9 +1,9 @@
 ---
-name: aspose-barcode-cloud-python
+name: generate-and-scan-barcode-python
 description: Write or update Python code that uses the Aspose.BarCode Cloud SDK (`aspose_barcode_cloud`; pip package `aspose-barcode-cloud`) to generate, recognize, or scan barcodes through Aspose's cloud REST API. Use this skill whenever the user wants barcode work in Python, touches files under `submodules/python`, or mentions `GenerateApi`, `RecognizeApi`, `ScanApi`, `ApiClient`, `Configuration`, `GenerateParams`, `RecognizeBase64Request`, or `ScanBase64Request`. The SDK has several easy-to-miss idioms, including constructing APIs from `ApiClient(Configuration(...))`, reading generate results from `.data`, using public `file_url` values for GET recognize and scan methods, base64-encoding body payloads yourself, and remembering that the install and import names differ.
 ---
 
-# Aspose.BarCode Cloud SDK for Python
+# Generate and scan barcode in Python
 
 The Python SDK is a thin generated client over the Aspose BarCode Cloud REST API. Most tasks come down to choosing the right API class (`GenerateApi`, `RecognizeApi`, or `ScanApi`), choosing the right transport variant (GET, base64 body, or multipart), and wiring `Configuration` into `ApiClient` correctly.
 
