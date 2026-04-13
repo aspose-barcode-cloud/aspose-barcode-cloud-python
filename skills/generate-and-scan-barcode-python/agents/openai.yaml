@@ -1,0 +1,4 @@
+interface:
+  display_name: "Generate and scan barcode in Python"
+  short_description: "Use Aspose.BarCode Cloud from Python"
+  default_prompt: "Use $generate-and-scan-barcode-python to write or update Python code that generates, recognizes, or scans barcodes with Aspose.BarCode Cloud."
