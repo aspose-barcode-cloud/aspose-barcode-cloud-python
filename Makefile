@@ -26,6 +26,8 @@ format:
 format_doc:
 	# Trim white space
 	sed -i -e 's_[[:space:]]*$$__' README.md
+	# Trim trailing empty line
+	sed -i -e '$${/^$$/d;}' README.md
 	# Replace true->True false->False: sed -e "s/\b\(false\|true\)/\u\1/g"
 	find . -type f -iname '*.md' -exec sed -i -e 's_\b\(false\|true\)_\u\1_g' '{}' \;
 
