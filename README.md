@@ -149,4 +149,3 @@ Class | Method | HTTP request | Description
 - [RecognizeBase64Request](docs/RecognizeBase64Request.md)
 - [RegionPoint](docs/RegionPoint.md)
 - [ScanBase64Request](docs/ScanBase64Request.md)
-
